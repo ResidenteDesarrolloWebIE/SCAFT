@@ -1,0 +1,28 @@
+/* Inicio de sesion */
+.login-background{
+	/* background-image: url('/../../images/fondo15.png'); */ 
+    background-image: url("../../images/background-login.png");background-position: center;background-repeat: no-repeat;
+    background-attachment: fixed;background-size: cover;background-color: "#66999";
+    background-size: cover;background-color: black;filter: contrast(85%);opacity: 0.95;}
+.login-icon-backgroud{background-color:#225B7C}
+.login-text-center{display: flex;align-items: center;justify-content: center;min-height: 96vh;}
+.login-image{margin-top:20px; display: block; margin-left: 36%; margin-right: auto; width:25%;height: 100px;-webkit-filter: saturate(1.5);filter: saturate(1.5); }
+.login-icon-color{background-color:#1966c4;}
+.login-btn{border-color:#0000;font-weight: bold;background-color:#3982ab; color:white;
+    width:300px;border-radius:18px; height: 40px;}
+#card1{
+    /*  background-color: #1966c4; */
+    height: -5px;
+    border-color: #53a8d3;
+    border-width: 2px;
+    border-style: solid;
+}
+
+/* ******************************************************* */
+@media only screen and (max-width: 479px) {
+    .login-image{
+        margin-top:30px; display: block; margin-left: 35%; 
+        margin-right: auto; width:30%;height: 80px;-webkit-filter: saturate(1.5);
+        filter: saturate(1.5); 
+    }
+}

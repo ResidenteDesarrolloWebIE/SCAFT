@@ -1,0 +1,48 @@
+users
+    id,name.email,password,code,email_verification
+roles
+    id,name,description
+role_user
+    id,role_id,user_id
+projects
+    id,folio,name,substation,status,type,description,customer_id
+economic_advances
+    id,advance,engineering_release_payment,final_payment,total,project_id
+technical_advances
+    id,receive_order,engineering_release,work_progress,delivery_customer,project_id
+affiliation_projects
+    id,project_id,affiliation_project_id
+files
+    id,name,path,project_id
+images
+    id,name,path,project_id
+
+ofers (Ofertas)
+    id,project_id,file_id
+agreements (Acuerdos)
+    id,agreement,responsable (Fecha de creacion)
+minutas (Minutas) 
+    id,folio,start_date,end_date,type,project_id,agreements_id,file_id
+
+
+Proceso
+    Es administrador
+        Si 
+            Ver lista de proyectos
+                Añadir,Editar
+                Editar avance economico y tecnico
+                Cambiar estatus
+                Añadir Ofertas
+                Crear minutas externas e internas
+                Agregar imagenes de avances
+            Ver lista de clientes
+                Añadir,Editar
+            Cerrar sesion
+        No
+            Es cliente
+                Si
+                    Ver avance tecnico y economico.
+                    Ver imagenes
+                    Cerrar sesion
+                No  
+                    "Contraseña o usuario invalido"

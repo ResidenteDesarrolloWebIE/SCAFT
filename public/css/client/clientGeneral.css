@@ -1,0 +1,158 @@
+.section-projects {
+    background-image: url(../../images/client-general.png);
+    color: white;
+}
+
+.container-projects {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    min-height: 608PX;
+}
+
+.center-content {
+    justify-content: center;
+}
+
+.alert {
+    background-color: gray;
+    color: black;
+    margin-top: 10%;
+}
+.list-projects{
+    margin-top: 25px;
+    right: 7%;
+}
+.decription-color {
+    color: white;
+}
+
+.details-projects {
+    margin-top: 25px;
+}
+.buttons-projects {
+    margin-top: 6px;
+}
+
+.backgroud-icon {
+    background-color: #50545a;
+    width: 130px;
+    height: 30px;
+    border-width: .5px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 20px;
+}
+.backgroud-icon  .i{
+    color:black;
+}
+.t-stroke {
+    color: #f3f1f1;
+    -moz-text-stroke-width: -4px;
+    -webkit-text-stroke-width: -7px;
+    -moz-text-stroke-color: #ebe1e1;
+    -webkit-text-stroke-color: #f3e7e7;
+    line-height: 310px;
+}
+
+.do-circle {
+    border-radius: 50%;
+    border-width: .5px;
+    border-style: solid;
+    border-color: #06b7ff;
+}
+
+.do-item {
+    width: 100%;
+    height: auto;
+    position: relative;
+    opacity: 0.90;
+}
+
+.do-item-circle {
+    max-width: 250px;
+    left: 25%;
+}
+
+/* Imagen y color del fondo del frente del circulo */
+.do-info .do-info-back {
+    transform: rotate3d(0, 1, 0, 180deg);
+    background:linear-gradient(to left , rgb(27, 29, 29), rgb(4, 85, 114));
+    opacity: 1.70;
+}
+.do-item-circle-back {
+    height: 251px;
+    opacity: 1.60;
+    border-color: black;
+
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+    border: 1px solid #06b7ff;
+    box-shadow: 0 10px 30px #06b7ff;
+    
+}
+
+.do-info-wrap {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    transition: all 0.4s ease-in-out;
+    perspective: 800px;
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 3px rgba(129, 72, 129, 0.2);
+}
+
+.do-info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.do-info>div {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Determina el ancho donde estara el texto d ela descripcion */
+.text-info {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    padding: 32px 0 0 0;
+    height: 80px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    text-shadow: 0 0 1px #fff, 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.do-info-back {
+    text-align: center;
+    
+}
+
+.do-info-back>div {
+    color: white;
+    font-size: 12px;
+}
+
+.do-item:hover .do-info-wrap {
+    box-shadow: 0 0 0 0 #000000, inset 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+.do-item:hover .do-info {
+    transform: rotate3d(0, 1, 0, -180deg);
+}
+
+.backgroud-icon {
+    background-color: #0ca4ea;
+    width: 30px;
+    height: 30px;
+    border-width: .5px;
+    border-style: solid;
+    border-color: #ffff;
+}

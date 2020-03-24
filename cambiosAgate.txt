@@ -1,0 +1,57 @@
+Quotatioservicecontroller
+    use App\Http\Controllers\Api\SyncWithScaftController;
+
+    public $syncUp;
+    public function __construct(){
+        $this->syncUp = new SyncWithScaftController;
+    }
+
+
+    public function view(Request $request){
+        $this->syncUp->SyncServices();
+        $this->syncUp->SyncSupplies();
+
+    public function changestatus(Request $request)
+        this->syncUp->SyncServiceUpdate($request->ID); 
+
+Quotationproductcontroller
+    use App\Http\Controllers\Api\SyncWithScaftController;
+
+    public $syncUp;
+    public function __construct()
+    {
+        $this->syncUp = new SyncWithScaftController;
+    }
+
+    public function changestatus(Request $request)
+        $this->syncUp->SyncSupplyUpdate($request->ID);
+
+
+ProgressController
+    use App\Http\Controllers\Api\SyncWithScaftController;
+
+    public $syncUp;
+    public function __construct(){
+        $this->syncUp = new SyncWithScaftController;
+    }
+
+    public function paymentSerSave(Request $request){
+        $service = service_quotation::find($request->id_eco_pay);
+        $this->syncUp->synPaymentsService($service->folio,$myPaymentServ);
+    ppublic function paymentProdSave(Request $request){
+        $product = product_quotation::find($request->id_eco_pay);
+        $this->syncUp->synPaymentsSupply($product->folio,$myPaymentProd);
+
+    public function updatePercent (Request $request){
+        $product = product_quotation::find($id);
+        $this->syncUp->synUpdateProgressSupply($product->folio,$myPercent);
+
+        $service = service_quotation::find($id);
+        $this->syncUp->synUpdateProgressService($service->folio,$myPercent);
+
+    public function updatePercentDate (Request $request){
+        $product = product_quotation::find($myPercentDate->service_quotation_id);
+        $this->syncUp->synUpdateProgressSupply($product->folio,$myPercentDate);
+    
+        $service = service_quotation::find($myPercentDate->service_quotation_id);
+        $this->syncUp->synUpdateProgressService($service->folio,$myPercentDate);
