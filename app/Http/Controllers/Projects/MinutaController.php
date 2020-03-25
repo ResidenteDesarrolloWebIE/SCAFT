@@ -8,5 +8,7 @@ use Illuminate\Http\Request;
 
 class MinutaController extends Controller
 {
-    //
+    public function index(){
+        dd('Hola');
+    }
 }
