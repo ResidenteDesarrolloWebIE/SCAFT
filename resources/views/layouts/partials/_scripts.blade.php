@@ -32,3 +32,19 @@
 <script src="{{ asset('js/client/modals/moreInformation.js') }}"></script>
 <script src="{{ asset('js/client/modals/technicalAdvanceSupply.js') }}"></script>
 <script src="{{ asset('js/client/modals/technicalAdvanceService.js') }}"></script> -->
+
+<script type="text/javascript">
+    function procesando() {
+		var timerInterval
+		swal.fire({
+			title: 'PROCESANDO',
+			html: 'AGUARDA UN MOMENTO POR FAVOR.',
+
+			onBeforeOpen: () => {
+				Swal.showLoading();
+			}
+		})
+
+
+	}
+</script>

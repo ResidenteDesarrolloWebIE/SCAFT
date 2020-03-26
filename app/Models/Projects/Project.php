@@ -39,6 +39,6 @@ class Project extends Model
     }
 
     public function minutes(){
-        return $this->hasMany(Minuta::class,'id', 'project_id');
+        return $this->hasMany(Minuta::class,'project_id', 'id');
     }
 }

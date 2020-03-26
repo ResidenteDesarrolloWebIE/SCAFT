@@ -29,8 +29,9 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::put('projects/technicalAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::post('upload', 'Projects/ImageController@save')->name('upload-post');
     
-    Route::get('saveMinuta','Projects\MinutaController@storeMinuta');
+    Route::post('saveMinuta','Projects\MinutaController@storeMinuta');
     Route::get('internalMinute/{id}','Projects\MinutaController@index');
+    Route::post('getFolioMinute','Projects\MinutaController@generateFolio');
 
     /*Route::get('customers', 'UserController@showCustomers');
     Route::post('customers/create', 'UserController@create');
