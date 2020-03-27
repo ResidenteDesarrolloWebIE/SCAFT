@@ -62,4 +62,13 @@ class MinutaController extends Controller
             dd($e);
         }
     }
+
+    public function getAgreements(Request $request, $id){
+        try {
+            $minuta = Minuta::with('agreements')->find($id);
+            return response()->json($minuta);
+        } catch (\Exception $e) {
+            dd($e);
+        }
+    }
 }

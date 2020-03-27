@@ -75,4 +75,38 @@ function saveMinuta(form) {
     });
 }
 
+function getAgreements(id) {
+    procesando();
+    var ruta = '/getAgreements/'+id;
+    var token = $('#token').val();
+    var tableAgreements = $("#tbl_agreements");
+    tableAgreements.html("");
+    $.ajax({
+        method:'GET',
+        url:ruta,
+        headers: {'X-CSRF-TOKEN': token},
+        data: {id},
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            swal.close();
+            console.log(data);
+            for (var i = 0; i < data.agreements.length; i++) {
+                var trtable = "<tr><td align='center'>"
+                + (i+1) + "</td><td align='center'>"
+                + data.agreements[i].agreement + "</td><td align='center'>"
+                + data.agreements[i].responsable + "</td><td align='center'>"
+                + data.agreements[i].start_date + "</td><td align='center'>"
+                + data.agreements[i].end_date + "</td>";
+                tableAgreements.append(trtable +"</tr>");
+            }
+        },
+        error:function(data){
+            console.log(data);
+        }
+    });
+}
+
+
 

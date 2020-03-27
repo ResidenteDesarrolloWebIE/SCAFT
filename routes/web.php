@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::post('saveMinuta','Projects\MinutaController@storeMinuta');
     Route::get('internalMinute/{id}','Projects\MinutaController@index');
     Route::post('getFolioMinute','Projects\MinutaController@generateFolio');
+    Route::get('getAgreements/{id}','Projects\MinutaController@getAgreements');
 
     /*Route::get('customers', 'UserController@showCustomers');
     Route::post('customers/create', 'UserController@create');

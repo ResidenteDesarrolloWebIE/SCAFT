@@ -26,8 +26,9 @@
                     <tr>
                         <td>{{$minute->folio}}</td>
                         <td>{{$minute->type}}</td>
-                        <td>                                     
-                            <button type="button" class="btn btn-info"  title="Ver Acuerdos" ><i class="fas fa-eye"></i></button>
+                        <td>
+
+                            <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Ver Acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
                             <button type="button" class="btn btn-success"  title="Descargar PDF" ><i class="fas fa-file-alt"></i></button>                        
                         </td>
                     </tr>
@@ -37,6 +38,6 @@
         </div>
     </div>
     @include('admin/projects/internalMinuta')
-    @include('admin/projects/externalMinuta')
+    @include('admin/projects/modalAgreements')
 </section>
 @endsection
