@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Projects\Minuta;
 use App\Models\Projects\Project;
 use App\Models\Projects\Agreement;
+use Carbon\Carbon;
 
 class MinutaController extends Controller
 {
@@ -16,6 +17,7 @@ class MinutaController extends Controller
     }
 
     public function storeMinuta(Request $request){
+        
         try {
             $minuta = new Minuta();
             $minuta->folio = $request->folio;
@@ -26,13 +28,15 @@ class MinutaController extends Controller
                 $agreement = new Agreement();
                 $agreement->agreement = $request->acuerdos[$i];
                 $agreement->responsable = $request->responsables[$i];
-                $agreement->start_date = $request->dateStart[$i];
-                $agreement->end_date = $request->dateEnd[$i];
+                
+                $agreement->start_date = Carbon::parse($request->dateStart[$i])->format('Y-m-d');
+                $agreement->end_date = Carbon::parse($request->dateEnd[$i])->format('Y-m-d');
                 $agreement->minuta_id = $minuta->id;
                 $agreement->save();
             }
             return response()->json(['Message'=>'Exito']);   
         } catch (\Exception $e) {
+            dd($e);
             return response()->json(['Message'=>'Error']);
             
         }
@@ -51,7 +55,7 @@ class MinutaController extends Controller
                 $number++;
                 if($number<10){
                     $folio= 'M2000'.$number;
-                }else if($number>10 && $number < 100){
+                }else if($number>=10 && $number < 100){
                     $folio = 'M200'.$number;
                 }else{
                     $folio = 'M20'.$number;
@@ -71,4 +75,14 @@ class MinutaController extends Controller
             dd($e);
         }
     }
+
+    public function exportPDF(Request $request, $id){
+        try {
+            $minuta = Minuta::with('agreements')->find($id);
+            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta'));
+            return $pdf->download('Minuta '.$minuta->folio.'.pdf');
+        } catch (\Exception $e) {
+            dd($e);
+        }
+     }
 }

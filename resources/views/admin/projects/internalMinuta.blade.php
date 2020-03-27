@@ -37,11 +37,11 @@
                     <div class="form-group row" style="margin-left: 10px;">
                         <label  class="col-xs-2 col-form-label">Fecha Inicio</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control" required id="date" name="dateStart[]">
+                            <input type="date" class="form-control" required name="dateStart[]" autocomplete="off">
                         </div>
                         <label  class="col-xs-2 col-form-label">Fecha Final</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control" name="dateEnd[]" required>
+                            <input type="date" class="form-control" name="dateEnd[]" required autocomplete="off">
                         </div>
                     </div>
                 </div> 

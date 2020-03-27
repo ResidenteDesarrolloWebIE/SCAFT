@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('internalMinute/{id}','Projects\MinutaController@index');
     Route::post('getFolioMinute','Projects\MinutaController@generateFolio');
     Route::get('getAgreements/{id}','Projects\MinutaController@getAgreements');
+    Route::get('exportMinute/{id}','Projects\MinutaController@exportPDF');
 
     /*Route::get('customers', 'UserController@showCustomers');
     Route::post('customers/create', 'UserController@create');

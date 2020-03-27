@@ -1,4 +1,29 @@
 $(document).ready(function(){
+    $('#tableMinutes').DataTable({
+        columnDefs: [{ orderable: false, targets: 'not-sort' }],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todos"]],
+        language: {
+            "decimal": ",",
+            "thousands": ".",
+            "paginate": {
+                "first": "Primera",
+                "last": "Ultima",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "emptyTable": "Sin Registros",
+            "info": "Mostrando _END_ de _TOTAL_ registros",
+            "infoEmpty": "Sin resultados para mostrar",
+            "search": "Palabra clave:",
+            "zeroRecords": "No hay coincidencias",
+            "emptyTable": "Sin registros",
+            "infoFiltered": "- Buscando en _MAX_ registros",
+        },
+    });
+    $.datepicker.setDefaults( $.datepicker.regional[ "es" ] );
+    $( ".date" ).datepicker();
+
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
     var x = 2; //Initial field counter is 1
@@ -45,32 +70,42 @@ function openModalAddMinute(project) {
     $("#internalMinutaProject").modal('show');
 }
 
-function saveMinuta(form) {
-    procesando();
-    var values = new FormData(form);
-    var ruta = '/saveMinuta';
-    var token = $('#token').val();
-    $.ajax({
-        method:'POST',
-        url:ruta,
-        headers: {'X-CSRF-TOKEN': token},
-        data: values,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success:function(data){
-            if(data.Message == "Exito");
-            swal.fire({
-                type: 'success',
-                title: '¡Guardado!',
-                text: 'La minuta se ha guardad correctamente.',
-                preConfirm: () => {
-                    location.reload();
-                },
-            })
-        },
-        error:function(data){
-            console.log(data);
+function saveMinuta(form) {    
+    swal.fire({
+        title: '¿Está seguro de guardar esta Minuta?',
+        text: "Esta acción no podrá deshacerse",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, guardar minuta',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.value) {
+            procesando();
+            var values = new FormData(form);
+            var ruta = '/saveMinuta';
+            var token = $('#token').val();
+            $.ajax({
+                method:'POST',
+                url:ruta,
+                headers: {'X-CSRF-TOKEN': token},
+                data: values,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    if(data.Message == "Exito");
+                    swal.fire({
+                        type: 'success',
+                        title: '¡Guardado!',
+                        text: 'La minuta se ha guardado correctamente.',
+                        preConfirm: () => {
+                            location.reload();
+                        },
+                    })
+                }
+            });        
         }
     });
 }
@@ -105,6 +140,20 @@ function getAgreements(id) {
         error:function(data){
             console.log(data);
         }
+    });
+}
+
+function exportAdvance(id){
+    console.log(id);
+    var ruta ="/exportMinute/"+id;
+    var token = $('#token').val();
+    $.ajax({
+        url:ruta,
+        headers: {'X-CSRF-TOKEN': token},
+        dataType: 'JSON',
+        method:'GET',
+        data: id,
+        cache: false
     });
 }
 

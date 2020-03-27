@@ -13,7 +13,7 @@
                 </button>
             </div>
             <br>
-            <table class="table text-center table-sm-responsive" id="tableProjects">
+            <table class="table text-center table-sm-responsive" id="tableMinutes">
                 <thead class="table-success">
                     <tr>
                         <th>Folio</th>
@@ -27,9 +27,8 @@
                         <td>{{$minute->folio}}</td>
                         <td>{{$minute->type}}</td>
                         <td>
-
-                            <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Ver Acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
-                            <button type="button" class="btn btn-success"  title="Descargar PDF" ><i class="fas fa-file-alt"></i></button>                        
+                        <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Ver Acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
+                        <a href="/exportMinute/{{$minute->id}}"><button type="button" class="btn btn-success" title="Descargar PDF" ><i class="fas fa-file-alt"></i></button></a>
                         </td>
                     </tr>
                     @endforeach

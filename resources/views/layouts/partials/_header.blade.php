@@ -34,4 +34,6 @@
     <link rel="stylesheet" href="{{asset('plugins/dataTables-1.10.20/css/jquery.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-5.12.1/css/solid.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/fotoroma-4.6.4/fotorama.css') }}">
+    
+    <link rel="stylesheet" href="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.css')}}">
 </head>
