@@ -1,10 +1,17 @@
 @extends('layouts.app')
 @section('content')
 
+<head>
+	<link href="/css/gallery.css" rel="stylesheet">
+</head>
+
 <section class="section-home">
 	@include('layouts.partials._navigationBar')
-	<div class="container-home">
-		<div style="background-color: white">GALERIA</div>
-	</div>
+
+
+
+
+
 </section>
 @endsection
+<script src="/js/gallery.js"></script>
