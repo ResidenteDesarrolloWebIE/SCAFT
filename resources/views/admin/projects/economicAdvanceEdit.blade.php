@@ -16,40 +16,100 @@
                 <div class="col-md-6">
                     <div class="form-group text-center">
                         <label for="advance"><strong style="color:red">*</strong><strong>Anticipo</strong></label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Monto pagado" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Porcentaje">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
+                        <div class="input-group">
+                            <select class="custom-select" name="receiveOrder" id="idReceiveOrderEconomic" required>
+                                <option value=0 selected> No completado</option>
+                                <option id="optionCienPorciento" value=1>Completado</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group text-center">
                         <label for="finalPayment"><strong style="color:red">*</strong><strong>Pago final del proyecto</strong></label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" name="finalPayment" id="idFinalPayment" value="" required>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Monto pagado" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Porcentaje">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
+                        </div>
+                        <div class="input-group">
+                            <select class="custom-select" name="receiveOrder" id="idReceiveOrderEconomicEconomic" required>
+                                <option value=0 selected> No completado</option>
+                                <option id="optionCienPorciento" value=1>Completado</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group text-center">
                         <label for="engineeringReleasePayment"><strong style="color:red">*</strong><strong>Pago por liberacion de ingenieria</strong></label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" name="engineeringReleasePayment" id="idEngineeringReleasePayment" value="" required>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Monto pagado" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Porcentaje">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
+                        <div class="input-group">
+                            <select class="custom-select" name="receiveOrder" id="idReceiveOrderEconomic" required>
+                                <option value=0 selected> No completado</option>
+                                <option id="optionCienPorciento" value=1>Completado</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group text-center">
                         <label for="total"><strong style="color:red">*</strong><strong>Total de proyecto</strong></label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" name="total" id="idTotal" value="" required>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Monto pagado" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 4px">
+                            <input type="number" class="form-control" name="advance" id="idAdvance" value="" required placeholder="Porcentaje">
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
+                        </div>
+                        <div class="input-group">
+                            <select class="custom-select" name="receiveOrder" id="idReceiveOrderEconomic" required>
+                                <option value=0 selected> No completado</option>
+                                <option id="optionCienPorciento" value=1>Completado</option>
+                            </select>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ namespace App\Models\Projects;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Projects\File;
 
-class Offer extends Model
+class PurchaseOrder extends Model
 {
     protected $with = ['file']; 
 

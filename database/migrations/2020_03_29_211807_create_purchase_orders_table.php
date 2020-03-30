@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTechnicalAdvancesTable extends Migration
+class CreatePurchaseOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateTechnicalAdvancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('technical_advances', function (Blueprint $table) {
+        Schema::create('purchase_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('receive_order')->default(0);
-            $table->float('engineering_release')->default(0);
-            $table->float('work_progress')->default(0);
-            $table->float('delivery_customer')->default(0);
             $table->unsignedBigInteger('project_id')->nullable();
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->softDeletes();
+            $table->unsignedBigInteger('file_id')->nullable();
+            $table->foreign('file_id')->references('id')->on('files');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateTechnicalAdvancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('technical_advances');
+        Schema::dropIfExists('purchase_orders');
     }
 }

@@ -20,7 +20,7 @@ function economicAdvance(project) {
     $('#idTotal').attr({ "min": project.economic_advances.total, "max": 100 });
 }
 
-function editEconomicAdvance() {
+function editEconomicAdvancee() {
     console.log("Vamos a edita", $("#formEconomicAdvance").serialize());
     $.ajax({
         type: 'put',

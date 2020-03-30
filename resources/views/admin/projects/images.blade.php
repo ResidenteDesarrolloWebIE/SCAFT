@@ -4,7 +4,7 @@
             <span type="hidden" name="_token" value="{{{ csrf_token() }}}" id="tokenLoadImages"> </span>
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title" id="idFolio"><span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">Folio: </strong> <strong id='idFolioProject'></strong></h4>
+                <h4 class="modal-title" id="idFolio"><span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">Folio: </strong> <strong id='idFolioProjectImages'></strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="text-right modal-header-info">
@@ -13,11 +13,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        {!! Form::open(['url' => route('projects-images'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
-                        <input type="hidden" name="idProject" id="idProject" value="" readonly="true">
-                        <input type="hidden" name="folioProject" id="folioProject" value="" readonly="true">
-                        <input type="hidden" name="typeProject" id="typeProject" value="" readonly="true">
-                        <input type="hidden" name="folioOffer" id="folioOffer" value="" readonly="true">
+                        {{Form::open(['url' => route('projects-images'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone'])}}
+                        <input type="hidden" name="idProject" id="idPro" value="" readonly="true">
+                        <input type="hidden" name="folioProject" id="idFolioPro" value="" readonly="true">
+                        <input type="hidden" name="typeProject" id="idTypePro" value="" readonly="true">
                         <div class="dz-message"></div>
                         <div class="fallback">
                             <input name="file" type="file" multiple />
@@ -25,7 +24,7 @@
                         <div class="dropzone-previews" id="dropzonePreview"></div>
                         <h4 class="label-images">Dar click o Soltar imagenes en esta area <span class="glyphicon glyphicon-hand-down"></span></h4>
 
-                        {!! Form::close() !!}
+                        {{Form::close()}}
                     </div>
                 </div>
                 <!-- Dropzone Preview Template -->
@@ -42,7 +41,6 @@
 
                         <div class="dz-success-mark">
                             <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                                <!-- Generator: Sketch 3.2.1 (9971) - http://www.bohemiancoding.com/sketch -->
                                 <title>Check</title>
                                 <desc>Created with Sketch.</desc>
                                 <defs></defs>
@@ -54,7 +52,6 @@
 
                         <div class="dz-error-mark">
                             <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                                <!-- Generator: Sketch 3.2.1 (9971) - http://www.bohemiancoding.com/sketch -->
                                 <title>error</title>
                                 <desc>Created with Sketch.</desc>
                                 <defs></defs>
@@ -68,8 +65,7 @@
 
                     </div>
                 </div>
-                <!-- End Dropzone Preview Template -->
-                {!! Form::hidden('csrf-token', csrf_token(), ['id' => 'csrf-token']) !!}
+                {{Form::hidden('csrf-token', csrf_token(), ['id' => 'csrf-token']) }}
             </div>
             <div class="modal-footer " style="justify-content: center;">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">

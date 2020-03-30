@@ -7,7 +7,8 @@
 <script src="{{asset('plugins/fotoroma-4.6.4/fotorama.js') }}"></script>
 <script src="{{asset('plugins/dataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{asset('plugins/sweetalert-2/sweetalert2.all.min.js') }}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
 <script src="{{asset('plugins/fileinput-4.3.6/js/fileinput.min.js') }}"></script>
 <script src="{{asset('plugins/fileinput-4.3.6/js/fileinput.js') }}"></script>
 <script src="{{asset('plugins/fileinput-4.3.6/locales/es.js') }}"></script>

@@ -10,7 +10,7 @@
             <div class="offset-md-8 col-md-4 text-right">
                 <a data-toggle="modal" data-target="#createProject">
                     <button id="btnProject" type="button" class="btn btn-success">
-                        Crear nuevo proyecto<i class="fas fa-exchange-alt"></i>
+                        Crear nuevo proyecto<i class="fas fa-plus"></i>
                     </button>
                 </a>
             </div>
@@ -25,6 +25,9 @@
                         <th>
                             Tipo
                         </th>
+                        <th>
+                            Documentos
+                        </th>
                         <th class="col-md-3">
                             Acciones
                         </th>
@@ -38,28 +41,40 @@
                         <td>{{$project->name}}</td>
                         <td>{{$project->status}}</td>
                         <td>{{$project->description}}</td>
-                        <td>{{$project->type}}</td>
+                        <td>{{$project->type->name}}</td>
                         <td>
-                            <a data-toggle="modal" data-target="#editProject" >
-                                <button type="button" class="btn btn-primary"  title="Editar Proyecto" onclick='inicializeEditProject({{$project}})' ><i class="fas fa-edit"></i></button>
+                            @if(!is_null($project->offer))
+                                <a href="{{url('/projects/offers/download',$project->id)}}">
+                                    <button type="button" class="btn btn-primary" title="Descargar oferta"><i class="fas fa-download"></i></button>
+                                </a>
+                            @endif
+                            @if(!is_null($project->purchaseOrder))
+                                <a href="{{url('/projects/purchaseOrders/download',$project->id)}}">
+                                    <button type="button" class="btn btn-primary" title="Descargar orden de compra"><i class="fas fa-download"></i></button>
+                                </a>
+                            @endif
+                        </td>
+                        <td>
+                            <a data-toggle="modal" data-target="#editProject">
+                                <button type="button" class="btn btn-primary" title="Editar Proyecto" onclick='inicializeEditProject({{$project}})'><i class="fas fa-edit"></i></button>
                             </a>
-                            <a data-toggle="modal" data-target="#changeStatusProject" onclick='statusProject({{$project}})'>
-                                <button type="button" class="btn btn-warning"  title="Cambiar status"><i class="fas fa-exchange-alt"></i></button>
-                            </a>
+                            {{-- <a data-toggle="modal" data-target="#changeStatusProject" onclick='statusProject({{$project}})'>
+                            <button type="button" class="btn btn-warning" title="Cambiar status"><i class="fas fa-exchange-alt"></i></button>
+                            </a>--}}
                             <a data-toggle="modal" data-target="#economicAdvanceProject">
-                                <button type="button" class="btn btn-primary"  title="Editar avance economico" onclick='economicAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-dollar-sign"></i></button>
+                                <button type="button" class="btn btn-warning" title="Editar avance economico" onclick='economicAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-dollar-sign"></i></button>
                             </a>
                             <a data-toggle="modal" data-target="#technicalAdvanceProject">
-                                <button type="button" class="btn btn-primary"  title="Editar avance tecnico" ><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
+                                <button type="button" class="btn btn-warning" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
                             </a>
                             <a data-toggle="modal" data-target="#internalMinutaProject" onclick='imagesProject( {{$project}})'>
-                                <button type="button" class="btn btn-info"  title="Minutas Interna" ><i class="fas fa-file-alt"></i></button>
+                                <button type="button" class="btn btn-info" title="Minutas Interna"><i class="fas fa-file-alt"></i></button>
                             </a>
-                            <a data-toggle="modal" data-target="#externalMinutaProject" onclick='imagesProject( {{$project}})'>
-                                <button type="button" class="btn btn-info"  title="Minutas Externas" ><i class="fas fa-file-alt"></i><i class="fas fa-external-link-square-alt"></i></button>
-                            </a>
+                            {{--<a data-toggle="modal" data-target="#externalMinutaProject" onclick='imagesProject( {{$project}})'>
+                            <button type="button" class="btn btn-info" title="Minutas Externas"><i class="fas fa-file-alt"></i><i class="fas fa-external-link-square-alt"></i></button>
+                            </a>--}}
                             <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>
-                                <button type="button" class="btn btn-success"  title="Agregar imagenes" ><i class="fas fa-images"></i></button>
+                                <button type="button" class="btn btn-success" title="Agregar imagenes"><i class="fas fa-images"></i></button>
                             </a>
                         </td>
                     </tr>

@@ -24,20 +24,27 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('projects', 'Projects\ProjectController@showProjects');
     Route::post('projects/create', 'Projects\ProjectController@create');
     Route::put('projects/edit', 'Projects\ProjectController@edit');
-    Route::post('projects/images', 'Projects\ImageController@save')->name('projects-images');
-    Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
-    Route::put('projects/technicalAdvance/edit', 'Projects\EconomicAdvanceController@edit');
-    Route::post('upload', 'Projects/ImageController@save')->name('upload-post');
     
+    Route::get('projects/images', 'Projects\ImageController@showImages');
+    Route::post('projects/images/save', 'Projects\ImageController@save')->name('projects-images');
+    Route::post('projects/images/delete', 'Projects\ImageController@delete');
+    
+    Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
+    Route::post('projects/technicalAdvance/edit', 'Projects\TechnicalAdvanceController@edit');
+
+    Route::get('projects/customer/show', 'Projects\ProjectController@showProjectsByClient');
+    Route::get('projects/customer/edit', 'Projects\ProjectController@editProjectsByClient');
+
+    Route::get('projects/offers/download/{id}', 'Projects\OfferController@download');
+    Route::get('projects/purchaseOrders/download/{id}', 'Projects\PurchaseOrderController@download');
 
     /*Route::get('customers', 'UserController@showCustomers');
     Route::post('customers/create', 'UserController@create');
     Route::put('customers/edit', 'UserController@edit');
-
     Route::put('technicalAdvance/edit', 'Project\TechnicalAdvance@edit');
     Route::put('economicAdvance/edit', 'Project\EconomicAdvance@edit');
-
     Route::get('projects', 'ProjectsController@index'); */
+
 });
 
 
