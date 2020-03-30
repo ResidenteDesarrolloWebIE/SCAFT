@@ -27,8 +27,50 @@
 <script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
 
 
-<!-- <script src="{{ asset('js/client/modals/financialAdvance.js') }}"></script>
+{{--<!-- <script src="{{ asset('js/client/modals/financialAdvance.js') }}"></script>
 <script src="{{ asset('js/client/modals/imageGallery.js') }}"></script>
 <script src="{{ asset('js/client/modals/moreInformation.js') }}"></script>
 <script src="{{ asset('js/client/modals/technicalAdvanceSupply.js') }}"></script>
-<script src="{{ asset('js/client/modals/technicalAdvanceService.js') }}"></script> -->
+<script src="{{ asset('js/client/modals/technicalAdvanceService.js') }}"></script> -->--}}
+<script src="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
+
+
+<script type="text/javascript">
+    function procesando() {
+		var timerInterval
+		swal.fire({
+			title: 'PROCESANDO',
+			html: 'AGUARDA UN MOMENTO POR FAVOR.',
+
+			onBeforeOpen: () => {
+				Swal.showLoading();
+			}
+		})
+
+
+	}
+</script>
+
+<script>
+	$.datepicker.regional['es'] = {
+	closeText: 'Cerrar',
+	prevText: '< Ant',
+	nextText: 'Sig >',
+	currentText: 'Hoy',
+	monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+	dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+	dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+	weekHeader: 'Sm',
+	dateFormat: 'yy/mm/dd',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+	};
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+   $(function () {
+   $("#fecha").datepicker();
+   });
+</script>

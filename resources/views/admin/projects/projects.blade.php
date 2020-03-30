@@ -52,7 +52,7 @@
                             <a data-toggle="modal" data-target="#technicalAdvanceProject">
                                 <button type="button" class="btn btn-primary"  title="Editar avance tecnico" ><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
                             </a>
-                            <a data-toggle="modal" data-target="#internalMinutaProject" onclick='imagesProject( {{$project}})'>
+                            <a href="{{url('internalMinute',$project)}}">
                                 <button type="button" class="btn btn-info"  title="Minutas Interna" ><i class="fas fa-file-alt"></i></button>
                             </a>
                             <a data-toggle="modal" data-target="#externalMinutaProject" onclick='imagesProject( {{$project}})'>
