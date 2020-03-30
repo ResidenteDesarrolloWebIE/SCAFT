@@ -19,8 +19,6 @@ class CreateMinutasTable extends Migration
             $table->string('type',30);
             $table->unsignedBigInteger('project_id')->nullable();
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->unsignedBigInteger('agreement_id')->nullable();
-            $table->foreign('agreement_id')->references('id')->on('agreements');
             $table->unsignedBigInteger('file_id')->nullable();
             $table->foreign('file_id')->references('id')->on('files');
             $table->softDeletes();

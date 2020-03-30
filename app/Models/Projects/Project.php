@@ -9,6 +9,7 @@ use App\Models\Projects\TechnicalAdvance;
 use App\Models\Projects\File;
 use App\Models\Projects\Image;
 use App\User;
+use App\Models\Projects\Minuta;
 use SoftDeletes;
 
 
@@ -35,5 +36,9 @@ class Project extends Model
     }
     public function images(){
         return $this->hasMany(Image::class,'id','project_id');
+    }
+
+    public function minutes(){
+        return $this->hasMany(Minuta::class,'project_id', 'id');
     }
 }

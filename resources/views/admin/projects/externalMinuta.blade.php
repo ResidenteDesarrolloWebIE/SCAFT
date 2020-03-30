@@ -1,7 +1,6 @@
 <div class="modal fade" id="externalMinutaProject" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <span type="hidden" name="_token" value="{{{ csrf_token() }}}" id="tokenLoadImages"> </span>
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title" id="idFolio"><span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">Folio: </strong> <strong id='idFolioProject'></strong></h4>
