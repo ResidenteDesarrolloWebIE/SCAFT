@@ -1,14 +1,3 @@
-{{--@extends('layouts.app')
-@section('content')
-
-<section class="section-home">
-	@include('layouts.partials._navigationBar')
-	<div class="container-home">
-	<div style="background-color: white">SERVICIOS</div>
-	</div>
-</section>
-@endsection--}}
-
 @extends('layouts.app')
 @section('content')
 
@@ -22,7 +11,7 @@
 				<strong>No ha solicitado servicios</strong>
 			</div>
 			@endif
-			@foreach ($projects as $prokect)
+			@foreach ($projects as $project)
 			<div class="col-md-3 list-projects">
 				<div class="do-item do-item-circle do-circle">
 					<img src="{{ asset('images/service-services.png') }}" class="do-item do-circle do-item-circle-back">
@@ -41,14 +30,14 @@
 									Servicio / {{ $project->status }}
 									<br /> {{date("d M Y",strtotime($project->created_at))}}
 									<div class="buttons-projects">
-										<a href="{{url('/projects/advances/advance')}}">
+										<a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 2])}}">
 											<button class="backgroud-icon" data-toggle="modal" data-target="#technicalAdvanceService">
 												<span data-toggle="tooltip" data-placement="bottom" title="Avance Tecnico!">
 													<i class="fas fa-wrench" style="color:white;"></i>
 												</span>
 											</button>
 										</a>
-										<a href="{{url('/projects/advances/gallery')}}">
+										<a href="{{url('/projects/advances/gallery',['idProject' => $project->id, 'typeproject' => 2])}}">
 											<button class="backgroud-icon" id="btnGalleryService" data-toggle="modal" data-target="#imagesGallery">
 												<span data-toggle="tooltip" data-placement="bottom" title="Galeria!">
 													<i class="far fa-images" style="color:white;"></i>

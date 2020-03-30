@@ -10,11 +10,8 @@ use App\Models\Projects\Project;
 use App\Models\Projects\Image;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 
-class ImageController extends Controller
-{
-
+class ImageController extends Controller{
     public function save(Request $request)
     {
         try {
@@ -22,7 +19,6 @@ class ImageController extends Controller
             if ($validator->fails()) {
                 return Response::json(['error' => true, 'message' => $validator->messages()->first(), 'code' => 400], 400);
             }
-
             $image = $request['file'];
             $date = Carbon::now();
             $imageLasted = Image::latest('created_at')->where('project_id', $request['idProject'])->first();

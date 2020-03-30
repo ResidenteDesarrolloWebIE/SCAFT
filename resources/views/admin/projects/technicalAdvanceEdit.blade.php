@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group text-center" id="divDowloadPurchaOrder">
                             <a href="{{url('/projects/purchaseOrders/download',$project->id)}}">
-                                <button type="button" class="btn btn-light"><i class="fas fa-download"></i>Descargar archivo</button>
+                                <button type="button" class="btn btn-light text-primary"><i class="fas fa-download"></i>Descargar archivo</button>
                             </a>
                         </div>
 

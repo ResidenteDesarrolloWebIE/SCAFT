@@ -1,14 +1,3 @@
-{{--@extends('layouts.app')
-@section('content')
-
-<section class="section-home">
-	@include('layouts.partials._navigationBar')
-	<div class="container-home">
-		<div style="background-color: white">SUMINISTROS</div>
-	</div>
-</section>
-@endsection --}}
-
 @extends('layouts.app')
 @section('content')
 
@@ -41,14 +30,14 @@
                                     Suministro / {{$project->status }}
                                     <br /> {{date("d M Y",strtotime($project->created_at))}}
                                     <div class="buttons-projects">
-                                        <a href="{{url('/projects/advances/advance')}}">
+                                        <a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 1])}}"> <!-- Suministros tien e el id 1 -->
                                             <button class="backgroud-icon" id="btnEconomicSupply">
                                                 <span data-toggle="tooltip" data-placement="bottom" title="Avance Economico!">
                                                     <i class="fas fa-dollar-sign" style="color:white;"></i>
                                                 </span>
                                             </button>
                                         </a>
-                                        <a href="{{url('/projects/advances/gallery')}}">
+                                        <a href="{{url('/projects/advances/gallery',['idProject' => $project->id, 'typeproject' => 1])}}">
                                             <button class="backgroud-icon" id="btnGallerySupply">
                                                 <span data-toggle="tooltip" data-placement="bottom" title="Galeria!">
                                                     <i class="far fa-images" style="color:white;"></i>

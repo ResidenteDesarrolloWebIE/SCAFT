@@ -37,7 +37,7 @@
                             <div class="dz-filename"><span data-dz-name=""></span></div>
                         </div>
                         <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div>
-                        <div class="dz-error-message"><span>Error al subir la imagen!!</span></div> <!-- data-dz-errormessage="" -->
+                        <div class="dz-error-message"><span id="idError">Error al subir la imagen (Formato incorrecto)!!</span></div> <!-- data-dz-errormessage="" -->
 
                         <div class="dz-success-mark">
                             <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">

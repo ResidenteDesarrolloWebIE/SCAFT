@@ -24,7 +24,8 @@ class ProjectController extends Controller
             $query->where('name', '=', 'client');
         })->get();
 
-        $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->get();
+        $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
+
         return view('admin.projects.projects')->with('projects', $projects)->with('clients', $clients);
     }
     public function showProjectsByClient(Request $request)
@@ -157,12 +158,18 @@ class ProjectController extends Controller
             return view('client.projects.supplies')->with('projects', $projects);
         }
     }
-    public function showAdvances()
-    {
-        return view('client.projects.advances.advance');
+    public function showAdvances(Request $request,  $idProject, $typeProject){
+        if (Auth::check()) {
+            $idCustomer = Auth::id();
+            $projects = Project::with(['technicalAdvances', 'economicAdvances'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
+            return view('client.projects.advances.gallery')->with('projects', $projects);
+        }
     }
-    public function showGallery()
-    {
-        return view('client.projects.advances.gallery');
+    public function showGallery(Request $request,  $idProject, $typeProject){
+        if (Auth::check()) {
+            $idCustomer = Auth::id();
+            $projects = Project::with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
+            return view('client.projects.advances.gallery')->with('projects', $projects);
+        }
     }
 }

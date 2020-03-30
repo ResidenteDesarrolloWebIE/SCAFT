@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $("#editProject").on('hidden.bs.modal', function() {
+$(document).ready(function () {
+    $("#editProject").on('hidden.bs.modal', function () {
         $("#formEditProject")[0].reset();
         $('#idAffiliationProjectEdit').multiselect('destroy');
     });
@@ -7,21 +7,11 @@ $(document).ready(function() {
 
 function inicializeEditProject(project) {
     console.log("Project", project.folio)
-    $('#idFolioProjectEdit').html(project.folio);
-    $('#idProject').val(project.id);
-    $('#idFolioProject').val(project.folio);
-    $('#idCustomerProject').val(project.customer_id);
-    $('#idSubstationProject').val(project.substation);
-    $('#idNameProject').val(project.name);
-    $('#idTypeProject').val(project.type);
-    $('#idDescription').html(project.description);
-    $('#idStatusProject').val(project.status);
-
     $('#idProjectEdit').val(project.id);
     $('#idTypeProjectEdit').val(project.project_type_id);
     $('#idNameProjectEdit').val(project.name);
     $('#idSubstationProjectEdit').val(project.substation);
-    $.get('projects/customer/edit?idCustomer=' + project.customer_id + '&idProject=' + project.id, function(data) {
+    $.get('projects/customer/edit?idCustomer=' + project.customer_id + '&idProject=' + project.id, function (data) {
         $("#idAffiliationProjectEdit").html('');
         $('#idAffiliationProjectEdit').multiselect('destroy');
         if (data.projects.length <= 0) {
@@ -61,34 +51,44 @@ function inicializeEditProject(project) {
         $('#idExchangeRateEdit').val(project.exchange_rate);
     }
     $('#idStatusProjectEdit').val(project.status);
-    $('#descriptionProjectEDit').html(project.description);
+    $('#idDescriptionProjectEdit').html(project.description);
 }
 
 function editProject(formulario) {
-    console.log("Vamos a editar", $("#formEditProject").serialize());
-    $.ajax({
-        type: 'put',
-        url: 'projects/edit',
-        data: $("#formEditProject").serialize(),
-        dataType: "JSON",
-        success: function(data) {
-            Swal.fire({
-                type: 'success',
-                title: 'En hora buena!!!',
-                text: 'E proyecto se ha editado correctamente!!!',
-                preConfirm: () => {
-                    location.reload();
+    Swal.fire({
+        type: 'question',
+        title: '¿Esta seguro de realizar los cambios?',
+        text: '',
+        confirmButtonText: 'Ok',
+        cancelButtonText: 'Cancelar',
+        showCancelButton: true,
+        showCloseButton: true,
+        preConfirm: () => {
+            $.ajax({
+                type: 'put',
+                url: 'projects/edit',
+                data: $("#formEditProject").serialize(),
+                dataType: "JSON",
+                success: function (data) {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'En hora buena!!!',
+                        text: 'E proyecto se ha editado correctamente!!!',
+                        preConfirm: () => {
+                            location.reload();
+                        },
+                    })
                 },
+                error: function (data) {
+                    console.log(data.responseJSON.message);
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Ops!!!',
+                        text: "El Proyecto no se ha podido editar",
+                        preConfirm: () => { },
+                    })
+                }
             })
         },
-        error: function(data) {
-            console.log(data.responseJSON.message);
-            Swal.fire({
-                type: 'error',
-                title: 'Ops!!!',
-                text: "El Proyecto no se ha podido editar",
-                preConfirm: () => {},
-            })
-        }
     })
 }

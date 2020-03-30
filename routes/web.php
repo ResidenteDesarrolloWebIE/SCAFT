@@ -16,8 +16,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('home', 'HomeController@index')->name('home');
     Route::get('projects/services', 'Projects\ProjectController@showServices');
     Route::get('projects/supplies', 'Projects\ProjectController@showSupplies');
-    Route::get('projects/advances/gallery', 'Projects\ProjectController@showGallery');
-    Route::get('projects/advances/advance', 'Projects\ProjectController@showAdvances');
+    Route::get('projects/advances/gallery/{idPproject}/{typeProject}', 'Projects\ProjectController@showGallery');
+    Route::get('projects/advances/advance/{idProject}/{typeProject}', 'Projects\ProjectController@showAdvances');
 });
 
 Route::group(['middleware' => ['auth','admin']], function () { 

@@ -1,14 +1,14 @@
-$(document).ready(function() {
-    $("#technicalAdvanceProject").on('hidden.bs.modal', function() {
+$(document).ready(function () {
+    $("#technicalAdvanceProject").on('hidden.bs.modal', function () {
         $("#formTecnicalAdvance")[0].reset();
         $("#idReceiveOrder").prop("disabled", false);
         $('#idEngineeringRelease').prop("readonly", false);
         $('#idWorkProgress').prop("readonly", false);
         $('#idDeliveryCustomer').prop("readonly", false);
+        $("#divDowloadPurchaOrder").hide();
     });
-    $("#technicalAdvanceProject").on('show.bs.modal', function() {
+    $("#technicalAdvanceProject").on('show.bs.modal', function () {
         $("#divFilePurchaseOrder").hide();
-        $("#divDowloadPurchaOrder").show();
     });
     $("#idPurchaseOrder").fileinput({
         language: 'es',
@@ -36,7 +36,7 @@ $(document).ready(function() {
         },
     });
 
-    $("#idReceiveOrder").change(function() {
+    $("#idReceiveOrder").change(function () {
         if ($(this).val() == 100) {
             $("#divFilePurchaseOrder").show();
             $("#idPurchaseOrder").prop("required", true);
@@ -84,33 +84,44 @@ function initializeTechnicalAdvance(project) {
 
 
 function editTechnicalAdvance(formTecnicalAdvance) {
-    $.ajax({
-        type: 'post',
-        url: 'projects/technicalAdvance/edit',
-        headers: { 'X-CSRF-TOKEN': $('#token').val() },
-        data: new FormData(formTecnicalAdvance),
-        dataType: "JSON",
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-            Swal.fire({
-                type: 'success',
-                title: 'En hora buena!!!',
-                text: 'El avance se ha editado correctamente!!!',
-                preConfirm: () => {
-                    location.reload();
+    Swal.fire({
+        type: 'question',
+        title: '¿Esta seguro de realizar los cambios?',
+        text: '',
+        confirmButtonText: 'Ok',
+        cancelButtonText: 'Cancelar',
+        showCancelButton: true,
+        showCloseButton: true,
+        preConfirm: () => {
+            $.ajax({
+                type: 'post',
+                url: 'projects/technicalAdvance/edit',
+                headers: { 'X-CSRF-TOKEN': $('#token').val() },
+                data: new FormData(formTecnicalAdvance),
+                dataType: "JSON",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'En hora buena!!!',
+                        text: 'El avance se ha editado correctamente!!!',
+                        preConfirm: () => {
+                            location.reload();
+                        },
+                    })
                 },
+                error: function (data) {
+                    console.log(data.responseJSON.message);
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Ops!!!',
+                        text: data.responseJSON.message,
+                        preConfirm: () => { },
+                    })
+                }
             })
         },
-        error: function(data) {
-            console.log(data.responseJSON.message);
-            Swal.fire({
-                type: 'error',
-                title: 'Ops!!!',
-                text: data.responseJSON.message,
-                preConfirm: () => {},
-            })
-        }
     })
 }

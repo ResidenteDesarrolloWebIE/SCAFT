@@ -45,6 +45,7 @@ if (document.querySelector('#preview-template') != null) {
                     });
                 });
             });
+
             this.on("removedfile", function(file) {
                 console.log($('.serverfilename', file.previewElement).val())
                 var folioProject = $('#idFolioPro').val()
@@ -55,15 +56,15 @@ if (document.querySelector('#preview-template') != null) {
                     data: { name: file.name, folioProject: folioProject, typeProject: typeProject, _token: $('#csrf-token').val() },
                     dataType: 'JSON',
                     success: function(data) {
-                        console.log(data);
-                    },
-                    error: function(data) {
                         Swal.fire({
-                            type: 'error',
-                            title: 'Ops!!!',
-                            text: "La imagen no pudo ser eliminada",
+                            type: 'success',
+                            title: 'En hora buena!!!',
+                            text: "La imagen fue eliminada correctamente",
                             preConfirm: () => {},
                         })
+                    },
+                    error: function(data) {
+                        console.log(data);
                     }
                 });
             });

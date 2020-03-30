@@ -1,6 +1,7 @@
 
 $(function() {
     var table = $('#tableProjects').DataTable({
+        "scrollX":true,
         columnDefs: [{ orderable: false, targets: 'not-sort' }],
         lengthMenu: [[10, 25, 50,100, -1], [10, 25, 50, 100,"Todos"]],
         language: {
@@ -19,5 +20,5 @@ $(function() {
             "search": "Palabra clave:"
         },
     });
-    table.column('1:visible').order('asc').draw();
+    table.column('0:visible').order('asc').draw();
 });
