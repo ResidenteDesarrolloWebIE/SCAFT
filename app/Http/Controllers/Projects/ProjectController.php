@@ -164,7 +164,7 @@ class ProjectController extends Controller
         if (Auth::check()) {
             $idCustomer = Auth::id();
             $projects = Project::with(['technicalAdvances', 'economicAdvances'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
-            return view('client.projects.advances.gallery')->with('projects', $projects);
+            return view('client.projects.advances.advance')->with('projects', $projects);
         }
     }
     public function showGallery(Request $request,  $idProject, $typeProject){
