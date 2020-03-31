@@ -11,7 +11,7 @@
         </button>
         <div class="collapse navbar-collapse offset-md-1" id="navbarToggler">
             <ul class="navbar-nav mr-auto">
-                @if(Auth::user()->hasRole('admin'))
+                @if(Auth::user()->hasRole('Administrador'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/home')}}">Inicio</a>
                 </li>

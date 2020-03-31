@@ -1,0 +1,96 @@
+Todo usuario tendra asignado de manera predeterminada el rol de consulta tendra el rol de consulta.
+
+
+Proyectos
+    listar
+        Roles (consulta)
+    crear
+        Roles (Administrador, ofertas, servicio), ventas, (lider,ventas)
+    Editar
+        Roles (Administrador, ofertas, servicio),ventas, (lider,ventas)
+
+
+Imagenes
+    Crear y editar
+        Roles (Administrador, Manufactura, Servicio)
+
+
+
+minutas
+    externas (Clientes)
+        Crear
+            Roles (Administrador, (lider Y ofertas ))
+        listar
+            Roles (Consulta)
+
+    internas
+        Crear
+            Roles (Adminitrador,Ofertas)
+        Listar
+            Roles (Consulta)    
+
+
+
+Usuarios
+    Crear
+        Roles (Administrador)
+    Editar
+        Roles (Administrador)
+    Listar
+        Roles ((consulta y administrador), )
+
+
+Avance tecnico
+    Recepcion de orden de compra
+        Editar
+            Roles (Adminitrador, Ofertas)
+        Consultar
+            Roles (Consulta)
+
+    Liberacion de ingenieria
+        Editar
+            Roles (Administrador,ingenieria)
+        Consultar
+            Roles (Consulta)
+
+    Avance de trabajo
+        Editar
+            Roles (Administrador,Manufactura,Servicio)
+        Consulta
+            Roles (Consulta)
+
+    Entrega a cliente
+        Editar
+            TB
+                Roles (Administrador,Almacen)
+            SR
+                Roles (Administrador,Servicio)
+        Consulta
+            Roles (Consulta)
+
+
+
+Avance economico
+    Anticipo
+            Roles (Administrador,Finanzas)
+        Consulta
+            Roles (Consulta)
+
+    Pago por liberacion de ingenieria.
+        Editar.
+            Roles (Administrador,Finanzas)
+        Consulta
+            Roles (Consulta)
+
+    Pago final proyecto.
+        Editar.
+            Roles (Administrador,Finanzas)
+        Consulta
+            Roles (Consulta)
+
+            
+Clientes
+    Rol (Cliente)
+        Ver suministros y servicios.
+        Ver el avance tecnico y economico.
+        Ver la galeria de imagenes

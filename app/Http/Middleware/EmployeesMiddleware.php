@@ -15,7 +15,7 @@ class EmployeesMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $request->user()->authorizeRoles(['admin']);
+        $request->user()->authorizeRoles(['Administrador','Ofertas','Ventas','Ingenieria','Manufactura','Servicio','Almacen','Finanzas','Consulta']);
         return $next($request);
     }
 }

@@ -15,7 +15,7 @@ class CustomersMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $request->user()->authorizeRoles(['admin']);
+        $request->user()->authorizeRoles(['Cliente']);
         return $next($request);
     }
 }
