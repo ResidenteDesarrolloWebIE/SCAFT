@@ -20,6 +20,7 @@ class ProjectController extends Controller
 {
     public function showProjects()
     {
+        
         $clients = User::whereHas('roles', function (Builder $query) {
             $query->where('name', '=', 'client');
         })->get();
