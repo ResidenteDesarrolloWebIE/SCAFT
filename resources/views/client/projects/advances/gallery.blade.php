@@ -26,7 +26,6 @@
 						<li><a href="#img1"><img src="{{ asset('images/a.jpg') }}"></a></li>
 					</div>
 
-					
 					<div class="col-md-3 text-center">
 						<span>5 Marzo 2020</span>
 						<li><a href="#img2"><img src="{{ asset('images/b.jpg') }}"></a></li>
