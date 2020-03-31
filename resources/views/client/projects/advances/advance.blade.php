@@ -15,7 +15,7 @@
 				CLIENTE:<span style="text-decoration:underline;"> JOSE ENRIQUE ERASMO</span><br>
 				SUBESTACION:<span style="text-decoration:underline;"> INTEGRACION DE ENERGIA</span><br>
 				DESCRIPCION:<span style="text-decoration:underline;"> Servicio de integración al sistema
-					existente, Actualización de esquemas, Instalación de redes de comunicación, Tableros 
+					existente, Actualización de esquemas, Instalación de redes de comunicación, Tableros
 					TPCYM, Servicio de pruebas en fábrica para TPCYM´S</span><br>
 			</p>
 		</div>
@@ -58,12 +58,21 @@
 							<br>CLIENTE</span></p>
 				</li>
 
-				<li class="timeline-item">
-					<button class="btn btn-sm btn-primary">25 Mar 2020</button>
+				<li class="timeline-item select">
+					<select class="select-css">
+						<option>RELACIONADOS</option>
+						<option>TBXXXX</option>
+						<option>SRXXXX</option>
+						<option>TBXXXX</option>
+						<option>SRXXXX</option>
+						<option>TBXXXX</option>
+					</select>
 				</li>
 
-			</ul>
 		</div>
+
+		</ul>
+	</div>
 	</div>
 
 	<!-- AVANCE ECONÓMICO -->
