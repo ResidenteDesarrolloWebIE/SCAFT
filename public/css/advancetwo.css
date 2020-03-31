@@ -41,7 +41,7 @@
     position: absolute;
     top: 18px;
     left: 50%;
-    margin-left: 78px;
+    margin-left: 48px;
     background-color: white;
     border: 2px solid #06b7ff;
     box-shadow: 0 10px 30px #06b7ff;
@@ -181,8 +181,9 @@
     top: auto;
     background-color: #00456b;
     font-size: 16px;
-    right: -25%;
+    right: -20%;
     bottom: 20px;
+    
 }
 
 .timelines-badges b {
@@ -192,6 +193,7 @@
     padding-left: 1.9em;
     padding-top: 0.4em;
     vertical-align: middle;
+    
 }
 
 .timelines-badges p {
@@ -207,7 +209,7 @@
     font-size: 14px;
     font-weight: 600;
     position: absolute;
-    left: 9.5em;
+    left: 7.4em;
     bottom: -6em;
     border: 2px solid #06b7ff;
     box-shadow: 0 10px 30px #06b7ff;
