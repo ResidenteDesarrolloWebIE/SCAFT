@@ -10,9 +10,12 @@ Proyectos
         Roles (Administrador, ofertas, servicio),ventas, (lider,ventas)
 
 
+
+
 Imagenes
     Crear y editar
         Roles (Administrador, Manufactura, Servicio)
+
 
 
 
@@ -22,14 +25,11 @@ minutas
             Roles (Administrador, (lider Y ofertas ))
         listar
             Roles (Consulta)
-
     internas
         Crear
             Roles (Adminitrador,Ofertas)
         Listar
             Roles (Consulta)    
-
-
 
 Usuarios
     Crear
@@ -40,25 +40,23 @@ Usuarios
         Roles ((consulta y administrador), )
 
 
+
 Avance tecnico
     Recepcion de orden de compra
         Editar
             Roles (Adminitrador, Ofertas)
         Consultar
             Roles (Consulta)
-
     Liberacion de ingenieria
         Editar
             Roles (Administrador,ingenieria)
         Consultar
             Roles (Consulta)
-
     Avance de trabajo
         Editar
             Roles (Administrador,Manufactura,Servicio)
         Consulta
             Roles (Consulta)
-
     Entrega a cliente
         Editar
             TB
@@ -67,8 +65,6 @@ Avance tecnico
                 Roles (Administrador,Servicio)
         Consulta
             Roles (Consulta)
-
-
 
 Avance economico
     Anticipo
@@ -87,10 +83,13 @@ Avance economico
             Roles (Administrador,Finanzas)
         Consulta
             Roles (Consulta)
-
-            
+   
 Clientes
     Rol (Cliente)
         Ver suministros y servicios.
         Ver el avance tecnico y economico.
         Ver la galeria de imagenes
+
+
+Controlando los roles en crear y editar projectos,e imagenes.
+En crear minutas solo se Habilito el boton de crear de acuerdo a los roles, falta definir el tipo de minuta de acuerdo al rol.

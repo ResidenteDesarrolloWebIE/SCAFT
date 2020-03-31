@@ -7,11 +7,13 @@
     <div class="container container-projects-admin">
         <div class="row table-responsive text-center projects-table">
             <h1 class="text-center">Lista de Minutas</h1>
-            <div class="offset-md-8 col-md-4 text-right">
-                <button id="btnProject" type="button" class="btn btn-success" onclick="openModalAddMinute({{$project}})">
-                    Agregar Minuta <i class="fas fa-plus"></i>
-                </button>
-            </div>
+            @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas']))
+                <div class="offset-md-8 col-md-4 text-right">
+                    <button id="btnProject" type="button" class="btn btn-success" onclick="openModalAddMinute({{$project}})">
+                        Agregar Minuta <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            @endif
             <br>
             <table class="table text-center table-sm-responsive" id="tableMinutes">
                 <thead class="table-success">

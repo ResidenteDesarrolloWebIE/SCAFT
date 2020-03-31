@@ -8,7 +8,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="text-right modal-header-info">
-                <h4 class=""><strong>MINUTAS INTERNAS</strong></h4>
+                <h4 class=""><strong>MINUTAS</strong></h4>
             </div>
             <div class="modal-body">
                 {{Form::open(['method'=>'POST','id'=>'frm_minute','enctype'=>'multipart/form-data', 'class'=>'form','onsubmit'=>'saveMinuta(this); return false;'])}}
