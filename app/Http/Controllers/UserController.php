@@ -8,9 +8,11 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function showCustomer(){
-        $clients = User::whereHas('roles', function (Builder $query) {
-            $query->where('name', '=', 'client');
-        })->get();
-    }
+   public function showUsers(Request $request)
+   {
+   		$users=User::all();
+   		//dd($users);
+   		return view('admin.users.users')->with('users', $users);
+   	
+   }
 }
