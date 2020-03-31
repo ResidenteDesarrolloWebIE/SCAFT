@@ -13,43 +13,53 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $role = new Role();
-        $role->name = 'admin';
-        $role->description = 'Administrator';
+        $role->name = 'Administrador';
+        $role->description = 'Administrador total del sistema';
         $role->save();
 
         $role = new Role();
-        $role->name = 'client';
+        $role->name = 'Cliente';
         $role->description = 'Cliente';
         $role->save();
 
         $role = new Role();
-        $role->name = 'oferta';
+        $role->name = 'Ofertas';
         $role->description = 'Tecnico de ofertas';
         $role->save();
 
         $role = new Role();
-        $role->name = 'ingenieria';
+        $role->name = 'Ventas';
+        $role->description = 'Tecnico de Ventas';
+        $role->save();
+
+        $role = new Role();
+        $role->name = 'Ingenieria';
         $role->description = 'Ingenieria';
         $role->save();
 
         $role = new Role();
-        $role->name = 'manufactura';
-        $role->description = 'Manufactura';
+        $role->name = 'Manufactura';
+        $role->description = 'Ingeniero de Manufactura';
         $role->save();
 
         $role = new Role();
-        $role->name = 'servicio';
-        $role->description = 'Ingeniero de servicio';
+        $role->name = 'Servicio';
+        $role->description = 'Ingeniero de Servicio';
         $role->save();
 
         $role = new Role();
-        $role->name = 'almacen';
+        $role->name = 'Almacen';
         $role->description = 'Almacen';
         $role->save();
 
         $role = new Role();
-        $role->name = 'finanzas';
+        $role->name = 'Finanzas';
         $role->description = 'Administrador de finanzas';
+        $role->save();
+
+        $role = new Role();
+        $role->name = 'Consulta';
+        $role->description = 'Consultas al sistema';
         $role->save();
     }
 }

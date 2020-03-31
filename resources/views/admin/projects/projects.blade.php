@@ -65,7 +65,7 @@
                             <a data-toggle="modal" data-target="#technicalAdvanceProject">
                                 <button type="button" class="btn btn-warning" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
                             </a>
-                            <a>
+                            <a href="{{url('internalMinute',$project)}}">
                                 <button type="button" class="btn btn-info" title="Minutas"><i class="fas fa-file-alt"></i></button>
                             </a>
                             <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>

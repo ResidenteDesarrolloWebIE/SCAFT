@@ -31,6 +31,11 @@ Route::group(['middleware' => ['auth','employees']], function () {
     
     Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::post('projects/technicalAdvance/edit', 'Projects\TechnicalAdvanceController@edit');
+    Route::post('saveMinuta','Projects\MinutaController@storeMinuta');
+    Route::get('internalMinute/{id}','Projects\MinutaController@index');
+    Route::post('getFolioMinute','Projects\MinutaController@generateFolio');
+    Route::get('getAgreements/{id}','Projects\MinutaController@getAgreements');
+    Route::get('exportMinute/{id}','Projects\MinutaController@exportPDF');
 
     Route::get('projects/customer/show', 'Projects\ProjectController@showProjectsByClient');
     Route::get('projects/customer/edit', 'Projects\ProjectController@editProjectsByClient');
