@@ -59,21 +59,15 @@
                             <a data-toggle="modal" data-target="#editProject">
                                 <button type="button" class="btn btn-primary" title="Editar Proyecto" onclick='inicializeEditProject({{$project}})'><i class="fas fa-edit"></i></button>
                             </a>
-                            {{-- <a data-toggle="modal" data-target="#changeStatusProject" onclick='statusProject({{$project}})'>
-                            <button type="button" class="btn btn-warning" title="Cambiar status"><i class="fas fa-exchange-alt"></i></button>
-                            </a>--}}
                             <a data-toggle="modal" data-target="#economicAdvanceProject">
                                 <button type="button" class="btn btn-warning" title="Editar avance economico" onclick='initilizeEconomicAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-dollar-sign"></i></button>
                             </a>
                             <a data-toggle="modal" data-target="#technicalAdvanceProject">
                                 <button type="button" class="btn btn-warning" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
                             </a>
-                            <a data-toggle="modal" data-target="#internalMinutaProject" onclick='imagesProject( {{$project}})'>
-                                <button type="button" class="btn btn-info" title="Minutas Interna"><i class="fas fa-file-alt"></i></button>
+                            <a>
+                                <button type="button" class="btn btn-info" title="Minutas"><i class="fas fa-file-alt"></i></button>
                             </a>
-                            {{--<a data-toggle="modal" data-target="#externalMinutaProject" onclick='imagesProject( {{$project}})'>
-                            <button type="button" class="btn btn-info" title="Minutas Externas"><i class="fas fa-file-alt"></i><i class="fas fa-external-link-square-alt"></i></button>
-                            </a>--}}
                             <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>
                                 <button type="button" class="btn btn-success" title="Agregar imagenes"><i class="fas fa-images"></i></button>
                             </a>
@@ -88,11 +82,8 @@
     </div>
     @include('admin/projects/create')
     @include('admin/projects/edit')
-    @include('admin/projects/changeStatus')
     @include('admin/projects/economicAdvanceEdit')
     @include('admin/projects/technicalAdvanceEdit')
-    @include('admin/projects/internalMinuta')
-    @include('admin/projects/externalMinuta')
     @include('admin/projects/images')
 </section>
 @endsection

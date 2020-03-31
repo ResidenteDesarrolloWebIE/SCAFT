@@ -1,10 +1,9 @@
 <div class="modal fade" id="editProject">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <span type="hidden" name="_token" value="{{{ csrf_token() }}}" id="tokenLoadImages"> </span>
             <div class="modal-header">
                 <h4 class="modal-title" id="idFolio"><span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">PROYECTO: </strong> <strong id='idFolioProjectEdit'></strong></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="" data-dismiss="modal">&times;</button>
             </div>
             <div class="text-right modal-header-info">
                 <h4 class=""><strong>EDITAR </strong></h4>
@@ -12,7 +11,7 @@
             <div class="modal-body">
                 {{Form::open(['method'=>'PUT','id'=>'formEditProject','enctype'=>'multipart/form-data', 'class'=>'row','onsubmit'=>'editProject(this); return false;'])}}
                 <input type="hidden" name="project" value="" id="idProjectEdit" readonly="true" />
-                <input type="hidden" name="token" value="{{ csrf_token() }}" id="token" readonly="true" />
+                <input type="hidden" name="token" value="{{ csrf_token() }}" id="tokenEditProject" readonly="true" />
                 <div class="col-md-6">
                     <div class="form-group text-center">
                         <label for="typeProjectEdit"><strong style="color:red">*</strong><strong>Tipo</strong></label>

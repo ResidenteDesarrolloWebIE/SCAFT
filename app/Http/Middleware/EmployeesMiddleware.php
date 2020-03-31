@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class ClientMiddleware
+class EmployeesMiddleware
 {
     /**
      * Handle an incoming request.
@@ -13,8 +13,9 @@ class ClientMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next){
-        $request->user()->authorizeRoles(['client']);
+    public function handle($request, Closure $next)
+    {
+        $request->user()->authorizeRoles(['admin']);
         return $next($request);
     }
 }

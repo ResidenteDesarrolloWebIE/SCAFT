@@ -26,8 +26,8 @@ $(document).ready(function() {
 
     });
     $("#createProject").on('show.bs.modal', function() {
-        $("#idFolioProject").prop("disabled", true);
-        $('#idFolioProject').attr({ "placeholder": "Selecciona un tipo" });
+        $("#idFolioProjectCreate").prop("disabled", true);
+        $('#idFolioProjectCreate').attr({ "placeholder": "Selecciona un tipo" });
     });
     $("#createProject").on('hidden.bs.modal', function() {
         $("#formCreateProject")[0].reset();
@@ -35,8 +35,8 @@ $(document).ready(function() {
     });
     $("#divExcangeRateProject").hide();
     $("#idTypeProject").change(function() {
-        $("#idFolioProject").prop("disabled", false);
-        $('#idFolioProject').attr({ "placeholder": "20001" });
+        $("#idFolioProjectCreate").prop("disabled", false);
+        $('#idFolioProjectCreate').attr({ "placeholder": "20001" });
         if ($(this).val() == 1) { /* Suministro */
             $("#idInitialsProject").val("TB");
         } else {
@@ -70,16 +70,16 @@ $(document).ready(function() {
     $("#idCoinProject").change(function() {
         if ($(this).val() == 1) { /* Pesos */
             $("#divExcangeRateProject").hide();
-            $("#idFolioProject").prop("required", false);
+            $("#idFolioProjectCreate").prop("required", false);
         } else { /* Dolares */
             $("#divExcangeRateProject").show();
-            $("#idFolioProject").prop("required", true);
+            $("#idFolioProjectCreate").prop("required", true);
         }
     });
 });
 
 function saveProject(formCreateProject) {
-    if ($("#idFolioProject").val().length < 5) {
+    if ($("#idFolioProjectCreate").val().length < 5) {
         Swal.fire({
             type: 'error',
             title: 'Ops!!!',

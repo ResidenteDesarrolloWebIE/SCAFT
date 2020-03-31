@@ -11,7 +11,7 @@
             <div class="modal-body">
                 {{Form::open(['method'=>'POST','id'=>'formTecnicalAdvance','enctype'=>'multipart/form-data', 'class'=>'row','onsubmit'=>'editTechnicalAdvance(this); return false;'])}}
                 <input type="hidden" name="technicalAdvance" id="idTechnicalAdvance" value="" readonly="true" />
-                <input type="hidden" name="token" value="{{{ csrf_token() }}}" id="token" readonly="true" />
+                <input type="hidden" name="token" value="{{{ csrf_token() }}}" id="tokenTechnicalAdvance" readonly="true" />
                 <div class="col-md-6">
                     <div class="form-group text-center">
                         <label for="receiveOrder"><strong style="color:red">*</strong><strong>Recepcion de orden de compra</strong></label>

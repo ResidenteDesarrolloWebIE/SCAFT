@@ -1,14 +1,13 @@
 <div class="modal fade" id="createProject">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <span type="hidden" name="_token" value="{{{ csrf_token() }}}" id="tokenLoadImages"> </span>
             <div class="modal-header">
                 <h4 class="modal-title" id="idFolio"> <span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">CREAR NUEVO PROYECTO</strong></h4>
                 <button type="button" class="" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 {{Form::open(['method'=>'POST','id'=>'formCreateProject','enctype'=>'multipart/form-data', 'class'=>'row','onsubmit'=>'saveProject(this); return false;'])}}
-                <input type="hidden" name="token" value="{{ csrf_token() }}" id="token" readonly="true" />
+                <input type="hidden" name="token" value="{{ csrf_token() }}" id="tokenCreateProject" readonly="true" />
                 <div class="col-md-6">
                     <div class="form-group text-center">
                         <label for="typeProject"><strong style="color:red">*</strong><strong>Tipo</strong></label>
@@ -41,7 +40,7 @@
                             <div class="input-group-append">
                                 <input type="text" class="form-control" name="initialsProject" id="idInitialsProject" value="--" readonly style="width: 45px">
                             </div>
-                            <input type="number" class="form-control" value="" name="folioProject" id="idFolioProject"  required maxlength="5" 
+                            <input type="number" class="form-control" value="" name="folioProjectCreate" id="idFolioProjectCreate"  required maxlength="5" 
                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="20001">
                         </div>
                     </div>
@@ -57,7 +56,7 @@
                     <div class="form-group text-center">
                         <label for="totalAmount"><strong style="color:red">*</strong><strong>Monto total</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="totalAmount" id="idTotalAmount" value="" required placeholder="Monto total">
+                            <input type="number" class="form-control" name="totalAmountProject" id="idTotalAmountProject" value="" required placeholder="Monto total">
                             <div class="input-group-append">
                                 <select class="custom-select" name="coinProject" id="idCoinProject" required>
                                     <option id="optionPesos" value="1" selected>MXN</option>

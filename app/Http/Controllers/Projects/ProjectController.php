@@ -40,21 +40,21 @@ class ProjectController extends Controller
     }
     public function create(Request $request)
     {
-        $existQuotation = Project::where('folio', $request->initialsProject . trim($request->folioProject))->first();
+        $existQuotation = Project::where('folio', $request->initialsProject . trim($request->folioProjectCreate))->first();
         if (!is_null($existQuotation)) {
             return abort(response()->json(["message" => 'El folio ingresado esta duplicado'], 400));
         } else {
             try {
                 DB::beginTransaction();
                 $project = new Project();
-                $project->folio = $request->initialsProject . trim($request->folioProject);
+                $project->folio = $request->initialsProject . trim($request->folioProjectCreate);
                 $project->name = trim($request->nameProject);
                 $project->substation = trim($request->substationProject);
                 $project->status = 'PENDIENTE';
                 if (!is_null($request->exchangeRate)) {
                     $project->exchange_rate = $request->exchangeRate;
                 }
-                $project->total_amount = $request->totalAmount;
+                $project->total_amount = $request->totalAmountProject;
                 $project->description = trim($request->descriptionProject);
                 $project->project_type_id = $request->typeProject;
                 $project->coin_id = $request->coinProject;
@@ -84,7 +84,7 @@ class ProjectController extends Controller
                 $hour = str_replace(":", "", date("h:i:s"));
                 $file = $request->file('offerProject');
                 $filename  =  $hour . $file->getClientOriginalName();
-                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProject) . '/OFERTAS/' . $filename;
+                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/' . $filename;
                 Storage::disk('local')->put($path, \File::get($file));
 
                 $file = new File();
@@ -108,6 +108,7 @@ class ProjectController extends Controller
 
     public function edit(Request $request)
     {
+        dd($request->all());
         try {
             $project = Project::where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
@@ -145,8 +146,8 @@ class ProjectController extends Controller
             return view('client.projects.services')->with('projects', $projects);
         }
     }
-    public function showSupplies()
-    {
+
+    public function showSupplies(){
         if (Auth::check()) {
             $idCustomer = Auth::id();
             $projects = Project::where('project_type_id', 1)->where('customer_id', $idCustomer)->get();

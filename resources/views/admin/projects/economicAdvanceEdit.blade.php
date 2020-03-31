@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 {{Form::open(['method'=>'PUT','id'=>'formEconomicAdvance','enctype'=>'multipart/form-data', 'class'=>'row','onsubmit'=>'editEconomicAdvance(); return false;'])}}
-                <input type="hidden" name="token" value="{{{ csrf_token() }}}" id="token" readonly="true" />
+                <input type="hidden" name="token" value="{{{ csrf_token() }}}" id="tokenEconomicAdvance" readonly="true" />
                 <input type="hidden" name="economicAdvance" value="" id="idEconomicAdvance" readonly="true" />
                 <input type="hidden" name="totalAmount" id="idTotalAmount" value="" readonly="true" />
                 <div class="col-md-6">
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="input-group">
-                            <select class="custom-select" name="finalPaymentMount" id="idFinalPaymentMount" required>
+                            <select class="custom-select" name="finalPaymentCompleted" id="idFinalPaymentCompleted" required>
                                 <option value=0 selected> No completado</option>
                                 <option id="optionCienPorciento" value=1>Completado</option>
                             </select>

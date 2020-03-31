@@ -1,11 +1,10 @@
 <div class="modal fade" id="imagesProject">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <span type="hidden" name="_token" value="{{{ csrf_token() }}}" id="tokenLoadImages"> </span>
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title" id="idFolio"><span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">Folio: </strong> <strong id='idFolioProjectImages'></strong></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="" data-dismiss="modal">&times;</button>
             </div>
             <div class="text-right modal-header-info">
                 <h4 class=""><strong>SUBIR IMAGENES</strong></h4>
@@ -28,7 +27,7 @@
                     </div>
                 </div>
                 <!-- Dropzone Preview Template -->
-                <div  class="preview-template" id="preview-template">
+                <div class="preview-template" id="preview-template">
                     <div class="dz-preview dz-file-preview">
                         <div class="dz-image"><img data-dz-thumbnail=""></div>
                         <input type="hidden" class="serverfilename" />
