@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::put('projects/technicalAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::post('upload', 'Projects/ImageController@save')->name('upload-post');
-    Route::get('users', 'UserController@showUsers');
+    Route::get('users', 'Users\UserController@showUsers');
     
 
     /*Route::get('customers', 'UserController@showCustomers');
