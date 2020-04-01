@@ -24,14 +24,14 @@
                 <tbody>
                     @foreach($minuta->agreements as $agreement)
                     <tr>
-                        <td>1</td>
-                        <td>Mi acuerdo</td>
-                        <td>Jesus Israel</td>
-                        <td>Realizado</td>
-                        <td>03/10/20</td>
-                        <td>04/10/20</td>
+                        <td>{{$loop->iteration }}</td>
+                        <td>{{$agreement->agreement}}</td>
+                        <td>{{$agreement->responsable}}</td>
+                        <td>{{$agreement->status}}</td>
+                        <td>{{$agreement->start_date}}</td>
+                        <td>{{$agreement->end_date}}</td>
                         <td>
-                        <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Editar Acuerdo" onclick=""><i class="fas fa-edit"></i></button>
+                        <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-info"  title="Editar Acuerdo" onclick=""><i class="fas fa-edit"></i></button>
                         <a href="#"><button type="button" class="btn btn-danger" title="Eliminar acuerdo" ><i class="fas fa-trash"></i></button></a>
                         </td>
                     </tr>
@@ -40,7 +40,6 @@
             </table>
         </div>
     </div>
-    @include('admin/projects/internalMinuta')
-    @include('admin/projects/modalAgreements')
+    @include('admin/projects/modalEditAgreement')
 </section>
 @endsection

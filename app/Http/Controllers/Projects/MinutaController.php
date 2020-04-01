@@ -28,6 +28,7 @@ class MinutaController extends Controller
                 $agreement = new Agreement();
                 $agreement->agreement = $request->acuerdos[$i];
                 $agreement->responsable = $request->responsables[$i];
+                $agreement->status = 'REGISTRADO';
                 $agreement->start_date = Carbon::parse($request->dateStart[$i])->format('Y-m-d');
                 $agreement->end_date = Carbon::parse($request->dateEnd[$i])->format('Y-m-d');
                 $agreement->minuta_id = $minuta->id;
