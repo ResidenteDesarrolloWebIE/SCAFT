@@ -25,7 +25,7 @@
 <script src="{{ asset('js/admin/projects/internalMinuta.js') }}"></script>
 <script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
 <script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
-
+<script src="{{asset('js/admin/projects/agreements.js')}}"></script>
 
 {{--<!-- <script src="{{ asset('js/client/modals/financialAdvance.js') }}"></script>
 <script src="{{ asset('js/client/modals/imageGallery.js') }}"></script>

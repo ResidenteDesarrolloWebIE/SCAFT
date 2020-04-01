@@ -9,7 +9,7 @@
             <h1 class="text-center">Lista de acuerdos</h1>
             
             <br>
-            <table class="table text-center table-sm-responsive" id="tableMinutes">
+            <table class="table text-center table-sm-responsive" id="tableAgreements">
                 <thead class="table-success">
                     <tr>
                         <th>N°</th>
@@ -31,7 +31,7 @@
                         <td>{{$agreement->start_date}}</td>
                         <td>{{$agreement->end_date}}</td>
                         <td>
-                        <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-info"  title="Editar Acuerdo" onclick=""><i class="fas fa-edit"></i></button>
+                        <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-info"  title="Editar Acuerdo" onclick="openModalEditAgreement({{$agreement}})"><i class="fas fa-edit"></i></button>
                         <a href="#"><button type="button" class="btn btn-danger" title="Eliminar acuerdo" ><i class="fas fa-trash"></i></button></a>
                         </td>
                     </tr>

@@ -38,6 +38,7 @@
                         <label class="col-xs-2 col-form-label"><b>Estatus</b></label>                        
                         <select class="custom-select" name="status" id="statusAgreement" required>
                             <option value="" selected disabled> Seleccionar un estatus</option>                            
+                            <option value="PROCESO">PROCESO</option>
                             <option value="REALIZADO">REALIZADO</option>
                             <option value="CANCELADO">CANCELADO</option>
                         </select>                        
