@@ -56,7 +56,11 @@
                     <div class="form-group text-center">
                         <label for="totalAmountEdit"><strong style="color:red">*</strong><strong>Monto total</strong></label>
                         <div class="input-group">
+                            @if(Auth::user()->hasAnyRole(['Administrador']))
+                                <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total">
+                            @else
                             <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total" disabled>
+                            @endif
                             <div class="input-group-append">
                                 <select class="custom-select" name="coinProjectEdit" id="idCoinProjectEdit" required disabled>
                                     <option id="optionPesosEdit" value="1" selected>MXN</option>

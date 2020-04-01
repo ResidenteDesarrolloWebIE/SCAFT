@@ -17,7 +17,7 @@
                         <label for="receiveOrder"><strong style="color:red">*</strong><strong>Recepcion de orden de compra</strong></label>
                         <div class="form-group text-center ">
                             <!-- custom-control custom-switch -->
-                            <select class="custom-select" name="receiveOrder" id="idReceiveOrder" required>
+                            <select class="custom-select" name="receiveOrder" id="idReceiveOrder" required {{$selectStatusReceiveOrder}}>
                                 <option value=0 selected> 0 %</option>
                                 <option id="optionCienPorciento" value=100>100 %</option>
                             </select>
@@ -40,7 +40,7 @@
                     <div class="form-group text-center">
                         <label for="workProgress"><strong style="color:red">*</strong><strong>Avances de trabajo</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="workProgress" id="idWorkProgress" value="" required>
+                            <input type="number" class="form-control" name="workProgress" id="idWorkProgress" value="" required {{$inputStatusWorkProgress}}>
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -51,7 +51,7 @@
                     <div class="form-group text-center">
                         <label for="engineeringRelease"><strong style="color:red">*</strong><strong>Liberacion de ingenieria</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="engineeringRelease" id="idEngineeringRelease" value="" required>
+                            <input type="number" class="form-control" name="engineeringRelease" id="idEngineeringRelease" value="" required {{$inputStatusEngineeringRelease}}>
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -60,7 +60,7 @@
                     <div class="form-group text-center">
                         <label for="deliveryCustomer"><strong style="color:red">*</strong><strong>Entrega a clientes</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="deliveryCustomer" id="idDeliveryCustomer" value="" required>
+                            <input type="number" class="form-control" name="deliveryCustomer" id="idDeliveryCustomer" value="" required {{$inputStatusDeliveryCustomer}}>
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -69,8 +69,12 @@
                 </div>
             </div>
             <div class="modal-footer " style="justify-content: center;">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button><!-- type="button" onclick="save()" -->
+                @if(Auth::user()->hasAnyRole(['Administrador','Ofertas','ingenieria','Manufactura','Servicio','Almacen']))
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                @else
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @endif
                 {{ Form::close()}}
             </div>
         </div>

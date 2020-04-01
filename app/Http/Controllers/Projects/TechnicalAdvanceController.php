@@ -7,6 +7,7 @@ use App\Models\Projects\File;
 use App\Models\Projects\TechnicalAdvance;
 use App\Models\Projects\PurchaseOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class TechnicalAdvanceController extends Controller
@@ -46,9 +47,5 @@ class TechnicalAdvanceController extends Controller
             echo ("El error ocurrido es el siguiente: " . $th);
             return abort(response()->json(["message" => 'El avance no pudo ser editado'], 400));
         }
-    }
-    public function edits(Request $request)
-    {
-        dd("Avance technico");
     }
 }

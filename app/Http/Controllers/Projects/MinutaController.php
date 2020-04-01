@@ -18,16 +18,10 @@ class MinutaController extends Controller
     }
 
     public function storeMinuta(Request $request){
-        
         try {
             $minuta = new Minuta();
             $minuta->folio = $request->folio;
-            /* if((Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador'])){
-                $minuta->type = 'INTERNA';
-            }elseif(Auth::user()->hasAnyRole(['Administrador','Ofertas'])){
-                $minuta->type = 'EXTERNA';
-            }*/
-            $minuta->type = 'EXTERNA';
+            $minuta->type = $request->typeMinuta; /* 'EXTERNA';  */
             $minuta->project_id = $request->project_id;
             $minuta->save();
             for($i=0; $i < count($request->acuerdos); $i++){
@@ -43,7 +37,6 @@ class MinutaController extends Controller
         } catch (\Exception $e) {
             dd($e);
             return response()->json(['Message'=>'Error']);
-            
         }
 
     }

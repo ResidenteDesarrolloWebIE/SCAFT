@@ -26,13 +26,13 @@
                             </div>
                         </div>
                         <div class="input-group" style="margin-bottom: 4px">
-                            <input type="number" class="form-control" name="initialAdvancePercentage" id="idInitialAdvancePercentage" onKeyUp="calculateAmount(event,1)" value="" required placeholder="Porcentaje">
+                            <input type="number" class="form-control" name="initialAdvancePercentage" id="idInitialAdvancePercentage" onKeyUp="calculateAmount(event,1)" value="" placeholder="Porcentaje" required {{$inputStatus}}>
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
                         <div class="input-group">
-                            <select class="custom-select" name="initialAdvanceCompleted" id="idInitialAdvanceCompleted" required>
+                            <select class="custom-select" name="initialAdvanceCompleted" id="idInitialAdvanceCompleted" required {{$selectStatus}}>
                                 <option value=0 selected> No completado</option>
                                 <option id="optionCienPorciento" value=1>Completado</option>
                             </select>
@@ -50,13 +50,13 @@
                             </div>
                         </div>
                         <div class="input-group" style="margin-bottom: 4px">
-                            <input type="number" class="form-control" name="finalPaymentPercentage" id="idFinalPaymentPercentage" onKeyUp="calculateAmount(event,3)" value="" required placeholder="Porcentaje">
+                            <input type="number" class="form-control" name="finalPaymentPercentage" id="idFinalPaymentPercentage" onKeyUp="calculateAmount(event,3)" value="" placeholder="Porcentaje" required {{$inputStatus}}>
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
                         <div class="input-group">
-                            <select class="custom-select" name="finalPaymentCompleted" id="idFinalPaymentCompleted" required>
+                            <select class="custom-select" name="finalPaymentCompleted" id="idFinalPaymentCompleted" required {{$selectStatus}}>
                                 <option value=0 selected> No completado</option>
                                 <option id="optionCienPorciento" value=1>Completado</option>
                             </select>
@@ -76,13 +76,13 @@
                             </div>
                         </div>
                         <div class="input-group" style="margin-bottom: 4px">
-                            <input type="number" class="form-control" name="engineeringReleasePaymentPercentage" id="idEngineeringReleasePaymentPercentage" onKeyUp="calculateAmount(event,2)" value="" required placeholder="Porcentaje">
+                            <input type="number" class="form-control" name="engineeringReleasePaymentPercentage" id="idEngineeringReleasePaymentPercentage" onKeyUp="calculateAmount(event,2)" value="" placeholder="Porcentaje" required {{$inputStatus}}>
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
                         </div>
                         <div class="input-group">
-                            <select class="custom-select" name="engineeringReleasePaymentCompleted" id="idEngineeringReleasePaymentCompleted" required>
+                            <select class="custom-select" name="engineeringReleasePaymentCompleted" id="idEngineeringReleasePaymentCompleted" required {{$selectStatus}}>
                                 <option value=0 selected> No completado</option>
                                 <option id="optionCienPorciento" value=1>Completado</option>
                             </select>
@@ -111,8 +111,12 @@
                 </div>
             </div>
             <div class="modal-footer " style="justify-content: center;">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button><!-- type="button" onclick="save()" -->
+                @if(Auth::user()->hasAnyRole(['Administrador','Finanzas']))
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                @else
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @endif
                 {{ Form::close()}}
             </div>
         </div>
