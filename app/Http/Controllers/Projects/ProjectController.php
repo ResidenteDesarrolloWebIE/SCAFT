@@ -18,16 +18,40 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
-    public function showProjects()
-    {
+    public function showProjects(){
+        $clients = User::whereHas('roles', function (Builder $query) {$query->where('name', '=', 'Cliente');})->get();
+        $selectStatusReceiveOrder = "";
+        $inputStatusEngineeringRelease = "";
+        $inputStatusWorkProgress = "";
+        $inputStatusDeliveryCustomer = "";
+        $selectStatus = "";
+        $inputStatus = "";
+
+        /* Avance tecnico */
+        if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
+        if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){ $inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
+        if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
+        if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
         
-        $clients = User::whereHas('roles', function (Builder $query) {
-            $query->where('name', '=', 'client');
-        })->get();
+        /* Avance economico */
+        if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
+            $selectStatus = "disabled";
+            $inputStatus = "readonly";
+        } /* Las 4 etapas */
 
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
-
-        return view('admin.projects.projects')->with('projects', $projects)->with('clients', $clients);
+        
+        /* dd(
+            $projects,
+            $clients,
+            $selectStatusReceiveOrder,
+            $inputStatusEngineeringRelease,
+            $inputStatusWorkProgress,
+            $inputStatusDeliveryCustomer,
+        );  */
+        return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
+        'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'
+        ));
     }
     public function showProjectsByClient(Request $request)
     {
@@ -113,6 +137,9 @@ class ProjectController extends Controller
         try {
             $project = Project::where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
+            if (!is_null($request->totalAmountEdit)){
+                $project->total_amount = $request->totalAmountEdit;
+            }
             if (!is_null($request->affiliationProjectEdit)) {
                 $affiliatedProjects = AffiliationProject::where('project_id', $project->id)->orWhere('affiliation_project_id', $project->id)->get();
                 $affiliatedProjects->delete();

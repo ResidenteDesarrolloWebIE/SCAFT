@@ -61,6 +61,7 @@
                             <td>
                                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
                                     <a data-toggle="modal" data-target="#editProject">
+                                        
                                         <button type="button" class="btn btn-primary" title="Editar Proyecto" onclick='inicializeEditProject({{$project}})'><i class="fas fa-edit"></i></button>
                                     </a>
                                 @endif
