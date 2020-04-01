@@ -1,55 +1,94 @@
-$(document).ready(function() {
-    $("#createProject").on('hidden.bs.modal', function() {
+$(document).ready(function () {
+    $("#editProject").on('hidden.bs.modal', function () {
         $("#formEditProject")[0].reset();
+        $('#idAffiliationProjectEdit').multiselect('destroy');
     });
 });
 
 function inicializeEditProject(project) {
-    console.log("Project", project)
-    $('#folio').html(project.folio);
-    $('#idProject').val(project.id);
-    $('#idFolioProject').val(project.folio);
-    $('#idCustomerProject').val(project.customer_id);
-    $('#idSubstationProject').val(project.substation);
-    $('#idNameProject').val(project.name);
-    $('#idTypeProject').val(project.type);
-    $('#idDescription').html(project.description);
-    $('#idStatusProject').val(project.status);
-    console.log("GGGGgggggggg");
+    console.log("Project", project.folio)
+    $('#idProjectEdit').val(project.id);
+    $('#idTypeProjectEdit').val(project.project_type_id);
+    $('#idNameProjectEdit').val(project.name);
+    $('#idSubstationProjectEdit').val(project.substation);
+    $.get('projects/customer/edit?idCustomer=' + project.customer_id + '&idProject=' + project.id, function (data) {
+        $("#idAffiliationProjectEdit").html('');
+        $('#idAffiliationProjectEdit').multiselect('destroy');
+        if (data.projects.length <= 0) {
+            $("#idAffiliationProjectEdit").append('<option value="" selected disabled>No hay proyectos para el cliente </option>');
+        } else {
+            $('#idAffiliationProjectEdit').prop("multiple", true);
+            for (let index = 0; index < data.projects.length; index++) {
+                var checked = false;
+                for (let index1 = 0; index1 < project.affiliations.length; index1++) {
+                    if (data.projects[index].id == project.affiliations[index1].id) {
+                        $("#idAffiliationProjectEdit").append('<option value="' + data.projects[index].id + '" selected>' + data.projects[index].folio + '</option>')
+                        checked = true;
+                    }
+                }
+                if (checked == false) {
+                    $("#idAffiliationProjectEdit").append('<option value="' + data.projects[index].id + '">' + data.projects[index].folio + '</option>')
+                }
+            }
+            $('#idAffiliationProjectEdit').multiselect({
+                buttonContainer: '<div class="btn-group form-control" />',
+                nonSelectedText: 'Selecciona un proyecto',
+                nSelectedText: 'Seleccionado',
+                allSelectedText: 'Todos selecionados'
+            });
+        }
+    });
+    $('#idAffiliationProjectEdit').val(project.status);
+    $('#idInitialsProjectEdit').val(project.folio.substring(0, 2));
+    $('#idFolioProjectEdit').val(project.folio.substring(2));
+    $('#idClientProjectEdit').val(project.customer_id);
+    $('#idTotalAmountEdit').val(project.total_amount);
+    $('#idCoinProjectEdit').val(project.coin_id);
+    if (project.coin_id == 1) { /* Pesos */
+        $('#divExchangeRate').hide();
+    } else { /* Dolares */
+        $('#divExchangeRate').show();
+        $('#idExchangeRateEdit').val(project.exchange_rate);
+    }
+    $('#idStatusProjectEdit').val(project.status);
+    $('#idDescriptionProjectEdit').html(project.description);
 }
 
 function editProject(formulario) {
-    console.log("Vamos a editar",$("#formEditProject").serialize());
-    $.ajax({
-        type: 'put',
-        url: 'projects/edit',
-        /* headers: {
-            'X-CSRF-TOKEN': $('#token').val()
-        }, */
-        data: $("#formEditProject").serialize(),
-        /* data: new FormData(formulario), */
-        dataType: "JSON",
-/*         cache: false,
-        contentType: false,
-        processData: false, */
-        success: function(data) {
-            Swal.fire({
-                type: 'success',
-                title: 'En hora buena!!!',
-                text: 'La cotizacion se ha creado correctamente!!!',
-                preConfirm: () => {
-                    location.reload();
+    Swal.fire({
+        type: 'question',
+        title: '¿Esta seguro de realizar los cambios?',
+        text: '',
+        confirmButtonText: 'Ok',
+        cancelButtonText: 'Cancelar',
+        showCancelButton: true,
+        showCloseButton: true,
+        preConfirm: () => {
+            $.ajax({
+                type: 'put',
+                url: 'projects/edit',
+                data: $("#formEditProject").serialize(),
+                dataType: "JSON",
+                success: function (data) {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'En hora buena!!!',
+                        text: 'E proyecto se ha editado correctamente!!!',
+                        preConfirm: () => {
+                            location.reload();
+                        },
+                    })
                 },
+                error: function (data) {
+                    console.log(data.responseJSON.message);
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Ops!!!',
+                        text: "El Proyecto no se ha podido editar",
+                        preConfirm: () => { },
+                    })
+                }
             })
         },
-        error: function(data) {
-            console.log(data.responseJSON.message);
-            Swal.fire({
-                type: 'error',
-                title: 'Ops!!!',
-                text: data.responseJSON.message,
-                preConfirm: () => {},
-            })
-        }
     })
 }

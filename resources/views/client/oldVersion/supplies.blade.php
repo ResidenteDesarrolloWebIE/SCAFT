@@ -35,9 +35,8 @@
                                                 <i class="fas fa-info color" style="color:white;"></i>
                                             </span>
                                         </button>
-
                                         <button class="backgroud-icon" id="btnEconomicSupply" data-toggle="modal" data-target="#financialAdvance" onclick='financialAdvance({{$supply->id}},this.id);'>
-                                            <span data-toggle="tooltip" data-placement="bottom" title="Avance Economico!">
+                                            <span data-toggle="tooltip" data-placement="bottom" title="Avance del proyecto!">
                                                 <i class="fas fa-dollar-sign" style="color:white;"></i>
                                             </span>
                                         </button>
