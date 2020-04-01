@@ -13,8 +13,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $role_client = Role::where('name', 'client')->first();
-        $role_admin = Role::where('name', 'admin')->first();
+        $role_client = Role::where('name', 'Cliente')->first();
+        $role_admin = Role::where('name', 'Administrador')->first();
 
         $user = new User();
         $user->name = 'Cliente';

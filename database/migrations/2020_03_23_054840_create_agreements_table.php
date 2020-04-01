@@ -19,6 +19,8 @@ class CreateAgreementsTable extends Migration
             $table->string('responsable',150); 
             $table->date('start_date');
             $table->date('end_date');
+            $table->unsignedBigInteger('minuta_id')->nullable();
+            $table->foreign('minuta_id')->references('id')->on('minutas');
             $table->softDeletes();
             $table->timestamps();
         });

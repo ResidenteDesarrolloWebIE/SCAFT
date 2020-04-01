@@ -19,8 +19,8 @@ class CreateAffiliationProjectsTable extends Migration
             $table->foreign('project_id')->references('id')->on('projects');
             $table->unsignedBigInteger('affiliation_project_id')->nullable();
             $table->foreign('affiliation_project_id')->references('id')->on('projects');
-            $table->softDeletes();
-            $table->timestamps();
+            /* $table->softDeletes();
+            $table->timestamps(); */
         });
     }
 

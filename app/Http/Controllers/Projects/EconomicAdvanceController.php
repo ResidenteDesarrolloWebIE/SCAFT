@@ -8,14 +8,24 @@ use Illuminate\Http\Request;
 
 class EconomicAdvanceController extends Controller
 {
-    public function edit(Request $request)
-    {
+    public function edit(Request $request){
         try {
             $economicAdvance = EconomicAdvance::where('id', $request->economicAdvance)->first();
-            $economicAdvance->advance = $request->advance;
-            $economicAdvance->engineering_release_payment = $request->engineeringReleasePayment;
-            $economicAdvance->final_payment = $request->finalPayment;
-            $economicAdvance->total = $request->total;
+            $economicAdvance->initial_advance_percentage = $request->initialAdvancePercentage;
+            $economicAdvance->initial_advance_mount =  $request->initialAdvanceMount;
+            if(!is_null($request->initialAdvanceCompleted)){
+                $economicAdvance->initial_advance_completed =  $request->initialAdvanceCompleted;
+            }
+            $economicAdvance->engineering_release_payment_percentage =  $request->engineeringReleasePaymentPercentage;
+            $economicAdvance->engineering_release_payment_mount =  $request->engineeringReleasePaymentMount;
+            if(!is_null($request->engineeringReleasePaymentCompleted)){
+                $economicAdvance->engineering_release_payment_completed =  $request->engineeringReleasePaymentCompleted;
+            }
+            $economicAdvance->final_payment_percentage =  $request->finalPaymentPercentage;
+            $economicAdvance->final_payment_mount =  $request->finalPaymentMount;
+            if(!is_null($request->finalPaymentCompleted)){
+                $economicAdvance->final_payment_completed = $request->finalPaymentCompleted;
+            }
             $economicAdvance->save();
             return response()->json(["message" => 'El avance fue editado correctamente'], 200);
         } catch (\Throwable $th) {
