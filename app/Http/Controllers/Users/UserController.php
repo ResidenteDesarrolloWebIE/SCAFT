@@ -8,13 +8,9 @@ use App\User;
 
 class UserController extends Controller
 {
-   public function showUsers(Request $request)
-   {
-   		$users=User::all();
-   		dd($users);
-   		return view('admin.users.users')->with('users', $users);
-   	
-   }
+   public function showUsers(Request $request){
+       dd('holaa');
+   	}
 
    /*public function create(Request $request){
 
