@@ -31,6 +31,7 @@
                         <td>
                         <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Ver Acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
                         <a href="/exportMinute/{{$minute->id}}"><button type="button" class="btn btn-success" title="Descargar PDF" ><i class="fas fa-file-alt"></i></button></a>
+                        <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-warning" title="Ver acuerdos" ><i class="fas fa-external-link-alt"></i></button></a>
                         </td>
                     </tr>
                     @endforeach

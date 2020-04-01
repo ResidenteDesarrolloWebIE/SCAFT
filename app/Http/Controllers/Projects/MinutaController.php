@@ -21,7 +21,7 @@ class MinutaController extends Controller
         try {
             $minuta = new Minuta();
             $minuta->folio = $request->folio;
-            $minuta->type = $request->typeMinuta; /* 'EXTERNA';  */
+            $minuta->type = $request->typeMinuta;
             $minuta->project_id = $request->project_id;
             $minuta->save();
             for($i=0; $i < count($request->acuerdos); $i++){
