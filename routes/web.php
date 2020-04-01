@@ -47,5 +47,5 @@ Route::group(['middleware' => ['auth','employees']], function () {
     Route::get('projects/offers/download/{id}', 'Projects\OfferController@download');
     Route::get('projects/purchaseOrders/download/{id}', 'Projects\PurchaseOrderController@download');
 
-    Route::get('users','TestController@show');
+    Route::get('users','UserController@showUsers');
 });

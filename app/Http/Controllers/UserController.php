@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -9,9 +9,7 @@ use App\User;
 class UserController extends Controller
 {
    public function showUsers(Request $request){
-       dd('holaaa');
    		$users=User::all();
-   		dd($users);
    		return view('admin.users.users')->with('users', $users);
    	
    }
