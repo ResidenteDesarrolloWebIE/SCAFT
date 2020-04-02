@@ -7,17 +7,21 @@
     <div class="container container-projects-admin">
         <div class="row table-responsive text-center projects-table">
             <h1 class="text-center">Lista de acuerdos</h1>
-            
+            <div class="offset-md-8 col-md-4 text-right">
+            <a href="/internalMinute/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-info" onclick="">
+                    Ver minutas  <i class="fas fa-undo"></i>
+                </button></a>
+            </div>
             <br>
-            <table class="table text-center table-sm-responsive" id="tableAgreements">
+            <table class="table table-sm-responsive" id="tableAgreements">
                 <thead class="table-success">
-                    <tr>
+                    <tr style="text-align:center">
                         <th>N°</th>
                         <th>Acuerdo</th>
                         <th>Responsable</th>
                         <th>Estatus</th>
-                        <th>Fecha inicio</th>
-                        <th>Fecha final</th>
+                        <th style="width:100px">Fecha inicio</th>
+                        <th style="width:100px">Fecha final</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -32,7 +36,6 @@
                         <td>{{$agreement->end_date}}</td>
                         <td>
                         <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-info"  title="Editar Acuerdo" onclick="openModalEditAgreement({{$agreement}})"><i class="fas fa-edit"></i></button>
-                        <a href="#"><button type="button" class="btn btn-danger" title="Eliminar acuerdo" ><i class="fas fa-trash"></i></button></a>
                         </td>
                     </tr>
                     @endforeach

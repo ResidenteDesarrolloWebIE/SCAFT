@@ -132,6 +132,7 @@ function getAgreements(id) {
                 + (i+1) + "</td><td align='center'>"
                 + data.agreements[i].agreement + "</td><td align='center'>"
                 + data.agreements[i].responsable + "</td><td align='center'>"
+                + data.agreements[i].status + "</td><td align='center'>"
                 + data.agreements[i].start_date + "</td><td align='center'>"
                 + data.agreements[i].end_date + "</td>";
                 tableAgreements.append(trtable +"</tr>");

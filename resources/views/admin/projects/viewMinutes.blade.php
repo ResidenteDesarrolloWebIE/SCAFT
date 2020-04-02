@@ -12,6 +12,9 @@
                     <button id="btnProject" type="button" class="btn btn-success" onclick="openModalAddMinute({{$project}})">
                         Agregar Minuta <i class="fas fa-plus"></i>
                     </button>
+                    <a href="/projects"><button id="btnProject" type="button" class="btn btn-info">
+                        Ver proyectos <i class="fas fa-undo"></i>
+                    </button></a>
                 </div>
             @endif
             <br>
@@ -29,7 +32,7 @@
                         <td>{{$minute->folio}}</td>
                         <td>{{$minute->type}}</td>
                         <td>
-                        <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Ver Acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
+                        <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Listar acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
                         <a href="/exportMinute/{{$minute->id}}"><button type="button" class="btn btn-success" title="Descargar PDF" ><i class="fas fa-file-alt"></i></button></a>
                         <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-warning" title="Ver acuerdos" ><i class="fas fa-external-link-alt"></i></button></a>
                         </td>

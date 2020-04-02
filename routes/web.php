@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth','employees']], function () {
     Route::get('exportMinute/{id}','Projects\MinutaController@exportPDF');
 
     Route::get('agreements/{id}','Projects\AgreementController@index');
+    Route::post('updateAgreement','Projects\AgreementController@update');
 
     Route::get('projects/customer/show', 'Projects\ProjectController@showProjectsByClient');
     Route::get('projects/customer/edit', 'Projects\ProjectController@editProjectsByClient');
