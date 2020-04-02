@@ -7,12 +7,13 @@
             <div class="modal-body">                            
                 <div class="col-lg-12">
                     <div class="table-responsive">
-                        <table class="table table-hover table-condensed table-bordered" id="roleCatTable">
+                        <table class="table table-hover table-condensed table-bordered nowrap" id="roleCatTable">
                             <thead>
                                 <tr>
                                     <th style="text-align:center">No.</th>
                                     <th style="text-align:center">Acuerdo</th>
                                     <th style="text-align:center">Responsable</th>
+                                    <th style="text-align:center">Estatus</th>
                                     <th style="text-align:center">Fecha Inicio</th>
                                     <th style="text-align:center">Fecha Fin</th>
                                 </tr>

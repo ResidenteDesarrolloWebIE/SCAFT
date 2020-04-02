@@ -1,7 +1,7 @@
 Todo usuario tendra asignado de manera predeterminada el rol de consulta tendra el rol de consulta.
 
 
-Proyectos
+Proyectos (LISTO)
     listar
         Roles (consulta)
     crear
@@ -12,14 +12,13 @@ Proyectos
 
 
 
-Imagenes
+Imagenes (LISTO)
     Crear y editar
         Roles (Administrador, Manufactura, Servicio)
 
 
 
-
-minutas
+minutas  (LISTO)
     externas (Clientes)
         Crear
             Roles (Administrador, (lider Y ofertas ))
@@ -31,7 +30,7 @@ minutas
         Listar
             Roles (Consulta)    
 
-Usuarios
+Usuarios (LISTO)
     Crear
         Roles (Administrador)
     Editar
@@ -41,7 +40,7 @@ Usuarios
 
 
 
-Avance tecnico
+Avance tecnico (LISTO)
     Recepcion de orden de compra
         Editar
             Roles (Adminitrador, Ofertas)
@@ -59,25 +58,27 @@ Avance tecnico
             Roles (Consulta)
     Entrega a cliente
         Editar
-            TB
-                Roles (Administrador,Almacen)
-            SR
-                Roles (Administrador,Servicio)
+            Alternativa
+                Roles (Administrador,Almacen,Servicio)
+            Pendiente
+                TB
+                    Roles (Administrador,Almacen,Servicio)
+                SR
+                    Roles (Administrador,Servicio)
         Consulta
             Roles (Consulta)
 
-Avance economico
+
+Avance economico (LISTO)
     Anticipo
             Roles (Administrador,Finanzas)
         Consulta
             Roles (Consulta)
-
     Pago por liberacion de ingenieria.
         Editar.
             Roles (Administrador,Finanzas)
         Consulta
             Roles (Consulta)
-
     Pago final proyecto.
         Editar.
             Roles (Administrador,Finanzas)

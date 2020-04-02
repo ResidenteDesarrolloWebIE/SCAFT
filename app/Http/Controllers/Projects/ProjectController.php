@@ -2,45 +2,59 @@
 
 namespace App\Http\Controllers\Projects;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Builder;
-use App\Http\Controllers\Controller;
 use App\Models\Projects\AffiliationProject;
-use App\Models\Projects\EconomicAdvance;
-use App\Models\Projects\File;
-use App\Models\Projects\Offer;
-use App\Models\Projects\Project;
 use App\Models\Projects\TechnicalAdvance;
-use Illuminate\Http\Request;
-use App\User;
+use Illuminate\Database\Eloquent\Builder;
+use App\Models\Projects\EconomicAdvance;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Projects\Project;
+use App\Models\Projects\Offer;
+use App\Models\Projects\File;
+use Illuminate\Http\Request;
+use App\User;
 
-class ProjectController extends Controller
-{
-    public function showProjects()
-    {
+class ProjectController extends Controller{
+    public function showProjects(){
+        $clients = User::whereHas('roles', function (Builder $query) {$query->where('name', '=', 'Cliente');})->get();
+        $selectStatusReceiveOrder = "";
+        $inputStatusEngineeringRelease = "";
+        $inputStatusWorkProgress = "";
+        $inputStatusDeliveryCustomer = "";
+        $selectStatus = "";
+        $inputStatus = "";
+
+        /* Avance tecnico */
+        if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
+        if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){ $inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
+        if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
+        if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
         
-        $clients = User::whereHas('roles', function (Builder $query) {
-            $query->where('name', '=', 'client');
-        })->get();
+        /* Avance economico */
+        if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
+            $selectStatus = "disabled";
+            $inputStatus = "readonly";
+        } /* Las 4 etapas */
 
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
-
-        return view('admin.projects.projects')->with('projects', $projects)->with('clients', $clients);
+        
+        return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
+        'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'));
     }
-    public function showProjectsByClient(Request $request)
-    {
+
+    public function showProjectsByClient(Request $request){
         $result = Project::where('customer_id', $request->idCustomer)->get();
         return response()->json(["projects" => $result]);
     }
-    public function editProjectsByClient(Request $request)
-    {
+
+    public function editProjectsByClient(Request $request){
         $result = Project::where('customer_id', $request->idCustomer)->where('id', '<>', $request->idProject)->get();
         return response()->json(["projects" => $result]);
     }
-    public function create(Request $request)
-    {
+
+    public function create(Request $request){
         $existQuotation = Project::where('folio', $request->initialsProject . trim($request->folioProjectCreate))->first();
         if (!is_null($existQuotation)) {
             return abort(response()->json(["message" => 'El folio ingresado esta duplicado'], 400));
@@ -107,14 +121,16 @@ class ProjectController extends Controller
         }
     }
 
-    public function edit(Request $request)
-    {
-        dd($request->all());
+
+    public function edit(Request $request){
         try {
             $project = Project::where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
+            if (!is_null($request->totalAmountEdit)){
+                $project->total_amount = $request->totalAmountEdit;
+            }
             if (!is_null($request->affiliationProjectEdit)) {
-                $affiliatedProjects = AffiliationProject::where('project_id', $project->id)->orWhere('affiliation_project_id', $project->id)->get();
+                $affiliatedProjects = AffiliationProject::where('project_id', $project->id)->orWhere('affiliation_project_id', $project->id);
                 $affiliatedProjects->delete();
                 $project->affiliations()->sync($request->affiliationProjectEdit);
                 foreach ($request->affiliationProjectEdit as $affiliation) {
@@ -133,9 +149,9 @@ class ProjectController extends Controller
         }
     }
 
+
     /* Retornas vista para los clientes */
-    public function showServices()
-    {
+    public function showServices(){
         if (Auth::check()) {
             $idCustomer = Auth::id();
             $projects = Project::where('project_type_id', 2)->where('customer_id', $idCustomer)->get();
@@ -147,6 +163,7 @@ class ProjectController extends Controller
             return view('client.projects.services')->with('projects', $projects);
         }
     }
+
 
     public function showSupplies(){
         if (Auth::check()) {
@@ -160,18 +177,24 @@ class ProjectController extends Controller
             return view('client.projects.supplies')->with('projects', $projects);
         }
     }
+
+
     public function showAdvances(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $projects = Project::with(['technicalAdvances', 'economicAdvances'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
-            return view('client.projects.advances.advance')->with('projects', $projects);
+            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            return view('client.projects.advances.advance')->with('project', $project);
         }
     }
+
+
     public function showGallery(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $projects = Project::with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
-            return view('client.projects.advances.gallery')->with('projects', $projects);
+            $project = Project::
+            /* whereHas('images', function (Builder $query) {$query->orderBy('created_At', 'asc');})-> */
+            with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            return view('client.projects.advances.gallery')->with('project', $project);
         }
     }
 }
