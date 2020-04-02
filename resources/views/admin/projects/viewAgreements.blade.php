@@ -8,7 +8,7 @@
         <div class="row table-responsive text-center projects-table">
             <h1 class="text-center">Lista de acuerdos</h1>
             <div class="offset-md-8 col-md-4 text-right">
-            <a href="/internalMinute/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-info" onclick="">
+            <a href="/minutas/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-info" onclick="">
                     Ver minutas  <i class="fas fa-undo"></i>
                 </button></a>
             </div>
