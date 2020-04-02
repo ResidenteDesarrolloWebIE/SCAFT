@@ -99,12 +99,6 @@
                 </table>
             </div>
         </div>
-
-        @include('admin/projects/create')
-        @include('admin/projects/edit')
-        @include('admin/projects/economicAdvanceEdit')
-        @include('admin/projects/technicalAdvanceEdit')
-        @include('admin/projects/images')
     </div>
     @include('admin/projects/modals/create')
     @include('admin/projects/modals/edit')
