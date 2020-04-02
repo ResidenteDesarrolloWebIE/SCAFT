@@ -26,6 +26,9 @@
 <script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
 <script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
 
+<script src="{{ asset('js/admin/users/users.js') }}"></script>
+<script src="{{ asset('js/admin/users/create.js') }}"></script>
+
 
 {{--<!-- <script src="{{ asset('js/client/modals/financialAdvance.js') }}"></script>
 <script src="{{ asset('js/client/modals/imageGallery.js') }}"></script>

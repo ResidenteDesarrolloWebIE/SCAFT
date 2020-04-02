@@ -48,8 +48,8 @@
         </div>
     </div>
 
-    {{--@include('admin/users/create')--}}
-
+    @include('admin/users/create')
+    
    
 </section>
 @endsection
