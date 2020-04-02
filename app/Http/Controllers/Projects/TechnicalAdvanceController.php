@@ -7,7 +7,6 @@ use App\Models\Projects\File;
 use App\Models\Projects\TechnicalAdvance;
 use App\Models\Projects\PurchaseOrder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class TechnicalAdvanceController extends Controller

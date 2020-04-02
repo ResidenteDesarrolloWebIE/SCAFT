@@ -1,10 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<head>
-	<link href="/css/advance.css" rel="stylesheet">
-	<link href="/css/advancetwo.css" rel="stylesheet">
-</head>
+
+
 <section class="section-home">
 	@include('layouts.partials._navigationBar')
 	<!-- AVANCE TÉCNICO -->
@@ -25,7 +23,7 @@
 				</li>
 				<li class="timeline-item">
 					<div class="timeline-badge primary">
-						<b>{{$project->technicalAdvances->receive_order}}</b>
+						<b>{{$project->technicalAdvances->receive_order}} %</b>
 					</div>
 					<p><span id="lower-text">ORDEN DE
 							<br>COMPRA</span></p>
@@ -33,7 +31,7 @@
 
 				<li class="timeline-item">
 					<div class="timeline-badge primary">
-						<b>{{$project->technicalAdvances->engineering_release}}</b>
+						<b>{{$project->technicalAdvances->engineering_release}} %</b>
 					</div>
 					<p><span id="lower-text">LIBERACIÓN DE
 							<br>INGENIERÍA</span></p>
@@ -41,7 +39,7 @@
 
 				<li class="timeline-item">
 					<div class="timeline-badge primary">
-						<b>{{$project->technicalAdvances->work_progress}}</b>
+						<b>{{$project->technicalAdvances->work_progress}} %</b>
 					</div>
 					<p><span id="lower-text">AVANCE DE
 							<br>TRABAJOS</span></p>
@@ -50,7 +48,7 @@
 
 				<li class="timeline-item">
 					<div class="timeline-badge primary">
-						<b>{{$project->technicalAdvances->delivery_customer}}</b>
+						<b>{{$project->technicalAdvances->delivery_customer}} %</b>
 					</div>
 					<p><span id="lower-text">ENTREGA A
 							<br>CLIENTE</span></p>
@@ -80,29 +78,29 @@
 				</li>
 				<li class="timelines-item1">
 					<div class="timelines-badges primary">
-						<b>{{$project->economicAdvances->initial_advance_percentage}}</b>
-						<p>{{$project->economicAdvances->initial_advance_mount}}</p>
+						<b>{{$project->economicAdvances->initial_advance_percentage}} %</b>
+						<p> $ {{$project->economicAdvances->initial_advance_mount}}</p>
 					</div>
 					<p1><span id="lower-text1">ANTICIPO</span></p>
 				</li>
 				<li class="timelines-item1">
 					<div class="timelines-badges primary">
-						<b>{{$project->economicAdvances->engineering_release_payment_percentage}}</b>
-						<p>{{$project->economicAdvances->engineering_release_payment_mount}}</p>
+						<b>{{$project->economicAdvances->engineering_release_payment_percentage}} %</b>
+						<p> $ {{$project->economicAdvances->engineering_release_payment_mount}}</p>
 					</div>
 					<p><span id="lower-text1">PAGO POR LIBERACIÓN</span></p>
 				</li>
 
 				<li class="timelines-item1">
 					<div class="timelines-badges primary">
-						<b>{{$project->economicAdvances->final_payment_percentage}}</b>
-						<p>{{$project->economicAdvances->final_payment_mount}}</p>
+						<b>{{$project->economicAdvances->final_payment_percentage}} %</b>
+						<p> $ {{$project->economicAdvances->final_payment_mount}}</p>
 					</div>
 					<p><span id="lower-text1">PAGO FINAL PROYECTO</span></p>
 				</li>
 
 				<li class="timelines-item1">
-					<button class="btn btn-sm btn-primary">{{$project->total_amount}}</button>
+					<button class="btn btn-sm btn-primary"> $ {{$project->total_amount}} {{$project->coin->code}}</button>
 				</li>
 
 			</ul>

@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
         $project->total_amount = 1000.00;
         $project->description = 'Descripcion';
         $project->customer_id = 1;
+        $project->coin_id = 1;
         $project->save();
 
         /* $project = new Project();

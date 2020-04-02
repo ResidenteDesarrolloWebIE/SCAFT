@@ -22,13 +22,14 @@ function addActiveClass() {
     }
 }
 
+function procesando() {
+    var timerInterval
+    swal.fire({
+        title: 'PROCESANDO',
+        html: 'AGUARDA UN MOMENTO POR FAVOR.',
 
-
-
-
-
-
-
-
-
-
+        onBeforeOpen: () => {
+            Swal.showLoading();
+        }
+    })
+}

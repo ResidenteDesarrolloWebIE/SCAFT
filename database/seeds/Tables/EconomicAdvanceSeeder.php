@@ -26,6 +26,7 @@ class EconomicAdvanceSeeder extends Seeder
         $advance->final_payment_completed = 0;
 
         $advance->final_payment_completed = 1;
+        $advance->project_id = 1;
         $advance->save();
     }
 }

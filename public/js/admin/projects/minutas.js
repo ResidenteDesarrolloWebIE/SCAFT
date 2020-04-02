@@ -40,7 +40,7 @@ $(document).ready(function(){
         x--; //Decrement field counter
     });
 
-    $("#internalMinutaProject").on('hidden.bs.modal', function() {
+    $("#createMinuta").on('hidden.bs.modal', function() {
         wrapper.html('');
         $("#frm_minute")[0].reset();
     });
@@ -67,7 +67,7 @@ function openModalAddMinute(project) {
             console.log(data);
         }
     });
-    $("#internalMinutaProject").modal('show');
+    $("#createMinuta").modal('show');
 }
 
 function saveMinuta(form) {    

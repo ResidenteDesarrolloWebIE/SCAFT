@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<head>
-	<link href="/css/gallery.css" rel="stylesheet">
-</head>
-
-<section class="gallery">
+<section class="gallery" style="margin-top: 20px">
 	@include('layouts.partials._navigationBar')
 	<body>
 		<header>
@@ -23,7 +19,7 @@
 					</div>
 					@endif
 					@foreach($project->images as $image)
-					<div class="col text-center">
+					<div class="col-md-3 text-center" style="margin-right:0px">
 						<span>
 							<span style="display: none">{{setlocale(LC_TIME,'spanish')}}</span>
 							{{strftime("%d de %B del %Y", strtotime(date("d M Y",strtotime($image->created_at))))}}
@@ -31,7 +27,17 @@
 						<li><a href="{{'#image'.explode('.', explode('_', $image->name)[1])[0] }}"><img src="{{ asset('storage/'.$image->path ) }}"></a></li>
 					</div>
 					@endforeach
-				</div>
+					@foreach($project->images as $image)
+					<div class="col-md-3 text-center" style="margin-right: 0px">
+						<span>
+							<span style="display: none">{{setlocale(LC_TIME,'spanish')}}</span>
+							{{strftime("%d de %B del %Y", strtotime(date("d M Y",strtotime($image->created_at))))}}
+						</span>
+						<li><a href="{{'#image'.explode('.', explode('_', $image->name)[1])[0] }}"><img src="{{ asset('storage/'.$image->path ) }}"></a></li>
+					</div>
+					@endforeach
+
+			</div>
 			</ul>
 			@foreach($project->images as $image)
 			<figure id="{{'image'.explode('.', explode('_', $image->name)[1])[0]}}" class="lbox bounce">
@@ -50,8 +56,5 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
 		<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" />
 	</body>
-
 </section>
 @endsection
-
-<!-- <script src="/js/general.js"></script> -->

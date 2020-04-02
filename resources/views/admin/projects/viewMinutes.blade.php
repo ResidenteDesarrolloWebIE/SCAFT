@@ -38,7 +38,7 @@
             </table>
         </div>
     </div>
-    @include('admin/projects/internalMinuta')
+    @include('admin/projects/createMinuta')
     @include('admin/projects/modalAgreements')
 </section>
 @endsection
