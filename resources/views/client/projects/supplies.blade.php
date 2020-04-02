@@ -32,7 +32,7 @@
                                     <div class="buttons-projects">
                                         <a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 1])}}"> <!-- Suministros tien e el id 1 -->
                                             <button class="backgroud-icon" id="btnEconomicSupply">
-                                                <span data-toggle="tooltip" data-placement="bottom" title="Avance Economico!">
+                                                <span data-toggle="tooltip" data-placement="bottom" title="Avance del proyecto!">
                                                     <i class="fas fa-dollar-sign" style="color:white;"></i>
                                                 </span>
                                             </button>

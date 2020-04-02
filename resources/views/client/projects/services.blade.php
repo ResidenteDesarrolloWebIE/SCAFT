@@ -32,7 +32,7 @@
 									<div class="buttons-projects">
 										<a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 2])}}">
 											<button class="backgroud-icon" data-toggle="modal" data-target="#technicalAdvanceService">
-												<span data-toggle="tooltip" data-placement="bottom" title="Avance Tecnico!">
+												<span data-toggle="tooltip" data-placement="bottom" title="Avance del proyecto!">
 													<i class="fas fa-wrench" style="color:white;"></i>
 												</span>
 											</button>

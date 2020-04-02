@@ -71,7 +71,7 @@
                                 <a data-toggle="modal" data-target="#technicalAdvanceProject">
                                     <button type="button" class="btn btn-warning" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
                                 </a>
-                                <a href="{{url('internalMinute',$project)}}">
+                                <a href="{{url('minutas',$project)}}">
                                     <button type="button" class="btn btn-info" title="Minutas"><i class="fas fa-file-alt"></i></button>
                                 </a>
                                 @if(Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']))
@@ -93,10 +93,10 @@
             </table>
         </div>
     </div>
-    @include('admin/projects/create')
-    @include('admin/projects/edit')
-    @include('admin/projects/economicAdvanceEdit')
-    @include('admin/projects/technicalAdvanceEdit')
-    @include('admin/projects/images')
+    @include('admin/projects/modals/create')
+    @include('admin/projects/modals/edit')
+    @include('admin/projects/modals/economicAdvanceEdit')
+    @include('admin/projects/modals/technicalAdvanceEdit')
+    @include('admin/projects/modals/images')
 </section>
 @endsection

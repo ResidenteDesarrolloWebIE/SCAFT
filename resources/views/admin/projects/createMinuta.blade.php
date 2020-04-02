@@ -1,4 +1,4 @@
-<div class="modal fade" id="internalMinutaProject" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="createMinuta" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <!-- Modal Header -->
