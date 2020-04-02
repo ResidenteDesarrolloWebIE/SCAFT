@@ -16,18 +16,15 @@
 
 <script src="{{ asset('js/general.js') }}"></script>
 <script src="{{ asset('js/admin/projects/projects.js') }}"></script>
-<script src="{{ asset('js/admin/projects/create.js') }}"></script>
-<script src="{{ asset('js/admin/projects/economicAdvance.js') }}"></script>
-<script src="{{ asset('js/admin/projects/edit.js') }}"></script>
-<script src="{{ asset('js/admin/projects/externalMinuta.js') }}"></script>
-<script src="{{ asset('js/admin/projects/file.js') }}"></script>
-<script src="{{ asset('js/admin/projects/images.js') }}"></script>
-<script src="{{ asset('js/admin/projects/internalMinuta.js') }}"></script>
-<script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
-<script src="{{ asset('js/admin/projects/technicalAdvance.js') }}"></script>
+<script src="{{ asset('js/admin/projects/modals/create.js') }}"></script>
+<script src="{{ asset('js/admin/projects/modals/economicAdvance.js') }}"></script>
+<script src="{{ asset('js/admin/projects/modals/edit.js') }}"></script>
+<script src="{{ asset('js/admin/projects/modals/images.js') }}"></script>
+<script src="{{ asset('js/admin/projects/minutas.js') }}"></script>
+<script src="{{ asset('js/admin/projects/modals/technicalAdvance.js') }}"></script>
 <script src="{{asset('js/admin/projects/agreements.js')}}"></script>
-
 <script src="{{ asset('js/client/gallery.js') }}"></script>
+
 <script src="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
 
 <script>
