@@ -11,6 +11,7 @@
         </button>
         <div class="collapse navbar-collapse offset-md-1" id="navbarToggler">
             <ul class="navbar-nav mr-auto">
+
                 @if(Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Ingenieria','Manufactura','Servicio','Almacen','Finanzas', 'Lider', 'Consulta']))
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/home')}}">Inicio</a>
@@ -20,7 +21,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('users')}}">Usuarios</a>
-                    </li> 
+                    </li>
                 @elseif(Auth::user()->hasAnyRole(['Cliente']))
                     <li class="nav-item">
                         <a class="nav-link " href="{{url('/home')}}">Inicio</a>

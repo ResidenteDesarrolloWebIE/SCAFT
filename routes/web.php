@@ -28,7 +28,6 @@ Route::group(['middleware' => ['auth','employees']], function () {
     Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::put('projects/technicalAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::post('upload', 'Projects/ImageController@save')->name('upload-post');
-    Route::get('users', 'UserController@showUsers');
     
     Route::get('projects/images', 'Projects\ImageController@showImages');
     Route::post('projects/images/save', 'Projects\ImageController@save')->name('projects-images');
@@ -50,4 +49,6 @@ Route::group(['middleware' => ['auth','employees']], function () {
 
     Route::get('projects/offers/download/{id}', 'Projects\OfferController@download');
     Route::get('projects/purchaseOrders/download/{id}', 'Projects\PurchaseOrderController@download');
+
+    Route::get('users','UserController@showUsers');
 });
