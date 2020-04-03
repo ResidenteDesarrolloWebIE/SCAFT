@@ -10,7 +10,7 @@
             <div class="offset-md-8 col-md-4 text-right">
                 <a data-toggle="modal" data-target="#createUser">
                     <button id="btnUser" type="button" class="btn btn-success">
-                        Crear nuevo usuario<i class="fas fa-exchange-alt"></i>
+                        Crear nuevo usuario <i class="fas fa-plus"></i>
                     </button>
                 </a>
             </div>
