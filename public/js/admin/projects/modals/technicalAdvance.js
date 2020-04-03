@@ -83,14 +83,17 @@ function initializeTechnicalAdvance(project) {
 
 function editTechnicalAdvance(formTecnicalAdvance) {
     Swal.fire({
-        type: 'question',
-        title: '¿Esta seguro de realizar los cambios?',
-        text: '',
-        confirmButtonText: 'Ok',
-        cancelButtonText: 'Cancelar',
+        title: '¿Está seguro de actualizar este avance?',
+        text: "Esta acción no podrá deshacerse",
+        type: 'warning',
         showCancelButton: true,
-        showCloseButton: true,
-        preConfirm: () => {
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, actualizar avance',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.value) {
+            procesando();
             $.ajax({
                 type: 'post',
                 url: 'projects/technicalAdvance/edit',
@@ -103,8 +106,8 @@ function editTechnicalAdvance(formTecnicalAdvance) {
                 success: function (data) {
                     Swal.fire({
                         type: 'success',
-                        title: 'En hora buena!!!',
-                        text: 'El avance se ha editado correctamente!!!',
+                        title: '¡Editado!',
+                        text: 'El avance se ha editado correctamente',
                         preConfirm: () => {
                             location.reload();
                         },
@@ -114,7 +117,7 @@ function editTechnicalAdvance(formTecnicalAdvance) {
                     console.log(data.responseJSON.message);
                     Swal.fire({
                         type: 'error',
-                        title: 'Ops!!!',
+                        title: '¡Error!',
                         text: data.responseJSON.message,
                         preConfirm: () => { },
                     })

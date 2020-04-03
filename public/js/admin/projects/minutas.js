@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $('#tableMinutes').DataTable({
         columnDefs: [{ orderable: false, targets: 'not-sort' }],

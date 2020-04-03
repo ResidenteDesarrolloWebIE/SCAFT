@@ -58,7 +58,7 @@ if (document.querySelector('#preview-template') != null) {
                     success: function(data) {
                         Swal.fire({
                             type: 'success',
-                            title: 'En hora buena!!!',
+                            title: '¡Eliminado!',
                             text: "La imagen fue eliminada correctamente",
                             preConfirm: () => {},
                         })

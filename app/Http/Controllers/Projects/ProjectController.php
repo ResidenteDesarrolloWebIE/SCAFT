@@ -39,7 +39,6 @@ class ProjectController extends Controller{
         } /* Las 4 etapas */
 
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
-        
         return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
         'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'));
     }

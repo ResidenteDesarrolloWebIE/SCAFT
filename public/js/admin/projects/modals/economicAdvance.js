@@ -68,20 +68,23 @@ function editEconomicAdvance() {
     if ($("#idPaymentTotalPercentage").val() >= 100) {
         Swal.fire({
             type: 'error',
-            title: 'Ops!!!',
+            title: '¡Error!',
             text: "La suma del porcentaje de las 3 etapas no puede ser mas del 100%",
             preConfirm: () => { },
         })
     } else {
         Swal.fire({
-            type: 'question',
-            title: '¿Esta seguro de realizar los cambios?',
-            text: '',
-            confirmButtonText: 'Ok',
-            cancelButtonText: 'Cancelar',
+            title: '¿Está seguro de actualizar este avance?',
+            text: "Esta acción no podrá deshacerse",
+            type: 'warning',
             showCancelButton: true,
-            showCloseButton: true,
-            preConfirm: () => {
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, actualizar avance',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.value) {
+                procesando();
                 $.ajax({
                     type: 'put',
                     url: 'projects/economicAdvance/edit',
@@ -90,8 +93,8 @@ function editEconomicAdvance() {
                     success: function (data) {
                         Swal.fire({
                             type: 'success',
-                            title: 'En hora buena!!!',
-                            text: 'El Avance tecnico se ha editado correctamente!!!',
+                            title: '¡Editado!',
+                            text: 'El Avance tecnico se ha editado correctamente',
                             preConfirm: () => {
                                 location.reload();
                             },
@@ -101,7 +104,7 @@ function editEconomicAdvance() {
                         console.log(data.responseJSON.message);
                         Swal.fire({
                             type: 'error',
-                            title: 'Ops!!!',
+                            title: '¡Error!',
                             text: "El avance no pudo ser editado",
                             preConfirm: () => { },
                         })

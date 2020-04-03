@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $("#idOfferProject").fileinput({
         language: 'es',
         showRemove: true,
@@ -23,18 +23,21 @@ $(document).ready(function() {
         fileActionSettings: {
             showZoom: true,
         },
-
     });
-    $("#createProject").on('show.bs.modal', function() {
+    $("#createProject").on('show.bs.modal', function () {
         $("#idFolioProjectCreate").prop("disabled", true);
         $('#idFolioProjectCreate').attr({ "placeholder": "Selecciona un tipo" });
     });
-    $("#createProject").on('hidden.bs.modal', function() {
+    $("#createProject").on('hidden.bs.modal', function () {
         $("#formCreateProject")[0].reset();
+
+        $('#idAffiliationProject').html("")
         $('#idAffiliationProject').multiselect('destroy');
+        $("#idAffiliationProject").append('<option value="" selected disabled> Selecciona un cliente </option>');
+        $('#idAffiliationProject').prop("multiple", false);
     });
     $("#divExcangeRateProject").hide();
-    $("#idTypeProject").change(function() {
+    $("#idTypeProject").change(function () {
         $("#idFolioProjectCreate").prop("disabled", false);
         $('#idFolioProjectCreate').attr({ "placeholder": "20001" });
         if ($(this).val() == 1) { /* Suministro */
@@ -44,11 +47,12 @@ $(document).ready(function() {
         }
     });
 
-    $("#idClientProject").change(function() {
-        $("#idAffiliationProject").html('');
-        $('#idAffiliationProject').multiselect('destroy');
-        $.get('projects/customer/show?idCustomer=' + $(this).val(), function(data) {
-            console.log(data);
+    $("#idClientProject").change(function () {
+
+
+        $.get('projects/customer/show?idCustomer=' + $(this).val(), function (data) {
+            $("#idAffiliationProject").html('');
+            $('#idAffiliationProject').multiselect('destroy');
             if (data.projects.length <= 0) {
                 $("#idAffiliationProject").append('<option value="" selected disabled>No hay proyectos para el cliente selecionado </option>');
                 $('#idAffiliationProject').prop("multiple", false);
@@ -58,7 +62,7 @@ $(document).ready(function() {
                     $("#idAffiliationProject").append('<option value="' + data.projects[index].id + '">' + data.projects[index].folio + '</option>')
                 }
                 $('#idAffiliationProject').multiselect({
-                    buttonContainer: '<div class="btn-group form-control" />',
+                    buttonContainer: '<div class="btn-group form-control"/>',
                     nonSelectedText: 'Selecciona un proyecto',
                     nSelectedText: 'Seleccionado',
                     allSelectedText: 'Todos selecionados'
@@ -66,8 +70,7 @@ $(document).ready(function() {
             }
         });
     });
-
-    $("#idCoinProject").change(function() {
+    $("#idCoinProject").change(function () {
         if ($(this).val() == 1) { /* Pesos */
             $("#divExcangeRateProject").hide();
             $("#idFolioProjectCreate").prop("required", false);
@@ -82,44 +85,58 @@ function saveProject(formCreateProject) {
     if ($("#idFolioProjectCreate").val().length < 5) {
         Swal.fire({
             type: 'error',
-            title: 'Ops!!!',
-            text: "El folio del proyecto es incorrecto",
-            preConfirm: () => {},
+            title: '¡Error!',
+            text: "El folio del proyecto es incorrecto"
         })
+
     } else {
-        $.ajax({
-            type: 'post',
-            url: 'projects/create',
-            headers: {
-                'X-CSRF-TOKEN': $('#token').val()
-            },
-            data: new FormData(formCreateProject),
-            dataType: "JSON",
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                Swal.fire({
-                    type: 'success',
-                    title: 'En hora buena!!!',
-                    text: 'El proyecto se ha creado correctamente!!!',
-                    preConfirm: () => {
-                        location.reload();
+        Swal.fire({
+            title: '¿Está seguro de guardar esta Proyecto?',
+            text: "Esta acción no podrá deshacerse",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, guardar proyecto',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.value) {
+                procesando();
+                $.ajax({
+                    type: 'post',
+                    url: 'projects/create',
+                    headers: {
+                        'X-CSRF-TOKEN': $('#token').val()
                     },
-                })
-            },
-            error: function(data) {
-                console.log(data);
-                if (data.responseJSON == undefined) {
-                    var message = "El proyecto no pudo ser creado";
-                } else {
-                    var message = data.responseJSON.message;
-                }
-                Swal.fire({
-                    type: 'error',
-                    title: 'Ops!!!',
-                    text: message,
-                    preConfirm: () => {},
+                    data: new FormData(formCreateProject),
+                    dataType: "JSON",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        Swal.fire({
+                            type: 'success',
+                            title: '¡Guardado!',
+                            text: 'El proyecto se ha guardado correctamente.',
+                            preConfirm: () => {
+                                location.reload();
+                            },
+                        })
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        if (data.responseJSON == undefined) {
+                            var message = "El proyecto no pudo ser creado";
+                        } else {
+                            var message = data.responseJSON.message;
+                        }
+                        Swal.fire({
+                            type: 'error',
+                            title: '¡Error!',
+                            text: message,
+                            preConfirm: () => { },
+                        })
+                    }
                 })
             }
         })

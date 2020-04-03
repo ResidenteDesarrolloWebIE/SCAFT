@@ -56,14 +56,17 @@ function inicializeEditProject(project) {
 
 function editProject(formulario) {
     Swal.fire({
-        type: 'question',
-        title: '¿Esta seguro de realizar los cambios?',
-        text: '',
-        confirmButtonText: 'Ok',
-        cancelButtonText: 'Cancelar',
+        title: '¿Está seguro de actualizar este Acuerdo?',
+        text: "Esta acción no podrá deshacerse",
+        type: 'warning',
         showCancelButton: true,
-        showCloseButton: true,
-        preConfirm: () => {
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, actualizar proyecto',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.value) {
+            procesando();
             $.ajax({
                 type: 'put',
                 url: 'projects/edit',
@@ -72,8 +75,8 @@ function editProject(formulario) {
                 success: function (data) {
                     Swal.fire({
                         type: 'success',
-                        title: 'En hora buena!!!',
-                        text: 'E proyecto se ha editado correctamente!!!',
+                        title: '!Editado!',
+                        text: 'El proyecto se ha editado correctamente',
                         preConfirm: () => {
                             location.reload();
                         },
@@ -83,9 +86,8 @@ function editProject(formulario) {
                     console.log(data.responseJSON.message);
                     Swal.fire({
                         type: 'error',
-                        title: 'Ops!!!',
-                        text: "El Proyecto no se ha podido editar",
-                        preConfirm: () => { },
+                        title: '¡Error!',
+                        text: "El Proyecto no se ha podido editar"
                     })
                 }
             })
