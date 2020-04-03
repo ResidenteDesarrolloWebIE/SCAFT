@@ -9,8 +9,6 @@
 <script src="{{asset('plugins/dataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{asset('plugins/sweetalert-2/sweetalert2.all.min.js') }}"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <script src="{{asset('plugins/bootstrap-4.4.1/js/bootstrap-multiselect.js') }}"></script>
 
 <script src="{{asset('plugins/fileinput-4.3.6/js/fileinput.min.js') }}"></script>
@@ -26,7 +24,7 @@
 <script src="{{ asset('js/admin/projects/minutas.js') }}"></script>
 <script src="{{ asset('js/admin/projects/modals/technicalAdvance.js') }}"></script>
 <script src="{{asset('js/admin/projects/agreements.js')}}"></script>
-<script src="{{ asset('js/client/gallery.js') }}"></script>
+
 
 <script src="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
 

@@ -11,10 +11,11 @@
                 <input type="hidden" name="token" value="{{ csrf_token() }}" id="token" readonly="true" />
                 <div class="col-md-6">
                     <div class="form-group text-center">
-                        <label for="folioProject"><strong style="color:red">*</strong><strong>Folio de la cotizacion</strong></label>
-                        <input type="text" class="form-control" name="folioProject" id="folioProject" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" value="" required>
+                        <label for="folioClient"><strong style="color:red">*</strong><strong>Folio de la cotizacion</strong></label>
+                        <input type="text" class="form-control" name="folioClient" id="folioClient" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" value="" required>
                     </div>
-                    <div class="form-group text-center">
+
+                   <!-- <div class="form-group text-center">
                         <label for="clientProject"><strong style="color:red">*</strong><strong>Cliente</strong></label>
                         <select class="custom-select" id="clientProject" name="clientProject" required>
                             <option value="" selected disabled>Selecciona un cliente</option>
@@ -55,7 +56,7 @@
                         <textarea class="form-control" rows="3" id="idDescriptionProject" name="descriptionProject" required></textarea>
                     </div>    
                 </div>
-            </div>
+            </div> -->
             <div class="modal-footer " style="justify-content: center;">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Guardar</button><!-- type="button" onclick="save()" -->
