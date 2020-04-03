@@ -25,6 +25,9 @@
 <script src="{{ asset('js/admin/projects/modals/technicalAdvance.js') }}"></script>
 <script src="{{asset('js/admin/projects/agreements.js')}}"></script>
 
+<script src="{{ asset('js/admin/users/users.js') }}"></script>
+<script src="{{ asset('js/admin/users/create.js') }}"></script>
+
 
 <script src="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
 

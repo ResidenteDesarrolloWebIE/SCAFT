@@ -36,3 +36,18 @@ function procesando() {
         }
     })
 }
+//CONVERTIR A MAYUSCUALAS AL ESCRIBIR
+function mayus(e) {
+    e.value = e.value.toUpperCase();
+}
+
+//OCULTAR
+function ocultar(e){
+    document.getElementById(e).style.display = 'none';
+}
+
+//MOSTRAR
+function mostrar(e){
+    
+    document.getElementById(e).style.display = 'block';
+}
