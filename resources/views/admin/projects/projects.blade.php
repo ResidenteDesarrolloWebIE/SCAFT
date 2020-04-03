@@ -1,41 +1,47 @@
 @extends('layouts.app')
 @section('content')
 
+<head>
+    <link href="/css/projectlist.css" rel="stylesheet">
+</head>
+
 @section('content')
 <section class="section-projects-admin py-2 text-xs-center">
-    @include('layouts.partials._navigationBar')
-    <div class="container container-projects-admin">
-        <div class="row table-responsive text-center projects-table">
-            <h1 class="text-center">Lista de Proyectos</h1>
-            @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
+    <div class="fondo">
+        @include('layouts.partials._navigationBar')
+
+        <div class="container container-projects-admin">
+            <div class="row table-responsive text-center projects-table">
+                <h1 class="text-center">LISTA DE PROYECTOS</h1>
+                @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
                 <div class="offset-md-8 col-md-4 text-right" style="margin-bottom: 10px">
                     <a data-toggle="modal" data-target="#createProject">
-                        <button id="btnProject" type="button" class="btn btn-success">
+                        <button id="btnProject" type="button" class="btn btn-dark">
                             Crear nuevo proyecto &nbsp;&nbsp;<i class="fas fa-plus"></i>
                         </button>
                     </a>
                 </div>
-            @endif
-            <table class="table text-center table-sm-responsive display nowrap" id="tableProjects">
-                <thead style="background-color:gray">
-                    <tr>
-                        <th> Id</th>
-                        <th> Folio</th>
-                        <th> Status</th>
-                        <th class="not-sort"> Tipo</th>
-                        <th> Nombre</th>
-                        <th class="not-sort"> Descripcion</th>
-                        <th> Cliente</th>
-                        <th> Codigo</th>
-                        <th class="not-sort"> Oferta</th>
-                        <th class="not-sort"> Orden de compra</th>
-                        <th class="col-md-3 not-sort">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($projects as $project)
-                    <tr>
-                        @if(Auth::user()->hasAnyRole(['Consulta']))
+                @endif
+                <table class="table text-center table-sm-responsive display nowrap" id="tableProjects">
+                    <thead style="background-color: #252b37">
+                        <tr>
+                            <th> Id</th>
+                            <th> Folio</th>
+                            <th> Status</th>
+                            <th class="not-sort"> Tipo</th>
+                            <th> Nombre</th>
+                            <th class="not-sort"> Descripcion</th>
+                            <th> Cliente</th>
+                            <th> Codigo</th>
+                            <th class="not-sort"> Oferta</th>
+                            <th class="not-sort"> Orden de compra</th>
+                            <th class="col-md-3 not-sort">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($projects as $project)
+                        <tr>
+                            @if(Auth::user()->hasAnyRole(['Consulta']))
                             <td>{{$project->id}}</td>
                             <td>{{$project->folio}}</td>
                             <td>{{$project->status}}</td>
@@ -66,31 +72,32 @@
                                     </a>
                                 @endif
                                 <a data-toggle="modal" data-target="#economicAdvanceProject">
-                                    <button type="button" class="btn btn-warning" title="Editar avance economico" onclick='initilizeEconomicAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-dollar-sign"></i></button>
+                                    <button type="button" class="btn btn-dark" title="Editar avance economico" onclick='initilizeEconomicAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-dollar-sign" style="color:#fff"></i></button>
                                 </a>
                                 <a data-toggle="modal" data-target="#technicalAdvanceProject">
-                                    <button type="button" class="btn btn-warning" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit"></i><i class="fas fa-wrench"></i></button>
+                                    <button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
                                 </a>
                                 <a href="{{url('minutas',$project)}}">
-                                    <button type="button" class="btn btn-info" title="Minutas"><i class="fas fa-file-alt"></i></button>
+                                    <button type="button" class="btn btn-dark" title="Minutas"><i class="fas fa-file-alt"></i></button>
                                 </a>
                                 @if(Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']))
-                                    <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>
-                                        <button type="button" class="btn btn-success" title="Agregar imagenes"><i class="fas fa-images"></i></button>
-                                    </a>
+                                <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>
+                                    <button type="button" class="btn btn-primary" title="Agregar imagenes"><i class="fas fa-images"></i></button>
+                                </a>
                                 @endif
                             </td>
-                        @else
+                            @else
                             <td colspan="11">
                                 Sin registros por mostrar. No tiene el rol de consulta asignado.
                             </td>
-                        @endif
-                    </tr>
-                    @empty
-                    <p>No hay datos</p>
-                    @endforelse
-                </tbody>
-            </table>
+                            @endif
+                        </tr>
+                        @empty
+                        <p>No hay datos</p>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     @include('admin/projects/modals/create')

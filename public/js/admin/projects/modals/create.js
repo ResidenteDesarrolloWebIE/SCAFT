@@ -13,7 +13,7 @@ $(document).ready(function () {
         initialPreviewShowDelete: false,
         allowedFileExtensions: ['pdf', 'PDF', 'CSV', 'csv', 'TXT', 'txt'],
         elErrorContainer: '#errorFileProject',
-        browseClass: "btn btn-success btn-sm btn-file-sm",
+        browseClass: "btn btn-primary btn-sm btn-file-sm",
         browseLabel: "Buscar",
         cancelLabel: "Cancelar",
         removeClass: "btn btn-danger btn-sm",

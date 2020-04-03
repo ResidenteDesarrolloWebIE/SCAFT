@@ -14,7 +14,7 @@
     width: 25px;
     height: 25px;
     font-size: 999px;
-    text-align: right;
+    text-align: center;
     color: #fff;
     background: transparent url('../img/loading.gif') top left no-repeat;
     border: none;
@@ -28,6 +28,8 @@
 .btn-file {
     position: relative;
     overflow: hidden;
+    right: -9;
+    bottom: -15%;
 }
 
 .btn-file input[type=file] {
@@ -36,7 +38,7 @@
     right: 0;
     min-width: 100%;
     min-height: 100%;
-    text-align: right;
+    text-align: center;
     opacity: 0;
     background: none repeat scroll 0 0 transparent;
     cursor: inherit;
@@ -55,7 +57,7 @@
 }
 
 .file-zoom-dialog {
-    text-align: left;
+    text-align: center;
 }
 
 .file-error-message {

@@ -212,7 +212,7 @@
     font-weight: 600;
     position: absolute;
     left: 0em;
-    bottom: -6em;
+    bottom: 4.6em;
     border: 2px solid #06b7ff;
     box-shadow: 0 10px 30px #06b7ff;
     height: 52px;
@@ -236,11 +236,6 @@
     border: 2px solid #06b7ff;
     
 }
-
-
-
-
-
 
 .select-css {
 	font-size: 15px;
