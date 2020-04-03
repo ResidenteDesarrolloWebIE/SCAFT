@@ -75,7 +75,7 @@ function editProject(formulario) {
                 success: function (data) {
                     Swal.fire({
                         type: 'success',
-                        title: '!Editado!',
+                        title: '¡Editado!',
                         text: 'El proyecto se ha editado correctamente',
                         preConfirm: () => {
                             location.reload();
@@ -91,6 +91,6 @@ function editProject(formulario) {
                     })
                 }
             })
-        },
+        }
     })
 }

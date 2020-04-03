@@ -34,8 +34,13 @@
                         <td>
                         <button  data-toggle="modal" data-target="#modalAgreements" type="button" class="btn btn-info"  title="Listar acuerdos" onclick="getAgreements({{$minute->id}})"><i class="fas fa-eye"></i></button>
                         <a href="/exportMinute/{{$minute->id}}"><button type="button" class="btn btn-success" title="Descargar PDF" ><i class="fas fa-file-alt"></i></button></a>
-                        <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-warning" title="Ver acuerdos" ><i class="fas fa-external-link-alt"></i></button></a>
-                        </td>
+                        
+                        @if( ( $minute->type == "EXTERNA" && (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) ) || Auth::user()->hasRole('Administrador'))
+                            <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-warning" title="Ver acuerdos" ><i class="fas fa-external-link-alt"></i></button></a>
+                        @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador'))
+                            <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-warning" title="Ver acuerdos" ><i class="fas fa-external-link-alt"></i></button></a>
+                        @endif
+                    </td>
                     </tr>
                     @endforeach
                 </tbody>
