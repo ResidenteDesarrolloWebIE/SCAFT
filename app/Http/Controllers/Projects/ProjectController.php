@@ -18,15 +18,40 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
-    public function showProjects()
-    {
-        $clients = User::whereHas('roles', function (Builder $query) {
-            $query->where('name', '=', 'client');
-        })->get();
+    public function showProjects(){
+        $clients = User::whereHas('roles', function (Builder $query) {$query->where('name', '=', 'Cliente');})->get();
+        $selectStatusReceiveOrder = "";
+        $inputStatusEngineeringRelease = "";
+        $inputStatusWorkProgress = "";
+        $inputStatusDeliveryCustomer = "";
+        $selectStatus = "";
+        $inputStatus = "";
+
+        /* Avance tecnico */
+        if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
+        if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){ $inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
+        if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
+        if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
+        
+        /* Avance economico */
+        if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
+            $selectStatus = "disabled";
+            $inputStatus = "readonly";
+        } /* Las 4 etapas */
 
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
-
-        return view('admin.projects.projects')->with('projects', $projects)->with('clients', $clients);
+        
+        /* dd(
+            $projects,
+            $clients,
+            $selectStatusReceiveOrder,
+            $inputStatusEngineeringRelease,
+            $inputStatusWorkProgress,
+            $inputStatusDeliveryCustomer,
+        );  */
+        return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
+        'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'
+        ));
     }
     public function showProjectsByClient(Request $request)
     {
@@ -112,6 +137,9 @@ class ProjectController extends Controller
         try {
             $project = Project::where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
+            if (!is_null($request->totalAmountEdit)){
+                $project->total_amount = $request->totalAmountEdit;
+            }
             if (!is_null($request->affiliationProjectEdit)) {
                 $affiliatedProjects = AffiliationProject::where('project_id', $project->id)->orWhere('affiliation_project_id', $project->id)->get();
                 $affiliatedProjects->delete();
@@ -162,15 +190,18 @@ class ProjectController extends Controller
     public function showAdvances(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $projects = Project::with(['technicalAdvances', 'economicAdvances'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
-            return view('client.projects.advances.gallery')->with('projects', $projects);
+            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            return view('client.projects.advances.advance')->with('project', $project);
         }
     }
     public function showGallery(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $projects = Project::with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->get();
-            return view('client.projects.advances.gallery')->with('projects', $projects);
+            $project = Project::
+            /* whereHas('images', function (Builder $query) {$query->orderBy('created_At', 'asc');})-> */
+            with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            
+            return view('client.projects.advances.gallery')->with('project', $project);
         }
     }
 }

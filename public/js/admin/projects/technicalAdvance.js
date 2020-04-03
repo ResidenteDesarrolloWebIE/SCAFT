@@ -52,10 +52,10 @@ $(document).ready(function () {
 
 
 function initializeTechnicalAdvance(project) {
-    console.log("Avance", project.folio)
+    $("#divDowloadPurchaOrder").hide();
+    /* if(project.type.id == 1){}elseif(project.type.id == 2){} */
     $('#idFolioProjectTechnicalAdvance').html(project.folio);
     $('#idTechnicalAdvance').val(project.technical_advances.id);
-
     $('#idReceiveOrder').val(project.technical_advances.receive_order);
     if (project.technical_advances.receive_order == 100) {
         $('#idReceiveOrder').prop("checked");
@@ -76,12 +76,10 @@ function initializeTechnicalAdvance(project) {
     if (project.technical_advances.delivery_customer == 100) {
         $('#idDeliveryCustomer').prop("readonly", true);
     }
-
     $('#idEngineeringRelease').attr({ "min": project.technical_advances.engineering_release, "max": 100 });
     $('#idWorkProgress').attr({ "min": project.technical_advances.work_progress, "max": 100 });
     $('#idDeliveryCustomer').attr({ "min": project.technical_advances.delivery_customer, "max": 100 });
 }
-
 
 function editTechnicalAdvance(formTecnicalAdvance) {
     Swal.fire({

@@ -8,6 +8,7 @@ use App\Models\Projects\Minuta;
 use App\Models\Projects\Project;
 use App\Models\Projects\Agreement;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class MinutaController extends Controller
 {
@@ -17,18 +18,16 @@ class MinutaController extends Controller
     }
 
     public function storeMinuta(Request $request){
-        
         try {
             $minuta = new Minuta();
             $minuta->folio = $request->folio;
-            $minuta->type = 'INTERNA';
+            $minuta->type = $request->typeMinuta; /* 'EXTERNA';  */
             $minuta->project_id = $request->project_id;
             $minuta->save();
             for($i=0; $i < count($request->acuerdos); $i++){
                 $agreement = new Agreement();
                 $agreement->agreement = $request->acuerdos[$i];
                 $agreement->responsable = $request->responsables[$i];
-                
                 $agreement->start_date = Carbon::parse($request->dateStart[$i])->format('Y-m-d');
                 $agreement->end_date = Carbon::parse($request->dateEnd[$i])->format('Y-m-d');
                 $agreement->minuta_id = $minuta->id;
@@ -38,7 +37,6 @@ class MinutaController extends Controller
         } catch (\Exception $e) {
             dd($e);
             return response()->json(['Message'=>'Error']);
-            
         }
 
     }

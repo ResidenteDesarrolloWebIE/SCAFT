@@ -1,7 +1,7 @@
 Todo usuario tendra asignado de manera predeterminada el rol de consulta tendra el rol de consulta.
 
 
-Proyectos
+Proyectos (LISTO)
     listar
         Roles (consulta)
     crear
@@ -10,28 +10,27 @@ Proyectos
         Roles (Administrador, ofertas, servicio),ventas, (lider,ventas)
 
 
-Imagenes
+
+
+Imagenes (LISTO)
     Crear y editar
         Roles (Administrador, Manufactura, Servicio)
 
 
 
-minutas
+minutas  (LISTO)
     externas (Clientes)
         Crear
             Roles (Administrador, (lider Y ofertas ))
         listar
             Roles (Consulta)
-
     internas
         Crear
             Roles (Adminitrador,Ofertas)
         Listar
             Roles (Consulta)    
 
-
-
-Usuarios
+Usuarios (LISTO)
     Crear
         Roles (Administrador)
     Editar
@@ -40,57 +39,58 @@ Usuarios
         Roles ((consulta y administrador), )
 
 
-Avance tecnico
+
+Avance tecnico (LISTO)
     Recepcion de orden de compra
         Editar
             Roles (Adminitrador, Ofertas)
         Consultar
             Roles (Consulta)
-
     Liberacion de ingenieria
         Editar
             Roles (Administrador,ingenieria)
         Consultar
             Roles (Consulta)
-
     Avance de trabajo
         Editar
             Roles (Administrador,Manufactura,Servicio)
         Consulta
             Roles (Consulta)
-
     Entrega a cliente
         Editar
-            TB
-                Roles (Administrador,Almacen)
-            SR
-                Roles (Administrador,Servicio)
+            Alternativa
+                Roles (Administrador,Almacen,Servicio)
+            Pendiente
+                TB
+                    Roles (Administrador,Almacen,Servicio)
+                SR
+                    Roles (Administrador,Servicio)
         Consulta
             Roles (Consulta)
 
 
-
-Avance economico
+Avance economico (LISTO)
     Anticipo
             Roles (Administrador,Finanzas)
         Consulta
             Roles (Consulta)
-
     Pago por liberacion de ingenieria.
         Editar.
             Roles (Administrador,Finanzas)
         Consulta
             Roles (Consulta)
-
     Pago final proyecto.
         Editar.
             Roles (Administrador,Finanzas)
         Consulta
             Roles (Consulta)
-
-            
+   
 Clientes
     Rol (Cliente)
         Ver suministros y servicios.
         Ver el avance tecnico y economico.
         Ver la galeria de imagenes
+
+
+Controlando los roles en crear y editar projectos,e imagenes.
+En crear minutas solo se Habilito el boton de crear de acuerdo a los roles, falta definir el tipo de minuta de acuerdo al rol.
