@@ -107,18 +107,20 @@
                 {{strftime("%d de %B del %Y", strtotime(date("d-m-Y",strtotime($minuta->created_at))))}}</div>
         </div>
         <table>
-            <tr style="font-size:16px;">
+            <tr style="font-size:15px;">
                 <th class="th-center" style="width:30px;">N°</th>
                 <th class="th-center" style="width:300px;">Acuerdo</th>
-                <th class="th-center" style="width:100px;">Responsable</th>
-                <th class="th-center" style="width:100px;">Fecha Inicio</th>
-                <th class="th-center" style="width:100px;">Fecha Final</th>
+                <th class="th-center" style="width:80px;">Responsable</th>
+                <th class="th-center" style="width:80px;">Estatus</th>
+                <th class="th-center" style="width:80px;">Fecha Inicio</th>
+                <th class="th-center" style="width:80px;">Fecha Final</th>
             </tr>
             @foreach($minuta->agreements as $agreement)
-                <tr>
+                <tr style="font-size:14px;">
                     <td class="td-center">{{$loop->iteration }}</td>
                     <td>{{$agreement->agreement}}</td>
                     <td>{{$agreement->responsable}}</td>
+                    <td class="td-center">{{$agreement->status}}</td>
                     <td class="td-center">{{$agreement->start_date}}</td>
                     <td class="td-center">{{$agreement->end_date}}</td>
                 </tr>

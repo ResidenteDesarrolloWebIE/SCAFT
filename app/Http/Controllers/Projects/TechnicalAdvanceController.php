@@ -47,8 +47,4 @@ class TechnicalAdvanceController extends Controller
             return abort(response()->json(["message" => 'El avance no pudo ser editado'], 400));
         }
     }
-    public function edits(Request $request)
-    {
-        dd("Avance technico");
-    }
 }

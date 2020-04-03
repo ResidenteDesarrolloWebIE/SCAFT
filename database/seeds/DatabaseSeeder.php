@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CoinSeeder::class); 
         $this->call(ProjectSeeder::class);
         $this->call(AdmDatabaseSyncSeeder::class);  
+        $this->call(TechnicalAdvanceSeeder::class); 
+        $this->call(EconomicAdvanceSeeder::class); 
     }
 }

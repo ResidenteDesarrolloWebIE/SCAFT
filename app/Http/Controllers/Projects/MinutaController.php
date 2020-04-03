@@ -18,22 +18,17 @@ class MinutaController extends Controller
     }
 
     public function storeMinuta(Request $request){
-        
         try {
             $minuta = new Minuta();
             $minuta->folio = $request->folio;
-            /* if((Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador'])){
-                $minuta->type = 'INTERNA';
-            }elseif(Auth::user()->hasAnyRole(['Administrador','Ofertas'])){
-                $minuta->type = 'EXTERNA';
-            }*/
-            $minuta->type = 'EXTERNA';
+            $minuta->type = $request->typeMinuta;
             $minuta->project_id = $request->project_id;
             $minuta->save();
             for($i=0; $i < count($request->acuerdos); $i++){
                 $agreement = new Agreement();
                 $agreement->agreement = $request->acuerdos[$i];
                 $agreement->responsable = $request->responsables[$i];
+                $agreement->status = 'REGISTRADO';
                 $agreement->start_date = Carbon::parse($request->dateStart[$i])->format('Y-m-d');
                 $agreement->end_date = Carbon::parse($request->dateEnd[$i])->format('Y-m-d');
                 $agreement->minuta_id = $minuta->id;
@@ -43,7 +38,6 @@ class MinutaController extends Controller
         } catch (\Exception $e) {
             dd($e);
             return response()->json(['Message'=>'Error']);
-            
         }
 
     }
