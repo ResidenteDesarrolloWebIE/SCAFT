@@ -7,13 +7,8 @@
             <div class="modal-body">                            
                 <div class="col-lg-12">
                     <div class="table-responsive">
-<<<<<<< HEAD
                         <table class="table table-hover table-condensed table-bordered" id="roleCatTable">
                             <thead style="background-color: #05536f">
-=======
-                        <table class="table table-hover table-condensed table-bordered nowrap" id="roleCatTable">
-                            <thead>
->>>>>>> edbfcbfc77f0ebc28dceb7122af39b1901a62b78
                                 <tr>
                                     <th style="text-align:center">No.</th>
                                     <th style="text-align:center">Acuerdo</th>

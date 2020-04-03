@@ -78,7 +78,7 @@
                                     <button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
                                 </a>
                                 <a href="{{url('minutas',$project)}}">
-                                    <button type="button" class="btn btn-info" title="Minutas"><i class="fas fa-file-alt"></i></button>
+                                    <button type="button" class="btn btn-dark" title="Minutas"><i class="fas fa-file-alt"></i></button>
                                 </a>
                                 @if(Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']))
                                 <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>
