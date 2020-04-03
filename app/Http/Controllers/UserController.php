@@ -16,11 +16,11 @@ class UserController extends Controller
 {
    public function showUsers(Request $request){
 
-   		//$users=User::all();
+   		
    		$roles=Role::where('name', '<>', 'Consulta')->get();
    		$users = User::with("contacts")->get();
 
-   		dd($users[4]->$contacts[0]);
+   		//dd($users[4]->contacts[0]->cellphone);
    		return view('admin.users.users',compact('users','roles'));
    	
    }
