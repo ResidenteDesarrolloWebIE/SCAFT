@@ -117,4 +117,4 @@
 	</div>
 </section>
 @endsection
-<script src="/js/advance.js"></script>
+<!-- <script src="/js/advance.js"></script> -->
