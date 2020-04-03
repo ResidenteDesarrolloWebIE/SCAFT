@@ -22,6 +22,10 @@ function addActiveClass() {
     }
 }
 
+//CONVERTIR A MAYUSCUALAS AL ESCRIBIR
+function mayus(e) {
+    e.value = e.value.toUpperCase();
+}
 
 
 

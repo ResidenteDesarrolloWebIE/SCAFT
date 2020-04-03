@@ -2,21 +2,22 @@ $(document).ready(function() {
     $("#createUser").on('hidden.bs.modal', function() {
         $("#formCreateUser")[0].reset();
     });
+
 });
 
 function saveUser(formCreateUser) {
     $.ajax({
-        type: 'POST',
-        url: 'projects/create',
+        type: 'post',
+        url: 'users/create',
         headers: {
             'X-CSRF-TOKEN': $('#token').val()
         },
         data: new FormData(formCreateProject),
         /* data: $("#formulario").serialize(),  */
         dataType: "JSON",
-        cache: false,
+        /*cache: false,
         contentType: false,
-        processData: false,
+        processData: false,*/
         success: function(data) {
             Swal.fire({
                 type: 'success',

@@ -48,5 +48,6 @@ Route::group(['middleware' => ['auth','employees']], function () {
     Route::get('projects/purchaseOrders/download/{id}', 'Projects\PurchaseOrderController@download');
 
     Route::get('users','UserController@showUsers');
-    
+    Route::post('users/create','UserController@create');
+
 });
