@@ -7,7 +7,9 @@ $(document).ready(function () {
 
 function inicializeEditProject(project) {
     console.log("Project", project.folio)
-    $('#idProjectEdit').val(project.id);
+    
+    $('#idFolioProjectEditHeader').html(project.id);
+    $('#idProjectEdit').val(project.folio);
     $('#idTypeProjectEdit').val(project.project_type_id);
     $('#idNameProjectEdit').val(project.name);
     $('#idSubstationProjectEdit').val(project.substation);

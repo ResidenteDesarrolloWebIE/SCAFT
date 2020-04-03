@@ -26,20 +26,22 @@ class TechnicalAdvanceController extends Controller
 
 
             $hour = str_replace(":", "", date("h:i:s"));
-            $file = $request->purchaseOrder;
-            $filename  =  $hour . $file->getClientOriginalName();
-            $path = 'DOCUMENTOS/' . $technicalAdvance->project->type->name.'S'. '/' . $technicalAdvance->project->folio . '/ORDENES_DE_COMPRA/' . $filename;
-            Storage::disk('local')->put($path, \File::get($file));
-
-            $file = new File();
-            $file->name = $filename;
-            $file->path = $path;
-            $file->save();
-
-            $purchaseOrder = new PurchaseOrder();
-            $purchaseOrder->project_id = $technicalAdvance->project->id;
-            $purchaseOrder->file_id = $file->id;
-            $purchaseOrder->save();
+            if(!is_null($request->purchaseOrder)){
+                $file = $request->purchaseOrder;
+                $filename  =  $hour . $file->getClientOriginalName();
+                $path = 'DOCUMENTOS/' . $technicalAdvance->project->type->name.'S'. '/' . $technicalAdvance->project->folio . '/ORDENES_DE_COMPRA/' . $filename;
+                Storage::disk('local')->put($path, \File::get($file));
+    
+                $file = new File();
+                $file->name = $filename;
+                $file->path = $path;
+                $file->save();
+    
+                $purchaseOrder = new PurchaseOrder();
+                $purchaseOrder->project_id = $technicalAdvance->project->id;
+                $purchaseOrder->file_id = $file->id;
+                $purchaseOrder->save();
+            }
 
             return response()->json(["message" => 'El avance fue editada correctamente'], 200);
         } catch (\Throwable $th) {
