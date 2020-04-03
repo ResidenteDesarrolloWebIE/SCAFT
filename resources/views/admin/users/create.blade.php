@@ -12,7 +12,7 @@
                 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group text-center">
                                 <label for="typeUser"><strong style="color:red">*</strong><strong>Tipo de Usuario</strong></label>
                                 <select class="custom-select" id="idTypeUser" name="typeUser" required>
@@ -20,6 +20,13 @@
                                     <option value="CLIENTE">CLIENTE</option>
                                     <option value="EMPLEADO">EMPLEADO</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+                                <label for="codeUser"><strong style="color:red">*</strong><strong>Codigo</strong></label>
+                                 <input type="text" class="form-control" name="codeUser" id="codeUser" value="" disabled="true" onkeyup="mayus(this);" required>
                             </div>
                         </div>
                     </div>
@@ -51,6 +58,22 @@
                                 <label for="cellUser"><strong style="color:red">*</strong><strong>Telefono</strong></label>
                                 <input type="text" class="form-control" name="cellUser" id="cellUser" value="" required>
                             </div>
+                            
+                            <label for="rolUser"><strong>Roles</strong></label>
+                            
+                                
+                            <div class="custom-control custom-checkbox" id="allroles">
+                                @forelse($roles as $rol)
+                                    <input type="checkbox" name="idRoles[]" value="{{ $rol->id }}">
+                                    <label for="{{ $rol->id }}">{{ $rol->name }}</label>
+                                    <br>
+                                @empty
+                                    <p>No hay datos</p>
+                                @endforelse
+                            </div>
+
+                            
+                           
                                                         
                         </div>
                     </div>

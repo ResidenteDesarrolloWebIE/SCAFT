@@ -3,6 +3,19 @@ $(document).ready(function() {
         $("#formCreateUser")[0].reset();
     });
 
+    $("#idTypeUser").change(function() {
+        $('input[name=idRoles\\[\\]]').prop('checked', false);
+        $("#codeUser").val("");
+        $('#codeUser').attr({ "placeholder": "C0001" });
+        if ($(this).val() == "CLIENTE") { /* Suministro */
+            $("#codeUser").prop("disabled", false);
+            $("#allroles").hide();
+        } else {
+            $("#codeUser").prop("disabled", true);
+            $("#allroles").show();
+        }
+    });
+
 });
 
 function saveUser(formCreateUser) {
@@ -12,8 +25,8 @@ function saveUser(formCreateUser) {
         headers: {
             'X-CSRF-TOKEN': $('#token').val()
         },
-        data: new FormData(formCreateProject),
-        /* data: $("#formulario").serialize(),  */
+        //data: new FormData(formCreateUser),
+        data: $("#formCreateUser").serialize(), 
         dataType: "JSON",
         /*cache: false,
         contentType: false,

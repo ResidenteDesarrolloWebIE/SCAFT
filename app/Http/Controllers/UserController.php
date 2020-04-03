@@ -7,90 +7,72 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Projects\Contact;
+use App\Models\UserDetails\Role;
 use App\User;
 
 
 class UserController extends Controller
 {
    public function showUsers(Request $request){
-   		$users=User::all();
-   		return view('admin.users.users')->with('users', $users);
+
+   		//$users=User::all();
+   		$roles=Role::where('name', '<>', 'Consulta')->get();
+   		$users = User::with("contacts")->get();
+
+   		dd($users[4]->$contacts[0]);
+   		return view('admin.users.users',compact('users','roles'));
    	
    }
 
    public function create(Request $request)
    {
-   		dd($request);
-        $existEmail = User::where('email', $request);
-   		$existQuotation = Project::where('folio', $request->initialsProject . trim($request->folioProjectCreate))->first();
-        if (!is_null($existQuotation)) {
-            return abort(response()->json(["message" => 'El folio ingresado esta duplicado'], 400));
-        } else {
-            try {
+   		
+        $existEmail = User::where('email', $request->emailUser)->first();
 
-                DB::beginTransaction();
-                $project = new Project();
-                $project->folio = $request->initialsProject . trim($request->folioProjectCreate);
-                $project->name = trim($request->nameProject);
-                $project->substation = trim($request->substationProject);
-                $project->status = 'PENDIENTE';
-                if (!is_null($request->exchangeRate)) {
-                    $project->exchange_rate = $request->exchangeRate;
+
+        if (!is_null($existEmail)) {
+        	return abort(response()->json(['message' => 'El e-mail ingresado esta duplicado'], 400));
+        }else{
+        	try {
+        		$password = Hash::make($request->passwordUser);
+        		
+		        DB::beginTransaction();
+		        $user = new User();
+		        $user->name = trim($request->nameUser);
+		        $user->email = trim($request->emailUser);
+		        $user->password = trim($password);
+		        if (!is_null($request->codeUser)) {
+		        	$user->code = trim($request->codeUser);
+		        }
+		        $user->save();
+		        
+		        $contact = new Contact();
+		        $contact->name = trim($request->nameUser);
+		        $contact->job_position = trim($request->puestoUser);
+		        $contact->cellphone = trim($request->cellUser);
+		        $contact->email = trim($request->emailUser);
+		        $contact->user_id = $user->id;
+		        $contact->save();
+
+		        if (!is_null($request->idRoles)) {
+            
+                    $user->roles()->attach($request->idRoles);
+                    $user->roles()->attach(Role::where('name', 'Consulta')->first());
+                }else{
+                	$user->roles()->attach(Role::where('name', 'Consulta')->first());
                 }
-                $project->total_amount = $request->totalAmountProject;
-                $project->description = trim($request->descriptionProject);
-                $project->project_type_id = $request->typeProject;
-                $project->coin_id = $request->coinProject;
-                $project->customer_id = $request->clientProject;
-                $project->save();
-
-                $economicAdvance = new EconomicAdvance();
-                $economicAdvance->project_id = $project->id;
-                $economicAdvance->save();
-
-                $technicalAdvance = new TechnicalAdvance();
-                $technicalAdvance->project_id = $project->id;
-                $technicalAdvance->save();
-
-                if (!is_null($request->affiliationProject)) {
-                    $project->affiliations()->attach($request->affiliationProject);
-                    foreach ($request->affiliationProject as $affiliation) {
-                        $projectAux = Project::find($affiliation);
-                        $projectAux->affiliations()->sync($project->id, false);
-                    }
-                }
-                if ($request->typeProject == 1) {
-                    $typeProject = "SUMINISTROS";
-                } else {
-                    $typeProject = "SERVICIOS";
-                }
-
-                $hour = str_replace(":", "", date("h:i:s"));
-                $file = $request->file('offerProject');
-                $filename  =  $hour . $file->getClientOriginalName();
-                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/' . $filename;
-                Storage::disk('local')->put($path, \File::get($file));
-
-                $file = new File();
-                $file->name = $filename;
-                $file->path = $path;
-                $file->save();
-
-                $offer = new Offer();
-                $offer->project_id = $project->id;
-                $offer->file_id = $file->id;
-                $offer->save();
-                DB::commit();
-                return response()->json(['error' => false, 'message' => 'El proyecto fue creada correctamente', 'code' => 200], 200);
-            } catch (\Throwable $error) {
+		        DB::commit();
+		        return response()->json(['error' => false, 'message' => 'El usuario fue creado correctamente', 'code' => 200], 200);
+		        
+        	} catch (\Throwable $error) {
                 DB::rollBack();
                 echo ("El error ocurrido es el siguiente: " . $error);
-                return abort(response()->json(["message" => 'El proyecto no pudo ser creado'], 400));
-            }
+                return abort(response()->json(["message" => 'El usuario no pudo ser creado'], 400));
+        	}
         }
+
    }
-
-
 
   
 }
