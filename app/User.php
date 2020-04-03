@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Projects\Contact;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

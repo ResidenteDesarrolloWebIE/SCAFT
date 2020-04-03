@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group text-center">
                         <label for="affiliationProject"><strong>Proyectos afiliados (Si aplica)</strong></label><br>
-                        <select class="custom-select"  name="affiliationProject[]" id="idAffiliationProject" >
+                        <select class="custom-select" name="affiliationProject[]" id="idAffiliationProject">
                             <option id="optionCliente" value="" selected disabled>Selecciona un cliente</option>
                         </select>
                     </div>
@@ -40,8 +40,7 @@
                             <div class="input-group-append">
                                 <input type="text" class="form-control" name="initialsProject" id="idInitialsProject" value="--" readonly style="width: 45px">
                             </div>
-                            <input type="number" class="form-control" value="" name="folioProjectCreate" id="idFolioProjectCreate"  required maxlength="5" 
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="20001">
+                            <input type="number" class="form-control" value="" name="folioProjectCreate" id="idFolioProjectCreate" required maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="20001">
                         </div>
                     </div>
                     <div class="form-group text-center">
