@@ -22,6 +22,7 @@
                         <th> Codigo</th>
                         <th> Nombre</th>
                         <th> E-mail</th>
+                        <th> Telefono</th>
                         <th class="col-md-3">
                             Acciones
                         </th>
@@ -34,6 +35,7 @@
                         <td>{{$user->code}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
+                        <td>{{$user->contacts[0]->cellphone}}</td>
                         <td>
                             <a data-toggle="modal" data-target="#editUser" >
                                 <button type="button" class="btn btn-primary"  title="Editar Usuario" ><i class="fas fa-edit"></i></button>
@@ -48,8 +50,8 @@
         </div>
     </div>
 
-    {{--@include('admin/users/create')--}}
-
+    @include('admin/users/create')
+    
    
 </section>
 @endsection
