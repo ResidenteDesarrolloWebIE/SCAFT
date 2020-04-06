@@ -11,7 +11,7 @@
         @include('layouts.partials._navigationBar')
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
-                <h1 class="text-center">Lista de Usuarios</h1>
+                <h1 class="text-center">LISTA DE USUARIOS</h1>
                 <div class="offset-md-8 col-md-4 text-right">
                     <a data-toggle="modal" data-target="#createUser">
                         <button id="btnUser" type="button" class="btn btn-dark">
