@@ -40,7 +40,7 @@
         th {
             padding-top: 12px;
             padding-bottom: 12px;
-            background-color: #4CAF50;
+            background-color: #00456B;
             color: white;
         }
 
