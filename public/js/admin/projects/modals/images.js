@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $("#imagesProject").on('hidden.bs.modal', function() {
+$(document).ready(function () {
+    $("#imagesProject").on('hidden.bs.modal', function () {
         /* $("#real-dropzone")[0].reset(); */
         $('#dropzonePreview').html("");
     });
@@ -22,18 +22,35 @@ if (document.querySelector('#preview-template') != null) {
         uploadMultiple: false,
         parallelUploads: 100,
         maxFilesize: 100,
+        /* autoProcessQueue: false, */
         previewsContainer: '#dropzonePreview',
         previewTemplate: document.querySelector('#preview-template').innerHTML,
         addRemoveLinks: true,
         dictRemoveFile: 'Eliminar',
         dictFileTooBig: 'La imagen es más grande que 100 MB',
         dictRemoveFileConfirmation: "¿Estas seguro de eliminar esta imagen?",
-        init: function() {
+        init: function () {
             var myDropzone = this;
-            this.on("initFiles", function(file) {
-                $.get('/projects/images?id=' + $('#idPro').val(), function(data) {
+            /*             $('#submitfiles').on("click", function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (myDropzone.getQueuedFiles().length > 0) {
+                                myDropzone.processQueue();
+                            } else {
+                                Swal.fire({
+                                    type: 'error',
+                                    title: 'Error!',
+                                    text: "Las imagenes no pudieron ser guardadas",
+                                    preConfirm: () => { },
+                                })
+                            }
+                            
+                        });  */
+
+            this.on("initFiles", function (file) {
+                $.get('/projects/images?id=' + $('#idPro').val(), function (data) {
                     console.log(data);
-                    $.each(data.images, function(key, value) {
+                    $.each(data.images, function (key, value) {
                         console.log("archivo:  ", value.server);
                         var file = { name: value.original, size: value.size };
                         myDropzone.options.addedfile.call(myDropzone, file);
@@ -43,9 +60,10 @@ if (document.querySelector('#preview-template') != null) {
                         $("#photoCounter").text("(" + photo_counter + ")");
                     });
                 });
+
             });
 
-            this.on("removedfile", function(file) {
+            this.on("removedfile", function (file) {
                 console.log($('.serverfilename', file.previewElement).val())
                 var folioProject = $('#idFolioPro').val()
                 var typeProject = $('#idTypePro').val()
@@ -54,28 +72,28 @@ if (document.querySelector('#preview-template') != null) {
                     url: '/projects/images/delete',
                     data: { name: file.name, folioProject: folioProject, typeProject: typeProject, _token: $('#csrf-token').val() },
                     dataType: 'JSON',
-                    success: function(data) {
+                    success: function (data) {
                         Swal.fire({
                             type: 'success',
                             title: '¡Eliminado!',
                             text: "La imagen fue eliminada correctamente",
-                            preConfirm: () => {},
+                            preConfirm: () => { },
                         })
                     },
-                    error: function(data) {
+                    error: function (data) {
                         console.log(data);
                     }
                 });
             });
-            this.on("resetFiles", function(file) {
+            this.on("resetFiles", function (file) {
                 console.log(myDropzone.getAcceptedFiles());
-                $.each(myDropzone.getAcceptedFiles(), function(key, value) {
+                $.each(myDropzone.getAcceptedFiles(), function (key, value) {
                     console.log(value.previewElement);
                     $('.serverfilename', value.previewElement).val("");
                 });
             });
         },
-        error: function(file, response) {
+        error: function (file, response) {
             if ($.type(response) === "string")
                 var message = response;
             else
@@ -89,25 +107,30 @@ if (document.querySelector('#preview-template') != null) {
             }
             return _results;
         },
-        success: function(file, response) {
+        success: function (file, response) {
             /* console.log("Datos de la imagen:  ", $('.serverfilename', file.previewElement).val());
             $('.serverfilename', file.previewElement).val(response.imageName); */
-            $('#dropzonePreview').html("");
+            
             var myDropzone = this;
-            $.get('/projects/images?id=' + $('#idPro').val(), function(data) {
-                console.log(data);
-                $.each(data.images, function(key, value) {
-                    console.log("archivo:  ", value.server);
-                    var file = { name: value.original, size: value.size };
-                    myDropzone.options.addedfile.call(myDropzone, file);
-                    myDropzone.createThumbnailFromUrl(file, value.server);
-                    myDropzone.emit("complete", file);
-                    $('.serverfilename', file.previewElement).val(value.server);
-                    $("#photoCounter").text("(" + photo_counter + ")");
+            photo_counter = photo_counter + 1;
+            if (photo_counter == myDropzone.getAcceptedFiles().length) {
+                $('#dropzonePreview').html("");
+                $.get('/projects/images?id=' + $('#idPro').val(), function (data) {
+                    console.log(data);
+                    $.each(data.images, function (key, value) {
+                        console.log("archivo:  ", value.server);
+                        var file = { name: value.original, size: value.size };
+                        myDropzone.options.addedfile.call(myDropzone, file);
+                        myDropzone.createThumbnailFromUrl(file, value.server);
+                        myDropzone.emit("complete", file);
+                        $('.serverfilename', file.previewElement).val(value.server);
+                        $("#photoCounter").text("(" + photo_counter + ")");
+                    });
                 });
-                photo_counter++;
-                console.log(photo_counter);
-            });
+            }
+            /* console.log(myDropzone.getAcceptedFiles().length);
+            console.log(photo_counter);
+            console.log(myDropzone.getQueuedFiles().length); */
         }
     }
 }

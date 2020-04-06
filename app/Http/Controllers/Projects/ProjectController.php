@@ -186,6 +186,7 @@ class ProjectController extends Controller{
             $idCustomer = Auth::id();
             $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin','images','offer','purchaseOrder','minutes'])
                 ->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            
             return view('client.projects.advances.advance')->with('project', $project);
         }
     }

@@ -22,7 +22,6 @@
                         </div>
                         <div class="dropzone-previews" id="dropzonePreview"></div>
                         <h4 class="label-images">Dar click o Soltar imagenes en esta area <span class="glyphicon glyphicon-hand-down"></span></h4>
-
                         {{Form::close()}}
                     </div>
                 </div>
