@@ -33,7 +33,7 @@
     margin-top: 6px;
 }
 
-.backgroud-icon {
+/* .backgroud-icon {
     background-color: #50545a;
     width: 130px;
     height: 30px;
@@ -41,7 +41,7 @@
     border-style: solid;
     border-color: #000000;
     border-radius: 20px;
-}
+} */
 .backgroud-icon  .i{
     color:black;
 }
@@ -150,9 +150,9 @@
 
 .backgroud-icon {
     background-color: #0ca4ea;
-    width: 30px;
+    /* width: 30px;
     height: 30px;
-    border-width: .5px;
+    border-width: .5px; */
     border-style: solid;
     border-color: #ffff;
 }

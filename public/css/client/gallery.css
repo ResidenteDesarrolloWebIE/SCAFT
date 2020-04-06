@@ -49,10 +49,11 @@ span{
 /*Estilos de la galeria*/
 
 .galeria {
-    width: 90%;
+    /* width: 100%; */
+    width: 100%;
     margin: auto;
     list-style: none;
-    padding: 20px;
+    padding: 5px 5px 5px 0px;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -60,13 +61,13 @@ span{
 }
 
 .galeria li {
-    margin: 5px 5px 2em 5px;
-    
+    margin: 5px 5px 2px 0px;
+    /* margin: 5px 5px 2em 5px; */
 }
 
 .galeria img {
     position: relative;
-    width: 250px;
+    width: 190px; /* 250 */
     height: 170px;
     border: solid 1px #fff;
     object-fit: cover;

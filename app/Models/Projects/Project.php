@@ -41,6 +41,7 @@ class Project extends Model
     public function technicalAdvances(){
         return $this->belongsTo(TechnicalAdvance::class,'id','project_id');
     }
+    
     public function images(){
         return $this->hasMany(Image::class,'project_id','id');
     }
@@ -50,7 +51,6 @@ class Project extends Model
     public function purchaseOrder(){
         return $this->belongsTo(PurchaseOrder::class,'id','project_id');
     }
-
     public function minutes(){
         return $this->hasMany(Minuta::class,'project_id', 'id');
     }

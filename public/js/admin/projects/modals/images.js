@@ -40,7 +40,6 @@ if (document.querySelector('#preview-template') != null) {
                         myDropzone.createThumbnailFromUrl(file, value.server);
                         myDropzone.emit("complete", file);
                         $('.serverfilename', file.previewElement).val(value.server);
-                        photo_counter++;
                         $("#photoCounter").text("(" + photo_counter + ")");
                     });
                 });
@@ -104,9 +103,10 @@ if (document.querySelector('#preview-template') != null) {
                     myDropzone.createThumbnailFromUrl(file, value.server);
                     myDropzone.emit("complete", file);
                     $('.serverfilename', file.previewElement).val(value.server);
-                    photo_counter++;
                     $("#photoCounter").text("(" + photo_counter + ")");
                 });
+                photo_counter++;
+                console.log(photo_counter);
             });
         }
     }

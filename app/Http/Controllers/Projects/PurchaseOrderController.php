@@ -17,4 +17,13 @@ class PurchaseOrderController extends Controller
         }
         
     }
+    public function showPdf(Request $request,$id){
+        try {
+            $project = Project::with('purchaseOrder')->where('id',$id)->first();
+        return Storage::response($project->purchaseOrder->file->path);
+        } catch (\Throwable $error) {
+            echo("El error es : ".$error);
+        }
+        
+    }
 }

@@ -48,6 +48,12 @@ function ocultar(e){
 
 //MOSTRAR
 function mostrar(e){
-    
     document.getElementById(e).style.display = 'block';
+}
+
+function initializeModalsCustomers(project) {
+    $('#idFolioProjectGallery').html(project.folio);
+    $('#idFolioProjectOffer').html(project.folio);
+    $('#idFolioProjectPurchaseOrder').html(project.folio);
+    $('#idFolioProjectMinuta').html(project.folio);
 }
