@@ -37,6 +37,7 @@ function openModalEditAgreement(agreement) {
     $('#dateStart').val(agreement.start_date);
     $('#dateEnd').val(agreement.end_date);
     $("#statusAgreement option:contains("+agreement.status+")").attr('selected', true);
+    
     $('#statusAgreement').change();
 }
 

@@ -27,7 +27,7 @@
 
 <script src="{{ asset('js/admin/users/users.js') }}"></script>
 <script src="{{ asset('js/admin/users/create.js') }}"></script>
-
+<script src="{{ asset('js/admin/users/edit.js') }}"></script>
 
 <script src="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
 

@@ -11,7 +11,8 @@ use App\Models\Projects\Image;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class ImageController extends Controller{
+class ImageController extends Controller
+{
     public function save(Request $request)
     {
         try {
@@ -22,28 +23,29 @@ class ImageController extends Controller{
             $image = $request['file'];
             $date = Carbon::now();
             $imageLasted = Image::latest('created_at')->where('project_id', $request['idProject'])->first();
-
             if (is_null($imageLasted)) {
                 $idImage = 0;
             } else {
                 $idImage = explode(".", explode("_", $imageLasted->name)[1])[0]; /* fecha _ 1.png */
             }
+
             if ($request['typeProject'] == 1) {
                 $typeProject = "SUMINISTROS";
             } elseif ($request['typeProject'] == 2) {
                 $typeProject = "SERVICIOS";
             }
-            $imageName  =  $date->format('d-m-Y') . "_" . (intval($idImage) + 1) . "." . $image->getClientOriginalExtension();
+            $imageName  =  $date->format('d-m-Y').'-'.str_replace(":", "--", $date->toTimeString()) . "_" . (intval($idImage) + 1) . "." . $image->getClientOriginalExtension();
             $path = 'DOCUMENTOS/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/' . $imageName;
-            Storage::disk('local')->put($path, \File::get($image));
 
+            Storage::disk('local')->put($path, \File::get($image));
             $projectImage = new Image;
             $projectImage->name = $imageName;
             $projectImage->path = $path;
             $projectImage->size = $image->getClientSize();
             $projectImage->project_id = $request['idProject'];
             $projectImage->save();
-            return response()->json(['error' => false, 'code'  => 200,'imageName'=>$imageName, 'message' => "Imagen cargada correctamente"], 200);
+
+            return response()->json(['error' => false, 'code'  => 200, 'imageName' => $imageName, 'message' => "Imagen cargada correctamente"], 200);
         } catch (\Throwable $error) {
             echo ($error);
         }
@@ -68,7 +70,8 @@ class ImageController extends Controller{
     }
 
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         try {
             if ($request->typeProject == 1) {
                 $typeProject =  'SUMINISTROS';
@@ -95,3 +98,13 @@ class ImageController extends Controller{
         }
     }
 }
+
+/* 
+            while (!is_null(Image::where('name',$imageName)->first())) {
+                $newIdImage = $idImage + 1;
+                $imageName  =  $date->format('d-m-Y') . "_" . (intval($newIdImage) + 1) . "." . $image->getClientOriginalExtension();
+            }
+            while (\File::exists(Storage::url($path))) {
+                $imageName  =  $date->format('d-m-Y') . "_" . (intval($idImage) + 1) . "." . $image->getClientOriginalExtension();
+                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/' . $imageName;
+            } */

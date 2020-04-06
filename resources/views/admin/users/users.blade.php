@@ -36,14 +36,14 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         @if(count($user->contacts)>0)
-                            <td>{{$user->contacts[0]->cellphone}}</td>
+                        <td>{{$user->contacts[0]->cellphone}}</td>
                         @else
-                            <td>Sin teléfono</td>
+                        <td>Sin teléfono</td>
                         @endif
-                        
+
                         <td>
-                            <a data-toggle="modal" data-target="#editUser" >
-                                <button type="button" class="btn btn-primary"  title="Editar Usuario" ><i class="fas fa-edit"></i></button>
+                            <a data-toggle="modal" data-target="#editUser">
+                                <button type="button" class="btn btn-dark" title="Editar Usuario" onclick="openModalEditUser({{$user}})"><i class="fas fa-edit"></i></button>
                             </a>
                         </td>
                     </tr>
@@ -54,9 +54,7 @@
             </table>
         </div>
     </div>
-
     @include('admin/users/create')
-    
-   
+    @include('admin/users/edit')
 </section>
 @endsection
