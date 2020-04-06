@@ -7,6 +7,7 @@
 
 <section class="gallery" style="margin-top: 20px">
 	@include('layouts.partials._navigationBar')
+
 	<body>
 		<header>
 			<div>
@@ -31,17 +32,8 @@
 						<li><a href="{{'#image'.explode('.', explode('_', $image->name)[1])[0] }}"><img src="{{ asset('storage/'.$image->path ) }}"></a></li>
 					</div>
 					@endforeach
-					@foreach($project->images as $image)
-					<div class="col-md-3 text-center" style="margin-right: 0px">
-						<span>
-							<span style="display: none">{{setlocale(LC_TIME,'spanish')}}</span>
-							{{strftime("%d de %B del %Y", strtotime(date("d M Y",strtotime($image->created_at))))}}
-						</span>
-						<li><a href="{{'#image'.explode('.', explode('_', $image->name)[1])[0] }}"><img src="{{ asset('storage/'.$image->path ) }}"></a></li>
-					</div>
-					@endforeach
 
-			</div>
+				</div>
 			</ul>
 			@foreach($project->images as $image)
 			<figure id="{{'image'.explode('.', explode('_', $image->name)[1])[0]}}" class="lbox bounce">

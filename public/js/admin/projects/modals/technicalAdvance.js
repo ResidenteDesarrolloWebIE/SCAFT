@@ -93,7 +93,7 @@ function editTechnicalAdvance(formTecnicalAdvance) {
         cancelButtonText: 'Cancelar',
     }).then((result) => {
         if (result.value) {
-            procesando();
+            
             $.ajax({
                 type: 'post',
                 url: 'projects/technicalAdvance/edit',

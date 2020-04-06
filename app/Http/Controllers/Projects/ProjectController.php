@@ -38,7 +38,6 @@ class ProjectController extends Controller{
             $selectStatus = "disabled";
             $inputStatus = "readonly";
         } /* Las 4 etapas */
-
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
         return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
         'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'));
@@ -150,7 +149,10 @@ class ProjectController extends Controller{
     }
 
 
-    /* Retornas vista para los clientes */
+
+
+
+    /* Retornar vista para los clientes */
     public function showServices(){
         if (Auth::check()) {
             $idCustomer = Auth::id();
@@ -163,7 +165,6 @@ class ProjectController extends Controller{
             return view('client.projects.services')->with('projects', $projects);
         }
     }
-
 
     public function showSupplies(){
         if (Auth::check()) {
@@ -179,21 +180,19 @@ class ProjectController extends Controller{
     }
 
 
+
     public function showAdvances(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin','images','offer','purchaseOrder','minutes'])
+                ->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
             return view('client.projects.advances.advance')->with('project', $project);
         }
     }
-
-
     public function showGallery(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $project = Project::
-            /* whereHas('images', function (Builder $query) {$query->orderBy('created_At', 'asc');})-> */
-            with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+            $project = Project::with(['images'])->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
             return view('client.projects.advances.gallery')->with('project', $project);
         }
     }

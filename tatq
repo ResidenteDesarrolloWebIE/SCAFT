@@ -1,0 +1,444 @@
+[33mcommit a253a05f880231a0450185f9f54940b9c34fbc54[m[33m ([m[1;36mHEAD -> [m[1;32mJoseErasmo[m[33m)[m
+Merge: 501e54b d3824d2
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Mon Apr 6 09:00:42 2020 -0600
+
+    Merge branch 'JoseErasmo' of https://github.com/ResidenteDesarrolloWebIE/SCAFT into JoseErasmo
+
+[33mcommit d3824d2f95ca5b46639513abfb0c1b82ef3edf73[m[33m ([m[1;31morigin/JoseErasmo[m[33m)[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Mon Apr 6 09:26:49 2020 -0500
+
+    Diseño de footer y cambios de colores
+
+[33mcommit 670bd2b7610a8daed098f492010fdde714956c62[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Mon Apr 6 09:00:18 2020 -0500
+
+    Diseño de colores de footer
+
+[33mcommit 501e54b835df1abfa96fea0675849bb796da579f[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Fri Apr 3 15:18:36 2020 -0600
+
+    Arreglando el fondo de la galeria de imagenes
+
+[33mcommit 91534569a0b1844a8d797557058e72f5dae93dcb[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Fri Apr 3 12:39:45 2020 -0600
+
+    Diseño de usuarios
+
+[33mcommit 18bf2c1c047408d95b04aaa00f5bc14c0fcd6246[m
+Merge: 4436fca 45651a4
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Fri Apr 3 10:07:13 2020 -0600
+
+    Merge Development y Moises (03/04/2020 10:07am)
+
+[33mcommit 4436fca0c516f1c7ec4545263a0e77b24cd9f8af[m
+Merge: 1b618dd 60cf265
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Fri Apr 3 09:52:50 2020 -0600
+
+    Merge branch 'JoseErasmo' into Development
+
+[33mcommit 60cf2659ebe02e7aeba5148de907fd94962b4aee[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Fri Apr 3 09:29:36 2020 -0600
+
+    Diseño cambio de colores botones
+
+[33mcommit 9ab6590ae94447919872a33c4663c7c5b5ed665b[m
+Merge: e49ef75 edbfcbf
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Fri Apr 3 08:57:24 2020 -0600
+
+    Cambio de colores en los botones y letra
+
+[33mcommit e49ef7558c5000d16cb1b9809a26c39fdc506389[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Fri Apr 3 08:48:35 2020 -0600
+
+    Diseño y cambio de botones y letra
+
+[33mcommit 45651a4168b77b784920e87a4a12a887296fc7db[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Fri Apr 3 08:45:29 2020 -0600
+
+    Agregando roles a la parte de los acuerdos
+
+[33mcommit 09c63826f14d6de9728733a042cc16050ab0dc8e[m
+Merge: 1b618dd 386c0ba
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 18:55:49 2020 -0600
+
+    Probando un merge con la rama de francisco, esperaba recuperar las afectaciones del multiselectno se recupero
+
+[33mcommit 1b618dd74e28f71cd31e04f30320b250671c4b7a[m
+Merge: 2fb3d1f a93471c
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 18:49:06 2020 -0600
+
+    Merge Development y Moises (02/04/2020 6:48pm)
+
+[33mcommit 386c0ba2a54a964dc7b0ca806e4b89405f80fb63[m
+Merge: 7db09e0 e8216c9
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 18:27:31 2020 -0600
+
+    Merge branch 'JuanFrancisco' of https://github.com/ResidenteDesarrolloWebIE/SCAFT into JuanFrancisco
+
+[33mcommit 2fb3d1f0957e9007b0b5e8595660e6534ca07b67[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 18:24:51 2020 -0600
+
+    Agregando alertas
+
+[33mcommit a93471cedbd8658c029d1553e135189f21be7fa4[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Thu Apr 2 15:58:14 2020 -0600
+
+    Corregido
+
+[33mcommit edbfcbfc77f0ebc28dceb7122af39b1901a62b78[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 13:56:30 2020 -0600
+
+    Corrigiendo el merge
+
+[33mcommit d8dda3aa822d90b8d4d2301c56a3eb595f6ee19c[m
+Merge: 1b45ec5 90c10b2
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 13:45:06 2020 -0600
+
+    Merge branch 'Development' into JoseErasmo
+
+[33mcommit 90c10b2d3624d1f77417ce3231ae14a0c7ab6442[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 13:25:24 2020 -0600
+
+    Corrigiendo el conflicto en _script.blade.php
+
+[33mcommit 1b45ec51587cc0cfff463018c1fa6122bf317a3f[m
+Merge: 013082c 444397c
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Thu Apr 2 13:08:33 2020 -0600
+
+    merge
+
+[33mcommit 444397caa5c5a3af9c227b667e32dfb8291a4aa9[m
+Merge: 20f2568 956c037
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 12:55:33 2020 -0600
+
+    Merge entre Development y Moises (02/04/2020 12:55pm)
+
+[33mcommit 956c037d8645b788da96b7cdef2c1d3a70dcb723[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 12:27:58 2020 -0600
+
+    Eliminando archivos innecesarios
+
+[33mcommit 20f25680a6512249a0f4f8deb64e577cdc543a7d[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Thu Apr 2 11:00:44 2020 -0600
+
+    Acuerdos
+
+[33mcommit 699341ead17cac565f8394fd69b41d88f39499f6[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Thu Apr 2 08:59:18 2020 -0600
+
+    Agregando seeders de los avances
+
+[33mcommit 013082c52714fde06bf908e2096f543c4a30e1d0[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Wed Apr 1 18:05:18 2020 -0600
+
+    Diseño de Minutas y Proyectos
+
+[33mcommit c4ee0179f807f64927fc141d8183d32241287eb5[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 17:44:35 2020 -0600
+
+    agreements
+
+[33mcommit e8216c98d0a8427095ac44259dca4be8e3727ec8[m
+Merge: 17a8a94 c720172
+Author: jfgils02 <41213909+jfgils02@users.noreply.github.com>
+Date:   Wed Apr 1 17:29:22 2020 -0600
+
+    errores
+
+[33mcommit c7201727bcfd73c9d976282d50c1d235063e7d59[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 17:14:12 2020 -0600
+
+    se regresó el userController a Controllers
+
+[33mcommit c8331e89eb72bf218065d72bfc65ca595da2b543[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 17:03:52 2020 -0600
+
+    Agregado del test porque con el user no funciona
+
+[33mcommit 31d14d7473b02deb014e3ffebdbd02a63b647068[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 16:36:13 2020 -0600
+
+    navbar
+
+[33mcommit fe2b9284c1513c8b772fbbb76ee54d81fc5f6aaa[m
+Merge: 80d3e9a e62ca4f
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 16:35:05 2020 -0600
+
+    merge
+
+[33mcommit 80d3e9a415439f86e911c1ea723f1e28863a44d8[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 16:33:25 2020 -0600
+
+    cambios en navbar
+
+[33mcommit 7db09e060e5e2bb52f6814f78bced2dc7de9b83c[m
+Merge: 7b5c75b 4866b28
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Wed Apr 1 16:19:26 2020 -0600
+
+    Merge branch 'JuanFrancisco' of https://github.com/ResidenteDesarrolloWebIE/SCAFT into JuanFrancisco
+
+[33mcommit e62ca4fcc7ec89022900e049de736a6d86aa3e09[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Wed Apr 1 16:14:48 2020 -0600
+
+    Galeria, Avance tecnico y economico Listos
+
+[33mcommit a0043545c1b6e3f79613f8be98fb3ed1beec05a5[m
+Merge: 4866b28 74c4dcd
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 16:12:55 2020 -0600
+
+    Merge branch 'Development' into JuanFrancisco
+
+[33mcommit 85fea555dbd2e9f90561c790159079c598cd6cd9[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 16:08:40 2020 -0600
+
+    Agreements
+
+[33mcommit 17a8a94df75976e3bd474070cc42cd09a84b84af[m
+Author: jfgils02 <41213909+jfgils02@users.noreply.github.com>
+Date:   Wed Apr 1 15:29:09 2020 -0600
+
+    merge
+
+[33mcommit 7d5d178d0a27ddbfd754fcd72e5268a159de5c9b[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 14:30:34 2020 -0600
+
+    Vista de acuerdos, falta iterar acuerdos
+
+[33mcommit 4866b28e51bab4fbc3fe597d0ca3624ffddfb515[m
+Author: jfgils02 <41213909+jfgils02@users.noreply.github.com>
+Date:   Wed Apr 1 13:30:55 2020 -0600
+
+    cambios a clientes
+
+[33mcommit 74c4dcd28a188e5217473348e6ea4cba70ecddf3[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Apr 1 11:26:20 2020 -0600
+
+    Minutas al 100
+
+[33mcommit 6fde80462e2ea464ba39e7de64394af407205784[m
+Merge: a9063be 7f2f37d
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Wed Apr 1 08:38:39 2020 -0600
+
+    Merge branch 'Moises' into Development
+
+[33mcommit 7f2f37dfb1d71b0ab0579be5adc3369bca58c753[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Wed Apr 1 08:38:07 2020 -0600
+
+    Restringiendo los roles para minutas y avance tecnico y economico
+
+[33mcommit a9063be487b285c372280dfa1df9998ae52cdc69[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 17:01:54 2020 -0600
+
+    Merge Development y JoseErasmo (31/03/20202 5:01 pm)
+
+[33mcommit 5f4df847baf1c303f5e6243ad02fee76211e8345[m
+Merge: b6265e5 d3afe3f
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 16:58:07 2020 -0600
+
+    Merge branch 'JoseErasmo' into Development
+
+[33mcommit d3afe3f530a6dd3ec05dc3052e4d5768ecb48d98[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Tue Mar 31 16:51:17 2020 -0600
+
+    Diseño Galeria2
+
+[33mcommit b6265e5d3c1b4e5a12c1814b473016aabd95aa9e[m
+Merge: c621624 7130c03
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 16:47:25 2020 -0600
+
+    Merge branch 'JoseErasmo' into Development
+
+[33mcommit c621624c83d55a0b78f51a0a3ebe006681f877a3[m
+Merge: 7b5c75b 611af4d
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 16:46:41 2020 -0600
+
+    Merge Moises y Development (31/03/2020 4:46pm)
+
+[33mcommit 611af4d47aa449dd7f7e410d9583ae01f9f21289[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 16:44:07 2020 -0600
+
+    Controlando los roles en crear y editar projectos,e imagenes.
+    En crear minutas solo se Habilito el boton de crear de acuerdo a los roles, falta definir el tipo de minuta de acuerdo al rol.
+
+[33mcommit 1a4681f8672554b4a1ecab1690851e5634cca760[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Tue Mar 31 15:37:14 2020 -0600
+
+    Diseño de galeria
+
+[33mcommit 7b5c75b72a0bee30f152c7ccfa3bab18cdc35958[m
+Merge: 6f34f58 54c2d9d
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 12:56:51 2020 -0600
+
+    Merge branch 'JuanFrancisco' into Development
+
+[33mcommit 54c2d9d2948a6701ca7fb770901c12bce38afae8[m
+Merge: e25afe0 ed7124e
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 12:52:55 2020 -0600
+
+    Merge rama JuanFrancisco con la rama Development (31/03/2020)
+
+[33mcommit 6f34f58c52057ea6f14314b9842708bd95d50f05[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 12:46:15 2020 -0600
+
+    Cambiando los nombres de los roles y sus permisos
+
+[33mcommit ed7124ef98a4a9266f36528b470973a225277768[m
+Author: jfgils02 <41213909+jfgils02@users.noreply.github.com>
+Date:   Tue Mar 31 11:52:44 2020 -0600
+
+    cambios
+
+[33mcommit e25afe0b37fed048c31fad34f2d3fa9cbd0c3cf9[m
+Merge: 09ea178 68f5c8f
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 10:45:33 2020 -0600
+
+    Merge entre la rama Israel y la rama de Moises (31/03/2020)
+
+[33mcommit 09ea1786c2bad9010843e4989974446556501b20[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 31 10:23:25 2020 -0600
+
+    Reajustando los middlewares
+
+[33mcommit 6c2500e96a6176ad62d5baee809abe03cb36221e[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Mon Mar 30 17:57:40 2020 -0600
+
+    Editar avance tecnico
+        *controlador y vistas completos.
+
+[33mcommit 68f5c8fe5eba3815d258643c0050d6586fdfa728[m
+Merge: 17c63f2 9e65c93
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Mon Mar 30 15:35:45 2020 -0600
+
+    Merge pull request #4 from ResidenteDesarrolloWebIE/JesusIsrael
+    
+    Jesus israel
+
+[33mcommit 7130c03a967de179d01cf435e853625d222ebeaf[m
+Author: ResidenteDesarrolloWebIE <residente.desarrolloweb@integracion-energia.com>
+Date:   Mon Mar 30 13:28:56 2020 -0600
+
+    Diseño Avance Tecnico  y Avance Economico
+
+[33mcommit 9e65c932b673bb76431fb2dfa6205a6cb487737d[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Mon Mar 30 13:20:47 2020 -0600
+
+    roles
+
+[33mcommit 53c8a7186beb80fd33b70d41625f92107b42f322[m
+Author: Moises <163190@ids.upchiapas.edu.mx>
+Date:   Sun Mar 29 23:35:35 2020 -0600
+
+    Crear y editar proyectos.
+        - Modelo, Migraciones, controladores y vistas.
+        - Archivos js.
+    Listar Proyectos.
+        - Ver la informacion de estos en una tabla, descargar la oferta y su respectiva orden de compra.
+    Añadir, ver y eliminar imagenes por cada proyecto.
+        - Modelo, Migraciones, controladores y vistas.
+        - Archivos js.
+    Editar el avance tecnico de cada proyecto.
+        - Migraciones, controladores y vistas.
+        - Subir orden d compra.
+        - Descargar orden de compra.
+    Listar los proyectos/suministros de un cliente.
+        - Vista, y controlador.
+    Listar los proyectos/servicios de un cliente.
+        - Vista, y controlador.
+    Editar el avance economico de cada proyecto.
+        - Modelo, Migraciones, vista en proceso.
+
+[33mcommit debf9d4edfa07607dccb4f1969817b90b8dca765[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Fri Mar 27 17:57:17 2020 -0600
+
+    terminado minutas
+
+[33mcommit 5b0012a7a0f716e011fecff4565d67d8b81e0fdd[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Fri Mar 27 12:17:09 2020 -0600
+
+    Listado de acuerdos terminados
+
+[33mcommit 0b32756281a0e255163b7a6acc0b08eae5d306d9[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Thu Mar 26 17:41:56 2020 -0600
+
+    Minutes finished
+
+[33mcommit 3904edda76450634c3a2bdf8519e8307fecfa84c[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Thu Mar 26 09:30:07 2020 -0600
+
+    error post
+
+[33mcommit 1277a8c7a776edf77e85bd1271cb689b4a73bf17[m
+Author: Israel-IE <israel.santiago@integracion-energia.com>
+Date:   Wed Mar 25 09:59:33 2020 -0600
+
+    Commit Israel
+
+[33mcommit 17c63f2730e7b85f45b13014fc0b7782e8da7f2e[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 24 11:51:18 2020 -0600
+
+    Agregando .env de ejemplo
+
+[33mcommit 2c59451ba25cf658f95154270b5ca8a1f99b467b[m
+Author: Moises <163190@idsupchiapas.edu.mx>
+Date:   Tue Mar 24 11:20:25 2020 -0600
+
+    Iniciando con los nuevos requerimientos

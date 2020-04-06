@@ -83,5 +83,15 @@ class MinutaController extends Controller
         } catch (\Exception $e) {
             dd($e);
         }
-     }
+    }
+
+    public function showPDF(Request $request, $id){
+        try {
+            $minuta = Minuta::with('agreements')->find($id);
+            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta'));
+            return $pdf->stream('Minuta '.$minuta->folio.'.pdf');
+        } catch (\Exception $e) {
+            dd($e);
+        }
+    }
 }

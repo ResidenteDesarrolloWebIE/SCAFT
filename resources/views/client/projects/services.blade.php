@@ -31,19 +31,19 @@
 									<br /> {{date("d M Y",strtotime($project->created_at))}}
 									<div class="buttons-projects">
 										<a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 2])}}">
-											<button class="backgroud-icon" data-toggle="modal" data-target="#technicalAdvanceService">
-												<span data-toggle="tooltip" data-placement="bottom" title="Avance del proyecto!">
-													<i class="fas fa-wrench" style="color:white;"></i>
+											<button class="backgroud-icon">
+												<span data-toggle="tooltip" data-placement="bottom" > <!-- title="Avance del proyecto!" -->
+												<i class="far fa-images" style="color:white;"></i><i class="fas fa-dollar-sign" style="color:white;"></i> DETALLES
 												</span>
 											</button>
 										</a>
-										<a href="{{url('/projects/advances/gallery',['idProject' => $project->id, 'typeproject' => 2])}}">
+										<!-- <a href="{{url('/projects/advances/gallery',['idProject' => $project->id, 'typeproject' => 2])}}">
 											<button class="backgroud-icon" id="btnGalleryService" data-toggle="modal" data-target="#imagesGallery">
 												<span data-toggle="tooltip" data-placement="bottom" title="Galeria!">
 													<i class="far fa-images" style="color:white;"></i>
 												</span>
 											</button>
-										</a>
+										</a> -->
 									</div>
 								</div>
 							</div>
