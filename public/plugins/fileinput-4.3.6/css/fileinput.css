@@ -32,6 +32,13 @@
     bottom: -15%;
 }
 
+.fileinput-remove-button{
+    position: relative;
+    overflow: hidden;
+    right: -9;
+    bottom: -15%;
+}
+
 .btn-file input[type=file] {
     position: absolute;
     top: 0;

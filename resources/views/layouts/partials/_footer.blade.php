@@ -1,7 +1,7 @@
 <footer class="footer   py-2 text-xs-center">
   <div class="container text-center">
-    <span>Copyright © All rights reserved 2020 - Integración de Energía.</span><br>
-    <span>Camino a San Antonio Calichar, Guanajuato.</span><br>
-    <span><a href="mailto:enlace@integracion-energia.com">enlace@integracion-energia.com </a> </span>
+    <small>Copyright © All rights reserved 2020 - Integración de Energía.</small><br>
+    <small><a href="mailto:enlace@integracion-energia.com">enlace@integracion-energia.com </a> </small>
+    <h6>Rev. 1</h6>
   </div>
 </footer>

@@ -10,3 +10,13 @@
     padding-bottom: 30px;
     min-height: 552PX;
 }
+
+small{
+    color: white;
+}
+
+h6{
+    color: black;
+    float: right;
+    margin-right: -100px;
+}
