@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
+<head>
+	<link href="/css/gallery.css" rel="stylesheet">
+</head>
+
 <section class="gallery" style="margin-top: 20px">
 	@include('layouts.partials._navigationBar')
 
