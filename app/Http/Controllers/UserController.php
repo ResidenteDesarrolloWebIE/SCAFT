@@ -18,7 +18,7 @@ class UserController extends Controller
 	{
 
 
-		$roles = Role::where('name', '<>', 'Consulta')->get();
+		$roles = Role::where('name', '<>', 'Consulta')->where('name', '<>', 'Cliente')->get();
 		$users = User::with("contacts", "roles")->get();
 		return view('admin.users.users', compact('users', 'roles'));
 	}

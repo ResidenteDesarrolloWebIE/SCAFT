@@ -1,9 +1,8 @@
 $(document).ready(function () {
-    $("#allroles").hide();
     $("#editUser").on('hidden.bs.modal', function () {
         $("#formEditUser")[0].reset();
         $('#idSelectRolesUserEdit').multiselect('destroy');
-        $("#allroles").hide();
+        $("#allrolesEdit").hide();
     });
     $("#editUser").on('show.bs.modal', function () {
         $('#idSelectRolesUserEdit').multiselect({
@@ -11,19 +10,6 @@ $(document).ready(function () {
             nonSelectedText: 'Selecciona un rol',
             nSelectedText: 'Seleccionado'
         });
-    });
-    $("#idTypeUser").change(function () {
-        if ($(this).val() == "CLIENTE") { /* Suministro */
-            $("#codeUser").prop("disabled", false);
-            $('#codeUser').attr({ "placeholder": "C0001" });
-            $("#allroles").hide();
-        } else {
-            $("#codeUser").val("");
-            $('#codeUser').attr({ "placeholder": "" });
-            $("#codeUser").prop("disabled", true);
-            /* $("#selectRolesUser").prop("required", true); */
-            $("#allroles").show();
-        }
     });
 });
 
@@ -37,8 +23,14 @@ function openModalEditUser(user) {
         $('#idContact').val(user.contacts[0].id);
     }
     
-    if(user.code == null){var typeUser = "EMPLEADO";}
-    else{var typeUser = "CLIENTE";}
+    if(user.code == null){
+        var typeUser = "EMPLEADO";
+        $("#allrolesEdit").show();
+    }else{
+        var typeUser = "CLIENTE";
+        $("#allrolesEdit").hide();
+    }
+
     $('#idNameUsuario').html(user.name);
     $('#idTypeUserEdit').val(typeUser).prop("disabled",true);
     $('#idCodeUserEdit').val(user.code).prop("disabled",false);

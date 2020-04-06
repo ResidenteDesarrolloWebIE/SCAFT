@@ -57,7 +57,7 @@
                                 <label for="cellUser"><strong style="color:red">*</strong><strong>Telefono</strong></label>
                                 <input type="number" class="form-control" name="cellUserEdit" id="idCellUserEdit" value="" required>
                             </div>
-                            <div class="form-group text-center" id="allroles">
+                            <div class="form-group text-center" id="allrolesEdit">
                                 <label for="clientProject"><strong style="color:red">*</strong><strong>Roles</strong></label>
                                 <select class="custom-select" name="rolesEdit[]" id="idSelectRolesUserEdit" multiple>
                                     @foreach($roles as $rol)

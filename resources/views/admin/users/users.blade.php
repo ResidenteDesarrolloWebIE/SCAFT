@@ -19,6 +19,7 @@
                 <thead style="background-color:gray">
                     <tr>
                         <th> Id</th>
+                        <th> Tipo</th>
                         <th> Codigo</th>
                         <th> Nombre</th>
                         <th> E-mail</th>
@@ -32,15 +33,19 @@
                     @forelse($users as $user)
                     <tr>
                         <td>{{$user->id}}</td>
+                        @if(is_null($user->code))
+                            <td>EMPLEADO</td>
+                        @else
+                            <td>CLIENTE</td>
+                        @endif
                         <td>{{$user->code}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         @if(count($user->contacts)>0)
-                        <td>{{$user->contacts[0]->cellphone}}</td>
+                            <td>{{$user->contacts[0]->cellphone}}</td>
                         @else
-                        <td>Sin teléfono</td>
+                            <td>Sin teléfono</td>
                         @endif
-
                         <td>
                             <a data-toggle="modal" data-target="#editUser">
                                 <button type="button" class="btn btn-dark" title="Editar Usuario" onclick="openModalEditUser({{$user}})"><i class="fas fa-edit"></i></button>
