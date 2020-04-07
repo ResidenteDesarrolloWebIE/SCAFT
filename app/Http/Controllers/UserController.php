@@ -82,6 +82,7 @@ class UserController extends Controller
 			$contact->cellphone = $request->cellUserEdit;
 			if (!is_null($request->rolesEdit)) {
 				$user->roles()->sync($request->rolesEdit);
+				$user->roles()->attach(Role::where('name', 'Consulta')->first());
 			} else {
 				$user->roles()->sync(Role::where('name', 'Consulta')->first());
 			}

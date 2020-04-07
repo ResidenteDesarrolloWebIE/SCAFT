@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group text-center" id="divExcangeRateProject">
                         <label for="exchangeRate"><strong style="color:red">*</strong><strong>Tipo de cambio</strong></label>
-                        <input type="number" class="form-control" name="exchangeRate" id="idExchangeRate" value="" placeholder="Tipo de cambio">
+                        <input type="number" class="form-control" name="exchangeRate" id="idExchangeRate" value="" step="any" placeholder="Tipo de cambio">
                     </div>
                 </div>
                 <div class="col-md-12">
