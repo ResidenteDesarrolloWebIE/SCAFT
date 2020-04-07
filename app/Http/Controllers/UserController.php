@@ -50,14 +50,18 @@ class UserController extends Controller
 				$contact->save();
 
 				if (!is_null($request->roles)) {
-
 					$user->roles()->attach($request->roles);
 					$user->roles()->attach(Role::where('name', 'Consulta')->first());
 				} else {
-					$user->roles()->attach(Role::where('name', 'Consulta')->first());
+					if($request->typeUser == "EMPLEADO"){
+						$user->roles()->attach(Role::where('name', 'Consulta')->first());
+					}else{
+						$user->roles()->attach(Role::where('name', 'Cliente')->first());
+					}
 				}
 				DB::commit();
 				return response()->json(['error' => false, 'message' => 'El usuario fue creado correctamente', 'code' => 200], 200);
+
 			} catch (\Throwable $error) {
 				DB::rollBack();
 				echo ("El error ocurrido es el siguiente: " . $error);
@@ -69,6 +73,7 @@ class UserController extends Controller
 		try {
 			$user = User::with('roles')->where('id', $request->user)->first();
 			$contact = Contact::where('id', $request->contact)->first();
+			$user->name = $request->nameUserEdit;
 			$user->email =  $request->emailUserEdit;
 			if($request->passwordUserEdit){
 				$user->password = Hash::make($request->passwordUserEdit);
