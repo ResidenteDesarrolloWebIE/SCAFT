@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ProjectTypeSeeder::class);  
         $this->call(CoinSeeder::class); 
+        $this->call(ContactSeeder::class);
         /* $this->call(ProjectSeeder::class);
         $this->call(AdmDatabaseSyncSeeder::class);  
         $this->call(TechnicalAdvanceSeeder::class); 
