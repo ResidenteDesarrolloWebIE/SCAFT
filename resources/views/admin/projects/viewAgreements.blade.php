@@ -1,20 +1,25 @@
 @extends('layouts.app')
 @section('content')
 
+<head>
+    <link href="/css/agreements.css" rel="stylesheet">
+</head>
+
 @section('content')
 <section class="section-projects-admin py-2 text-xs-center">
+    <div class="fondo">
     @include('layouts.partials._navigationBar')
     <div class="container container-projects-admin">
         <div class="row table-responsive text-center projects-table">
-            <h1 class="text-center">Lista de acuerdos</h1>
+            <h1 class="text-center">LISTA DE ACUERDOS</h1>
             <div class="offset-md-8 col-md-4 text-right">
-            <a href="/minutas/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-info" onclick="">
+            <a href="/minutas/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-dark" onclick="">
                     Ver minutas  <i class="fas fa-undo"></i>
                 </button></a>
             </div>
             <br>
             <table class="table table-sm-responsive" id="tableAgreements">
-                <thead class="table-success">
+                <thead class="table-success" style="background-color: #252b37">
                     <tr style="text-align:center">
                         <th>N°</th>
                         <th>Acuerdo</th>
@@ -35,7 +40,7 @@
                         <td>{{$agreement->start_date}}</td>
                         <td>{{$agreement->end_date}}</td>
                         <td>
-                        <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-info"  title="Editar Acuerdo" onclick="openModalEditAgreement({{$agreement}})"><i class="fas fa-edit"></i></button>
+                        <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-primary"  title="Editar Acuerdo" onclick="openModalEditAgreement({{$agreement}})"><i class="fas fa-edit"></i></button>
                         </td>
                     </tr>
                     @endforeach
