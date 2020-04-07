@@ -71,7 +71,7 @@ class UserController extends Controller
 			$contact = Contact::where('id', $request->contact)->first();
 			$user->email =  $request->emailUserEdit;
 			if($request->passwordUserEdit){
-				$user->password = $request->passwordUserEdit;
+				$user->password = Hash::make($request->passwordUserEdit);
 			}
 			$contact->job_position = $request->puestoUserEdit;
 			$contact->cellphone = $request->cellUserEdit;
