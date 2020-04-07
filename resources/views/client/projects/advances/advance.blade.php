@@ -1,32 +1,30 @@
 @extends('layouts.app')
 @section('content')
 
-
-
 <section class="section-home">
 	@include('layouts.partials._navigationBar')
 	<!-- AVANCE TÉCNICO -->
 	<div class="container">
 		<div id="rectangulo" class="forma">
-			<p>NOMBRE DEL PROYECTO:  <span style="text-decoration:underline;"> {{$project->name}}</span><br>
-				CODIGO PROYECYO:  <span style="text-decoration:underline;"> {{$project->folio}}</span><br>
+			<p>NOMBRE DEL PROYECTO: <span style="text-decoration:underline;"> {{$project->name}}</span><br>
+				CODIGO PROYECYO: <span style="text-decoration:underline;"> {{$project->folio}}</span><br>
 				CLIENTE: <span style="text-decoration:underline;"> {{$project->customer->name}}</span><br>
-				SUBESTACION:  <span style="text-decoration:underline;"> {{$project->substation}}</span><br>
-				DESCRIPCION:  <span style="text-decoration:underline;"> {{$project->description}}</span><br>
+				SUBESTACION: <span style="text-decoration:underline;"> {{$project->substation}}</span><br>
+				DESCRIPCION: <span style="text-decoration:underline;"> {{$project->description}}</span><br>
 			</p>
 		</div>
-		<div class="row text-center" style="background:gray">
-			<div class="col-md-3">
-				<a data-toggle="modal" data-target="#idModalOffer"><button type="button" class="btn btn-dark"  onclick='initializeModalsCustomers({{$project}})'>Oferta</button></a>
+		<div class="row text-center">
+			<div class="col-md-2">
+				<a data-toggle="modal" data-target="#idModalOffer"><button type="button" class="btn btn-dark btn-block" onclick='initializeModalsCustomers({{$project}})'>Oferta</button></a>
 			</div>
-			<div class="col-md-3">
-				<a data-toggle="modal" data-target="#idModalPurchaseOrder"><button type="button" class="btn btn-dark"  onclick='initializeModalsCustomers({{$project}})'>Ordene de compra</button></a>
+			<div class="col-md-2">
+				<a data-toggle="modal" data-target="#idModalPurchaseOrder"><button type="button" class="btn btn-dark btn-block" onclick='initializeModalsCustomers({{$project}})'>Orden de compra</button></a>
 			</div>
-			<div class="col-md-3">
-				<a data-toggle="modal" data-target="#idModalMinutas"><button type="button" class="btn btn-dark"  onclick='initializeModalsCustomers({{$project}})'>Minutas</button></a>
+			<div class="col-md-2">
+				<a data-toggle="modal" data-target="#idModalMinutas"><button type="button" class="btn btn-dark btn-block" onclick='initializeModalsCustomers({{$project}})'>Minutas</button></a>
 			</div>
-			<div class="col-md-3">
-				<a data-toggle="modal" data-target="#idModalGallery"><button type="button" class="btn btn-dark"  onclick='initializeModalsCustomers({{$project}})'>Galeria</button></a>
+			<div class="col-md-2">
+				<a data-toggle="modal" data-target="#idModalGallery"><button type="button" class="btn btn-dark btn-block" onclick='initializeModalsCustomers({{$project}})'>Galeria</button></a>
 			</div>
 		</div>
 		<!-- AVANCE TECNICO -->
