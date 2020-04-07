@@ -11,14 +11,14 @@ class ContactSeeder extends Seeder{
      */
     public function run(){
         $user = new Contact();
-        $user->name = 'Moises Escobar Martinez';
-        $user->email = 'residente.desarrolloweb@integracion-energia.com';
-        $user->job_position = "Residente";
+        $user->name = 'Administrador';
+        $user->email = 'administrador@integracion-energia.com';
+        $user->job_position = "Administrador";
         $user->cellphone = '9661006467';
         $user->user_id = 1;
         $user->save();
 
-        $user = new Contact();
+        /* $user = new Contact();
         $user->name = 'Jesus Israel';
         $user->email = 'residente.desarrolloweb@integracion-energia.com';
         $user->job_position = "Residente";
@@ -32,6 +32,6 @@ class ContactSeeder extends Seeder{
         $user->job_position = "Residente";
         $user->cellphone = '8781006467';
         $user->user_id = 3;
-        $user->save();
+        $user->save(); */
     }
 }
