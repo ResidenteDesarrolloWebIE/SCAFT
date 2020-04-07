@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $("#imagesProject").on('hidden.bs.modal', function() {
+$(document).ready(function () {
+    $("#imagesProject").on('hidden.bs.modal', function () {
         /* $("#real-dropzone")[0].reset(); */
         $('#dropzonePreview').html("");
     });
@@ -20,62 +20,62 @@ if (document.querySelector('#preview-template') != null) {
     var photo_counter = 0;
     Dropzone.options.realDropzone = {
         uploadMultiple: false,
-        parallelUploads: 100,
         maxFilesize: 100,
+        /* autoProcessQueue: false, */
         previewsContainer: '#dropzonePreview',
         previewTemplate: document.querySelector('#preview-template').innerHTML,
         addRemoveLinks: true,
         dictRemoveFile: 'Eliminar',
         dictFileTooBig: 'La imagen es más grande que 100 MB',
         dictRemoveFileConfirmation: "¿Estas seguro de eliminar esta imagen?",
-        init: function() {
+        init: function () {
             var myDropzone = this;
-            this.on("initFiles", function(file) {
-                $.get('/projects/images?id=' + $('#idPro').val(), function(data) {
+            this.on("initFiles", function (file) {
+                $.get('/projects/images?id=' + $('#idPro').val(), function (data) {
                     console.log(data);
-                    $.each(data.images, function(key, value) {
-                        console.log("archivo:  ", value.server);
+                    $.each(data.images, function (key, value) {
                         var file = { name: value.original, size: value.size };
                         myDropzone.options.addedfile.call(myDropzone, file);
                         myDropzone.createThumbnailFromUrl(file, value.server);
                         myDropzone.emit("complete", file);
-                        $('.serverfilename', file.previewElement).val(value.server);
+                        $('.serverfilename', file.previewElement).val(value.name);
                         $("#photoCounter").text("(" + photo_counter + ")");
                     });
                 });
+
             });
 
-            this.on("removedfile", function(file) {
-                console.log($('.serverfilename', file.previewElement).val())
+            this.on("removedfile", function (file) {
+                console.log("Eliminar:  ",$('.serverfilename', file.previewElement).val());
+                console.log("Eliminar:  ",file.name);
                 var folioProject = $('#idFolioPro').val()
                 var typeProject = $('#idTypePro').val()
                 $.ajax({
                     type: 'POST',
                     url: '/projects/images/delete',
-                    data: { name: file.name, folioProject: folioProject, typeProject: typeProject, _token: $('#csrf-token').val() },
+                    data: { name:$('.serverfilename', file.previewElement).val(), folioProject: folioProject, typeProject: typeProject, _token: $('#csrf-token').val() },
                     dataType: 'JSON',
-                    success: function(data) {
+                    success: function (data) {
                         Swal.fire({
                             type: 'success',
                             title: '¡Eliminado!',
                             text: "La imagen fue eliminada correctamente",
-                            preConfirm: () => {},
+                            preConfirm: () => { },
                         })
                     },
-                    error: function(data) {
+                    error: function (data) {
                         console.log(data);
                     }
                 });
             });
-            this.on("resetFiles", function(file) {
+            this.on("resetFiles", function (file) {
                 console.log(myDropzone.getAcceptedFiles());
-                $.each(myDropzone.getAcceptedFiles(), function(key, value) {
-                    console.log(value.previewElement);
+                $.each(myDropzone.getAcceptedFiles(), function (key, value) {
                     $('.serverfilename', value.previewElement).val("");
                 });
             });
         },
-        error: function(file, response) {
+        error: function (file, response) {
             if ($.type(response) === "string")
                 var message = response;
             else
@@ -89,25 +89,29 @@ if (document.querySelector('#preview-template') != null) {
             }
             return _results;
         },
-        success: function(file, response) {
-            /* console.log("Datos de la imagen:  ", $('.serverfilename', file.previewElement).val());
-            $('.serverfilename', file.previewElement).val(response.imageName); */
-            $('#dropzonePreview').html("");
-            var myDropzone = this;
-            $.get('/projects/images?id=' + $('#idPro').val(), function(data) {
-                console.log(data);
-                $.each(data.images, function(key, value) {
-                    console.log("archivo:  ", value.server);
-                    var file = { name: value.original, size: value.size };
-                    myDropzone.options.addedfile.call(myDropzone, file);
-                    myDropzone.createThumbnailFromUrl(file, value.server);
-                    myDropzone.emit("complete", file);
-                    $('.serverfilename', file.previewElement).val(value.server);
-                    $("#photoCounter").text("(" + photo_counter + ")");
+        success: function (file, response) {
+            console.log(file,response.imageName);
+
+            $('.serverfilename',file.previewElement).val(response.imageName);
+            $('.dz-filename',file.previewElement).html(response.imageName)
+
+            /* var myDropzone = this;
+            photo_counter = photo_counter + 1;
+            if (photo_counter == myDropzone.getAcceptedFiles().length) {
+                $('#dropzonePreview').html("");
+                $.get('/projects/images?id=' + $('#idPro').val(), function (data) {
+                    console.log(data);
+                    $.each(data.images, function (key, value) {
+                        console.log("archivo:  ", value.server);
+                        var file = { name: value.original, size: value.size };
+                        myDropzone.options.addedfile.call(myDropzone, file);
+                        myDropzone.createThumbnailFromUrl(file, value.server);
+                        myDropzone.emit("complete", file);
+                        $('.serverfilename', file.previewElement).val(value.server);
+                        $("#photoCounter").text("(" + photo_counter + ")");
+                    });
                 });
-                photo_counter++;
-                console.log(photo_counter);
-            });
+            } */
         }
     }
 }

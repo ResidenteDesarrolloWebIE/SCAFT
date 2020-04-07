@@ -19,7 +19,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if(!is_null($project->minutes))
+                                @if(!$project->minutes->isEmpty())
                                     @foreach($project->minutes as $minuta)
                                         <tr>
                                             <td>{{$minuta->folio}}</td>
