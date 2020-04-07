@@ -46,7 +46,8 @@
     width:125px; 
     height:45px;
     position: relative; 
-    z-index: 1; 
+    z-index: 1;
+    opacity: 100%; 
 }
 
 

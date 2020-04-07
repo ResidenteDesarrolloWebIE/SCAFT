@@ -8,11 +8,12 @@
                 <div class="col-lg-12">
                     <div class="table-responsive">
                         <table class="table table-hover table-condensed table-bordered" id="roleCatTable">
-                            <thead>
+                            <thead style="background-color: #05536f">
                                 <tr>
                                     <th style="text-align:center">No.</th>
                                     <th style="text-align:center">Acuerdo</th>
                                     <th style="text-align:center">Responsable</th>
+                                    <th style="text-align:center">Estatus</th>
                                     <th style="text-align:center">Fecha Inicio</th>
                                     <th style="text-align:center">Fecha Fin</th>
                                 </tr>
@@ -24,7 +25,7 @@
                 </div>
             </div>
                 <div align="center">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     &nbsp;&nbsp;&nbsp;                  
                 </div>
             <br>

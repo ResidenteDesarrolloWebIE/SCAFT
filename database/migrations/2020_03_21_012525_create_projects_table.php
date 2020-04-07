@@ -21,7 +21,7 @@ class CreateProjectsTable extends Migration
             $table->string('status',50)->default("PENDIENTE");
             /* $table->string('type',50);/* Eliminar despues */ 
             $table->double('exchange_rate')->nullable();
-            $table->double('total_amount', 15, 6);
+            $table->double('total_amount');
             $table->text('description');
 
             $table->unsignedBigInteger('customer_id')->nullable();

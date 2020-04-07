@@ -1,8 +1,14 @@
 .section-home {
-  background: url("../images/background-home.jpg");
+  background: url("../images/background-home1.png");
   background-size: cover;
   height: 100vh;
   overflow: hidden;
+}
+
+.gallery{
+  min-height: 88vh;display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-home {
@@ -23,12 +29,11 @@
     font-size: 16px;
   }
   .section-home {
-    background: url("../images/background-home.jpg");
+    background-repeat: no-repeat;
+    background: url("../images/background-home1.png");
     background-size: 1300px;
   }
 }
-
- 
 
 .testimotionals .card {
   position: relative;

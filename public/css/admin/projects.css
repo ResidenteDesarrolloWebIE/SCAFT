@@ -1,0 +1,23 @@
+.projects-table{
+    margin-top:0px;
+}
+.section-projects-admin {
+    background: white;
+    color: black;
+}
+.container-projects-admin {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    min-height: 552PX;
+}
+
+small{
+    color: white;
+}
+
+h6{
+    color: white;
+    float: right;
+    margin-right: -100px;
+    font-size: 1px;
+}

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Projects\Contact;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -57,7 +58,7 @@ class User extends Authenticatable
 
     /* Metodos para manipular los roles */
     public function authorizeRoles($roles){
-        if ($this->hasAnyRole($roles)) {
+        if (User::hasAnyRole($roles)) {
             return true;
         }
         abort(401, 'Esta acción no está autorizada.');
@@ -69,7 +70,7 @@ class User extends Authenticatable
                     return true;
                 }
             }
-        } else {
+        }else {
             if ($this->hasRole($roles)) {
                 return true;
             }
@@ -77,12 +78,7 @@ class User extends Authenticatable
         return false;
     }
 
-    /* public function hasRole($role){
-        if ($this->roles()->where('name', $role)->first()) {
-            return true;
-        }
-        return false;
-    } */
+
     public function hasRole($role){
         if (User::roles()->where('name', $role)->first()) {
             return true;
