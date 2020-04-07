@@ -13,8 +13,27 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $role_client = Role::where('name', 'client')->first();
-        $role_admin = Role::where('name', 'admin')->first();
+        /* $role_client = Role::where('name', 'Cliente')->first(); */
+        $role_admin = Role::where('name', 'Administrador')->first();
+        $role_consulta = Role::where('name', 'Consulta')->first();
+
+
+        $user = new User();
+        $user->name = 'Administrador';
+        $user->email = 'administrador@integracion-energia.com';
+        $user->password = bcrypt('Energia2020');
+        $user->save();
+        $user->roles()->attach($role_admin);
+        $user->roles()->attach($role_consulta);
+        
+
+/*         $user = new User();
+        $user->name = 'Moises';
+        $user->email = 'residente.desarrolloweb@integracion-energia.com';
+        $user->password = bcrypt('moises1');
+        $user->code = 'C1112';
+        $user->save();
+        $user->roles()->attach($role_client); 
 
         $user = new User();
         $user->name = 'Cliente';
@@ -22,22 +41,6 @@ class UserSeeder extends Seeder
         $user->password = bcrypt('cliente1');
         $user->code = 'C1110';
         $user->save();
-        $user->roles()->attach($role_client); 
-        
-        $user = new User();
-        $user->name = 'Administrador';
-        $user->email = 'admin@example.com';
-        $user->password = bcrypt('administrador1');
-        $user->code = 'C1111';
-        $user->save();
-        $user->roles()->attach($role_admin);
-
-        $user = new User();
-        $user->name = 'Moises';
-        $user->email = 'residente.desarrolloweb@integracion-energia.com';
-        $user->password = bcrypt('moises1');
-        $user->code = 'C1112';
-        $user->save();
-        $user->roles()->attach($role_client); 
-    }
+        $user->roles()->attach($role_client,); */
+    } 
 }

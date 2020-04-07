@@ -17,6 +17,7 @@ class CreateAgreementsTable extends Migration
             $table->bigIncrements('id');
             $table->text('agreement');
             $table->string('responsable',150); 
+            $table->string('status');
             $table->date('start_date');
             $table->date('end_date');
             $table->unsignedBigInteger('minuta_id')->nullable();
