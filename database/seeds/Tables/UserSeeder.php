@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
         $user->name = 'Administrador';
         $user->email = 'administrador@integracion-energia.com';
         $user->password = bcrypt('Energia2020');
-        $user->code = 'C1111';
         $user->save();
         $user->roles()->attach($role_admin);
         $user->roles()->attach($role_consulta);
