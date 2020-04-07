@@ -42,6 +42,6 @@ class UserSeeder extends Seeder
         $user->password = bcrypt('cliente1');
         $user->code = 'C1110';
         $user->save();
-        $user->roles()->attach($role_client,); 
-    } */
+        $user->roles()->attach($role_client,); */
+    } 
 }
