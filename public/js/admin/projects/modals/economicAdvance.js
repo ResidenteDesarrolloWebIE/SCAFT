@@ -61,7 +61,7 @@ function initilizeEconomicAdvance(project) {
 }
 
 function editEconomicAdvance() {
-    if ($("#idPaymentTotalPercentage").val() >= 100) {
+    if ($("#idPaymentTotalPercentage").val() > 100) {
         Swal.fire({
             type: 'error',
             title: '¡Error!',
