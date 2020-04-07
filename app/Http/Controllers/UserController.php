@@ -68,7 +68,6 @@ class UserController extends Controller
 	public function edit(Request $request){
 		try {
 			$user = User::with('roles')->where('id', $request->user)->first();
-			dd($request->all());
 			$contact = Contact::where('id', $request->contact)->first();
 			$user->email =  $request->emailUserEdit;
 			if($request->passwordUserEdit){
