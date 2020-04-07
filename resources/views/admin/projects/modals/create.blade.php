@@ -22,7 +22,7 @@
                         <input type="text" class="form-control" name="nameProject" id="nameProject" value="" required placeholder="Nombre">
                     </div>
                     <div class="form-group text-center">
-                        <label for="substationProject"><strong style="color:red">*</strong><strong>Subestacion</strong></label>
+                        <label for="substationProject"><strong style="color:red">*</strong><strong>Subestación</strong></label>
                         <input type="text" class="form-control" name="substationProject" id="idSubstationProject" value="" required placeholder="Subestacion">
                     </div>
                     <div class="form-group text-center">
