@@ -16,7 +16,8 @@ small{
 }
 
 h6{
-    color: black;
+    color: white;
     float: right;
     margin-right: -100px;
+    font-size: 1px;
 }
