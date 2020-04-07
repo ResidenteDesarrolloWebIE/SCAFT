@@ -100,10 +100,12 @@
             </div>
         </div>
     </div>
-    @include('admin/projects/modals/create')
-    @include('admin/projects/modals/edit')
-    @include('admin/projects/modals/economicAdvanceEdit')
-    @include('admin/projects/modals/technicalAdvanceEdit')
-    @include('admin/projects/modals/images')
+    @if(!$projects->isEmpty())
+        @include('admin/projects/modals/create')
+        @include('admin/projects/modals/edit')
+        @include('admin/projects/modals/economicAdvanceEdit')
+        @include('admin/projects/modals/technicalAdvanceEdit')
+        @include('admin/projects/modals/images')
+    @endif
 </section>
 @endsection
