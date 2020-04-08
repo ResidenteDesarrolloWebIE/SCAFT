@@ -85,7 +85,7 @@ function saveMinuta(form) {
         if (result.value) {
             procesando();
             var values = new FormData(form);
-            var ruta = '/saveMinuta';
+            var ruta = 'SCAFT/saveMinuta';
             var token = $('#token').val();
             $.ajax({
                 method:'POST',

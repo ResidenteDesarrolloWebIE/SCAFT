@@ -95,11 +95,17 @@ class ProjectController extends Controller{
                 } else {
                     $typeProject = "SERVICIOS";
                 }
-                $hour = str_replace(":", "", date("h:i:s"));
+                //$hour = str_replace(":", "", date("h:i:s"));
+                //$file = $request->file('offerProject');
                 $file = $request->file('offerProject');
+                $hour = str_replace(":", "", date("h:i:s"));
+            // generate a new filename. getClientOriginalExtension() for the file extension
                 $filename  =  $hour . $file->getClientOriginalName();
+            // save to storage/app/topProducts/filename as the new $filename
+                $file->storeAs('topProducts/', $filename);
+
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/' . $filename;
-                Storage::disk('local')->put($path, \File::get($file));
+                //Storage::disk('local')->put($path, \File::get($file));
 
                 $file = new File();
                 $file->name = $filename;
