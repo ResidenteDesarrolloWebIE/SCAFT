@@ -18,7 +18,6 @@ use App\User;
 
 class ProjectController extends Controller{
     public function showProjects(){
-        
         $clients = User::whereHas('roles', function (Builder $query) {$query->where('name', '=', 'Cliente');})->get();
         $selectStatusReceiveOrder = "";
         $inputStatusEngineeringRelease = "";
@@ -99,8 +98,9 @@ class ProjectController extends Controller{
                 $file = $request->file('offerProject');
                 $filename  =  $hour . $file->getClientOriginalName();
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/' . $filename;
-                Storage::disk('local')->put($path, \File::get($file));
-
+                /* Storage::disk('local')->put($path, \File::get($file)); */
+                $file->storageAs($path);
+                
                 $file = new File();
                 $file->name = $filename;
                 $file->path = $path;

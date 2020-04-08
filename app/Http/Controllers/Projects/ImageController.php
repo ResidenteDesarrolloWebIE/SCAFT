@@ -35,9 +35,11 @@ class ImageController extends Controller
                 $typeProject = "SERVICIOS";
             }
             $imageName  =  $date->format('d-m-Y').'-'.str_replace(":", "--", $date->toTimeString()) . "_" . (intval($idImage) + 1) . "." . $image->getClientOriginalExtension();
-            $path = 'DOCUMENTOS/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/' . $imageName;
+            $path = 'DOCUMENTOS1/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/';
 
-            Storage::disk('local')->put($path, \File::get($image));
+            /* Storage::disk('local')->put($path, \File::get($image)); */
+            $image->storageAs($path,$imageName);
+
             $projectImage = new Image;
             $projectImage->name = $imageName;
             $projectImage->path = $path;
