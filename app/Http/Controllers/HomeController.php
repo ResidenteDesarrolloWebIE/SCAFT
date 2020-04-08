@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection as Collection;
+use Illuminate\Support\Facades\Artisan;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function createStorageLink(){
+        Artisan::call('storage:link');
     }
 }

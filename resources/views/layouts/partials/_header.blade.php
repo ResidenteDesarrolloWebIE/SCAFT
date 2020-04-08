@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="{{asset('css/client/technicalAdvance.css') }}" />
     <link rel="stylesheet" href="{{asset('css/client/economicAdvance.css') }}" />
     <link rel="stylesheet" href="{{asset('css/client/gallery.css') }}" />
-    
+    <link rel="stylesheet" href="{{asset('css/projectlist.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/minutes.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/agreements.css')}}"/>
 
     <link rel="stylesheet" href="{{asset('plugins/dropzone-2012/dropzone.css') }}">
     <link rel="stylesheet" href="{{asset('plugins/fileinput-4.3.6/css/fileinput.min.css') }}">

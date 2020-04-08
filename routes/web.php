@@ -8,6 +8,9 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 */
+
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes();
 
@@ -30,6 +33,8 @@ Route::group(['middleware' => 'auth', 'customers', 'employees'], function () {
 });
 
 Route::group(['middleware' => ['auth', 'employees']], function () {
+    Route::get('createStorageLink', 'HomeController@createStorageLink');
+
     Route::get('projects', 'Projects\ProjectController@showProjects');
     Route::post('projects/create', 'Projects\ProjectController@create');
     Route::put('projects/edit', 'Projects\ProjectController@edit');
@@ -59,3 +64,4 @@ Route::group(['middleware' => ['auth', 'employees']], function () {
     Route::post('users/create', 'UserController@create');
     Route::post('users/edit', 'UserController@edit');
 });
+
