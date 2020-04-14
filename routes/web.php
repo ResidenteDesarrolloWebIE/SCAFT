@@ -57,4 +57,5 @@ Route::group(['middleware' => ['auth', 'employees']], function () {
 
     Route::get('users', 'UserController@showUsers');
     Route::post('users/create', 'UserController@create');
+    Route::post('users/edit', 'UserController@edit');
 });

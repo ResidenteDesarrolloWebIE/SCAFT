@@ -20,7 +20,7 @@
                         <a class="nav-link" href="{{url('projects')}}">Lista de proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('users')}}">Usuarios</a>
+                        <a class="nav-link" href="{{url('users')}}">Lista de Usuarios</a>
                     </li>
                 @elseif(Auth::user()->hasAnyRole(['Cliente']))
                     <li class="nav-item">

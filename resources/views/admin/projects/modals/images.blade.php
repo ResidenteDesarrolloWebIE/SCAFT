@@ -22,7 +22,6 @@
                         </div>
                         <div class="dropzone-previews" id="dropzonePreview"></div>
                         <h4 class="label-images">Dar click o Soltar imagenes en esta area <span class="glyphicon glyphicon-hand-down"></span></h4>
-
                         {{Form::close()}}
                     </div>
                 </div>
@@ -32,8 +31,8 @@
                         <div class="dz-image"><img data-dz-thumbnail=""></div>
                         <input type="hidden" class="serverfilename" />
                         <div class="dz-details">
-                            <div class="dz-size"><span data-dz-size=""></span></div>
-                            <div class="dz-filename"><span data-dz-name=""></span></div>
+                            <div class="dz-size"><span data-dz-size="" style="color: black"></span></div>
+                            <div class="dz-filename" ><span data-dz-name="" style="color: black"></span></div>
                         </div>
                         <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div>
                         <div class="dz-error-message"><span id="idError">Error al subir la imagen (Formato incorrecto)!!</span></div> <!-- data-dz-errormessage="" -->

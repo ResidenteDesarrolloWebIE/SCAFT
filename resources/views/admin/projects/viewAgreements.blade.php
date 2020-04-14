@@ -36,10 +36,10 @@
                         <td>{{$loop->iteration }}</td>
                         <td>{{$agreement->agreement}}</td>
                         <td>{{$agreement->responsable}}</td>
-                        <td>{{$agreement->status}}</td>
-                        <td>{{$agreement->start_date}}</td>
-                        <td>{{$agreement->end_date}}</td>
-                        <td>
+                        <td align="center">{{$agreement->status}}</td>
+                        <td align="center">{{$agreement->start_date}}</td>
+                        <td align="center">{{$agreement->end_date}}</td>
+                        <td align="center">
                         <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-primary"  title="Editar Acuerdo" onclick="openModalEditAgreement({{$agreement}})"><i class="fas fa-edit"></i></button>
                         </td>
                     </tr>

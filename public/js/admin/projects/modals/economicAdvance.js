@@ -6,10 +6,6 @@ $(document).ready(function () {
 });
 
 function initilizeEconomicAdvance(project) {
-    /* var maxPercentage = 100 - (project.economic_advances.initial_advance_percentage +
-        project.economic_advances.engineering_release_payment_percentage +
-        project.economic_advances.final_payment_percentage); */
-
     $('#idFolioProjectEconomicAdvance').html(project.folio);
     $('#idEconomicAdvance').val(project.economic_advances.id);
     $('#idTotalAmount').val(project.total_amount);
@@ -65,7 +61,7 @@ function initilizeEconomicAdvance(project) {
 }
 
 function editEconomicAdvance() {
-    if ($("#idPaymentTotalPercentage").val() >= 100) {
+    if ($("#idPaymentTotalPercentage").val() > 100) {
         Swal.fire({
             type: 'error',
             title: '¡Error!',
@@ -84,7 +80,7 @@ function editEconomicAdvance() {
             cancelButtonText: 'Cancelar',
         }).then((result) => {
             if (result.value) {
-                procesando();
+                /* procesando(); */
                 $.ajax({
                     type: 'put',
                     url: 'projects/economicAdvance/edit',
