@@ -26,7 +26,7 @@
                                         <span style="display: none">{{setlocale(LC_TIME,'spanish')}}</span>
                                         {{strftime("%d de %B del %Y", strtotime(date("d M Y",strtotime($image->created_at))))}}
                                     </span>
-                                    <li><a href="{{'#image'.explode('.', explode('_', $image->name)[1])[0] }}"><img src="{{ asset('storage/'.$image->path ) }}"></a></li>
+                                    <li><a href="{{'#image'.explode('.', explode('_', $image->name)[1])[0] }}"><img src="{{ asset($image->path ) }}"></a></li>
                                 </div>
                                 @endforeach
                             </div>
@@ -34,7 +34,7 @@
                         @foreach($project->images as $image)
                         <figure id="{{'image'.explode('.', explode('_', $image->name)[1])[0]}}" class="lbox bounce">
                             <span><a href="{{ '#image'. ( intval( explode('.', explode('_', $image->name)[1])[0])-1) }}" title='Anterior'><i class="fas fa-angle-left"></i></a></span>
-                            <img alt="" title="" src="{{ asset('storage/'.$image->path ) }}" />
+                            <img alt="" title="" src="{{ asset($image->path ) }}" />
                             <span id='right'><a href="{{ '#image'. ( intval( explode('.', explode('_', $image->name)[1])[0])+1) }}" title='Siguiente'><i class="fas fa-angle-right"></i></a></span>
                             <a title='Cerrar' href="#_"><i class="fas fa-times"></i></a>
                             <h2>

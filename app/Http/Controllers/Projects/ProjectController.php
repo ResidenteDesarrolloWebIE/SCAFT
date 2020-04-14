@@ -103,7 +103,7 @@ class ProjectController extends Controller{
             // save to storage/app/topProducts/filename as the new $filename
                 
 
-                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/';
+                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file));
                 /* $file->storeAs($path,$filename); */
                 
@@ -190,9 +190,9 @@ class ProjectController extends Controller{
     public function showAdvances(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin','images','offer','purchaseOrder','minutes'])
+            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin','images','offer','purchaseOrder',
+                'minutes'=> function($query){$query->where('type', 'like', '%EXTERNA%');}])
                 ->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
-            
             return view('client.projects.advances.advance')->with('project', $project);
         }
     }

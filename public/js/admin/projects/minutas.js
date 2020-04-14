@@ -29,10 +29,8 @@ $(document).ready(function(){
     var wrapper = $('.field_wrapper'); //Input field wrapper
     var x = 2; //Initial field counter is 1
     $(addButton).click(function(){ //Once add button is clicked
-       
             var fieldHTML = '<div class="form-group delete"><div class="form-group row"><div class="col-md-8"><label><b>Acuerdo</b></label> <button type="button" style="margin-left: 5px;" title="Eliminar acuerdo" class="btn btn-danger btn-sm remove_button"><i class="fas fa-trash"></i></button><textarea type="text" required class="form-control" name="acuerdos[]" style="resize: none;" rows="2"></textarea><br></div><div class="col-md-4"><label><b>Responsable</b></label><input type="text" class="form-control" name="responsables[]"><br></div><div class="form-group row" style="margin-left: 10px;"><label class="col-xs-2 col-form-label">Fecha Inicio</label><div class="col-sm-4"><input type="date" class="form-control" name="dateStart[]"></div><label class="col-xs-2 col-form-label">Fecha Final</label><div class="col-sm-4"><input type="date" class="form-control" name="dateEnd[]"></div></div></div>'; //New input field html 
             x++; //Increment field counter
-
             $(wrapper).append(fieldHTML); // Add field html
     });
     $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
@@ -85,7 +83,7 @@ function saveMinuta(form) {
         if (result.value) {
             procesando();
             var values = new FormData(form);
-            var ruta = 'SCAFT/saveMinuta';
+            var ruta = '/saveMinuta'; /* SCAFT/ */
             var token = $('#token').val();
             $.ajax({
                 method:'POST',
@@ -158,6 +156,3 @@ function exportAdvance(id){
         cache: false
     });
 }
-
-
-

@@ -46,14 +46,17 @@ if (document.querySelector('#preview-template') != null) {
             });
 
             this.on("removedfile", function (file) {
-                console.log("Eliminar:  ",$('.serverfilename', file.previewElement).val());
-                console.log("Eliminar:  ",file.name);
+                if($('.serverfilename',file.previewElement).val() == ""){
+                   var nameImage = file.name;
+                }else{
+                    var nameImage = $('.serverfilename',file.previewElement).val();
+                }
                 var folioProject = $('#idFolioPro').val()
                 var typeProject = $('#idTypePro').val()
                 $.ajax({
                     type: 'POST',
                     url: '/projects/images/delete',
-                    data: { name:$('.serverfilename', file.previewElement).val(), folioProject: folioProject, typeProject: typeProject, _token: $('#csrf-token').val() },
+                    data: { name:nameImage, folioProject: folioProject, typeProject: typeProject, _token: $('#csrf-token').val() },
                     dataType: 'JSON',
                     success: function (data) {
                         Swal.fire({
@@ -90,28 +93,8 @@ if (document.querySelector('#preview-template') != null) {
             return _results;
         },
         success: function (file, response) {
-            console.log(file,response.imageName);
-
             $('.serverfilename',file.previewElement).val(response.imageName);
             $('.dz-filename',file.previewElement).html(response.imageName)
-
-            /* var myDropzone = this;
-            photo_counter = photo_counter + 1;
-            if (photo_counter == myDropzone.getAcceptedFiles().length) {
-                $('#dropzonePreview').html("");
-                $.get('/projects/images?id=' + $('#idPro').val(), function (data) {
-                    console.log(data);
-                    $.each(data.images, function (key, value) {
-                        console.log("archivo:  ", value.server);
-                        var file = { name: value.original, size: value.size };
-                        myDropzone.options.addedfile.call(myDropzone, file);
-                        myDropzone.createThumbnailFromUrl(file, value.server);
-                        myDropzone.emit("complete", file);
-                        $('.serverfilename', file.previewElement).val(value.server);
-                        $("#photoCounter").text("(" + photo_counter + ")");
-                    });
-                });
-            } */
         }
     }
 }

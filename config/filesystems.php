@@ -73,6 +73,10 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
-
+        'imagenes' => [
+            'driver' => 'local',
+            'root' =>public_path(),
+            'visibility' => 'public',
+        ],
     ],
 ];

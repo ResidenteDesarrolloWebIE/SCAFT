@@ -41,7 +41,6 @@ Route::group(['middleware' => ['auth', 'employees']], function () {
     Route::post('projects/images', 'Projects\ImageController@save')->name('projects-images');
     Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::put('projects/technicalAdvance/edit', 'Projects\EconomicAdvanceController@edit');
-    Route::post('upload', 'Projects/ImageController@save')->name('upload-post');
 
     Route::get('projects/images', 'Projects\ImageController@showImages');
     Route::post('projects/images/save', 'Projects\ImageController@save')->name('projects-images');

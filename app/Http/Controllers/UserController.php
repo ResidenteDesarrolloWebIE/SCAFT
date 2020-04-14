@@ -80,11 +80,16 @@ class UserController extends Controller
 			}
 			$contact->job_position = $request->puestoUserEdit;
 			$contact->cellphone = $request->cellUserEdit;
+
 			if (!is_null($request->rolesEdit)) {
 				$user->roles()->sync($request->rolesEdit);
 				$user->roles()->attach(Role::where('name', 'Consulta')->first());
 			} else {
-				$user->roles()->sync(Role::where('name', 'Consulta')->first());
+				if(is_null($user->code)){/* Empleado */
+					$user->roles()->sync(Role::where('name', 'Consulta')->first());
+				}else{
+					$user->roles()->sync(Role::where('name', 'Cliente')->first());
+				}
 			}
 			$user->save();
 			$contact->save();

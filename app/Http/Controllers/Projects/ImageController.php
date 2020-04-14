@@ -26,7 +26,7 @@ class ImageController extends Controller
             if (is_null($imageLasted)) {
                 $idImage = 0;
             } else {
-                $idImage = explode(".", explode("_", $imageLasted->name)[1])[0]; /* fecha _ 1.png */
+                $idImage = explode(".", explode("_", $imageLasted->name)[1])[0]; 
             }
 
             if ($request['typeProject'] == 1) {
@@ -35,9 +35,8 @@ class ImageController extends Controller
                 $typeProject = "SERVICIOS";
             }
             $imageName  =  $date->format('d-m-Y').'-'.str_replace(":", "--", $date->toTimeString()) . "_" . (intval($idImage) + 1) . "." . $image->getClientOriginalExtension();
-            $path = 'DOCUMENTOS/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/';
-            Storage::disk('local')->put($path, \File::get($image)); 
-            /* $image->storeAs($path,$imageName); */
+            $path = 'DOCUMENTOS/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/'.$imageName;
+            Storage::disk('imagenes')->put($path, \File::get($image)); 
 
             $projectImage = new Image;
             $projectImage->name = $imageName;
@@ -63,7 +62,7 @@ class ImageController extends Controller
         foreach ($project->images as $image) {
             $imageAnswer[] = [
                 'original' => $image->name,
-                'server' => Storage::url($path . $image->name),
+                'server' =>$path.$image->name ,
                 'size' => $image->size
             ];
         }
@@ -82,15 +81,14 @@ class ImageController extends Controller
             if (!$request->name) {
                 return 0;
             }
-            $image = Image::where('name', '=', $request->name)->first();
 
+            $image = Image::where('name', '=', $request->name)->first();
             if (!empty($image)) {
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->folioProject . '/IMAGENES/';
                 $image->delete();
-                Storage::delete($image->path);
+                Storage::disk('imagenes')->delete($image->path);
                 return Response::json(['error' => false, 'message' => 'La imagen fue eliminada correctamente', 'code'  => 200], 200);
             } else {
-                echo ("La imagen no fue encontrada: " . $image);
                 return abort(response()->json(["message" => 'La imagen no pudo ser eliminada'], 400));
             }
         } catch (\Throwable $error) {
@@ -99,13 +97,3 @@ class ImageController extends Controller
         }
     }
 }
-
-/* 
-            while (!is_null(Image::where('name',$imageName)->first())) {
-                $newIdImage = $idImage + 1;
-                $imageName  =  $date->format('d-m-Y') . "_" . (intval($newIdImage) + 1) . "." . $image->getClientOriginalExtension();
-            }
-            while (\File::exists(Storage::url($path))) {
-                $imageName  =  $date->format('d-m-Y') . "_" . (intval($idImage) + 1) . "." . $image->getClientOriginalExtension();
-                $path = 'DOCUMENTOS/' . $typeProject . '/' . $request['folioProject'] . '/IMAGENES/' . $imageName;
-            } */

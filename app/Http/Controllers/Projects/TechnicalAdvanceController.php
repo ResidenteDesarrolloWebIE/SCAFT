@@ -35,7 +35,7 @@ class TechnicalAdvanceController extends Controller
             if(!is_null($request->purchaseOrder)){
                 $file = $request->purchaseOrder;
                 $filename  =  $hour . $file->getClientOriginalName();
-                $path = 'DOCUMENTOS/' . $technicalAdvance->project->type->name.'S'. '/' . $technicalAdvance->project->folio . '/ORDENES_DE_COMPRA/';
+                $path = 'DOCUMENTOS/' . $technicalAdvance->project->type->name.'S'. '/' . $technicalAdvance->project->folio . '/ORDENES_DE_COMPRA/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file)); 
                 /* $file->storeAs($path,$filename); */
     
