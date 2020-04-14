@@ -9,7 +9,7 @@
 			@if($projects->isEmpty())
 			<div class="alert text-center col-md-8" role="alert">
 				<strong>No ha solicitado servicios</strong>
-			</div>
+			</div>0
 			@endif
 			@foreach ($projects as $project)
 			<div class="col-md-3 list-projects">
