@@ -255,7 +255,8 @@ function saveMinuteSignedFile(form){
         confirmButtonText: 'Si, subir archivo',
         cancelButtonText: 'Cancelar',
     }).then((result) => {
-        if (result.value) {            
+        if (result.value) {
+            procesando();            
             $.ajax({
                 type: 'post',
                 url: '/saveMinuteSigned',
@@ -266,6 +267,7 @@ function saveMinuteSignedFile(form){
                 contentType: false,
                 processData: false,
                 success: function (data) {
+                    swal.close();
                     swal.fire({
                         type: 'success',
                         title: '¡Guardado!',

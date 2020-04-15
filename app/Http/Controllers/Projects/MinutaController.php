@@ -9,6 +9,8 @@ use App\Models\Projects\Project;
 use App\Models\Projects\Agreement;
 use Carbon\Carbon;
 use App\User;
+use App\Models\Projects\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class MinutaController extends Controller
@@ -127,6 +129,32 @@ class MinutaController extends Controller
     }
 
     public function saveMinutaSigned(Request $request){
-        dd($request->all());
+        try {
+            $minuta = Minuta::find($request->minuteId);
+            $project = Project::with('type')->find($minuta->project_id);
+            $hour = str_replace(":", "", date("h:i:s"));
+            $file = $request->file('minuteSigned');
+            $filename  =  $hour . $file->getClientOriginalName();
+            $path = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/MINUTA_FIRMADA/' . $filename;
+            Storage::disk('local')->put($path, \File::get($file));
+
+            $file = new File();
+            $file->name = $filename;
+            $file->path = $path;
+            $file->save();
+
+            $minuta->file_id = $file->id;
+            $minuta->save();
+
+            return response()->json(['msg'=>'exito']);
+            
+        } catch (\Exception $e) {
+            dd($e);
+        }
+    }
+
+    public function downloadSignedMinute(Request $request,$id){
+        $file = File::find($id);
+        return Storage::download($file->path);
     }
 }

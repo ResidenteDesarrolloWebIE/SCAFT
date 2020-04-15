@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth', 'customers', 'employees'], function () {
     Route::get('projects/purchaseOrders/showPdf/{id}', 'Projects\PurchaseOrderController@showPdf');
     Route::get('exportMinute/{id}', 'Projects\MinutaController@exportPDF');
     Route::get('minutas/showPdf/{id}', 'Projects\MinutaController@showPDF');
+    Route::get('minutas/downloadMinuteSigned/{id}', 'Projects\MinutaController@downloadSignedMinute');
 });
 
 Route::group(['middleware' => ['auth', 'employees']], function () {

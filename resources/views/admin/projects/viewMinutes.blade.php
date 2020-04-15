@@ -44,13 +44,17 @@
                                 </a>
                                 @if( ( $minute->type == "EXTERNA" && (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) ) || Auth::user()->hasRole('Administrador'))
                                     <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-dark" title="Ver acuerdos"><i class="fas fa-external-link-alt"></i></button></a>
-                                    <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-file"></i></button>
+                                    @if($minute->file_id == null)
+                                    <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-upload"></i></button>
+                                    @endif
                                 @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador'))
                                     <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-primary" title="Ver acuerdos"><i class="fas fa-external-link-alt"></i></button></a>
                                     <a href="/minutas/showPdf/{{$minute->id}}" target="_blank">
                                         <button type="button" class="btn btn-primary" title="Ver Minuta"><i class="fas fa-eye"></i></button>
                                     </a>
-                                    <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-file"></i></button>
+                                    @if($minute->file_id == null)
+                                    <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-upload"></i></button>
+                                    @endif
                                 @endif
                             </td>
                         </tr>
