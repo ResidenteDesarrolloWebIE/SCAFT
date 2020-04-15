@@ -10,7 +10,7 @@
         @include('layouts.partials._navigationBar')
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
-                <h1 class="text-center">LISTA DE USUARIOS</h1>
+                <h1 class="text-center" style="font-family: Arial" style="color:black" >LISTA DE USUARIOS</h1>
 
                 @if(Auth::user()->hasAnyRole(['Administrador']))
                     <div class="offset-md-8 col-md-4 text-right">
@@ -26,13 +26,13 @@
                 <table class="table text-center table-sm-responsive" id="tableUsers">
                     <thead style="background-color: #252b37">
                         <tr>
-                            <th> Id</th>
-                            <th> Tipo</th>
-                            <th> Codigo</th>
-                            <th> Nombre</th>
-                            <th> E-mail</th>
-                            <th> Telefono</th>
-                            <th class="col-md-3"> Acciones</th>
+                            <th style="color:white"> Id</th>
+                            <th style="color:white"> Tipo</th>
+                            <th style="color:white"> Codigo</th>
+                            <th style="color:white"> Nombre</th>
+                            <th style="color:white"> E-mail</th>
+                            <th style="color:white"> Telefono</th>
+                            <th class="col-md-3" style="color:white"> Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

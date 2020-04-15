@@ -11,7 +11,7 @@
         @include('layouts.partials._navigationBar')
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
-                <h1 class="text-center">LISTA DE MINUTAS</h1>
+                <h1 class="text-center" style="font-family: Arial" style="color:black">LISTA DE MINUTAS</h1>
                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas']))
                 <div class="offset-md-8 col-md-4 text-right">
                     <button id="btnProject" type="button" class="btn btn-dark" onclick="openModalAddMinute({{$project}})">
@@ -26,9 +26,9 @@
                 <table class="table text-center table-sm-responsive" id="tableMinutes">
                     <thead class="table-success" style="background-color: #252b37">
                         <tr>
-                            <th>Folio</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
+                            <th style="color:white">Folio</th>
+                            <th style="color:white">Tipo</th>
+                            <th style="color:white">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -1,5 +1,6 @@
 .section-projects {
-    background-image: url(../../images/client-general.png);
+    background-image: url(../../images/background-home1.png);
+    background-repeat: no-repeat;
     color: white;
 }
 

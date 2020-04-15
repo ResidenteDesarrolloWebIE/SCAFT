@@ -28,6 +28,7 @@
 			</div>
 		</div>
 		<!-- AVANCE TECNICO -->
+		
 		<div style="display:inline-block;width:100%;">
 			<ul class="timeline timeline-horizontal">
 				<li class="timeline-item">

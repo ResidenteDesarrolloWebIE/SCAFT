@@ -1,13 +1,7 @@
 .fondo {
-    background-image: url(../images/background-home13.jpg)
-
-}
-
-.text-center{
-    font-family: Arial;
-    color: #252b37;
-}
-
-th {
-    color: white;
+    background-image: url(../images/background-home13.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
 }

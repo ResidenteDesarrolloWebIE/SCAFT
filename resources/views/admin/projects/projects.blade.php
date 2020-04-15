@@ -12,7 +12,7 @@
 
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
-                <h1 class="text-center">LISTA DE PROYECTOS</h1>
+                <h1 class="text-center" style="font-family: Arial" style="color:black">LISTA DE PROYECTOS</h1>
                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
                 <div class="offset-md-8 col-md-4 text-right" style="margin-bottom: 10px">
                     <a data-toggle="modal" data-target="#createProject">
@@ -25,17 +25,17 @@
                 <table class="table text-center table-sm-responsive display nowrap" id="tableProjects">
                     <thead style="background-color: #252b37">
                         <tr>
-                            <th> Id</th>
-                            <th> Folio</th>
-                            <th> Status</th>
-                            <th class="not-sort"> Tipo</th>
-                            <th> Nombre</th>
-                            <th class="not-sort"> Descripcion</th>
-                            <th> Cliente</th>
-                            <th> Codigo</th>
-                            <th class="not-sort"> Oferta</th>
-                            <th class="not-sort"> Orden de compra</th>
-                            <th class="col-md-3 not-sort">Acciones</th>
+                            <th style="color:white"> Id</th>
+                            <th style="color:white"> Folio</th>
+                            <th style="color:white"> Status</th>
+                            <th style="color:white"class="not-sort"> Tipo</th>
+                            <th style="color:white"> Nombre</th>
+                            <th style="color:white" class="not-sort"> Descripcion</th>
+                            <th style="color:white"> Cliente</th>
+                            <th style="color:white"> Codigo</th>
+                            <th style="color:white" class="not-sort"> Oferta</th>
+                            <th style="color:white" class="not-sort"> Orden de compra</th>
+                            <th style="color:white" class="col-md-3 not-sort">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
