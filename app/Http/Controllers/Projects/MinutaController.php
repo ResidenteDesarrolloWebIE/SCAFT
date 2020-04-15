@@ -8,6 +8,7 @@ use App\Models\Projects\Minuta;
 use App\Models\Projects\Project;
 use App\Models\Projects\Agreement;
 use Carbon\Carbon;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class MinutaController extends Controller
@@ -22,8 +23,34 @@ class MinutaController extends Controller
             $minuta = new Minuta();
             $minuta->folio = $request->folio;
             $minuta->type = $request->typeMinuta;
+            $minuta->issue = $request->issue;
+            $minuta->meeting_place = $request->meeting_place;
+            $minuta->objective = $request->objective;
+            $minuta->user_id = Auth::user()->id;
+            //Se convierten los asistentes y las dependencias a un string con formato JSON
+            $json='{"nombres": [';
+            for($i=0; $i<count($request->assistants);$i++){
+                if(($i+1)!=count($request->assistants)){
+                    $json = $json.'"'.$request->assistants[$i].'",';
+                }else{
+                    $json = $json.'"'.$request->assistants[$i].'"';
+                }
+            }
+            $json=$json.'],';
+            $json=$json.'"dependencias": [';
+            for($i=0; $i<count($request->dependences);$i++){
+                if(($i+1)!=count($request->dependences)){
+                    $json = $json.'"'.$request->dependences[$i].'",';
+                }else{
+                    $json = $json.'"'.$request->dependences[$i].'"';
+                }
+            }
+            $json=$json.']}';
+            $minuta->assistants = $json;
             $minuta->project_id = $request->project_id;
             $minuta->save();
+
+            
             for($i=0; $i < count($request->acuerdos); $i++){
                 $agreement = new Agreement();
                 $agreement->agreement = $request->acuerdos[$i];
@@ -78,7 +105,9 @@ class MinutaController extends Controller
     public function exportPDF(Request $request, $id){
         try {
             $minuta = Minuta::with('agreements')->find($id);
-            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta'));
+            $user = User::find($minuta->user_id);
+            $assistants = json_decode($minuta->assistants);
+            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta','user','assistants'));
             return $pdf->download('Minuta '.$minuta->folio.'.pdf');
         } catch (\Exception $e) {
             dd($e);
@@ -88,10 +117,16 @@ class MinutaController extends Controller
     public function showPDF(Request $request, $id){
         try {
             $minuta = Minuta::with('agreements')->find($id);
-            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta'));
+            $user = User::find($minuta->user_id);
+            $assistants = json_decode($minuta->assistants);
+            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta','user','assistants'));
             return $pdf->stream('Minuta '.$minuta->folio.'.pdf');
         } catch (\Exception $e) {
             dd($e);
         }
+    }
+
+    public function saveMinutaSigned(Request $request){
+        dd($request->all());
     }
 }

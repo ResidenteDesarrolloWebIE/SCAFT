@@ -17,10 +17,16 @@ class CreateMinutasTable extends Migration
             $table->bigIncrements('id');
             $table->string('folio',20);
             $table->string('type',30);
+            $table->text('issue');
+            $table->text('meeting_place');
+            $table->text('objective');
+            $table->text('assistants');
             $table->unsignedBigInteger('project_id')->nullable();
             $table->foreign('project_id')->references('id')->on('projects');
             $table->unsignedBigInteger('file_id')->nullable();
             $table->foreign('file_id')->references('id')->on('files');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
         });

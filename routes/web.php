@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'employees']], function () {
     Route::post('saveMinuta', 'Projects\MinutaController@storeMinuta');
     Route::get('minutas/{id}', 'Projects\MinutaController@index');
     Route::post('getFolioMinute', 'Projects\MinutaController@generateFolio');
+    Route::post('saveMinuteSigned','Projects\MinutaController@saveMinutaSigned');
 
     Route::get('getAgreements/{id}', 'Projects\MinutaController@getAgreements');
     Route::get('agreements/{id}', 'Projects\AgreementController@index');
