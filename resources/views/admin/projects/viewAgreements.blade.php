@@ -11,7 +11,7 @@
         @include('layouts.partials._navigationBar')
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
-                <h1 class="text-center" style="color:black">LISTA DE ACUERDOS</h1>
+                <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE ACUERDOS</h1>
                 <div class="offset-md-8 col-md-4 text-right">
                     <a href="/minutas/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-dark" onclick="">
                             Ver minutas <i class="fas fa-undo"></i>

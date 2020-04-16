@@ -10,12 +10,12 @@
                         <table class="table table-hover table-condensed table-bordered" id="roleCatTable">
                             <thead style="background-color: #05536f">
                                 <tr>
-                                    <th style="text-align:center">No.</th>
-                                    <th style="text-align:center">Acuerdo</th>
-                                    <th style="text-align:center">Responsable</th>
-                                    <th style="text-align:center">Estatus</th>
-                                    <th style="text-align:center">Fecha Inicio</th>
-                                    <th style="text-align:center">Fecha Fin</th>
+                                    <th style="text-align:center; color:white">No.</th>
+                                    <th style="text-align:center; color:white" >Acuerdo</th>
+                                    <th style="text-align:center; color:white">Responsable</th>
+                                    <th style="text-align:center; color:white">Estatus</th>
+                                    <th style="text-align:center; color:white">Fecha Inicio</th>
+                                    <th style="text-align:center; color:white">Fecha Fin</th>
                                 </tr>
                             </thead>
                             <tbody id="tbl_agreements">
