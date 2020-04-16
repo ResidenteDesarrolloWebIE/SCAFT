@@ -9,7 +9,12 @@
         <div class="row table-responsive text-center projects-table">
             <h1 class="text-center">LISTA DE ACUERDOS</h1>
             <div class="offset-md-8 col-md-4 text-right">
-            <a href="/minutas/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-dark" onclick="">
+                @if($minuta->file_id ==null)
+                <button type="button" class="btn btn-dark" onclick="openModalAddAgreement({{$minuta}})">
+                    Agrega Acuerdos <i class="fas fa-plus"></i>
+                </button>
+                @endif
+                <a href="/minutas/{{$minuta->project_id}}"><button id="btnProject" type="button" class="btn btn-dark" onclick="">
                     Ver minutas  <i class="fas fa-undo"></i>
                 </button></a>
             </div>
@@ -45,5 +50,6 @@
         </div>
     </div>
     @include('admin/projects/modalEditAgreement')
+    @include('admin/projects/modalAddAgreement')
 </section>
 @endsection
