@@ -11,7 +11,7 @@
                             <thead style="background-color: #05536f">
                                 <tr>
                                     <th style="text-align:center; color:white">No.</th>
-                                    <th style="text-align:center; color:white" >Acuerdo</th>
+                                    <th style="text-align:center; color:white">Acuerdo</th>
                                     <th style="text-align:center; color:white">Responsable</th>
                                     <th style="text-align:center; color:white">Estatus</th>
                                     <th style="text-align:center; color:white">Fecha Inicio</th>

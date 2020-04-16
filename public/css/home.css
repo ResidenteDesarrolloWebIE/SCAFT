@@ -2,8 +2,10 @@
   background: url("../images/background-home1.png");
   background-size: cover;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
 }
+
+
 
 .gallery{
   min-height: 88vh;display: flex;

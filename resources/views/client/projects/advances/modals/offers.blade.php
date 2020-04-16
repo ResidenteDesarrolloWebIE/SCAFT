@@ -29,7 +29,7 @@
                                                 <button type="button" class="btn btn-dark" title="Descargar"><i class="fas fa-download"></i></button>
                                             </a>
                                             <a href="{{url('/projects/offers/showPdf',$project->id)}}" target="_blank">
-                                                <button type="button" class="btn btn-dark" title="Ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn btn-primary" title="Ver"><i class="fas fa-eye"></i></button>
                                             </a>
                                         </td>
                                     </tr>

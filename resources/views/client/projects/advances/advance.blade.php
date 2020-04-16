@@ -3,7 +3,9 @@
 
 <section class="section-home">
 	@include('layouts.partials._navigationBar')
+
 	<!-- AVANCE TÉCNICO -->
+	
 	<div class="container">
 		<div id="rectangulo" class="forma">
 			<p>NOMBRE DEL PROYECTO: <span style="text-decoration:underline;"> {{$project->name}}</span><br>
@@ -13,6 +15,7 @@
 				DESCRIPCION: <span style="text-decoration:underline;"> {{$project->description}}</span><br>
 			</p>
 		</div>
+
 		<div class="row text-center">
 			<div class="col-md-2">
 				<a data-toggle="modal" data-target="#idModalOffer"><button type="button" class="btn btn-dark btn-block" onclick='initializeModalsCustomers({{$project}})'>Oferta</button></a>
@@ -27,9 +30,8 @@
 				<a data-toggle="modal" data-target="#idModalGallery"><button type="button" class="btn btn-dark btn-block" onclick='initializeModalsCustomers({{$project}})'>Galeria</button></a>
 			</div>
 		</div>
+
 		<!-- AVANCE TECNICO -->
-		
-		<div style="display:inline-block;width:100%;">
 			<ul class="timeline timeline-horizontal">
 				<li class="timeline-item">
 					<button class="btn btn-sm btn-primary">AVANCE TÉCNICO</button>
@@ -80,7 +82,6 @@
 		</div>
 
 		<!-- AVANCE ECONÓMICO -->
-		<div style="display:inline-block;width:100%;">
 			<ul class="timelines timelines-horizontale">
 				<li class="timelines-item1">
 					<button class="btn btn-sm btn-primary">AVANCE ECONÓMICO</button>
