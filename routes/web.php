@@ -30,13 +30,10 @@ Route::group(['middleware' => 'auth', 'customers', 'employees'], function () {
     Route::get('projects/purchaseOrders/showPdf/{id}', 'Projects\PurchaseOrderController@showPdf');
     Route::get('exportMinute/{id}', 'Projects\MinutaController@exportPDF');
     Route::get('minutas/showPdf/{id}', 'Projects\MinutaController@showPDF');
-<<<<<<< HEAD
 
     Route::get('projects/aditionalsDetails/download/{id}', 'Projects\FileController@download');
     Route::get('projects/aditionalsDetails/showPdf/{id}', 'Projects\FileController@showPdf');
-=======
     Route::get('minutas/downloadMinuteSigned/{id}', 'Projects\MinutaController@downloadSignedMinute');
->>>>>>> 14c3d24fda87e78e4fc3cee41944b6d17f37ba50
 });
 
 Route::group(['middleware' => ['auth', 'employees']], function () {
