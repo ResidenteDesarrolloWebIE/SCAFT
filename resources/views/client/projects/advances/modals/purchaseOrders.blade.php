@@ -29,7 +29,7 @@
                                     <td>$ {{$project->total_amount}} {{$project->coin->code}}</td>
                                     <td>
                                         <a href="{{url('/projects/purchaseOrders/download',$project->id)}}">
-                                            <button type="button" class="btn btn-dark" title="Descargar"><i class="fas fa-download"></i></button>
+                                            <button type="button" class="btn btn-primary" title="Descargar"><i class="fas fa-download"></i></button>
                                         </a>
                                         <a href="{{url('/projects/purchaseOrders/showPdf',$project->id)}}" target="_blank">
                                             <button type="button" class="btn btn-dark" title="Ver"><i class="fas fa-eye"></i></button>
@@ -38,7 +38,7 @@
                                 </tr>
                                 @else
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="4">
                                             No hay orden de compra para este proyecto
                                         </td>
                                     </tr>
@@ -67,7 +67,7 @@
                                         <td>$ {{$aditional_detail->total_amount}}  {{$project->coin->code}}</td>
                                         <td>
                                             <a href="{{url('/projects/aditionalsDetails/download',$aditional_detail->purchase_order)}}">
-                                                <button type="button" class="btn btn-dark" title="Descargar"><i class="fas fa-download"></i></button>
+                                                <button type="button" class="btn btn-primary" title="Descargar"><i class="fas fa-download"></i></button>
                                             </a>
                                             <a href="{{url('/projects/aditionalsDetails/showPdf',$aditional_detail->purchase_order)}}" target="_blank">
                                                 <button type="button" class="btn btn-dark" title="Ver"><i class="fas fa-eye"></i></button>
@@ -77,7 +77,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="3">
+                                        <td colspan="5">
                                             No hay ordenes adicionales para este proyecto
                                         </td>
                                     </tr>

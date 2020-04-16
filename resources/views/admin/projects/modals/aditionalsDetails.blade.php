@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <table class="table table-bordered text-center">
+                        <table class="table table-bordered text-center ">
                             <thead>
                                 <tr >
                                     <th style="color:black">#</th>
@@ -22,37 +22,6 @@
                                 </tr>
                             </thead>
                             <tbody id="bodyAditionalsDetails">
-<!--                                 @if(!$project->aditionals_details->isEmpty())
-                                    @foreach($project->aditionals_details as $aditional_detail)
-                                    <tr>
-                                        <td>{{$aditional_detail->id}}</td>
-                                        <td>{{$aditional_detail->note}}</td>
-                                        <td>{{$aditional_detail->total_amount}}</td>
-                                        <td>
-                                            <a href="/exportMinute/{{$aditional_detail->id}}">
-                                                <button type="button" class="btn btn-dark" title="Descargar"><i class="fas fa-download"></i></button>
-                                            </a>
-                                            <a href="/minutas/showPdf/{{$aditional_detail->id}}" target="_blank">
-                                                <button type="button" class="btn btn-dark" title="Ver acuerdos"><i class="fas fa-eye"></i></button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="/exportMinute/{{$aditional_detail->id}}">
-                                                <button type="button" class="btn btn-dark" title="Descargar"><i class="fas fa-download"></i></button>
-                                            </a>
-                                             <a href="/minutas/showPdf/{{$aditional_detail->id}}" target="_blank">
-                                                <button type="button" class="btn btn-dark" title="Ver acuerdos"><i class="fas fa-eye"></i></button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                @else
-                                <tr>
-                                    <td colspan="5">
-                                        No hay adicionales para este proyecto
-                                    </td>
-                                </tr>
-                                @endif -->
                             </tbody>
                         </table>
                     </div>

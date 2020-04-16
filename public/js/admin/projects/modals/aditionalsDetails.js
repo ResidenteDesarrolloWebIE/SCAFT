@@ -14,9 +14,9 @@ function inicializeAditionalsDetails(project) {
                 '<tr>'+
                     '<td>'+count+'</td>'+
                     '<td>'+aditional_detail.note+'</td>'+
-                    '<td>'+aditional_detail.total_amount+'</td>'+
+                    '<td> $ '+aditional_detail.total_amount +' '+ project.coin.code+'</td>'+
                     '<td>'+
-                        '<a href="/projects/aditionalsDetails/download/'+aditional_detail.offer+'" style="margin-right:10px">'+
+                        '<a href="/projects/aditionalsDetails/download/'+aditional_detail.offer+'" >'+
                             '<button type="button" class="btn btn-primary" title="Descargar"><i class="fas fa-download"></i></button>'+
                         '</a>'+
                         '<a href="/projects/aditionalsDetails/showPdf/'+aditional_detail.offer+'" target="_blank">'+
@@ -24,7 +24,7 @@ function inicializeAditionalsDetails(project) {
                         '</a>'+
                     '</td>'+
                     '<td>'+
-                        '<a href="/projects/aditionalsDetails/download/'+aditional_detail.purchase_order+'" style="margin-right:10px">'+
+                        '<a href="/projects/aditionalsDetails/download/'+aditional_detail.purchase_order+'" >'+
                             '<button type="button" class="btn btn-primary" title="Descargar"><i class="fas fa-download"></i></button>'+
                         '</a>'+
                         '<a href="/projects/aditionalsDetails/showPdf/'+aditional_detail.purchase_order+'" target="_blank">'+

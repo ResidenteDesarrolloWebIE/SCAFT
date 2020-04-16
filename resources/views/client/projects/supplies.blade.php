@@ -7,10 +7,10 @@
         <h2 class="text-center" style="color: white">SUMINISTROS SOLICITADOS</h2><br>
         @if(!$projects->isEmpty())
             <div class="row" style="justify-content: center"><!--Inicio Modificacion -->
-                <button type="button" class="btn" style="background-color: blue; color:white; margin-right:20px;"><strong>Pendiente</strong></button>
-                <button type="button" class="btn" style="background-color: yellow; color:black; margin-right:20px;"><strong>Proceso</strong></button>
-                <button type="button" class="btn" style="background-color: rgb(0,255,0); color:black; margin-right:20px;"><strong>Terminado</strong></button>
-                <button type="button" class="btn" style="background-color: red; color:white; margin-right:20px;"><strong>Cancelado</strong></button>
+                <span  class="btn" style="background-color: blue; color:white; margin-right:20px;"><strong>Pendiente</strong></span>
+                <span  class="btn" style="background-color: yellow; color:black; margin-right:20px;"><strong>Proceso</strong></span>
+                <span  class="btn" style="background-color: rgb(0,255,0); color:black; margin-right:20px;"><strong>Terminado</strong></span>
+                <span  class="btn" style="background-color: red; color:white; margin-right:20px;"><strong>Cancelado</strong></span>
             </div><!-- Fin modificacion -->
         @endif
         <div class="row center-content">
