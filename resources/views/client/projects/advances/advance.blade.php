@@ -108,7 +108,7 @@
 				</li>
 
 				<li class="timelines-item1">
-					<button class="btn btn-sm btn-primary"> $ {{$project->total_amount}} {{$project->coin->code}}</button>
+					<button class="btn btn-sm btn-primary"> $ {{$project->sum_total_amoun}} {{$project->coin->code}}</button>
 				</li>
 			</ul>
 		</div>

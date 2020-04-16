@@ -8,9 +8,9 @@ $(document).ready(function () {
 function initilizeEconomicAdvance(project) {
     $('#idFolioProjectEconomicAdvance').html(project.folio);
     $('#idEconomicAdvance').val(project.economic_advances.id);
-    $('#idTotalAmount').val(project.total_amount);
+    $('#idTotalAmount').val(project.sum_total_amoun);
 
-    var initial_advance_mount = project.total_amount * (project.economic_advances.initial_advance_percentage / 100);
+    var initial_advance_mount = project.sum_total_amoun * (project.economic_advances.initial_advance_percentage / 100);
     $('#idInitialAdvanceMount').val(initial_advance_mount.toFixed(numberOfDecimals));
     $('#idInitialAdvancePercentage').val(project.economic_advances.initial_advance_percentage);
     $('#idInitialAdvancePercentage').attr({ "min": 0, "max": 100 });
@@ -23,7 +23,7 @@ function initilizeEconomicAdvance(project) {
         $("#idInitialAdvanceCompleted").prop("disabled", false);
     }
 
-    var final_payment_mount = project.total_amount * (project.economic_advances.final_payment_percentage / 100);
+    var final_payment_mount = project.sum_total_amoun * (project.economic_advances.final_payment_percentage / 100);
     $('#idFinalPaymentMount').val(final_payment_mount.toFixed(numberOfDecimals));
     $('#idFinalPaymentPercentage').val(project.economic_advances.final_payment_percentage);
     $('#idFinalPaymentPercentage').attr({ "min": 0, "max": 100 });
@@ -36,7 +36,7 @@ function initilizeEconomicAdvance(project) {
         $("#idFinalPaymentCompleted").prop("disabled", false);
     }
 
-    var engineering_release_payment_mount = project.total_amount * (project.economic_advances.engineering_release_payment_percentage / 100);
+    var engineering_release_payment_mount = project.sum_total_amoun * (project.economic_advances.engineering_release_payment_percentage / 100);
     $('#idEngineeringReleasePaymentMount').val(engineering_release_payment_mount.toFixed(numberOfDecimals));
     $('#idEngineeringReleasePaymentPercentage').val(project.economic_advances.engineering_release_payment_percentage);
     $('#idEngineeringReleasePaymentPercentage').attr({ "min": 0, "max": 100 });
