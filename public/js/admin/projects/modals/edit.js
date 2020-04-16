@@ -29,7 +29,7 @@ $(document).ready(function () {
                                         '</select>'+ 
                                         /* '<input type="button" name="btnSigno[]" id="btnSignoAmount" value="+" style="width:25px"></input>'+  */
                                     '</div>'+
-                                    '<input type="number" class="form-control" name="totalAmountsProjectsEdit[]" class="hola" id="idTotalAmountsProjects" value="" min="1" pattern="^[0-9]+" step="any" required placeholder="Monto total">' +
+                                    '<input type="number" class="form-control" name="totalAmountsProjectsEdit[]" id="idTotalAmountsProjects" value="" min="1" pattern="^[0-9]+" step="any" required placeholder="Monto total">' +
                                     '<div class="input-group-append">' +
                                         '<select class="custom-select" name="coinsProjectsEdit[]" id="idCoinsProjects" required disabled>' +
                                             '<option id="optionPesosEdit" value="1" selected>MXN</option>' +
@@ -262,8 +262,8 @@ function calculateTotal(event) {
     changeTotalInDisplay();
     
 }
+
 function editProject(formEditProject) {
-    console.log($(".hola"));
     Swal.fire({
         title: '¿Está seguro de actualizar este Acuerdo?',
         text: "Esta acción no podrá deshacerse",

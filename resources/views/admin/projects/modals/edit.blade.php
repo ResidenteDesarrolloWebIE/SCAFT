@@ -85,6 +85,9 @@
                     <div class="form-group text-center">
                         <label for="totalAmountEdit"><strong style="color:red">*</strong><strong id="texMontoTotal">Monto total</strong></label>
                         <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                            </div>
                             @if(Auth::user()->hasAnyRole(['Administrador']))
                             <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total" step="any">
                             @else

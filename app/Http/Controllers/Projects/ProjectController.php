@@ -39,7 +39,7 @@ class ProjectController extends Controller{
         }
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder','aditionals_details'])->orderBy('id', 'asc')->get();
         foreach ($projects as $project) {
-            $project->sum_total_amoun = $project->aditionals_Details->sum('total_amount');
+            $project->sum_total_amoun = $project->total_amount + $project->aditionals_Details->sum('total_amount');
         }
         return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
         'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'));
@@ -125,7 +125,6 @@ class ProjectController extends Controller{
 
 
     public function edit(Request $request){
-        
         try {
             $project = Project::with('type')->where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
@@ -212,6 +211,7 @@ class ProjectController extends Controller{
                     $project->color_text = "color: rgb(255,0,0)" ;
                 }/* Fin Modificacion */
             }
+            
             return view('client.projects.services')->with('projects', $projects);
         }
     }
@@ -238,6 +238,7 @@ class ProjectController extends Controller{
                     $project->color_text = "color: rgb(255,0,0)" ;
                 }/* Fin Modificacion */
             }
+            dd($projects);
             return view('client.projects.supplies')->with('projects', $projects);
         }
     }
@@ -247,9 +248,12 @@ class ProjectController extends Controller{
     public function showAdvances(Request $request,  $idProject, $typeProject){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin','images','offer','purchaseOrder',
+            $project = Project::with(['technicalAdvances', 'economicAdvances','customer','affiliations','type','coin','images','offer','purchaseOrder','aditionals_details',
                 'minutes'=> function($query){$query->where('type', 'like', '%EXTERNA%');}])
                 ->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
+
+            $project->sum_total_amoun = $project->total_amount + $project->aditionals_Details->sum('total_amount');
+            
             return view('client.projects.advances.advance')->with('project', $project);
         }
     }
