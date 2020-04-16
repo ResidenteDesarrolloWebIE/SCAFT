@@ -121,4 +121,3 @@ Comentarios del prototipo.
     Cosas no comprendidas:
         No coprendí lo del nivel azul.
         Lo de los beneficios de puntos rewards.
-    
