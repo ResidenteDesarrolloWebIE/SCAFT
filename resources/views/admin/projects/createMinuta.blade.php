@@ -14,11 +14,6 @@
                 <input type="hidden" name="token" value="{{{ csrf_token() }}}" id="token" readonly="true" />
                 <input type="hidden" name="project_id" id="project_id" readonly="true" />
                 <input type="hidden" name="folio" id="folio" readonly="true" />
-                <div class="row">
-                    <div class="col">
-                        <a href="#" class="btn btn-primary btn-sm add_button float-right">Agregar acuerdo <i class="fas fa-plus"></i></a>
-                    </div>
-                </div>
                 <br>
                 <div class="form-group">
                     <div class="form-group text-center">
@@ -37,6 +32,51 @@
                         @endif
                     </div>
                     <div class="form-group row">
+                        <div class="col-md-6">
+                            <label><b>Asunto a tratar</b></label>
+                            <textarea type="text" class="form-control" name="issue" style="resize: none;" rows="2" required></textarea>
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                            <label><b>Lugar de reunión</b></label>
+                            <textarea type="text" class="form-control" name="meeting_place" style="resize: none;" rows="2" required></textarea>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            <label><b>Objetivo</b></label>
+                            <textarea type="text" class="form-control" name="objective" style="resize: none;" rows="2" required></textarea>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row" style="background-color:#DFDFDF">
+                        <div class="col text-center" style="margin-top:2%">
+                            <label for="typeProject"><strong>Asistentes</strong></label>
+                            <a href="#" class="btn btn-primary btn-sm add_assistant float-right">Agregar asistente <i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="w-100"></div>
+                        <br>
+                        <div class="col-md-8">
+                            <label><b>Nombre</b></label>
+                            <input type="text" class="form-control" name="assistants[]" style="resize: none;" required></textarea>
+                            <br>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Dependencia</b></label>
+                            <input type="text" class="form-control" name="dependences[]">
+                            <br>
+                        </div>
+                        <div class="assistant_wrapper row" style="margin-left:2%;width:100%;"></div>
+                    </div>
+
+                    <div class="row" style="background-color:#BCBCBC">
+                        <div class="col text-center" style="margin-top:2%">
+                            <label for="typeProject"><strong>Acuerdos</strong></label>
+                            <a href="#" class="btn btn-primary btn-sm add_button float-right">Agregar acuerdo <i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="w-100"></div>
+                        <br>
                         <div class="col-md-8">
                             <label><b>Acuerdo</b></label>
                             <textarea type="text" class="form-control" name="acuerdos[]" style="resize: none;" rows="2" required></textarea>
@@ -47,19 +87,21 @@
                             <input type="text" class="form-control" name="responsables[]">
                             <br>
                         </div>
-                    </div>
-                    <div class="form-group row" style="margin-left: 10px;">
-                        <label class="col-xs-2 col-form-label">Fecha Inicio</label>
+                        <div class="w-100"></div>
+                        <label class="col-xs-2 col-form-label" style="margin-left: 10px;">Fecha Inicio</label>
                         <div class="col-sm-4">
                             <input type="date" class="form-control" required name="dateStart[]" autocomplete="off">
+                            <br>
                         </div>
                         <label class="col-xs-2 col-form-label">Fecha Final</label>
                         <div class="col-sm-4">
                             <input type="date" class="form-control" name="dateEnd[]" required autocomplete="off">
+                            <br>
+                        </div>
+                        <div class="field_wrapper row" style="margin-left:2%">
                         </div>
                     </div>
-                </div>
-                <div class="field_wrapper">
+                    <br>
                 </div>
                 <div class="modal-footer " style="justify-content: center;">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

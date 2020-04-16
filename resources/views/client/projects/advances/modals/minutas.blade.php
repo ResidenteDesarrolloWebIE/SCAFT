@@ -30,6 +30,11 @@
                                                 <a href="/minutas/showPdf/{{$minuta->id}}" target="_blank">
                                                     <button type="button" class="btn btn-dark" title="Ver acuerdos"><i class="fas fa-eye"></i></button>
                                                 </a>
+                                                @if($minuta->file_id != null)
+                                                <a href="/minutas/downloadMinuteSigned/{{$minuta->file_id}}" target="_blank">
+                                                    <button type="button" class="btn btn-dark" title="Descargar Minuta firmada"><i class="fas fa-file"></i></button>
+                                                </a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
