@@ -46,6 +46,10 @@
                                     <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-dark" title="Ver acuerdos"><i class="fas fa-external-link-alt"></i></button></a>
                                     @if($minute->file_id == null)
                                     <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-upload"></i></button>
+                                    @else
+                                    <a href="/minutas/downloadMinuteSigned/{{$minute->file_id}}" target="_blank">
+                                        <button type="button" class="btn btn-primary" title="Descargar Minuta firmada"><i class="fas fa-file"></i></button>
+                                    </a>
                                     @endif
                                 @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador'))
                                     <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-primary" title="Ver acuerdos"><i class="fas fa-external-link-alt"></i></button></a>
@@ -54,6 +58,11 @@
                                     </a>
                                     @if($minute->file_id == null)
                                     <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-upload"></i></button>
+                                    @else
+                                    <a href="/minutas/downloadMinuteSigned/{{$minute->file_id}}" target="_blank">
+                                        <button type="button" class="btn btn-primary" title="Descargar Minuta firmada"><i class="fas fa-file"></i></button>
+                                    </a>
+                                    
                                     @endif
                                 @endif
                             </td>

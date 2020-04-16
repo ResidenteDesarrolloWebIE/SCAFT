@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth', 'employees']], function () {
     Route::get('getAgreements/{id}', 'Projects\MinutaController@getAgreements');
     Route::get('agreements/{id}', 'Projects\AgreementController@index');
     Route::post('updateAgreement', 'Projects\AgreementController@update');
+    Route::post('saveAgreements', 'Projects\AgreementController@save');
 
     Route::get('projects/customer/show', 'Projects\ProjectController@showProjectsByClient');
     Route::get('projects/customer/edit', 'Projects\ProjectController@editProjectsByClient');

@@ -109,7 +109,8 @@ class MinutaController extends Controller
             $minuta = Minuta::with('agreements')->find($id);
             $user = User::find($minuta->user_id);
             $assistants = json_decode($minuta->assistants);
-            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta','user','assistants'));
+            $project = Project::with('customer')->find($minuta->project_id);
+            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta','user','assistants','project'));
             return $pdf->download('Minuta '.$minuta->folio.'.pdf');
         } catch (\Exception $e) {
             dd($e);
@@ -121,7 +122,8 @@ class MinutaController extends Controller
             $minuta = Minuta::with('agreements')->find($id);
             $user = User::find($minuta->user_id);
             $assistants = json_decode($minuta->assistants);
-            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta','user','assistants'));
+            $project = Project::with('customer')->find($minuta->project_id);
+            $pdf = \PDF::loadView('exports.minuteReport', compact('minuta','user','assistants','project'));
             return $pdf->stream('Minuta '.$minuta->folio.'.pdf');
         } catch (\Exception $e) {
             dd($e);

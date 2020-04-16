@@ -67,21 +67,7 @@
                             <input type="text" class="form-control" name="dependences[]">
                             <br>
                         </div>
-                        <div class="assistant_wrapper row" style="margin-left:2%;width:100%;">
-                            <div class="form-group row delete" style="width:100%;">
-                                <div class="col-md-8">
-                                    <label><b>Nombre</b></label>
-                                    <button type="button" style="margin-left: 5px;" title="Eliminar asistente" class="btn btn-danger btn-sm remove_assistant"><i class="fas fa-trash"></i></button>
-                                    <input type="text" class="form-control" name="assistants[]" style="resize: none;" required></textarea>
-                                    <br>
-                                </div>
-                                <div class="col-md-4">
-                                    <label><b>Dependencia</b></label>
-                                    <input type="text" class="form-control" name="dependences[]">
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="assistant_wrapper row" style="margin-left:2%;width:100%;"></div>
                     </div>
 
                     <div class="row" style="background-color:#BCBCBC">

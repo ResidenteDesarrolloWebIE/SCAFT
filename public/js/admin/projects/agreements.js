@@ -81,3 +81,54 @@ function updateAgreement(form){
     });
 }
 
+function openModalAddAgreement(minuta) {
+    console.log(minuta);
+    $('#minutaId').val(minuta.id);
+    $('#modalAddAgreement').modal('show');
+}
+
+$("#frm_agreements").on('hidden.bs.modal', function() {
+    $("#frmMinuteSignedFile")[0].reset();
+});
+
+
+function saveAgreements(form){
+    swal.fire({
+        title: '¿Está seguro de guardar los acuerdos?',
+        text: "Esta acción no podrá deshacerse",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, guardar acuerdos',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.value) {
+            procesando();
+            var values = new FormData(form);
+            var ruta = '/saveAgreements';
+            var token = $('#token').val();
+            $.ajax({
+                method:'POST',
+                url:ruta,
+                headers: {'X-CSRF-TOKEN': token},
+                data: values,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    if(data.Message == "Exito");
+                    swal.fire({
+                        type: 'success',
+                        title: '¡Guardado!',
+                        text: 'Los acuerdos se han guardado correctamente.',
+                        preConfirm: () => {
+                            location.reload();
+                        },
+                    })
+                }
+            });        
+        }
+    });
+}
+

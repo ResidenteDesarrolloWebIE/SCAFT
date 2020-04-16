@@ -86,12 +86,12 @@
             bottom: 10px;
         }
         .information{
-            font-size: 17px;
-            margin-top: 15px;
+            font-size: 14px;
+            margin-top: 12px;
             border: #C6CFCD 3px solid;
             padding: 3px;
             border-radius: 3px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .assistants{
@@ -122,12 +122,13 @@
                  Hora: {{date("h:i:s A",strtotime($minuta->created_at))}}
             </div>
         </div>
-        <div class="information">
-            Creada por: {{$user->name}}
-        </div>
+        <div class="information">Folio de proyecto:  {{$project->folio}}</div>
+        <div class="information">Nombre del proyecto: {{$project->name}}</div>
+        <div class="information">Cliente: {{$project->customer->name}}</div>
         <div class="information">Asunto a tratar: {{$minuta->issue}}</div>
         <div class="information">Lugar de reunión: {{$minuta->meeting_place}}</div>
         <div class="information">Objetivo: {{$minuta->objective}}</div>
+        <div class="information">Minuta creada por: {{$user->name}}</div>
 
         <div class="assistants">
             <h3>Asistentes</h3>

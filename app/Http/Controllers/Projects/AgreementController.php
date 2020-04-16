@@ -33,4 +33,24 @@ class AgreementController extends Controller
             return response()->json(['Message'=>'Error']);  
         }
     }
+
+    public function save(Request $request){
+        try {
+            for($i=0; $i < count($request->acuerdos); $i++){
+                $agreement = new Agreement();
+                $agreement->agreement = $request->acuerdos[$i];
+                $agreement->responsable = $request->responsables[$i];
+                $agreement->status = 'REGISTRADO';
+                $agreement->start_date = Carbon::parse($request->dateStart[$i])->format('Y-m-d');
+                $agreement->end_date = Carbon::parse($request->dateEnd[$i])->format('Y-m-d');
+                $agreement->minuta_id = $request->minutaId;
+                $agreement->save();
+            }
+            return response()->json(['Message'=>'Exito']);
+            
+        } catch (\Exception $e) {
+            dd($e);
+        }
+        
+    }
 }
