@@ -9,7 +9,7 @@
 
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
-                <h1 class="text-center">LISTA DE PROYECTOS</h1>
+                <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE PROYECTOS</h1>
                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
                 <div class="offset-md-8 col-md-4 text-right" style="margin-bottom: 10px">
                     <a data-toggle="modal" data-target="#createProject">

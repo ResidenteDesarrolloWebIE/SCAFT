@@ -4,7 +4,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title" id="idFolio"><strong class="modal-folio"></strong> <strong id='folioText'>Editar acuerdo</strong></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 {{Form::open(['method'=>'POST','id'=>'frm_agreement','enctype'=>'multipart/form-data', 'class'=>'form','onsubmit'=>'updateAgreement(this); return false;'])}}

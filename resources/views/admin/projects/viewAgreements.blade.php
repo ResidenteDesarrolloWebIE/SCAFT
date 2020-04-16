@@ -7,7 +7,7 @@
     @include('layouts.partials._navigationBar')
     <div class="container container-projects-admin">
         <div class="row table-responsive text-center projects-table">
-            <h1 class="text-center">LISTA DE ACUERDOS</h1>
+            <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE ACUERDOS</h1>
             <div class="offset-md-8 col-md-4 text-right">
                 @if($minuta->file_id ==null)
                 <button type="button" class="btn btn-dark" onclick="openModalAddAgreement({{$minuta}})">
@@ -33,14 +33,14 @@
                 </thead>
                 <tbody>
                     @foreach($minuta->agreements as $agreement)
-                    <tr>
+                    <tr style="text-align:center">
                         <td>{{$loop->iteration }}</td>
                         <td>{{$agreement->agreement}}</td>
                         <td>{{$agreement->responsable}}</td>
-                        <td align="center">{{$agreement->status}}</td>
-                        <td align="center">{{$agreement->start_date}}</td>
-                        <td align="center">{{$agreement->end_date}}</td>
-                        <td align="center">
+                        <td>{{$agreement->status}}</td>
+                        <td>{{$agreement->start_date}}</td>
+                        <td>{{$agreement->end_date}}</td>
+                        <td>
                         <button  data-toggle="modal" data-target="#modalEditAgreement" type="button" class="btn btn-primary"  title="Editar Acuerdo" onclick="openModalEditAgreement({{$agreement}})"><i class="fas fa-edit"></i></button>
                         </td>
                     </tr>

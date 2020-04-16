@@ -238,7 +238,6 @@ class ProjectController extends Controller{
                     $project->color_text = "color: rgb(255,0,0)" ;
                 }/* Fin Modificacion */
             }
-            dd($projects);
             return view('client.projects.supplies')->with('projects', $projects);
         }
     }
