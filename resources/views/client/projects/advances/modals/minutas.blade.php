@@ -28,7 +28,7 @@
                                                     <button type="button" class="btn btn-dark" title="Descargar"><i class="fas fa-download"></i></button>
                                                 </a>
                                                 <a href="/minutas/showPdf/{{$minuta->id}}" target="_blank">
-                                                    <button type="button" class="btn btn-dark" title="Ver acuerdos"><i class="fas fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-primary" title="Ver acuerdos"><i class="fas fa-eye"></i></button>
                                                 </a>
                                                 @if($minuta->file_id != null)
                                                 <a href="/minutas/downloadMinuteSigned/{{$minuta->file_id}}" target="_blank">
