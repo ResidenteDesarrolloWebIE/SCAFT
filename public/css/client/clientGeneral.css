@@ -33,15 +33,6 @@
     margin-top: 6px;
 }
 
-/* .backgroud-icon {
-    background-color: #50545a;
-    width: 130px;
-    height: 30px;
-    border-width: .5px;
-    border-style: solid;
-    border-color: #000000;
-    border-radius: 20px;
-} */
 .backgroud-icon  .i{
     color:black;
 }
@@ -83,15 +74,14 @@
     height: 251px;
     opacity: 1.60;
     border-color: black;
-
     margin:0 auto;
     border-radius:50%;
     overflow:hidden;
     border: 1px solid #06b7ff;
     box-shadow: 0 10px 30px #06b7ff;
-    
 }
 
+/* Cambiar el color aqui */
 .do-info-wrap {
     position: absolute;
     top: 20px;
@@ -100,8 +90,9 @@
     height: calc(100% - 40px);
     transition: all 0.4s ease-in-out;
     perspective: 800px;
-    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 3px rgba(129, 72, 129, 0.2);
+    box-shadow: 0 0 0 20px rgba(255, 3, 24, 0.2), inset 0 0 3px rgba(129, 72, 129, 0.2); 
 }
+
 
 .do-info {
     position: absolute;
@@ -140,8 +131,9 @@
     font-size: 12px;
 }
 
+/* Cambiar el color aqui */
 .do-item:hover .do-info-wrap {
-    box-shadow: 0 0 0 0 #000000, inset 0 0 3px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 0 #000000, inset 0 0 3px rgba(255, 255, 255, 0.8); 
 }
 
 .do-item:hover .do-info {
@@ -150,9 +142,6 @@
 
 .backgroud-icon {
     background-color: #0ca4ea;
-    /* width: 30px;
-    height: 30px;
-    border-width: .5px; */
     border-style: solid;
     border-color: #ffff;
 }

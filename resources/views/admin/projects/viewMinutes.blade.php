@@ -22,7 +22,7 @@
                 <br>
                 <table class="table text-center table-sm-responsive" id="tableMinutes">
                     <thead class="table-success" style="background-color: #252b37">
-                        <tr>
+                        <tr class="color-th-admin">
                             <th>Folio</th>
                             <th>Tipo</th>
                             <th>Acciones</th>

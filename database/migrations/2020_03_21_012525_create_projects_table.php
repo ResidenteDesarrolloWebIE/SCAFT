@@ -30,6 +30,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('project_type_id')->references('id')->on('project_types');
             $table->unsignedBigInteger('coin_id')->nullable();
             $table->foreign('coin_id')->references('id')->on('coins');
+
             $table->timestamps();
             $table->softDeletes();
         });

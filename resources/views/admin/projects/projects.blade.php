@@ -21,7 +21,7 @@
                 @endif
                 <table class="table text-center table-sm-responsive display nowrap" id="tableProjects">
                     <thead style="background-color: #252b37">
-                        <tr>
+                        <tr class="color-th-admin">
                             <th> Id</th>
                             <th> Folio</th>
                             <th> Status</th>
@@ -32,6 +32,7 @@
                             <th> Codigo</th>
                             <th class="not-sort"> Oferta</th>
                             <th class="not-sort"> Orden de compra</th>
+                            <th class="not-sort"> Adicionales</th>
                             <th class="col-md-3 not-sort">Acciones</th>
                         </tr>
                     </thead>
@@ -49,17 +50,28 @@
                             <td>{{$project->customer->code}}</td>
                             <td>
                                 @if(!is_null($project->offer))
-                                <a href="{{url('/projects/offers/download',$project->id)}}">
-                                    <button type="button" class="btn btn-primary" title="Descargar oferta"><i class="fas fa-download"></i></button>
-                                </a>
+                                    <a href="{{url('/projects/offers/download',$project->id)}}">
+                                        <button type="button" class="btn btn-primary" title="Descargar oferta"><i class="fas fa-download"></i></button>
+                                    </a>
+                                    <a href="{{url('/projects/offers/showPdf',$project->id)}}" target="_blank">
+                                        <button type="button" class="btn btn-dark" title="Ver oferta"><i class="fas fa-eye"></i></button>
+                                    </a>
                                 @endif
                             </td>
                             <td>
                                 @if(!is_null($project->purchaseOrder))
-                                <a href="{{url('/projects/purchaseOrders/download',$project->id)}}">
-                                    <button type="button" class="btn btn-primary" title="Descargar orden de compra"><i class="fas fa-download"></i></button>
-                                </a>
+                                    <a href="{{url('/projects/purchaseOrders/download',$project->id)}}">
+                                        <button type="button" class="btn btn-primary" title="Descargar orden de compra"><i class="fas fa-download"></i></button>
+                                    </a>
+                                    <a href="{{url('/projects/purchaseOrders/showPdf',$project->id)}}" target="_blank">
+                                        <button type="button" class="btn btn-dark" title="Ver orden de compra"><i class="fas fa-eye"></i></button>
+                                    </a>
                                 @endif
+                            </td>
+                            <td>
+                                <a data-toggle="modal" data-target="#aditionalsDetails">
+                                    <button type="button" class="btn btn-primary" title="Adicionales" onclick='inicializeAditionalsDetails({{$project}})'><i class="fas fa-file"></i></button>
+                                </a>
                             </td>
                             <td>
                                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
@@ -103,6 +115,7 @@
         @include('admin/projects/modals/economicAdvanceEdit')
         @include('admin/projects/modals/technicalAdvanceEdit')
         @include('admin/projects/modals/images')
+        @include('admin/projects/modals/aditionalsDetails')
     @else
         @include('admin/projects/modals/create')
     @endif

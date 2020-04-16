@@ -25,7 +25,7 @@
                 <br>
                 <table class="table text-center table-sm-responsive" id="tableUsers">
                     <thead style="background-color: #252b37">
-                        <tr>
+                        <tr class="color-th-admin">
                             <th> Id</th>
                             <th> Tipo</th>
                             <th> Codigo</th>

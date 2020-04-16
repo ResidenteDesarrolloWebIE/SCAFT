@@ -55,7 +55,7 @@
                     <div class="form-group text-center">
                         <label for="totalAmount"><strong style="color:red">*</strong><strong>Monto total</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="totalAmountProject" id="idTotalAmountProject" value="" required placeholder="Monto total">
+                            <input type="number" class="form-control" name="totalAmountProject" id="idTotalAmountProject" value="" step="any" required placeholder="Monto total">
                             <div class="input-group-append">
                                 <select class="custom-select" name="coinProject" id="idCoinProject" required>
                                     <option id="optionPesos" value="1" selected>MXN</option>

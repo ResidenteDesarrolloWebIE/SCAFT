@@ -1,5 +1,5 @@
 <div class="modal fade" id="editProject">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg "> <!-- modal-dialog-scrollable -->
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="idFolio"><span class="fa fa-spinner" aria-hidden="true"></span>&nbsp;&nbsp;<strong class="modal-folio">PROYECTO: </strong> <strong id='idFolioProjectEditHeader'></strong></h4>
@@ -9,7 +9,7 @@
                 <h4 class=""><strong>EDITAR </strong></h4>
             </div>
             <div class="modal-body">
-                {{Form::open(['method'=>'PUT','id'=>'formEditProject','enctype'=>'multipart/form-data', 'class'=>'row','onsubmit'=>'editProject(this); return false;'])}}
+                {{Form::open(['method'=>'POST','id'=>'formEditProject','enctype'=>'multipart/form-data', 'class'=>'row','onsubmit'=>'editProject(this); return false;'])}}
                 <input type="hidden" name="project" value="" id="idProjectEdit" readonly="true" />
                 <input type="hidden" name="token" value="{{ csrf_token() }}" id="tokenEditProject" readonly="true" />
                 <div class="col-md-6">
@@ -27,12 +27,6 @@
                     <div class="form-group text-center">
                         <label for="substationProjectEdit"><strong style="color:red">*</strong><strong>Subestacion</strong></label>
                         <input type="text" class="form-control" name="substationProjectEDit" id="idSubstationProjectEdit" value="" required placeholder="Subestacion" disabled>
-                    </div>
-                    <div class="form-group text-center">
-                        <label for="affiliationProject"><strong>Proyectos afiliados (Si aplica)</strong></label>
-                        <select class="custom-select" name="affiliationProjectEdit[]" id="idAffiliationProjectEdit">
-                            <option value="" selected>Selecciona un cliente</option>
-                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -54,20 +48,10 @@
                         </select>
                     </div>
                     <div class="form-group text-center">
-                        <label for="totalAmountEdit"><strong style="color:red">*</strong><strong>Monto total</strong></label>
-                        <div class="input-group">
-                            @if(Auth::user()->hasAnyRole(['Administrador']))
-                                <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total">
-                            @else
-                            <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total" disabled>
-                            @endif
-                            <div class="input-group-append">
-                                <select class="custom-select" name="coinProjectEdit" id="idCoinProjectEdit" required disabled>
-                                    <option id="optionPesosEdit" value="1" selected>MXN</option>
-                                    <option id="optionDolaresEdit" value="2">USD</option>
-                                </select>
-                            </div>
-                        </div>
+                        <label for="affiliationProject"><strong>Proyectos afiliados (Si aplica)</strong></label>
+                        <select class="custom-select" name="affiliationProjectEdit[]" id="idAffiliationProjectEdit">
+                            <option value="" selected>Selecciona un cliente</option>
+                        </select>
                     </div>
                     <div class="form-group text-center" id="divExchangeRate">
                         <label for="exchangeRateEdit"><strong style="color:red">*</strong><strong>Tipo de cambio</strong></label>
@@ -89,6 +73,33 @@
                     <div class="form-group text-center">
                         <label for="descriptionProjectEdit"><strong style="color:red">*</strong><strong>Descripcion</strong></label>
                         <textarea class="form-control" rows="3" id="idDescriptionProjectEdit" name="descriptionProjectEDit" required placeholder="Descripcion" disabled></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="background-color: #c2c2c2"><br>
+                    @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
+                        <div class="col">
+                            <a href="#" class="btn btn-primary btn-sm btnAddAditionals float-right">Añadir adicional <i class="fas fa-plus"></i></a>
+                        </div><br><br>
+                    @endif
+                    <div class="form-group text-center">
+                        <label for="totalAmountEdit"><strong style="color:red">*</strong><strong id="texMontoTotal">Monto total</strong></label>
+                        <div class="input-group">
+                            @if(Auth::user()->hasAnyRole(['Administrador']))
+                            <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total" step="any">
+                            @else
+                            <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total" disabled>
+                            @endif
+                            <div class="input-group-append">
+                                <select class="custom-select" name="coinProjectEdit" id="idCoinProjectEdit" required disabled>
+                                    <option id="optionPesosEdit" value="1" selected>MXN</option>
+                                    <option id="optionDolaresEdit" value="2">USD</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-12 divAditionals" style="padding:0px">
                     </div>
                 </div>
             </div>

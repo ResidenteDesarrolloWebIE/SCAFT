@@ -25,6 +25,7 @@ $(document).ready(function(){
     $.datepicker.setDefaults( $.datepicker.regional[ "es" ] );
     $( ".date" ).datepicker();
 
+    
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
     var x = 2; //Initial field counter is 1

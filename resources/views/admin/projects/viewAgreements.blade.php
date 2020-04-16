@@ -16,7 +16,7 @@
             <br>
             <table class="table table-sm-responsive" id="tableAgreements">
                 <thead class="table-success" style="background-color: #252b37">
-                    <tr style="text-align:center">
+                    <tr style="text-align:center" class="color-th-admin">
                         <th>N°</th>
                         <th>Acuerdo</th>
                         <th>Responsable</th>

@@ -80,7 +80,7 @@ function editEconomicAdvance() {
             cancelButtonText: 'Cancelar',
         }).then((result) => {
             if (result.value) {
-                /* procesando(); */
+                procesando();
                 $.ajax({
                     type: 'put',
                     url: 'projects/economicAdvance/edit',

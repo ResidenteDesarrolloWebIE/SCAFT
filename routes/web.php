@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth', 'customers', 'employees'], function () {
     Route::get('projects/purchaseOrders/showPdf/{id}', 'Projects\PurchaseOrderController@showPdf');
     Route::get('exportMinute/{id}', 'Projects\MinutaController@exportPDF');
     Route::get('minutas/showPdf/{id}', 'Projects\MinutaController@showPDF');
+
+    Route::get('projects/aditionalsDetails/download/{id}', 'Projects\FileController@download');
+    Route::get('projects/aditionalsDetails/showPdf/{id}', 'Projects\FileController@showPdf');
 });
 
 Route::group(['middleware' => ['auth', 'employees']], function () {
@@ -37,7 +40,7 @@ Route::group(['middleware' => ['auth', 'employees']], function () {
 
     Route::get('projects', 'Projects\ProjectController@showProjects');
     Route::post('projects/create', 'Projects\ProjectController@create');
-    Route::put('projects/edit', 'Projects\ProjectController@edit');
+    Route::post('projects/edit', 'Projects\ProjectController@edit');
     Route::post('projects/images', 'Projects\ImageController@save')->name('projects-images');
     Route::put('projects/economicAdvance/edit', 'Projects\EconomicAdvanceController@edit');
     Route::put('projects/technicalAdvance/edit', 'Projects\EconomicAdvanceController@edit');

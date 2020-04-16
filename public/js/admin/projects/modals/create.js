@@ -48,8 +48,6 @@ $(document).ready(function () {
     });
 
     $("#idClientProject").change(function () {
-
-
         $.get('projects/customer/show?idCustomer=' + $(this).val(), function (data) {
             $("#idAffiliationProject").html('');
             $('#idAffiliationProject').multiselect('destroy');
@@ -88,7 +86,6 @@ function saveProject(formCreateProject) {
             title: '¡Error!',
             text: "El folio del proyecto es incorrecto"
         })
-
     } else {
         Swal.fire({
             title: '¿Está seguro de guardar este Proyecto?',

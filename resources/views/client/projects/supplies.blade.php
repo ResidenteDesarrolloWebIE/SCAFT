@@ -4,7 +4,13 @@
 <section class="section-projects py-2 text-xs-center">
     @include('layouts.partials._navigationBar')
     <div class="container container-projects">
-        <h2 class="text-center">SUMINISTROS SOLICITADOS</h2><br>
+        <h2 class="text-center" style="color: white">SUMINISTROS SOLICITADOS</h2><br>
+        <div class="row" style="justify-content: center"><!--Inicio Modificacion -->
+            <button type="button" class="btn" style="background-color: blue; color:white; margin-right:20px;"><strong>Pendiente</strong></button>
+            <button type="button" class="btn" style="background-color: yellow; color:black; margin-right:20px;"><strong>Proceso</strong></button>
+            <button type="button" class="btn" style="background-color: rgb(0,255,0); color:black; margin-right:20px;"><strong>Terminado</strong></button>
+            <button type="button" class="btn" style="background-color: red; color:white; margin-right:20px;"><strong>Cancelado</strong></button>
+        </div><!-- Fin modificacion -->
         <div class="row center-content">
             @if($projects->isEmpty())
             <div class="alert text-center col-md-8" role="alert">
@@ -15,10 +21,10 @@
             <div class="col-md-3 list-projects">
                 <div class="do-item do-item-circle do-circle item-projects">
                     <img src="{{ asset('images/supply-supplies.png') }}" class="do-item do-circle do-item-circle-back">
-                    <div class="do-info-wrap do-circle">
+                    <div class="do-info-wrap do-circle" style="{{$project->color_circle}}"><!-- Modificacion -->
                         <div class="do-info">
                             <div class="do-info-front do-circle">
-                                <h1 class="t-stroke text-center">{{$project->folio}}</h1>
+                                <h1 class="t-stroke text-center" style="color: white">{{$project->folio}}</h1>
                             </div>
                             <div class="do-info-back do-circle text-center">
                                 <h3 class="text-info">
@@ -27,23 +33,16 @@
                                     </strong>
                                 </h3>
                                 <div class="details-projects">
-                                    Suministro / {{$project->status }}
+                                    Suministro / <strong style="{{$project->color_text}}">{{$project->status }}</strong> <!-- Modificacion -->
                                     <br /> {{date("d M Y",strtotime($project->created_at))}}
                                     <div class="buttons-projects">
-                                        <a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 1])}}"> <!-- Suministros tien e el id 1 -->
+                                        <a href="{{url('/projects/advances/advance',['idProject' => $project->id, 'typeproject' => 1])}}">
                                             <button class="backgroud-icon">
-                                                <span data-toggle="tooltip" data-placement="bottom" ><!-- title="Avance del proyecto!" -->
-                                                <i class="far fa-images" style="color:white;"></i><i class="fas fa-dollar-sign" style="color:white;"></i> DETALLES
+                                                <span data-toggle="tooltip" data-placement="bottom">
+                                                    <i class="far fa-images" style="color:white;"></i><i class="fas fa-dollar-sign" style="color:white;"></i> DETALLES
                                                 </span>
                                             </button>
                                         </a>
-                                        <!-- <a href="{{url('/projects/advances/gallery',['idProject' => $project->id, 'typeproject' => 1])}}">
-                                            <button class="backgroud-icon" id="btnGallerySupply">
-                                                <span data-toggle="tooltip" data-placement="bottom" title="Galeria!">
-                                                    <i class="far fa-images" style="color:white;"></i>
-                                                </span>
-                                            </button>
-                                        </a> -->
                                     </div>
                                 </div>
                             </div>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Models\Projects\EconomicAdvance;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use App\Models\Projects\AditionalDetails;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Projects\Project;
@@ -31,16 +32,18 @@ class ProjectController extends Controller{
         if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){ $inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
         if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
         if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
-        
         /* Avance economico */
         if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
             $selectStatus = "disabled";
             $inputStatus = "readonly";
-        } /* Las 4 etapas */
-        $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder'])->orderBy('id', 'asc')->get();
+        }
+        $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder','aditionals_details'])->orderBy('id', 'asc')->get();
+        foreach ($projects as $project) {
+            $project->sum_total_amoun = $project->aditionals_Details->sum('total_amount');
+        }
         return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
         'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'));
-    }
+    }/* $count = User::where('votes', '>', 100)->count(); */
 
     public function showProjectsByClient(Request $request){
         $result = Project::where('customer_id', $request->idCustomer)->get();
@@ -94,18 +97,12 @@ class ProjectController extends Controller{
                 } else {
                     $typeProject = "SERVICIOS";
                 }
-                //$hour = str_replace(":", "", date("h:i:s"));
-                //$file = $request->file('offerProject');
+
                 $file = $request->file('offerProject');
                 $hour = str_replace(":", "", date("h:i:s"));
-            // generate a new filename. getClientOriginalExtension() for the file extension
                 $filename  =  $hour . $file->getClientOriginalName();
-            // save to storage/app/topProducts/filename as the new $filename
-                
-
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file));
-                /* $file->storeAs($path,$filename); */
                 
                 $file = new File();
                 $file->name = $filename;
@@ -128,8 +125,9 @@ class ProjectController extends Controller{
 
 
     public function edit(Request $request){
+        
         try {
-            $project = Project::where('id', $request->project)->first();
+            $project = Project::with('type')->where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
             if (!is_null($request->totalAmountEdit)){
                 $project->total_amount = $request->totalAmountEdit;
@@ -147,7 +145,40 @@ class ProjectController extends Controller{
                 $affiliatedProjects->delete();
             }
             $project->save();
+            if(!is_null($request->totalAmountsProjectsEdit)){
+                for($i=0; $i < count($request->totalAmountsProjectsEdit); $i++){
+                    $aditionalDetail = new AditionalDetails();
+                    $aditionalDetail->total_Amount = $request->btnSigno[$i].$request->totalAmountsProjectsEdit[$i];
+                    $aditionalDetail->note =  $request->notesProjectsEdit[$i];
+                
+                    $file_offer = $request->offersProjectsEdit[$i];
+                    $filename_offer  =  str_replace(":", "", date("h:i:s")) . $file_offer->getClientOriginalName();
+                    $path_offer = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/OFERTAS/'.$filename_offer;
+                    $offer = new File();
+                    $offer->name = $filename_offer;
+                    $offer->path = $path_offer;
+                    $offer->save();
+                    Storage::disk('local')->put($path_offer, \File::get($file_offer));
+    
+                    $file_purchase_order = $request->purchaseOrderProjectEdit[$i];
+                    $filename_purchase_order  =  str_replace(":", "", date("h:i:s")) . $file_purchase_order->getClientOriginalName();
+                    $path_purchase_order = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/ORDENES_DE_COMPRA/'.$filename_purchase_order;
+                    $purchase_order = new File();
+                    $purchase_order->name = $filename_purchase_order;
+                    $purchase_order->path = $path_purchase_order;
+                    $purchase_order->save();
+    
+                    Storage::disk('local')->put($path_purchase_order, \File::get($file_purchase_order));
+                    
+                    $aditionalDetail->offer = $offer->id;
+                    $aditionalDetail->purchase_order = $purchase_order->id;
+                    $aditionalDetail->project_id = $project->id;
+                    $aditionalDetail->save();
+                }
+            }
+
             return response()->json(["message" => 'El proyecto fue editado correctamente'], 200);
+
         } catch (\Throwable $th) {
             echo ("El error ocurrido es el siguiente: " . $th);
             return abort(response()->json(["message" => 'El proyecto no pudo ser editado'], 400));
@@ -167,6 +198,19 @@ class ProjectController extends Controller{
                 if (strlen($project->description) > 55) {
                     $project->description = substr($project->description, 0, 55) . "...";
                 }
+                if($project->status == "PENDIENTE"){/* Inicio Modificacion */
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,0,255);";
+                    $project->color_text = "color: rgb(0,0,255);" ;
+                }elseif($project->status == "PROCESO"){
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,255,0);";
+                    $project->color_text = "color: rgb(255,255,0);" ;
+                }elseif($project->status == "TERMINADO"){
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,255,0);";
+                    $project->color_text = "color: rgb(0,255,0);" ;
+                }elseif($project->status == "CANCELADO"){
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,0,0);";
+                    $project->color_text = "color: rgb(255,0,0)" ;
+                }/* Fin Modificacion */
             }
             return view('client.projects.services')->with('projects', $projects);
         }
@@ -180,6 +224,19 @@ class ProjectController extends Controller{
                 if (strlen($project->description) > 55) {
                     $project->description = substr($project->description, 0, 55) . "...";
                 }
+                if($project->status == "PENDIENTE"){/* Inicio Modificacion */
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,0,255);";
+                    $project->color_text = "color: rgb(0,0,255);" ;
+                }elseif($project->status == "PROCESO"){
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,255,0);";
+                    $project->color_text = "color: rgb(255,255,0);" ;
+                }elseif($project->status == "TERMINADO"){
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,255,0);";
+                    $project->color_text = "color: rgb(0,255,0);" ;
+                }elseif($project->status == "CANCELADO"){
+                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,0,0);";
+                    $project->color_text = "color: rgb(255,0,0)" ;
+                }/* Fin Modificacion */
             }
             return view('client.projects.supplies')->with('projects', $projects);
         }

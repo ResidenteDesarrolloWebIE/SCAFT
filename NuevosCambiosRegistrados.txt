@@ -1,0 +1,124 @@
+Cambios
+    Migration 
+        create_projects
+            * Añadir nueva llave foranea (aditional_details):
+        aditionalProjects
+            * Nueva migracion
+    Model
+        Aditional_details
+            * Metodos
+            * Nuevo modelo
+        Project
+            * Metodo para traer todos los detalles adicionales (aditionals_details).
+    Vista
+        layouts
+            _partial _script
+                * Añadir la importacion de "aditionalsDetails.js"
+        Client
+            Services
+                * Colores de letras y circulos
+                * Cambios resaltados por un comentario
+            Supplies
+                * Colores de letras y circulos
+                * Cambios resaltados por un comentario
+        Admin
+            Projects
+                Modals
+                    Edit
+                        * ....
+                        *Aqui trbaje bastante
+                projects
+                    Añadiendo la clase "color-th-admin" al th. (Aprox linea 24)
+                viewAgreement
+                    Añadiendo la clase "color-th-admin" al th. (Aprox linea 19)
+                viewMinutes
+                    * Añadiendo la clase "color-th-admin" al th. (Aprox linea 25)
+                users   
+                    users
+                        * Añadiendo la clase "color-th-admin" al th. (Aprox linea 28)
+    Js
+        Admin
+            Projects
+                Modals
+                    Edit.js
+                        * En este archivo añadi muchos cambios
+                    aditionalsDetails.js
+                        * Nuevo archivo
+                    economicAdvance.js
+                        * Añadiendo la funcion de procesando (Aprox linea 83);
+                    technicalAdvance.js
+                        * Añadiendo la funcion de procesando (Aprox linea 96);
+    css
+        ClienteGeneral.css
+            *Eliminado Comentarios y clases no usadas
+        agreements.css
+            * comentando el color blanco para los th (.th)
+        minutes.css
+            * comentando el color blanco para los th (.th)
+        users.css
+            * comentando el color blanco para los th (.th)
+        projectsList
+            * comentando el color blanco para los th (.th)
+        Administrador
+            projects.css
+                * Añadiendo  la clase siguiente para el color blanco general de los th de admin.
+                    .color-th-admin (Aprox Linea 24-26)
+    Controllers
+        ProjectController
+            Funciones
+                * showProjects
+                * edit
+                * showSupplies
+                * showServices
+                * Funcion create
+                    * al guardar ofertas, faltaba el filename en el path
+                    * Se desconoce la razon de que funcione en el servidor
+        aditionalsDetailsController
+            .Nuevo archivo
+        FileController
+            * Nuevos Metodos dowload y showPdf.
+        userController (Cambios realizados en el server)
+            * Funcion edit, en el else, linea 87
+                if(is_null($user->code)){/* Empleado */
+                    $user->roles()->sync(Role::where('name', 'Consulta')->first());
+                }else{
+                    $user->roles()->sync(Role::where('name', 'Cliente')->first());
+                }
+        TechnicalAdvanceController
+                Funcion edit
+                    * al guardar la orden de compra, faltaba el filename en el path
+                    Se desconoce la razon de que funcione en el servidor
+    Route
+        web
+            * Cambiar la ruta de editar project de put a post.
+            * Ruta para descargar archivos
+
+
+    Anotaciones
+        Rojo -> Pendiente
+            box-shadow: 0 0 0 20px rgba(250,0,0,1);
+        Naranja -> Cancelado
+            box-shadow: 0 0 0 20px rgba(250,0,0,1);
+        Negro -> Cancelado
+            box-shadow: 0 0 0 20px rgb(0, 0, 0,1);
+        Verde -> Proceso
+            box-shadow: 0 0 0 20px rgba(0,250,0,1);
+        Azul -> Terminado
+            box-shadow: 0 0 0 20px rgba(0,0,250,1);
+
+    Cosas por hacer
+        Eliminar y reordenar archivos css.
+
+Comentarios del prototipo.
+    El cerrar sesio solo esta en el inicio, deberia estar disponible en cualquier lugar.
+    Se necesita agregar un campo mas para el avatar.
+        Se determinaria como se va a cargar este avatar.
+    Se necesita agregar otras tablas par los catalogos:
+        Servicios
+        Suministros
+    Se necesita determinar el porcentaje general de cada proyecto.
+        Determinar de que manera se haria eso.
+    Cosas no comprendidas:
+        No coprendí lo del nivel azul.
+        Lo de los beneficios de puntos rewards.
+    

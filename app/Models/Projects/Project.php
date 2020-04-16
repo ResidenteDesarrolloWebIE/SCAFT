@@ -3,6 +3,7 @@
 namespace App\Models\Projects;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Projects\AditionalDetails;
 use App\Models\Projects\AffiliationProject;
 use App\Models\Projects\EconomicAdvance;
 use App\Models\Projects\TechnicalAdvance;
@@ -53,5 +54,8 @@ class Project extends Model
     }
     public function minutes(){
         return $this->hasMany(Minuta::class,'project_id', 'id');
+    }
+    public function aditionals_details(){
+        return $this->hasMany(AditionalDetails::class,'project_id', 'id');
     }
 }
