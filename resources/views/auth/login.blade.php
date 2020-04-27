@@ -24,18 +24,16 @@
     <div class="container-fluid bg-e5" style="padding: 0px; margin:0px">
         <div class="row login" style="padding: 0px; margin:0px">
             <div class="col-md-8 bg-e5 bg" style="padding: 0px; margin:0px;">
-                <div class="col bg-image">
-                </div>
-                <div class="col bg-opacity"></div>
-                <div class="text float-left">
-                    <div>
+                <div class="col bg-image center-vertically" style="justify-content: flex-end" >
+                <div class="col-md-8 text-1" style="padding: 20px 0px 20px 20px">
                         Bienvenido <br>
                         <span class="title">IE PROJECTS</span><br>
                         <p>
                             Es una plataforma digital, en la cual nuestros clientes
                             tienen acceso a un portal de todo el proceso de contruccion
                             o produccion de sus infraestructuras o servicios adquiridos.
-                            <br><br>
+                        </p>
+                        <p>
                             En integracion de Energia nos preocupamos siempre por el apoyo
                             a nuestros clientes.
                         </p>
@@ -114,24 +112,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row" style="width:100%; position:relative; margin:0px;padding:0px;">
-                <div class="col bg-image-mv"></div>
-                <div class="col bg-opacity-mv"></div>
-                <div class="col text-mv">
-                    <div>
-                        Bienvenido <br>
-                        <span class="title">IE PROJECTS</span><br>
-                        <p>
-                            Es una plataforma digital, en la cual nuestros clientes
-                            tienen acceso a un portal de todo el proceso de contruccion
-                            o produccion de sus infraestructuras o servicios adquiridos.
-                            <br><br>
-                            En integracion de Energia nos preocupamos siempre por el apoyo
-                            a nuestros clientes.
-                        </p>
-                    </div>
-                </div>
-            </div> -->
     </div>
 </body>
 

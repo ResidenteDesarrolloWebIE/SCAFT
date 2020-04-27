@@ -1,16 +1,55 @@
 /* Primera version (Diseño Jose) */
 
-.login-background{
-    background-image: url("../../images/background-login.png");background-position: center;background-repeat: no-repeat;
-    background-attachment: fixed;background-size: cover;background-color: "#66999";
-    background-size: cover;background-color: black;filter: contrast(85%);opacity: 0.95;}
-.login-icon-backgroud{background-color:#225B7C}
-.login-text-center{display: flex;align-items: center;justify-content: center;min-height: 96vh;}
-.login-image{margin-top:20px; display: block; margin-left: 36%; margin-right: auto; width:25%;height: 100px;-webkit-filter: saturate(1.5);filter: saturate(1.5); }
-.login-icon-color{background-color:#1966c4;}
-.login-btn{border-color:#0000;font-weight: bold;background-color:#3982ab; color:white;
-    width:300px;border-radius:18px; height: 40px;}
-#card1{
+.login-background {
+    background-image: url("../../images/background-login.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: "#66999";
+    background-size: cover;
+    background-color: black;
+    filter: contrast(85%);
+    opacity: 0.95;
+}
+
+.login-icon-backgroud {
+    background-color: #225B7C
+}
+
+.login-text-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 96vh;
+}
+
+.login-image {
+    margin-top: 20px;
+    display: block;
+    margin-left: 36%;
+    margin-right: auto;
+    width: 25%;
+    height: 100px;
+    -webkit-filter: saturate(1.5);
+    filter: saturate(1.5);
+}
+
+.login-icon-color {
+    background-color: #1966c4;
+}
+
+.login-btn {
+    border-color: #0000;
+    font-weight: bold;
+    background-color: #3982ab;
+    color: white;
+    width: 300px;
+    border-radius: 18px;
+    height: 40px;
+}
+
+#card1 {
     height: -5px;
     border-color: #53a8d3;
     border-width: 2px;
@@ -18,10 +57,15 @@
 }
 
 @media only screen and (max-width: 479px) {
-    .login-image{
-        margin-top:30px; display: block; margin-left: 35%; 
-        margin-right: auto; width:30%;height: 80px;-webkit-filter: saturate(1.5);
-        filter: saturate(1.5); 
+    .login-image {
+        margin-top: 30px;
+        display: block;
+        margin-left: 35%;
+        margin-right: auto;
+        width: 30%;
+        height: 80px;
+        -webkit-filter: saturate(1.5);
+        filter: saturate(1.5);
     }
 }
 
@@ -40,7 +84,7 @@
 }
 
 .login .bg-image {
-    background: url("../../images/ie-bg-lg.jpg");
+    background: url("../../images/ie-bg1-lg.jpg");
     clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
     height: 100%;
     width: 100%;
@@ -48,46 +92,21 @@
     position: absolute;
 }
 
-.login .bg-opacity {
-    background: #2B2B2B;
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    opacity: .80;
-    position: absolute;
-}
-
-.login .text {
-    background: linear-gradient(to right, #33C2F0 0%, #00436D 80%);
-    clip-path: polygon(0 0, 100% 0, 91.8% 100%, 0% 100%);
-    position: absolute;
-    right: 22px;
-    top: 25%;
-    bottom: 20%;
-    padding: 0;
-    height: 57%;
-    width: 70%;
-    padding-left: 5%;
-    padding-top: 3%;
-    z-index: 3;
-    opacity: .80;
-}
-
-.login .text div {
-    width: 70%;
-    font-size: 24px;
-    color: white;
-}
-
-.login .text .title {
+.login .text-1 .title {
     font-weight: bold;
 }
 
-.login .text p {
-    line-height: 1;
-    margin-top: 13px;
-    margin-bottom: 0;
+.login .text-1 {
+    background: linear-gradient(to right, #33C2F0 0%, #00436D 80%);
+    color: white;
+    font-size: 24px;
+    opacity: .80;
+}
+
+.login .text-1 p {
+    width: 90%;
+    margin-top: .8rem;
+    margin-bottom: inherit;
 }
 
 .form .card {
@@ -167,12 +186,13 @@
     justify-content: center;
     align-items: center;
 }
-.text-mv{
+
+.text-mv {
     display: none;
 }
 
 @media only screen and (max-width:750px) and (max-device-width: 1024px) {
-    .login .bg{
+    .login .bg {
         display: none;
     }
     .text-mv {
@@ -185,10 +205,11 @@
         padding-top: 5%;
         padding-bottom: 2%;
     }
-    .text-mv content{
+    .text-mv content {
         width: 90%;
-    };
-    .text-mv p{
+    }
+    ;
+    .text-mv p {
         margin-top: .3rem;
         margin-bottom: inherit;
     }
@@ -201,6 +222,4 @@
 
 /* Smartphones (landscape) ----------- */
 
-@media only screen and (min-width: 321px) {
-
-}
+@media only screen and (min-width: 321px) {}
