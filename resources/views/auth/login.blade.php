@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="col center-horizontally">
-                                <button type="submit" class="btn btn-ingresar btn-lg">Ingresar</button>
+                                <button type="submit" class="btn btn-ingresar">Ingresar</button>
                             </div>
                             <div class="col center-horizontally">
                                 @if (Route::has('password.request'))
