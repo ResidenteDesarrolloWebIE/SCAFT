@@ -69,7 +69,6 @@
     }
 }
 
-
 /* Segunda version (Diseño Rodrigo) */
 
 * {
@@ -109,9 +108,11 @@
     margin-top: .8rem;
     margin-bottom: inherit;
 }
+
 .text-mv {
     display: none;
 }
+
 .form .card {
     border-style: none;
     width: 80%;
@@ -160,8 +161,8 @@
     border-radius: 0px 5px 5px 0;
 }
 
-
 /* Colores de fondo */
+
 .bg-e5 {
     background-color: #e5e5e5;
 }
@@ -171,6 +172,7 @@
 }
 
 /* Posicionamiento de elementos */
+
 .center-vertically {
     display: flex;
     align-items: center;
@@ -204,7 +206,6 @@
     .text-mv content {
         width: 90%;
     }
-    ;
     .text-mv p {
         margin-top: .3rem;
         margin-bottom: inherit;
@@ -217,4 +218,5 @@
 }
 
 /* Smartphones (landscape) ----------- */
+
 @media only screen and (min-width: 321px) {}
