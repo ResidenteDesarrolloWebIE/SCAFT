@@ -20,82 +20,118 @@
     <script src="{{ asset('js/auth/login.js') }}"></script>
 </head>
 
-<body class="login-background" >
-    <div class="container">
-        <div class="row login-text-center">
-            <div class="col-xs-8 col-sm-6 col-md-5">
-                <div class="card" id="card1">
-
-                    <div class="card-header text-center" style="background-color:#DEDBDB">
-                        <h4>{{ __('BIENVENIDO') }}</h4>
-                        <img class="login-image" src="{{ asset('images/logo-login.png')}}" class="card-img-top">
+<body>
+    <div class="container-fluid bg-e5" style="padding: 0px; margin:0px">
+        <div class="row login" style="padding: 0px; margin:0px">
+            <div class="col-md-8 bg-e5 bg" style="padding: 0px; margin:0px;">
+                <div class="col bg-image">
+                </div>
+                <div class="col bg-opacity"></div>
+                <div class="text float-left">
+                    <div>
+                        Bienvenido <br>
+                        <span class="title">IE PROJECTS</span><br>
+                        <p>
+                            Es una plataforma digital, en la cual nuestros clientes
+                            tienen acceso a un portal de todo el proceso de contruccion
+                            o produccion de sus infraestructuras o servicios adquiridos.
+                            <br><br>
+                            En integracion de Energia nos preocupamos siempre por el apoyo
+                            a nuestros clientes.
+                        </p>
                     </div>
-
-                    <div class="card-body" style="background-color:#DEDBDB">
+                </div>
+            </div>
+            <div class="col-md-4 center form bg-e5" style="position:relative">
+                <div class="card center-horizontally bg-e5">
+                    <div class="center-horizontally">
+                        <img class="img-logo" src="{{ asset('images/ie-logo-lg.png')}}" alt="">
+                    </div>
+                    <div class="card-body" style="padding: 0px">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group row">
-                                <div class="input-group ">
+                                <div class="input-group center-horizontally input-email">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" style="background-color:#3982ab" id="basic-addon1">
-                                            <i class="fas fa-user" style='color:white'></i></span>
+                                        <span class="input-group-text "><i class="fas fa-user"></i> </span>
                                     </div>
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Correo electrónico"> @error('email')
                                     <span class="invalid-feedback text-center" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span> @enderror
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
-
                             <div class="form-group row">
-                                <div class="input-group ">
+                                <div class="input-group center-horizontally input-email">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text login-icon-color" id="pass" style="background-color:#3982ab"><i class="fas fa-key" style='color:white'></i></span>
+                                        <span class="input-group-text"><i class="fas fa-eye"></i> </span>
                                     </div>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
-
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" onclick="showPassword()" style="background-color:#3982ab"><i class="fas fa-eye" style='color:white'></i></span>
-                                    </div>
                                     @error('password')
                                     <span class="invalid-feedback text-center" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span> @enderror
+                                    </span>
+                                    @enderror
                                 </div>
+                            </div>
+                            <div class="form-check text-center input-remenber">
+                                <input class="form-check-input " type="checkbox" name="remember" id="remember" {{ old( 'remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="remember">
+                                    Recordar contraseña
+                                </label>
                             </div>
 
-                            <div class="row">
-                                <!-- form-group  -->
-                                <div class="col offset-md-1" style="margin-top:10px">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old( 'remember') ? 'checked' : '' }}>
-                                        <label class="form-check-label" style="background-colorcolor: blue" for="remember">
-                                            <strong>{{ __('Recordar contraseña') }}</strong>
-                                        </label>
-                                    </div>
-                                </div><br><br>
+                            <div class="col center-horizontally">
+                                <button type="submit" class="btn btn-ingresar btn-lg">Ingresar</button>
                             </div>
-
-                            <br>
-                            <div class=" row text-center">
-                                <div class="col offset-md-1">
-                                    <button type="submit" class="login-btn">{{ __('Iniciar sesión') }}</button>
-                                </div>
-                            </div>
-                            <div class=" row text-center" style="margin-top:12px">
-                                <div class="col offset-md-1">
-                                    @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        <strong>{{ __('¿Olvidaste tu contraseña?') }}</strong>
-                                    </a>
-                                    @endif
-                                </div>
+                            <div class="col center-horizontally">
+                                @if (Route::has('password.request'))
+                                <a class="forgot-password" href="{{ route('password.request') }}">
+                                    <strong>¿Olvidaste tu contraseña?</strong>
+                                </a>
+                                @endif
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            <div class="row " style="margin:0px;">
+                <div class="col-md-8 text-white text-mv" style="margin-left:0px;">
+                    <div class="content">
+                        Bienvenido <br>
+                        <span class="title">IE PROJECTS</span><br>
+                        <p>
+                            Es una plataforma digital, en la cual nuestros clientes
+                            tienen acceso a un portal de todo el proceso de contruccion
+                            o produccion de sus infraestructuras o servicios adquiridos.
+                        </p>
+                        <p>
+                            En integracion de Energia nos preocupamos siempre por el apoyo
+                            a nuestros clientes.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- <div class="row" style="width:100%; position:relative; margin:0px;padding:0px;">
+                <div class="col bg-image-mv"></div>
+                <div class="col bg-opacity-mv"></div>
+                <div class="col text-mv">
+                    <div>
+                        Bienvenido <br>
+                        <span class="title">IE PROJECTS</span><br>
+                        <p>
+                            Es una plataforma digital, en la cual nuestros clientes
+                            tienen acceso a un portal de todo el proceso de contruccion
+                            o produccion de sus infraestructuras o servicios adquiridos.
+                            <br><br>
+                            En integracion de Energia nos preocupamos siempre por el apoyo
+                            a nuestros clientes.
+                        </p>
+                    </div>
+                </div>
+            </div> -->
     </div>
 </body>
 

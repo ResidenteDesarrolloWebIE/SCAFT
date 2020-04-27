@@ -15,7 +15,6 @@ class PurchaseOrderController extends Controller
         } catch (\Throwable $error) {
             echo("El error es : ".$error);
         }
-        
     }
     public function showPdf(Request $request,$id){
         try {

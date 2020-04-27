@@ -13,8 +13,8 @@
                     <div class="row">
                         <table class="table table-bordered text-center ">
                             <thead>
-                                <tr >
-                                    <th style="color:black">#</th>
+                                <tr>
+                                    <th style="color:black"> #</th>
                                     <th style="color:black">Nota</th>
                                     <th style="color:black">Total</th>
                                     <th style="color:black">Oferta</th>
