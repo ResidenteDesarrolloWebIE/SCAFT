@@ -12,7 +12,7 @@ footer {
     bottom: 0;
     width: 100%;
     color: white;
-    left: 42px;
+    margin-top: 7%;
 }
 
 /* Estilos para todos los modals */
@@ -44,7 +44,57 @@ modal-separator {
 .list-payments{
     padding-top:10px;
 }
+/*.center {
+    justify-content: center;
+}*/
+
+/*Agregado Israel Gutierrez*/
+body {
+    font-family: Helvetica;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica;
+    font-weight: 800!important
+}
+
+p{
+    font-family: Helvetica;
+}
+
+/* Usadas en el login */
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
 .center {
+    display: flex;
+    position: relative;
     justify-content: center;
 }
 
+.center-horizontally{
+    display: flex;
+    justify-content: center;
+}
+.vertically-central{
+    display: flex;
+    align-items: center;
+}
+.center-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Colores del texto */
+.text-black{
+    color: black;
+}
+
+/* colores de fondo */
