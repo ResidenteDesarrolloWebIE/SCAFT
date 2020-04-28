@@ -6,6 +6,7 @@ Cambios
             fondo
         login.blade.php
 
+
     Modificacion de roles
         tecnicalAdvance.js
             -> Comentar(lineas 4-7).
