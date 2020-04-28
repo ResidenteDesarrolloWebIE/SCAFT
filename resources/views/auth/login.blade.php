@@ -20,6 +20,7 @@
     <script src="{{ asset('js/auth/login.js') }}"></script>
 </head>
 
+
 <body>
     <div class="container-fluid bg-e5" style="padding: 0px; margin:0px">
         <div class="row login" style="padding: 0px; margin:0px">
@@ -92,16 +93,14 @@
                                 @endif
                             </div>
                         </form>
-                        
                     </div>
-                    
                 </div>
-                <div class="text-right" style="position:absolute;bottom:0px">
-                <span><i class="fab fa-whatsapp"></i>  Contacto de soporte: 4421090441</span>
-                        
-                    </div>
+                <div class="text-right contact" style="position:absolute;bottom:0px;">
+                    <span><i class="fab fa-whatsapp"></i> Contacto de soporte: 4421090441</span>
+                </div>
             </div>
             <div class="row " style="margin:0px;">
+
                 <div class="col-md-8 text-white text-mv" style="margin-left:0px;">
                     <div class="content">
                         Bienvenido <br>
@@ -115,9 +114,13 @@
                             En integracion de Energia nos preocupamos siempre por el apoyo
                             a nuestros clientes.
                         </p>
+                        <div class="text-right">
+                            <span><i class="fab fa-whatsapp"></i> Contacto de soporte: 4421090441</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>

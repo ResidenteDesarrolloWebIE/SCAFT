@@ -201,6 +201,9 @@
     .login .bg {
         display: none;
     }
+    .contact{
+        display: none;
+    }
     .text-mv {
         display: inherit;
         margin-left: 0px;
