@@ -18,10 +18,10 @@ function initilizeEconomicAdvance(project) {
     if (project.economic_advances.initial_advance_completed == 1) {
         $('#idInitialAdvancePercentage').prop("readonly", true);
         $("#idInitialAdvanceCompleted").prop("disabled", true);
-    } else {
+    }/*  else {
         $('#idInitialAdvancePercentage').prop("readonly", false);
         $("#idInitialAdvanceCompleted").prop("disabled", false);
-    }
+    } */
 
     var final_payment_mount = project.sum_total_amoun * (project.economic_advances.final_payment_percentage / 100);
     $('#idFinalPaymentMount').val(final_payment_mount.toFixed(numberOfDecimals));
@@ -31,10 +31,10 @@ function initilizeEconomicAdvance(project) {
     if (project.economic_advances.final_payment_completed == 1) {
         $('#idFinalPaymentPercentage').prop("readonly", true);
         $("#idFinalPaymentCompleted").prop("disabled", true);
-    } else {
+    }/*  else {
         $('#idFinalPaymentPercentage').prop("readonly", false);
         $("#idFinalPaymentCompleted").prop("disabled", false);
-    }
+    } */
 
     var engineering_release_payment_mount = project.sum_total_amoun * (project.economic_advances.engineering_release_payment_percentage / 100);
     $('#idEngineeringReleasePaymentMount').val(engineering_release_payment_mount.toFixed(numberOfDecimals));
@@ -44,10 +44,10 @@ function initilizeEconomicAdvance(project) {
     if (project.economic_advances.engineering_release_payment_completed == 1) {
         $('#idEngineeringReleasePaymentPercentage').prop("readonly", true);
         $("#idEngineeringReleasePaymentCompleted").prop("disabled", true);
-    } else {
+    }/*  else {
         $('#idEngineeringReleasePaymentPercentage').prop("readonly", false);
         $("#idEngineeringReleasePaymentCompleted").prop("disabled", false);
-    }
+    } */
 
     var totalMount = project.economic_advances.initial_advance_mount + project.economic_advances.final_payment_mount + project.economic_advances.engineering_release_payment_mount;
     var totalPercentage = project.economic_advances.initial_advance_percentage + project.economic_advances.final_payment_percentage + project.economic_advances.engineering_release_payment_percentage;

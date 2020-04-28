@@ -24,8 +24,8 @@
     <div class="container-fluid bg-e5" style="padding: 0px; margin:0px">
         <div class="row login" style="padding: 0px; margin:0px">
             <div class="col-md-8 bg-e5 bg" style="padding: 0px; margin:0px;">
-                <div class="col bg-image center-vertically" style="justify-content: flex-end" >
-                <div class="col-md-8 text-1" style="padding: 20px 0px 20px 20px">
+                <div class="col bg-image center-vertically" style="justify-content: flex-end">
+                    <div class="col-md-8 text-1" style="padding: 20px 0px 20px 20px">
                         Bienvenido <br>
                         <span class="title">IE PROJECTS</span><br>
                         <p>
@@ -79,9 +79,10 @@
                                     Recordar contraseña
                                 </label>
                             </div>
-
-                            <div class="col center-horizontally">
-                                <button type="submit" class="btn btn-ingresar">Ingresar</button>
+                            <div class="form-group row" style="margin-bottom:inherit">
+                                <div class="input-group">
+                                    <input type="submit" class="btn form-control btn-ingresar" value="Ingresar">
+                                </div>
                             </div>
                             <div class="col center-horizontally">
                                 @if (Route::has('password.request'))
@@ -91,8 +92,14 @@
                                 @endif
                             </div>
                         </form>
+                        
                     </div>
+                    
                 </div>
+                <div class="text-right" style="position:absolute;bottom:0px">
+                <span><i class="fab fa-whatsapp"></i>  Contacto de soporte: 4421090441</span>
+                        
+                    </div>
             </div>
             <div class="row " style="margin:0px;">
                 <div class="col-md-8 text-white text-mv" style="margin-left:0px;">

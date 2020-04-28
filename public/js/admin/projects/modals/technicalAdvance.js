@@ -1,10 +1,10 @@
 $(document).ready(function () {
     $("#technicalAdvanceProject").on('hidden.bs.modal', function () {
         $("#formTecnicalAdvance")[0].reset();
-        $("#idReceiveOrder").prop("disabled", false);
+        /* $("#idReceiveOrder").prop("disabled", false);
         $('#idEngineeringRelease').prop("readonly", false);
         $('#idWorkProgress').prop("readonly", false);
-        $('#idDeliveryCustomer').prop("readonly", false);
+        $('#idDeliveryCustomer').prop("readonly", false); */
         $("#divDowloadPurchaOrder").hide();
     });
     $("#technicalAdvanceProject").on('show.bs.modal', function () {

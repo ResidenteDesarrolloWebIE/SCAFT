@@ -48,7 +48,7 @@
                                         <button type="button" class="btn btn-primary" title="Descargar Minuta firmada"><i class="fas fa-file"></i></button>
                                     </a>
                                     @endif
-                                @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador'))
+                                @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador')) <!-- (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) -->
                                     <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-primary" title="Ver acuerdos"><i class="fas fa-external-link-alt"></i></button></a>
                                     <a href="/minutas/showPdf/{{$minute->id}}" target="_blank">
                                         <button type="button" class="btn btn-primary" title="Ver Minuta"><i class="fas fa-eye"></i></button>

@@ -33,10 +33,13 @@ class ProjectController extends Controller{
         if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
         if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
         /* Avance economico */
+        /* dd($selectStatusReceiveOrder,$inputStatusEngineeringRelease,$inputStatusWorkProgress,$inputStatusDeliveryCustomer ); */
         if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
             $selectStatus = "disabled";
             $inputStatus = "readonly";
         }
+        /* dd($selectStatus , $inputStatus); */
+        
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder','aditionals_details'])->orderBy('id', 'asc')->get();
         foreach ($projects as $project) {
             $project->sum_total_amoun = $project->total_amount + $project->aditionals_Details->sum('total_amount');

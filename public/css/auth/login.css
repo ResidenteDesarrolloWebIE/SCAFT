@@ -131,6 +131,14 @@
     border-style: none;
     border-radius: 5px;
 }
+.form .btn-ingresar:hover {
+    background: linear-gradient(to right, #33C2F0 0%, #00436D 100%);
+    -moz-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -o-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01)
+}
 
 .form .forgot-password {
     font-size: 15px;

@@ -19,16 +19,16 @@
                     <div class="form-group text-center">
                         <label for="typeProject"><strong style="color:red">*</strong><strong>Tipo de minuta</strong></label>
 
-                        @if(Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas'))
-                        <input type="text" class="form-control" name="typeMinuta" id="idTypeMinuta" value="EXTERNAS" required readonly>
-                        @elseif(Auth::user()->hasRole('Ofertas'))
-                        <input type="text" class="form-control" name="typeMinuta" id="idTypeMinuta" value="INTERNA" required readonly>
-                        @elseif(Auth::user()->hasRole('Administrador'))
-                        <select class="custom-select" name="typeMinuta" id="idTypeMinuta" required>
-                            <option value="" selected disabled> Seleccionar un tipo</option>
-                            <option value="EXTERNA">EXTERNA (CLIENTES)</option>
-                            <option value="INTERNA">INTERNA</option>
-                        </select>
+                        <!-- @if(Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas'))
+                            <input type="text" class="form-control" name="typeMinuta" id="idTypeMinuta" value="EXTERNAS" required readonly> -->
+                        @if(Auth::user()->hasRole('Ofertas'))
+                            <input type="text" class="form-control" name="typeMinuta" id="idTypeMinuta" value="INTERNA" required readonly>
+                        @elseif( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasRole('Administrador'))
+                            <select class="custom-select" name="typeMinuta" id="idTypeMinuta" required>
+                                <option value="" selected disabled> Seleccionar un tipo</option>
+                                <option value="EXTERNA">EXTERNA (CLIENTES)</option>
+                                <option value="INTERNA">INTERNA</option>
+                            </select>
                         @endif
                     </div>
                     <div class="form-group row">
