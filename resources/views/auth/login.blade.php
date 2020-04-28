@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="text-right contact" style="position:absolute;bottom:0px;">
-                    <span><i class="fab fa-whatsapp"></i> Contacto de soporte: 4421090441</span>
+                    <span><i class="fab fa-whatsapp" style="color:green"></i> Contacto de soporte: 4421090441</span>
                 </div>
             </div>
             <div class="row " style="margin:0px;">
@@ -115,7 +115,7 @@
                             a nuestros clientes.
                         </p>
                         <div class="text-right">
-                            <span><i class="fab fa-whatsapp"></i> Contacto de soporte: 4421090441</span>
+                            <span><i class="fab fa-whatsapp" style="color: green"></i> Contacto de soporte: 4421090441</span>
                         </div>
                     </div>
                 </div>
