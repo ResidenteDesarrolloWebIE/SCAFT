@@ -57,7 +57,7 @@ Analisis de requerimientos de roles.
 		-> Archivos a modificar (tecnicalAdvance.js/economicAdvance.js)
 
 
-Historial de cambios de II-projects:
+Historial de cambios de IE-projects:
 
 	1.
 		Descripcion.
@@ -67,12 +67,12 @@ Historial de cambios de II-projects:
 		Relizado por:
 			Modulos
 				Administrador
-					Proyectos (Moises Escobar Martine).
+					Proyectos (Moises Escobar Martinez).
 					Usuarios (Francisco gil/Moises Escobar Martinez)
-					Minutas (Israel Santiaga).
+					Minutas (Israel Santiago).
 					Diseño de los anteriores (Jose Erasmo).
 				Clientes
-					Funcionalidad. (Moises Escobar martinez).
+					Funcionalidad. (Moises Escobar Martinez).
 					Diseño (Jose Erasmo, Moises Escobar Martinez)
 		Subido por:
 			Israel Santiago.
