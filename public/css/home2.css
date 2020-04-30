@@ -232,7 +232,7 @@
     }
 
     footer{
-        margin-top: 22%;
+        margin-top: 10%;
     }
 
     .img-logo{
@@ -252,8 +252,18 @@
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 320px) {
+    /*Iphone 5, 5s, SE*/
+    .img-logo{
+        margin-top: 73%;
+        height: 25%;
+        width: 95%;
+        margin-bottom: -80%;
+    }
 
+    footer{
+        margin-top: 25%;
+    }
 }
 
 /* iPads (portrait and landscape) ----------- 
