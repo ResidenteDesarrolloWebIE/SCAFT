@@ -90,7 +90,6 @@
 }
 
 
-
 .btn-rewards{
     font-family: Helvetica;
     font-size: 18px;
@@ -134,7 +133,6 @@
     Mas o menos (nexus 4, nexus 5, nexus 5x, nexus 6 / 6p / 7,  nokia n9, pixel2, pixel 2xl, iphone 6/7/8 6/7/8/plus / x)
 ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-
     .rev{
         display: none;
     }
@@ -189,12 +187,6 @@
         margin-bottom: 11%;
     }
 
-    .img-logo{
-        margin-top: 30%;
-        width: 60%;
-        height: 30%;
-        margin-bottom: 2%;
-    }
 
     .btn-rewards{
         margin-left: 4.5%;
@@ -216,7 +208,6 @@
         display: block;
         margin-top: 3%;
         width: 94%;
-        margin-bottom: 30%;
     }
 
     .title{
@@ -252,9 +243,19 @@
     }
 
 }
-/* Smartphones (landscape) ----------- */
+/* Smartphones (landscape) Funciona con Iphone 8----------- */ 
 @media only screen and (min-width: 321px) {
     /* Styles */
+    footer{
+        margin-top: 10%;
+    }
+
+    .img-logo{
+        margin-top: 53%;
+        height: 32%;
+        width: 83%;
+        margin-bottom: -90%;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
