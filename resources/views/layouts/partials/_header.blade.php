@@ -9,7 +9,7 @@
     <link href="{{asset('images/icon.ico') }}" rel="shortcut icon" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('css/auth/_navigationBar.css') }}" />
+    {{--<link rel="stylesheet" href="{{asset('css/auth/_navigationBar.css') }}" />--}}
     <link rel="stylesheet" href="{{asset('css/general.css') }}" />
     <link rel="stylesheet" href="{{asset('css/home.css') }}" />
     <link rel="stylesheet" href="{{asset('css/admin/projects.css') }}" />

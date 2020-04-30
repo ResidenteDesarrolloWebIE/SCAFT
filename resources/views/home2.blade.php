@@ -34,7 +34,7 @@
                     <div class="row" style="margin-bottom: 3%;">
                         <div class="col">
                             <div class="center">
-                                <img src="{{asset('images/logo2.png')}}" class="img-logo" width="32%" height="100%" />
+                                <img src="{{asset('images/logo2.png')}}" class="img-logo"/>
                             </div>
                         </div>
                     </div>

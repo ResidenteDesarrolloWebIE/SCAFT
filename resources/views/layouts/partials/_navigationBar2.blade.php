@@ -1,4 +1,4 @@
-<nav class="col-8 navbar navbar-expand-lg navbar-dark navbar-custom  bg-navbar">
+<nav class="col-md-8 navbar navbar-expand-lg navbar-dark navbar-custom  bg-navbar">
     <div class="container">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -21,7 +21,7 @@
                     <div class="effect"></div>
                 </li>
             </ul>
-            <a class="btn btn-danger" href="{{ route('logout') }}" style="margin-bottom: 5px;" onclick="event.preventDefault();
+            <a class="btn btn-danger btn-logout" href="{{ route('logout') }}" style="margin-bottom: 5px;" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 {{ __('Cerrar sesión') }}
             </a>

@@ -13,6 +13,7 @@ footer {
     width: 100%;
     color: white;
     margin-top: 7%;
+    position: static;
 }
 
 /* Estilos para todos los modals */

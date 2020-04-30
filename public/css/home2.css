@@ -84,6 +84,10 @@
 .customer-profile-mobile{
     display: none;
 }
+.img-logo{
+    width:32%;
+    height:100%; 
+}
 
 
 
@@ -131,6 +135,9 @@
 ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
 
+    .rev{
+        display: none;
+    }
     .navbar-collapse{
         margin-bottom: 3%;
     }
@@ -185,7 +192,7 @@
     .img-logo{
         margin-top: 30%;
         width: 60%;
-        height: 100%;
+        height: 30%;
         margin-bottom: 2%;
     }
 
@@ -226,8 +233,13 @@
 
 /*Iphone x*/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    .btn-logout{
+        width:100%; 
+        margin-left:2%;
+    }
     .img-logo{
         margin-top: 20%;
+        height: 30%;
     }
 
     .info-empresa-mobile{
