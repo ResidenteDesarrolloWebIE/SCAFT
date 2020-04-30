@@ -132,7 +132,8 @@
     Bien (BlackBerry Z30, Galaxi note3 /2 / s III / s5, lg optimus,moto g4)
     Mas o menos (nexus 4, nexus 5, nexus 5x, nexus 6 / 6p / 7,  nokia n9, pixel2, pixel 2xl, iphone 6/7/8 6/7/8/plus / x)
 ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    /*Funciona para iphone 8 */
     .rev{
         display: none;
     }
@@ -146,6 +147,10 @@
         letter-spacing: .1rem;
         margin-left: 5%;
 
+    }
+
+    .navbar-toggler{
+        margin-bottom: 2%;
     }
 
     .navbar-collapse>button{
@@ -193,6 +198,7 @@
         margin-right: 10%;
         margin-bottom: 2%;
         width: 100%;
+        font-size: 16px;
     }
 
     .btn-servicesProducts{
@@ -208,6 +214,7 @@
         display: block;
         margin-top: 3%;
         width: 94%;
+        margin-bottom: 30%;
     }
 
     .title{
@@ -219,35 +226,13 @@
         font-family: Helvetica;
 
     }
-}
-
-
-/*Iphone x*/
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
     .btn-logout{
         width:100%; 
         margin-left:2%;
     }
-    .img-logo{
-        margin-top: 20%;
-        height: 30%;
-    }
 
-    .info-empresa-mobile{
-        width: 94%;
-        margin-bottom: 30%;
-    }
-
-    .menu-customer {
-        min-height: 28vh;
-    }
-
-}
-/* Smartphones (landscape) Funciona con Iphone 8----------- */ 
-@media only screen and (min-width: 321px) {
-    /* Styles */
     footer{
-        margin-top: 10%;
+        margin-top: 22%;
     }
 
     .img-logo{
@@ -256,11 +241,19 @@
         width: 83%;
         margin-bottom: -90%;
     }
+
+}
+
+
+
+/* Smartphones (landscape) Funciona con Iphone 8----------- */ 
+@media only screen and (min-width: 321px) {
+    /* Styles */
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width: 320px) {
-    /* Styles */
+@media only screen and (max-width: 600px) {
+
 }
 
 /* iPads (portrait and landscape) ----------- 
