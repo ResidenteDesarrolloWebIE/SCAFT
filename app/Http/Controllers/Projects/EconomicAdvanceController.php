@@ -39,7 +39,7 @@ class EconomicAdvanceController extends Controller
                 $project->status = "PROCESO";
                 $project->save();
             }
-            if($economicAdvance->finalPaymentCompleted==1 &&  $technicalAdvance->delivery_customer==100){
+            if($economicAdvance->final_payment_completed==1 &&  $technicalAdvance->delivery_customer==100){
                 $project->status = "TERMINADO";
                 $project->save();
             }

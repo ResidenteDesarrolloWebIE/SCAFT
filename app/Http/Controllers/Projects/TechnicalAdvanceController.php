@@ -18,13 +18,11 @@ class TechnicalAdvanceController extends Controller
         try {
             DB::beginTransaction();
             $technicalAdvance = TechnicalAdvance::with('project.type')->where('id', $request->technicalAdvance)->first();
-            $project = Project::with('technicalAdvances')->where('id',$technicalAdvance ->project->id)->first();
-            $economicAdvance = EconomicAdvance::where('id', $project->economicAdvances)->first();
-
-            if (is_null($request->receiveOrder) || $request->receiveOrder == 100) {
-                $technicalAdvance->receive_order = 100;
-            } else {
-                $technicalAdvance->receive_order = 0;
+            $project = Project::with('economicAdvances')->where('id',$technicalAdvance ->project->id)->first();
+            $economicAdvance = EconomicAdvance::where('id', $project->economicAdvances->id)->first();
+            
+            if (!is_null($request->receiveOrder)) {
+                $technicalAdvance->receive_order = $request->receiveOrder;
             }
             $technicalAdvance->engineering_release = $request->engineeringRelease;
             $technicalAdvance->work_progress = $request->workProgress;
@@ -53,7 +51,7 @@ class TechnicalAdvanceController extends Controller
                 $project->status = "PROCESO";
                 $project->save();
             }
-            if($technicalAdvance->delivery_customer==100 && $economicAdvance->finalPaymentCompleted==1){
+            if($technicalAdvance->delivery_customer==100 && $economicAdvance->final_payment_completed==1){
                 $project->status = "TERMINADO";
                 $project->save();
             }

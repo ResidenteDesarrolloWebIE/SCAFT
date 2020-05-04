@@ -185,7 +185,15 @@
     display: flex;
     align-items: center;
 }
-
+.center-left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.bottom{
+    display: flex;
+    align-items: flex-end;
+}
 .center-horizontally {
     display: flex;
     justify-content: center;
@@ -205,7 +213,7 @@
         display: none;
     }
     .text-mv {
-        display: inherit;
+        display: inline-block;
         margin-left: 0px;
         background: url("../../images/ie-bg-lg.jpg");
         margin: 0px;
@@ -216,6 +224,8 @@
     }
     .text-mv content {
         width: 90%;
+        display: flex;
+        align-items: center;
     }
     .text-mv p {
         margin-top: .3rem;
@@ -229,5 +239,4 @@
 }
 
 /* Smartphones (landscape) ----------- */
-
 @media only screen and (min-width: 321px) {}

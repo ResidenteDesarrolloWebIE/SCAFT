@@ -1,20 +1,20 @@
-Cambios
-    Diseño del login
-        login.css
-        imagenes
-            logo 
-            fondo
-        login.blade.php
+Cambios 
+	(24/04/2020)
+		Diseño del login
+			login.css
+			imagenes
+				logo 
+				fondo
+			login.blade.php
 
+		Modificacion de roles (Solicitados por el ingeniero Sergio)
+			tecnicalAdvance.js
+				-> Comentar(lineas 4-7).
+			economicAdvance.js
+				-> Comentar(Lineas 21-24 / 34-37 / 47-50)
+				-> Comentar los else.
 
-    Modificacion de roles
-        tecnicalAdvance.js
-            -> Comentar(lineas 4-7).
-        economicAdvance.js
-            -> Comentar(Lineas 21-24 / 34-37 / 47-50)
-            -> Comentar los else.
-
-Cambios en espera de autorizacion (Comentados en el sistema local).
+	(30/05/2020) (Solicitados por el ingeniero Sergio)
 		ViewMinutas.blade.php (linea 12/42/51)
         projects.blade.php -> linea 86-90
             -> Añadir un if al boton de avance tecnico.
@@ -22,7 +22,6 @@ Cambios en espera de autorizacion (Comentados en el sistema local).
             -> Eliminar el rol servicios.
 
 Analisis de requerimientos de roles.
-
 	(Lider/Ventas). --> Aceceso total a todas las minutas.
 		-> Dificil(Esto implica la verificacion de varios archivos).
 		-> Acciones a tomar en cuenta y archivos a editar.

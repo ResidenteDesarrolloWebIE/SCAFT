@@ -24,8 +24,8 @@
 <body>
     <div class="container-fluid bg-e5" style="padding: 0px; margin:0px">
         <div class="row login" style="padding: 0px; margin:0px">
-            <div class="col-md-8 bg-e5 bg" style="padding: 0px; margin:0px;">
-                <div class="col bg-image center-vertically" style="justify-content: flex-end">
+            <div class="col-md-8 bg-e5 bg center-vertically" style="padding: 0px; margin:0px;" >
+                <div class="col bg-image center-left">
                     <div class="col-md-8 text-1" style="padding: 20px 0px 20px 20px">
                         Bienvenido <br>
                         <span class="title">IE PROJECTS</span><br>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 center form bg-e5" style="position:relative">
+            <div class="col-md-4 center form bg-e5">
                 <div class="card center-horizontally bg-e5">
                     <div class="center-horizontally">
                         <img class="img-logo" src="{{ asset('images/ie-logo-lg.png')}}" alt="">
@@ -99,9 +99,9 @@
                     <span><i class="fab fa-whatsapp" style="color:green"></i> Contacto de soporte: 4421090441</span>
                 </div>
             </div>
-            <div class="row " style="margin:0px;">
-
-                <div class="col-md-8 text-white text-mv" style="margin-left:0px;">
+            <div class="row bottom" style="margin:0px;">
+                <!-- En el servidor falta esta clase center-vertically-bottom -->
+                <div class="col-md-8 text-white text-mv " style="margin-left:0px;">
                     <div class="content">
                         Bienvenido <br>
                         <span class="title">IE PROJECTS</span><br>
@@ -124,5 +124,4 @@
         </div>
     </div>
 </body>
-
 </html>
