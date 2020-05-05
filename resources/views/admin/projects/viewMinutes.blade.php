@@ -9,7 +9,7 @@
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
                 <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE MINUTAS</h1>
-                @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas']))
+                @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas']) )
                 <div class="offset-md-8 col-md-4 text-right">
                     <button id="btnProject" type="button" class="btn btn-dark" onclick="openModalAddMinute({{$project}})">
                         Agregar Minuta <i class="fas fa-plus"></i>
@@ -48,18 +48,14 @@
                                         <button type="button" class="btn btn-primary" title="Descargar Minuta firmada"><i class="fas fa-file"></i></button>
                                     </a>
                                     @endif
-                                @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador')) <!-- (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) -->
+                                @elseif ( ($minute->type == "INTERNA" && Auth::user()->hasRole('Ofertas')) || Auth::user()->hasRole('Administrador') || (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas'))) <!-- (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) -->
                                     <a href="/agreements/{{$minute->id}}"><button type="button" class="btn btn-primary" title="Ver acuerdos"><i class="fas fa-external-link-alt"></i></button></a>
-                                    <a href="/minutas/showPdf/{{$minute->id}}" target="_blank">
-                                        <button type="button" class="btn btn-primary" title="Ver Minuta"><i class="fas fa-eye"></i></button>
-                                    </a>
                                     @if($minute->file_id == null)
                                     <button  data-toggle="modal" data-target="#modalMinuteSignedFile" type="button" class="btn btn-primary"  title="Agregar Minuta firmada" onclick="openModalAddFile({{$minute->id}})"><i class="fas fa-upload"></i></button>
                                     @else
                                     <a href="/minutas/downloadMinuteSigned/{{$minute->file_id}}" target="_blank">
                                         <button type="button" class="btn btn-primary" title="Descargar Minuta firmada"><i class="fas fa-file"></i></button>
                                     </a>
-                                    
                                     @endif
                                 @endif
                             </td>

@@ -16,38 +16,32 @@ use App\Models\Projects\Offer;
 use App\Models\Projects\File;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Collection;
 
 class ProjectController extends Controller{
     public function showProjects(){
+        /* $project = Project::search("yyy")->get(); */ /* Para filtar por (folio,name,estatus/descripcion)*/
         $clients = User::whereHas('roles', function (Builder $query) {$query->where('name', '=', 'Cliente');})->get();
-        $selectStatusReceiveOrder = "";
-        $inputStatusEngineeringRelease = "";
-        $inputStatusWorkProgress = "";
-        $inputStatusDeliveryCustomer = "";
-        $selectStatus = "";
-        $inputStatus = "";
-
-        /* Avance tecnico */
-        if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
-        if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){ $inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
-        if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
-        if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
-        /* Avance economico */
-        /* dd($selectStatusReceiveOrder,$inputStatusEngineeringRelease,$inputStatusWorkProgress,$inputStatusDeliveryCustomer ); */
-        if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
-            $selectStatus = "disabled";
-            $inputStatus = "readonly";
-        }
-        /* dd($selectStatus , $inputStatus); */
-        
         $projects = Project::with(['customer', 'technicalAdvances', 'economicAdvances', 'affiliations', 'images', 'coin', 'type', 'offer', 'purchaseOrder','aditionals_details'])->orderBy('id', 'asc')->get();
         foreach ($projects as $project) {
             $project->sum_total_amoun = $project->total_amount + $project->aditionals_Details->sum('total_amount');
+            $project->selectStatusReceiveOrder = "";$project->inputStatusEngineeringRelease = "";
+            $project->inputStatusWorkProgress = "";$project->inputStatusDeliveryCustomer = "";
+            $project->selectStatus = "";$project->inputStatus = "";
+            /* Avance tecnico */
+            if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$project->selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
+            if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){$project->inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
+            if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$project->inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
+            if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$project->inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
+            /* Avance economico */
+            if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
+                $project->selectStatus = "disabled";
+                $project->inputStatus = "readonly";
+            }
         }
-        return view('admin.projects.projects',compact('projects','clients','selectStatusReceiveOrder','inputStatusEngineeringRelease',
-        'inputStatusWorkProgress','inputStatusWorkProgress','inputStatusDeliveryCustomer','selectStatus', 'inputStatus'));
-    }/* $count = User::where('votes', '>', 100)->count(); */
-
+        return view('admin.projects.projects',compact('projects','clients'));
+    }
+    /* $count = User::where('votes', '  W F>', 100)->count(); */
     public function showProjectsByClient(Request $request){
         $result = Project::where('customer_id', $request->idCustomer)->get();
         return response()->json(["projects" => $result]);

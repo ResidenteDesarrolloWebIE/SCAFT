@@ -58,4 +58,13 @@ class Project extends Model
     public function aditionals_details(){
         return $this->hasMany(AditionalDetails::class,'project_id', 'id');
     }
+
+
+
+    public function scopeSearch($query,$value){
+        if(trim($value) != ""){
+            $query->where("folio","LIKE","%$value%")->orWhere("name","LIKE","%$value%")->orWhere("status","LIKE","%$value%")
+            ->orWhere("description","LIKE","%$value%");      
+        }
+    }
 }

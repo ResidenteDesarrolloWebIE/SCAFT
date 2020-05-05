@@ -10,7 +10,7 @@
         <div class="container container-projects-admin">
             <div class="row table-responsive text-center projects-table">
                 <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE PROYECTOS</h1>
-                @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas','Servicio']))
+                @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas']))
                 <div class="offset-md-8 col-md-4 text-right" style="margin-bottom: 10px">
                     <a data-toggle="modal" data-target="#createProject">
                         <button id="btnProject" type="button" class="btn btn-dark">
@@ -80,19 +80,19 @@
                                         <button type="button" class="btn btn-primary" title="Editar Proyecto" onclick='inicializeEditProject({{$project}})'><i class="fas fa-edit"></i></button>
                                     </a>
                                 @endif
-                                <!-- @if(!Auth::user()->hasAnyRole(['Ingenieria','Manufactura','Servicio','Almacen'])) -->
-                                <a data-toggle="modal" data-target="#economicAdvanceProject">
-                                    <button type="button" class="btn btn-dark" title="Editar avance economico" onclick='initilizeEconomicAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-dollar-sign" style="color:#fff"></i></button>
-                                </a>
-                                <!-- @endif -->
-                                
-                                    <a data-toggle="modal" data-target="#technicalAdvanceProject">
-                                        <button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
+                                @if(!Auth::user()->hasAnyRole(['Ingenieria','Manufactura','Servicio','Almacen']))
+                                    <a data-toggle="modal" data-target="#economicAdvanceProject">
+                                        <button type="button" class="btn btn-dark" title="Editar avance economico" onclick='initilizeEconomicAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-dollar-sign" style="color:#fff"></i></button>
                                     </a>
-                                
+                                @endif 
+                                <a data-toggle="modal" data-target="#technicalAdvanceProject">
+                                    <button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
+                                </a>
+                                    
                                 <a href="{{url('minutas',$project)}}">
                                     <button type="button" class="btn btn-dark" title="Minutas"><i class="fas fa-file-alt"></i></button>
                                 </a>
+
                                 @if(Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']))
                                     <a data-toggle="modal" data-target="#imagesProject" onclick='imagesProject( {{$project}})'>
                                         <button type="button" class="btn btn-primary" title="Agregar imagenes"><i class="fas fa-images"></i></button>

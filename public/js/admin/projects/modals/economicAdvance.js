@@ -1,4 +1,4 @@
-var numberOfDecimals = 4;
+  var numberOfDecimals = 4;
 $(document).ready(function () {
     $("#economicAdvanceProject").on('hidden.bs.modal', function () {
         $("#formEconomicAdvance")[0].reset();
@@ -6,58 +6,67 @@ $(document).ready(function () {
 });
 
 function initilizeEconomicAdvance(project) {
+    console.log("Proyecto",project);
     $('#idFolioProjectEconomicAdvance').html(project.folio);
     $('#idEconomicAdvance').val(project.economic_advances.id);
     $('#idTotalAmount').val(project.sum_total_amoun);
 
+    var save=true;
     var initial_advance_mount = project.sum_total_amoun * (project.economic_advances.initial_advance_percentage / 100);
     $('#idInitialAdvanceMount').val(initial_advance_mount.toFixed(numberOfDecimals));
     $('#idInitialAdvancePercentage').val(project.economic_advances.initial_advance_percentage);
     $('#idInitialAdvancePercentage').attr({ "min": 0, "max": 100 });
     $('#idInitialAdvanceCompleted').val(project.economic_advances.initial_advance_completed);
-    if (project.economic_advances.initial_advance_completed == 1) {
+    if (project.economic_advances.initial_advance_completed == 1 || (project.selectStatus!="" && project.inputStatus!="") ) {
         $('#idInitialAdvancePercentage').prop("readonly", true);
         $("#idInitialAdvanceCompleted").prop("disabled", true);
-    }/*  else {
+        save==false;
+    }
+    else {
         $('#idInitialAdvancePercentage').prop("readonly", false);
         $("#idInitialAdvanceCompleted").prop("disabled", false);
-    } */
+        save==true;
+    }
 
     var final_payment_mount = project.sum_total_amoun * (project.economic_advances.final_payment_percentage / 100);
     $('#idFinalPaymentMount').val(final_payment_mount.toFixed(numberOfDecimals));
     $('#idFinalPaymentPercentage').val(project.economic_advances.final_payment_percentage);
     $('#idFinalPaymentPercentage').attr({ "min": 0, "max": 100 });
     $('#idFinalPaymentCompleted').val(project.economic_advances.final_payment_completed);
-    if (project.economic_advances.final_payment_completed == 1) {
+    if (project.economic_advances.final_payment_completed == 1 || (project.selectStatus!="" && project.inputStatus!="")) {
         $('#idFinalPaymentPercentage').prop("readonly", true);
         $("#idFinalPaymentCompleted").prop("disabled", true);
-    }/*  else {
+        save==false;
+    }  else {
         $('#idFinalPaymentPercentage').prop("readonly", false);
         $("#idFinalPaymentCompleted").prop("disabled", false);
-    } */
+        save==true;
+    } 
 
     var engineering_release_payment_mount = project.sum_total_amoun * (project.economic_advances.engineering_release_payment_percentage / 100);
     $('#idEngineeringReleasePaymentMount').val(engineering_release_payment_mount.toFixed(numberOfDecimals));
     $('#idEngineeringReleasePaymentPercentage').val(project.economic_advances.engineering_release_payment_percentage);
     $('#idEngineeringReleasePaymentPercentage').attr({ "min": 0, "max": 100 });
     $('#idEngineeringReleasePaymentCompleted').val(project.economic_advances.engineering_release_payment_completed);
-    if (project.economic_advances.engineering_release_payment_completed == 1) {
+    if (project.economic_advances.engineering_release_payment_completed == 1  || (project.selectStatus!="" && project.inputStatus!="")) {
         $('#idEngineeringReleasePaymentPercentage').prop("readonly", true);
         $("#idEngineeringReleasePaymentCompleted").prop("disabled", true);
-    }/*  else {
+        save==false;
+    }  else {
         $('#idEngineeringReleasePaymentPercentage').prop("readonly", false);
         $("#idEngineeringReleasePaymentCompleted").prop("disabled", false);
-    } */
+        save==true;
+    } 
 
+    if(save==true){
+        $('#btnSaveEconomicAdvance').show();
+    }else{
+        $('#btnSaveEconomicAdvance').hide();
+    }
     var totalMount = project.economic_advances.initial_advance_mount + project.economic_advances.final_payment_mount + project.economic_advances.engineering_release_payment_mount;
     var totalPercentage = project.economic_advances.initial_advance_percentage + project.economic_advances.final_payment_percentage + project.economic_advances.engineering_release_payment_percentage;
     $('#idPaymentTotalMount').val(totalMount.toFixed(numberOfDecimals));
     $('#idPaymentTotalPercentage').val(totalPercentage);
-    console.log(
-        project.economic_advances.initial_advance_mount, "   ",
-        project.economic_advances.final_payment_mount, "  ",
-        project.economic_advances.engineering_release_payment_mount
-    )
 }
 
 function editEconomicAdvance() {

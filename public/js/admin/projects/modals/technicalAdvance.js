@@ -1,10 +1,6 @@
 $(document).ready(function () {
     $("#technicalAdvanceProject").on('hidden.bs.modal', function () {
         $("#formTecnicalAdvance")[0].reset();
-        /* $("#idReceiveOrder").prop("disabled", false);
-        $('#idEngineeringRelease').prop("readonly", false);
-        $('#idWorkProgress').prop("readonly", false);
-        $('#idDeliveryCustomer').prop("readonly", false); */
         $("#divDowloadPurchaOrder").hide();
     });
     $("#technicalAdvanceProject").on('show.bs.modal', function () {
@@ -52,30 +48,56 @@ $(document).ready(function () {
 
 
 function initializeTechnicalAdvance(project) {
+    var save = true;
     $("#divDowloadPurchaOrder").hide();
-    /* if(project.type.id == 1){}elseif(project.type.id == 2){} */
     $('#idFolioProjectTechnicalAdvance').html(project.folio);
     $('#idTechnicalAdvance').val(project.technical_advances.id);
     $('#idReceiveOrder').val(project.technical_advances.receive_order);
-    if (project.technical_advances.receive_order == 100) {
+    if (project.technical_advances.receive_order == 100 || project.selectStatusReceiveOrder!="") {
         $('#idReceiveOrder').prop("checked");
         $('#idReceiveOrder').prop("disabled", true);
         $("#idPurchaseOrder").prop("required", false);
-        $("#divDowloadPurchaOrder").show();
+        if(project.technical_advances.receive_order == 100){
+            $("#divDowloadPurchaOrder").show();
+        }
+        save = false;
+    }else{
+        $("#idReceiveOrder").prop("disabled", false);
+        save = true;
     }
 
     $('#idEngineeringRelease').val(project.technical_advances.engineering_release);
-    if (project.technical_advances.engineering_release == 100) {
+    if (project.technical_advances.engineering_release == 100 || project.inputStatusEngineeringRelease!="") {
         $('#idEngineeringRelease').prop("readonly", true);
+        save = false;
+    }else{
+        $('#idEngineeringRelease').prop("readonly", false);
+        save = true;
     }
+    
     $('#idWorkProgress').val(project.technical_advances.work_progress);
-    if (project.technical_advances.work_progress == 100) {
+    if (project.technical_advances.work_progress == 100 || project.inputStatusWorkProgress!="") {
         $('#idWorkProgress').prop("readonly", true);
+        save = false;
+    }else{
+        $('#idWorkProgress').prop("readonly", false);
+        save = true;
     }
+
     $('#idDeliveryCustomer').val(project.technical_advances.delivery_customer);
-    if (project.technical_advances.delivery_customer == 100) {
+    if (project.technical_advances.delivery_customer == 100 || project.inputStatusDeliveryCustomer!="") {
         $('#idDeliveryCustomer').prop("readonly", true);
+        save = false;
+    }else{
+        $('#idDeliveryCustomer').prop("readonly", false);
+        save = true;
     }
+    if(save==true){
+        $('#btnSaveTechnicalAdvance').show();
+    }else{
+        $('#btnSaveTechnicalAdvance').hide();
+    }
+
     $('#idEngineeringRelease').attr({ "min": project.technical_advances.engineering_release, "max": 100 });
     $('#idWorkProgress').attr({ "min": project.technical_advances.work_progress, "max": 100 });
     $('#idDeliveryCustomer').attr({ "min": project.technical_advances.delivery_customer, "max": 100 });

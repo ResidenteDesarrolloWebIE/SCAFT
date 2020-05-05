@@ -6,7 +6,6 @@ Cambios
 				logo 
 				fondo
 			login.blade.php
-
 		Modificacion de roles (Solicitados por el ingeniero Sergio)
 			tecnicalAdvance.js
 				-> Comentar(lineas 4-7).
@@ -16,45 +15,39 @@ Cambios
 
 	(30/05/2020) (Solicitados por el ingeniero Sergio)
 		ViewMinutas.blade.php (linea 12/42/51)
-        projects.blade.php -> linea 86-90
+        projects.blade.php -> linea 83-87
             -> Añadir un if al boton de avance tecnico.
         projects.blade.php (linea-77) 
             -> Eliminar el rol servicios.
 
-Analisis de requerimientos de roles.
-	(Lider/Ventas). --> Aceceso total a todas las minutas.
-		-> Dificil(Esto implica la verificacion de varios archivos).
-		-> Acciones a tomar en cuenta y archivos a editar.
-			ViewMinutas.blade.php
-				Agregar minuta (externa e interna). (Hecho)-linea 12
-				Añadir minutas firmadas (Linea42 (No se hizo cambio) / Linea51 (Aqui añadimos el rol de lider/ofertas)).
-			CreateMinuta.blade.ph (22-31)
-		->(Hecho).
-			
-
-	(INGENIERIA/MANUFACTURA/SERVICIOS/ALMACEN).-->Sin acceso a avance economico.
-		-> Comenzamos mal, (es necesario un parche).
-		-> Quiere decir que estos roles, no deberian tener el rol de consulta.
-		-> Actualmente solo tienen el rol de consulta
-		-> Facil (Hecho)
-		-> Archivos a editar (projects.blade.php -> linea 86-90(Añadir un if al boton de avance tecnico)).
-
-	Servicio. -> No editar proyectos, ni avance financiero.
-		-> Actualmente edita proyectos
-		-> No edita avance financiero.
-		-> Facil (Hecho)
-		-> archivos a modificar (projects.blade.php->linea-77(De esta manera servicios no editara proyectos)).
-
-	Almacen. -> No editar avance financiero.
-		-> No lo hace.
-		-> Tiene el rol de consulta.
-		-> Facil (Hecho)
-		-> Archivos a modificar (Ninguno)
-
-	Al rol de consulta permitirle solo ver el avnce tecnico y economico.
-		-> Desabilitar cada input cuando el rol sea consulta y cuando no tenga permitido relizar una accion.
-		-> Facil (Hecho).
-		-> Archivos a modificar (tecnicalAdvance.js/economicAdvance.js)
+	(04/05/2020) Errores encontrados en la capacitacion
+		TechnicalAdvanceController (Almacen no podia editar entrega a cliente / la orden de compra se ponia automaticamente - rol de Servicio)
+			linea 21-24
+			Linea 24-26 (If de request->receiveOrder)
+			Linea 57 (If de terminado) 
+		EconomicAdvanceController (El problema del almacen)
+			Linea 42
+		ViewMinute (Se duplicaba el el boton de ver minutas)
+			Linea 53-55
+		
+	(05/05/2020)
+    technicalAdvance.js
+        Funcion initializeTechnicalAdvance(project)
+        Lineas (50-90)
+    economicAdvance.js
+        Funcion initilizeEconomicAdvance(project)
+        Lineas (8-58)
+    ProjectController
+        Funcion showProjects()
+        Lineas (21-41)
+    EconomicAdvanceEdit.blade.php
+        lineas (29/35/53/59/79/85)
+        Quitar las variables de disabled y readonly.
+        Linea 116 -> Añadir el id (Desabilitar el boton guardar cuando todas las teclas esten desabilitadas)
+    TechnicalAdvanceEdit.blade.php
+        Lineas (19/37/48/57)
+        Quitar las variables de disabled y readonly.
+        Linea 68 -> Añadir el id (Desabilitar el boton guardar cuando todas las teclas esten desabilitadas)
 
 
 Historial de cambios de IE-projects:
@@ -110,3 +103,108 @@ Historial de cambios de IE-projects:
 			Moises Escobar Martinez
 		Subido por:
 			Israel Santiago / Moises Escobar
+
+	4. 	Descripcion.
+		Fecha.
+		Realizado por.
+		Subido por.
+	5.	Descripcion.
+		Fecha.
+		Realizado por.
+		Subido por.
+
+	6.	Descripcion.
+		Fecha.
+		Realizado por.
+		Subido por.
+
+
+
+Posible solucion pra que pendiendo el rol y el tipo de proyecto  pueda editar avance tecnio.
+	@if(Auth::user()->hasAnyRole(['Almacen','Servicio']))
+		@if(Auth::user()->hasRole('Almacen') && $project->type->name=="SUMINISTRO")
+			<a data-toggle="modal" data-target="#technicalAdvanceProject">
+					<button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
+			</a>
+		@endif
+		@if(Auth::user()->hasRole('Servicio') && $project->type->name=="SERVICIO")
+			<a data-toggle="modal" data-target="#technicalAdvanceProject">
+					<button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
+			</a>
+		@endif
+	@else
+		<a data-toggle="modal" data-target="#technicalAdvanceProject">
+				<button type="button" class="btn btn-primary" title="Editar avance tecnico" onclick='initializeTechnicalAdvance({{$project}})'><i class="fas fa-edit" style="color:#fff"></i><i class="fas fa-wrench" style="color:#fff"></i></button>
+		</a>
+	@endif
+
+Preguntas sin discutir
+	¿El rol de almacen solo podra editar el avance tecnico de Suministros?
+		La posible solucion esta imediatamente arriba.
+
+	¿El rol de servicios solo podra editar el avance tecnico de Servicios?
+		La posible solucion esta imediatamente arriba.
+	¿El rol de Servicios solo podra agregar imagenes de Servicios?
+
+	¿El rol de manufactura solo podra agregar imagenes de Suministros?
+	¿El rol de manufactura solo podra editar avance tecnico de Suministros? 
+
+Nuevos Requerimientos (Implicaciones)
+	Dependiendo del nuevo diseño (Cliente).
+		*Foto de perfil y Foto de portada del proyecto.
+			*Estatica
+			*Dinamica
+				*Solucion mas recomendable y mas estructurada (Mi opinion).
+					*Implica la creacion de una tabla de relacion entre usuarios e imagenes.
+						user-images
+							user_id (Aca es recomendable crear una tabla detalles y poner ese id)
+							image_id
+						projects-images
+							project_id
+							image_id
+						Actualmente la tabla de imagnes tiene los siguientes campos.
+							(id, name, path,size, project_id)
+							Esto significa que al crear una imagen para relacionar un usuario o un proyecto con su foto de perfil
+								solo crearemos la imagen sin su project_id, ya que este se usa para relacionar las imagenes de un avance de 
+								un proyecto.
+				*Solucion menos recomendable. 
+					Crear un campo de imagen en la tabla de usuarios y en la tabla de proyectos y solo guardar la url de la imagen.
+					Esta solucion ubica las imagenes de manera desodena en la bd, en mi opinion no es lo correcto.
+		*Filtro de busqueda en proyectos (Posible solucion plateada).
+			*Si puede buscar por estatus, folio, descripcion, Fecha.
+				*Mas complejidad (No fue dificil).
+
+	Solicitados
+		*Puntos rewards y Nivel del cliente.
+			*Diseño (No hay por el momento)
+			*Funcionalidad
+				*Contador de proyectos por usuarios y respectivas condiciones de acuerdo a sus respectivo nivel.
+					1.Platinum  (>21)
+					2.Gold (11 a 20)
+					3.Premiun (3 a 10)
+					4.Estandar (1 a 2)
+					*Estos 4 niveles podrian estar definidos en una tabla
+						sin anclarse a nada, solo para consulta y comparacion.
+					*Posibles campos (categoria,inicio,fin, descripcion,porcentaje de descuento, Notas)
+		*Catalogos
+			*Suministros y servicios
+				*Diseño	
+					*Por targetias o modales.
+						Se tendria que crear una tabla solo para consultas.De manera etatica no seria nada viable y sensillo.
+					*Por pdf	
+						Estaria bastante bien, pero este deberia ser incrustado en la pestaña respectiva.
+						Abrir el pdf en otra ventana contradeceria lo solicitado "Abrir en la misma ventana". (Comentario para cv y catalogos)
+				Funcionalidad
+					*Determinar la manera de agregar dichos Suministros.
+						Directo en bd.
+							*No aburrirse.
+						Formulario.
+							*Añadir y vizualizar (post/get).
+					*Determinar los datos a mostrar.
+						documentos,imagnes, nombre, descripcion, etc.	
+		*Cv
+			Estatico
+				Ventana de html.
+					Demasiado tedioso, pero mas representativo, mas posibilidades de modificarlo.
+				Pdf incrustado.
+					Menos complegidad, pero menos representativo(menos chido).

@@ -16,15 +16,10 @@
                     <div class="form-group text-center">
                         <label for="receiveOrder"><strong style="color:red">*</strong><strong>Recepcion de orden de compra</strong></label>
                         <div class="form-group text-center ">
-                            <!-- custom-control custom-switch -->
-                            <select class="custom-select" name="receiveOrder" id="idReceiveOrder" required {{$selectStatusReceiveOrder}}>
+                            <select class="custom-select" name="receiveOrder" id="idReceiveOrder" required > {{-- {{$selectStatusReceiveOrder}} --}}
                                 <option value=0 selected> 0 %</option>
                                 <option id="optionCienPorciento" value=100>100 %</option>
                             </select>
-
-                            <!-- <input type="checkbox" class="custom-control-input" id="idReceiveOrder" value=100 name="receiveOrder"> -->
-                            <!-- <label class="custom-control-label" for="idReceiveOrder">100 %</label> -->
-                            <!-- <span style="color: green"> Verificar el archivo en la lista del proyecto</span> -->
                         </div>
                         <div class="form-group text-center" id="divFilePurchaseOrder">
                             <input type="file" name="purchaseOrder" id="idPurchaseOrder" accept="document/*">
@@ -35,12 +30,11 @@
                                 <button type="button" class="btn btn-light text-primary"><i class="fas fa-download"></i>Descargar archivo</button>
                             </a>
                         </div>
-
                     </div>
                     <div class="form-group text-center">
                         <label for="workProgress"><strong style="color:red">*</strong><strong>Avances de trabajo</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="workProgress" id="idWorkProgress" value="" required {{$inputStatusWorkProgress}}>
+                            <input type="number" class="form-control" name="workProgress" id="idWorkProgress" value="" required > {{-- {{$inputStatusWorkProgress}} --}}
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -51,7 +45,7 @@
                     <div class="form-group text-center">
                         <label for="engineeringRelease"><strong style="color:red">*</strong><strong>Liberacion de ingenieria</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="engineeringRelease" id="idEngineeringRelease" value="" required {{$inputStatusEngineeringRelease}}>
+                            <input type="number" class="form-control" name="engineeringRelease" id="idEngineeringRelease" value="" required > {{-- {{$inputStatusEngineeringRelease}} --}}
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -60,7 +54,7 @@
                     <div class="form-group text-center">
                         <label for="deliveryCustomer"><strong style="color:red">*</strong><strong>Entrega a clientes</strong></label>
                         <div class="input-group">
-                            <input type="number" class="form-control" name="deliveryCustomer" id="idDeliveryCustomer" value="" required {{$inputStatusDeliveryCustomer}}>
+                            <input type="number" class="form-control" name="deliveryCustomer" id="idDeliveryCustomer" value="" required > {{-- {{$inputStatusDeliveryCustomer}} --}}
                             <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -71,7 +65,7 @@
             <div class="modal-footer " style="justify-content: center;">
                 @if(Auth::user()->hasAnyRole(['Administrador','Ofertas','ingenieria','Manufactura','Servicio','Almacen']))
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary" id="btnSaveTechnicalAdvance">Guardar</button>
                 @else
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 @endif
