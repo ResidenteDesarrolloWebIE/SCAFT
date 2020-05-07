@@ -1,0 +1,301 @@
+/* Inicio del cliente*/
+
+.menu-customer {
+    background-image: url("../images/img01.png");
+    padding: 3% 0 0 0;
+    margin-right: 0;
+    padding-right: 0px;
+    position: fixed;
+    left: 0;
+    z-index: 1030;
+    min-height: 100vh;
+}
+
+.text-profile {
+    padding: 10% 10% 5% 20%;
+    justify-content: center;
+    color: white;
+    font-family: Helvetica;
+}
+
+.text-23px {
+    font-size: 20px;
+}
+
+.text-30px {
+    font-size: 25px;
+}
+
+.contorno-avatar {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid #00d5ff; /* El color de esta propiedad cambiara de acuerdo al color que se le asigne */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.avatar {
+    width: 93%;
+    height: 93%;
+    border-radius: 50%;
+}
+
+.btn-sesion {
+    width: 50px;
+}
+
+.btn-sesion:hover+.i {
+    color: white;
+    background-color: red;
+}
+
+.bt:hover {
+    background-color: black;
+}
+
+.catalogs {
+    background-color: white;
+    min-height: 85vh;
+    color: #002235;
+    margin-top: 7%;
+    position: relative;
+    font-family: Helvetica;
+    font-size: 14px;
+    padding-left: 10%;
+}
+.title{
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: 800!important
+}
+
+.buttons-mobile{
+    display: none;
+}
+
+.info-empresa-mobile{
+    display: none;
+}
+
+.customer-profile-mobile{
+    display: none;
+}
+.img-logo{
+    width:32%;
+    height:100%; 
+}
+
+
+.btn-rewards{
+    font-family: Helvetica;
+    font-size: 18px;
+    width: 60%;
+    color: white;
+    background: rgba(255,212,102,1);
+    background: -moz-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,212,102,1)), color-stop(56%, rgba(255,191,15,1)), color-stop(99%, rgba(174,127,10,1)), color-stop(100%, rgba(174,127,10,1)));
+    background: -webkit-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: linear-gradient(to right, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd466', endColorstr='#ae7f0a', GradientType=1 );
+}
+
+.btn-servicesProducts{
+    width: 100%;
+    font-family: Helvetica;
+    color:white;
+    background: rgba(73,187,228,1);
+    background: -moz-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(73,187,228,1)), color-stop(51%, rgba(28,173,217,1)), color-stop(100%, rgba(23,80,99,1)));
+    background: -webkit-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: -o-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: -ms-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: linear-gradient(to right, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#49bbe4', endColorstr='#175063', GradientType=1 );
+}
+
+@media (max-width:992px) {
+    .catalogs {
+        padding-top: 10px;
+        margin-top: 15px;
+        min-height: 159vh;
+    }
+}
+
+
+/* Smartphones (portrait and landscape) 
+    Bien (BlackBerry Z30, Galaxi note3 /2 / s III / s5, lg optimus,moto g4)
+    Mas o menos (nexus 4, nexus 5, nexus 5x, nexus 6 / 6p / 7,  nokia n9, pixel2, pixel 2xl, iphone 6/7/8 6/7/8/plus / x)
+----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    /*Funciona para iphone 8 */
+    .rev{
+        display: none;
+    }
+    .navbar-collapse{
+        margin-bottom: 3%;
+    }
+    .navbar-custom .navbar-nav .nav-item .nav-link {
+        text-transform: uppercase;
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .1rem;
+        margin-left: 5%;
+
+    }
+
+    .navbar-toggler{
+        margin-bottom: 2%;
+    }
+
+    .navbar-collapse>button{
+       margin-left: 5%;
+       width: 95%;
+    }
+
+    .customer-profile{
+        display: none;
+    }
+
+    .customer-profile-mobile{
+        display: block;
+        width: 100%;
+        height: 20%;
+    }
+
+    .menu-customer {
+        position: relative;
+        min-height: 28vh;
+        padding-top: 20%;
+        margin-right: 0;
+        padding-right: 0px;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .contorno-avatar{
+        position: absolute;
+    }
+
+
+    .cataloge{
+        display: none;
+    }
+
+    .buttons-mobile{
+        display: block;
+        margin-bottom: 11%;
+    }
+
+
+    .btn-rewards{
+        margin-left: 4.5%;
+        margin-right: 10%;
+        margin-bottom: 2%;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .btn-servicesProducts{
+        margin-top: 0px;
+        margin-bottom: -14px;
+    }
+
+    .info-empresa{
+        display: none;
+    }
+
+    .info-empresa-mobile{
+        display: block;
+        margin-top: 3%;
+        width: 94%;
+        margin-bottom: 30%;
+    }
+
+    .title{
+        font-family: Helvetica;
+        font-size: 16px;
+        font-weight: 800!important
+    }
+    .p-mobile{
+        font-family: Helvetica;
+
+    }
+    .btn-logout{
+        width:100%; 
+        margin-left:2%;
+    }
+
+    footer{
+        margin-top: 10%;
+    }
+
+    .img-logo{
+        margin-top: 53%;
+        height: 32%;
+        width: 83%;
+        margin-bottom: -90%;
+    }
+
+}
+
+
+
+/* Smartphones (landscape) Funciona con Iphone 8----------- */ 
+@media only screen and (min-width: 321px) {
+    /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+    /*Iphone 5, 5s, SE*/
+    .img-logo{
+        margin-top: 73%;
+        height: 25%;
+        width: 95%;
+        margin-bottom: -80%;
+    }
+
+    footer{
+        margin-top: 25%;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- 
+    Adaptar mas (ipad)
+*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Styles */
+    
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+    
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    /* Styles */
+}

@@ -9,7 +9,7 @@
     <link href="{{asset('images/icon.ico') }}" rel="shortcut icon" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('css/auth/_navigationBar.css') }}" />
+    {{--<link rel="stylesheet" href="{{asset('css/auth/_navigationBar.css') }}" />--}}
     <link rel="stylesheet" href="{{asset('css/general.css') }}" />
     <link rel="stylesheet" href="{{asset('css/home.css') }}" />
     <link rel="stylesheet" href="{{asset('css/admin/projects.css') }}" />
@@ -31,4 +31,7 @@
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-5.12.1/css/solid.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/fotoroma-4.6.4/fotorama.css') }}">
     <link rel="stylesheet" href="{{asset('plugins/jquery-ui-1.12.1/jquery-ui.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/home2.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/auth/_navigationBar2.css') }}" />
 </head>

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection as Collection;
 use Illuminate\Support\Facades\Artisan;
 
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->hasRole('Cliente')){
+            return view('home2');
+        }else{
+            return view('home');
+        }
     }
     public function createStorageLink(){
         Artisan::call('storage:link');
