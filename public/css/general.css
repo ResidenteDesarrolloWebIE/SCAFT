@@ -7,22 +7,25 @@ body {
     margin-bottom: 20px;
 }
 footer {
-    background-color:#19202C;
-    bottom: 0;
+    background-color: #19202c;
     width: 100%;
     height: 11%;
-    margin-top: -9px;
     color: white;
-    margin-top: 7%;
     position: static;
+    bottom: 0;
+    /*
+        margin-top: -9px;
+        margin-top: 7%;
+        el footer falla en la ventana de avances si estas propieadades no se comentan
+    */
 }
 
 /* Estilos para todos los modals */
 .modal-header {
-    background:linear-gradient(to left , rgb(27, 29, 29), rgb(4, 85, 114));
+    background: linear-gradient(to left, rgb(27, 29, 29), rgb(4, 85, 114));
 }
-.modal-header-info{
-    background:linear-gradient(to left , rgb(27, 29, 29), rgb(4, 85, 114));
+.modal-header-info {
+    background: linear-gradient(to left, rgb(27, 29, 29), rgb(4, 85, 114));
     padding-right: 10px;
     color: white;
 }
@@ -33,18 +36,18 @@ footer {
     color: #ffffff;
 }
 .modal-folio {
-    padding-top: 30px
+    padding-top: 30px;
 }
 /* Avance economico */
 modal-separator {
     width: 100%;
     border-top: 1px solid #411313;
 }
-.modal-table-thead{
+.modal-table-thead {
     font-weight: bold;
 }
-.list-payments{
-    padding-top:10px;
+.list-payments {
+    padding-top: 10px;
 }
 /*.center {
     justify-content: center;
@@ -55,12 +58,17 @@ body {
     font-family: Helvetica;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: Helvetica;
-    font-weight: 800!important
+    font-weight: 800 !important;
 }
 
-p{
+p {
     font-family: Helvetica;
 }
 
@@ -80,7 +88,7 @@ p{
     justify-content: center;
 }
 
-.center-horizontally{
+.center-horizontally {
     display: flex;
     justify-content: center;
 }
@@ -91,19 +99,222 @@ p{
     min-height: 100vh;
     /* overflow: hidden; */
 }
-.vertically-central{
+.vertically-central {
     display: flex;
     align-items: center;
 }
-.center-total{
+.center-total {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* Colores del texto */
-.text-black{
+.text-black {
     color: black;
 }
 
 /* colores de fondo */
+
+* {
+    font-family: "Helvetica";
+}
+.center-vertically {
+    display: flex;
+    align-items: center;
+}
+.center-horizontally {
+    display: flex;
+    justify-content: center;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* parte derecha de la ventana de suminsitros, servicios y avances*/
+.bg-image-right {
+    background-image: url("../images/ie-bg-home.png");
+    min-height: 95.5vh;
+    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
+    padding: 0px;
+}
+.bg-image-right .triangle-left {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: #33c2f0;
+    opacity: 0.8;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    height: 180px;
+    width: 300px;
+}
+.bg-image-right .triangle-right {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: #00436d;
+    opacity: 0.8;
+    clip-path: polygon(100% 8%, 0% 100%, 100% 100%);
+    height: 300px;
+    width: 400px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    .bg-image-right {
+        display: none;
+    }
+}
+/* Parte top del avatar de servicios,suministros, avances en moviles */
+/* Actualmente estan en otro archivo css, no se cual, pero deberian ser compartidas */
+.customer-profile-mobile {
+    display: none;
+}
+.menu-customer {
+    background-image: url("../img/img01.png");
+    padding: 3% 0 0 0;
+    margin-right: 0;
+    padding-right: 0px;
+    position: fixed;
+    left: 0;
+    z-index: 1030;
+    min-height: 100vh;
+}
+.contorno-avatar {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid #00d5ff; /* El color de esta propiedad cambiara de acuerdo al color que se le asigne */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar {
+    width: 93%;
+    height: 93%;
+    border-radius: 50%;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    .menu-customer {
+        position: relative;
+        min-height: 28vh;
+        padding-top: 20%;
+        margin-right: 0;
+        padding-right: 0px;
+        left: 0;
+        z-index: 1030;
+    }
+    .contorno-avatar {
+        position: absolute;
+    }
+    .customer-profile-mobile {
+        display: block;
+        width: 100%;
+        height: 20%;
+    }
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    .menu-customer {
+        min-height: 28vh;
+    }
+}
+/*  Barra de navegacion */
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    .navbar-collapse {
+        margin-bottom: 3%;
+    }
+    .navbar-custom .navbar-nav .nav-item .nav-link {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        margin-left: 5%;
+    }
+    .navbar-collapse > button {
+        margin-left: 5%;
+        width: 95%;
+    }
+}
+/* Donde esta el nombre y los miniavatars */
+.info-user .content-left {
+    background: linear-gradient(to right, #00436d 0%, #233535 100%);
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+    border-radius: 25px 0 0 25px;
+}
+.info-user .details {
+    color: white;
+    padding: 5px 0px;
+}
+.info-user .profile-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+.profile-left .mini-avatar {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-left .mini-avatar img {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+}
+.info-user .content-right {
+    position: relative;
+    width: 100px;
+}
+.info-user .profile-right {
+    background-color: #a4d04a;
+    height: 78%;
+    width: 100%;
+    border-radius: 0 25px 25px 0;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.profile-right .mini-avatar {
+    background-color: transparent;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #c3e088;
+    border-right: 5px solid #33c2f0;
+    z-index: 0;
+}
+.profile-right .mini-avatar img {
+    width: 86%;
+    height: 86%;
+    border-radius: 50%;
+    border: solid 1px;
+}
+.profile-right .info {
+    position: absolute;
+    top: 10%;
+    right: 18%;
+    font-size: 12px;
+    opacity: 0.4;
+}
+
+.content-right .shade {
+    background-color: #a4d04a;
+    height: 70px;
+    width: 100%;
+    border-radius: 10px 5px 5px 10px;
+    padding-left: 0px;
+    position: absolute;
+    left: -15px;
+    opacity: 0.4;
+    z-index: 1;
+}

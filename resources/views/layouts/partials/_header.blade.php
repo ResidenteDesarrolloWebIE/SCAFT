@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/admin/projects.css') }}" />
     <link rel="stylesheet" href="{{asset('css/admin/modals/images.css') }}" />
     <link rel="stylesheet" href="{{asset('css/client/clientGeneral.css') }}" />
-    <link rel="stylesheet" href="{{asset('css/client/technicalAdvance.css') }}" />
+    <link rel="stylesheet" href="{{asset('css/client/advances.css') }}" />
     <link rel="stylesheet" href="{{asset('css/client/economicAdvance.css') }}" />
     <link rel="stylesheet" href="{{asset('css/client/gallery.css') }}" />
     <link rel="stylesheet" href="{{asset('css/projectlist.css')}}"/>

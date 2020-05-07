@@ -1,0 +1,141 @@
+.content-advances {}
+
+.content-advances .advances {
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+.advances .details .group-buttons {
+    margin-top: 3%; 
+    margin-bottom: 3%;
+}
+
+.advances .types .technical {
+    position: relative;
+    margin-bottom: 6%;
+}
+
+.technical .stage, .technical .stage-related, .economic .stage, 
+.technical .stage-tittle, .economic .stage-tittle, 
+.economic .stage-total{
+    height: 115px;
+    width: 100%;
+    z-index: 2;
+}
+
+.technical .stage div, .economic .stage div {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 10px solid #D8D8D8;
+    /* Este va a cambier dependiendo el color*/
+}
+
+.technical .stage-related {
+    padding: 0;
+}
+
+.technical .stage-related select {
+    cursor: pointer;
+}
+
+.technical .divider, .economic .divider {
+    position: absolute;
+    height: 8px;
+    width: 100%;
+    left: 0;
+    top: 47%;
+    background-color: #002336;
+    z-index: 1;
+    padding: 0%;
+}
+
+.btn-input {
+    display: block;
+    width: 100%;
+    background:  #002336;/* linear-gradient(to right,#00436D 0%, #233535 100%); */
+    color: white;
+    border-style: none;
+    border-radius: 15px;
+    padding: 3px 7px;
+}
+
+.btn-total:hover {
+    cursor: default;
+    background:  #002336;;
+    color: white;
+}
+
+.btn-input:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    background: #002336;;
+    color: white;
+}
+
+h6.text-advance,h4.text-advance{
+    font-size: 20px; font-weight: bold;
+}
+label.text-advance{
+    font-size: 12.5px;
+}
+
+@media (max-width:750px) {
+    .content-advances .bg-image-left {
+        display: none;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    .content-advances .info-user {
+        display: none;
+    }
+    .content-advances .bg-image-left {
+        display: none;
+    }
+    .content-advances .advances {
+        padding-top: 30%;
+    }
+    .advances .details .group-buttons {
+        margin-top: 10%;
+    }
+    .advances .details .group-buttons div {
+        margin-top: 1%;
+        padding: 0px 7px;
+    }
+    .advances .types .technical {
+        position: relative;
+        margin-top: 10%;
+        margin-bottom: 0px;
+    }
+    .technical .stage-tittle, .economic .stage-tittle {
+        height: 100%;
+    }
+    .technical .stage-related {
+        padding: 0px 15px;
+        height: 120px;
+    }
+    .technical .stage{
+        height: 77px;
+        padding: 0px 5px;
+    }
+    .economic .stage{
+        height: 85px;
+    }
+    .economic .stage-total{
+        height: 120px;
+    }
+    .technical .divider{
+        top: 28%;
+    }
+    .economic .divider {
+        top: 30%;
+    }
+    .icon{
+        display: none;
+    }
+}
