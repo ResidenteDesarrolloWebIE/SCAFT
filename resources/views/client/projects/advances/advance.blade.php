@@ -7,7 +7,7 @@
         <div class="col-md-4 menu-customer">
             <div class="d-flex justify-content-center">
                 <div class="contorno-avatar">
-                    <img class="card-img-top avatar" src="{{ asset('images/supply-home.png') }}" alt="Card image">
+                    <img class="card-img-top avatar" src="{{ asset('images/ie-profile.jpg') }}" alt="Card image">
                 </div><br>
             </div>
         </div>
@@ -61,7 +61,7 @@
                     <div class="col-md-2 col-3 stage">
                         <div class="center
                             @if ($project->technicalAdvances->receive_order== 0) border-color-d8
-                            @elseif($project->technicalAdvances->receive_order < 100) border-color-d8
+                            @elseif($project->technicalAdvances->receive_order < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->technicalAdvances->receive_order}} %</h4>
                         </div>
@@ -70,7 +70,7 @@
                     <div class="col-md-2 col-3 stage">
                         <div class="center
                             @if ($project->technicalAdvances->engineering_release== 0) border-color-d8 
-                            @elseif($project->technicalAdvances->engineering_release < 100) border-color-d8
+                            @elseif($project->technicalAdvances->engineering_release < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->technicalAdvances->engineering_release}} %</h4>
                         </div>
@@ -79,8 +79,8 @@
                     </div>
                     <div class="col-md-2 col-3 stage">
                         <div class="center
-                            @if ($project->technicalAdvances->work_progress== 0) border-color-d8 
-                            @elseif($project->technicalAdvances->work_progress < 100) border-color-d8
+                            @if ($project->technicalAdvances->work_progress== 0) border-color-d8
+                            @elseif($project->technicalAdvances->work_progress < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->technicalAdvances->work_progress}} %</h4>
                         </div>
@@ -90,7 +90,7 @@
                     <div class="col-md-2 col-3 stage">
                         <div class="center
                             @if ($project->technicalAdvances->delivery_customer== 0) border-color-d8 
-                            @elseif($project->technicalAdvances->delivery_customer < 100) border-color-d8
+                            @elseif($project->technicalAdvances->delivery_customer < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->technicalAdvances->delivery_customer}} %</h4>
                         </div>
@@ -116,8 +116,8 @@
                     </div>
                     <div class="col-md-2 col-4 stage">
                         <div class="center
-                            @if ($project->economicAdvances->initial_advance_percentage== 0) border-color-d8 
-                            @elseif($project->economicAdvances->initial_advance_percentage < 100) border-color-d8
+                            @if ($project->economicAdvances->initial_advance_percentage == 0) border-color-d8
+                            @elseif($project->economicAdvances->initial_advance_percentage < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->economicAdvances->initial_advance_percentage}} %</h4>
                         </div>
@@ -125,8 +125,8 @@
                     </div>
                     <div class="col-md-2 col-4 stage">
                         <div class="center
-                            @if ($project->economicAdvances->engineering_release_payment_percentage== 0) border-color-d8 
-                            @elseif($project->economicAdvances->engineering_release_payment_percentage < 100) border-color-d8
+                            @if ($project->economicAdvances->engineering_release_payment_percentage == 0) border-color-d8
+                            @elseif($project->economicAdvances->engineering_release_payment_percentage < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->economicAdvances->engineering_release_payment_percentage}} %</h4>
                         </div>
@@ -136,7 +136,7 @@
                     <div class="col-md-2 col-4 stage">
                         <div class="center
                             @if ($project->economicAdvances->final_payment_percentage== 0) border-color-d8 
-                            @elseif($project->economicAdvances->final_payment_percentage < 100) border-color-d8
+                            @elseif($project->economicAdvances->final_payment_percentage < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->economicAdvances->final_payment_percentage}} %</h4>
                         </div>

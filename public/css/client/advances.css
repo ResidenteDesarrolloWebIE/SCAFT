@@ -28,8 +28,15 @@
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    border: 10px solid #D8D8D8;
-    /* Este va a cambier dependiendo el color*/
+}
+.border-color-d8{
+    border: 10px solid #d8d8d8;
+}
+.border-color-e5 {
+  border: 10px solid #e5e517;
+}
+.border-color-a4 {
+  border: 10px solid #a4d04a;
 }
 
 .technical .stage-related {
@@ -78,19 +85,31 @@
 }
 
 h6.text-advance,h4.text-advance{
-    font-size: 20px; font-weight: bold;
+    font-size: 18px; font-weight: bold;
 }
 label.text-advance{
-    font-size: 12.5px;
+    font-size: 13.5px;
 }
 
 @media (max-width:750px) {
     .content-advances .bg-image-left {
         display: none;
     }
+    h6.text-advance,h4.text-advance{
+        font-size: 15px; font-weight: bold;
+    }
+    label.text-advance{
+        font-size: 12.5px;
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    h6.text-advance,h4.text-advance{
+        font-size: 15px; font-weight: bold;
+    }
+    label.text-advance{
+        font-size: 12.5px;
+    }
     .content-advances .info-user {
         display: none;
     }
@@ -98,7 +117,8 @@ label.text-advance{
         display: none;
     }
     .content-advances .advances {
-        padding-top: 30%;
+        margin-top: 40%;
+        margin-bottom: 1%;
     }
     .advances .details .group-buttons {
         margin-top: 10%;
