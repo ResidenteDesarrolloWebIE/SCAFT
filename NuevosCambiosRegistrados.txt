@@ -33,13 +33,13 @@ Cambios
 	(05/05/2020)
     technicalAdvance.js
         Funcion initializeTechnicalAdvance(project)
-        Lineas (50-90)
+        Lineas (50-104)
     economicAdvance.js
         Funcion initilizeEconomicAdvance(project)
-        Lineas (8-58)
+        Lineas (8-70)
     ProjectController
         Funcion showProjects()
-        Lineas (21-41)
+        Lineas (21-41)	
     EconomicAdvanceEdit.blade.php
         lineas (29/35/53/59/79/85)
         Quitar las variables de disabled y readonly.
@@ -120,7 +120,7 @@ Historial de cambios de IE-projects:
 
 
 
-Posible solucion pra que pendiendo el rol y el tipo de proyecto  pueda editar avance tecnio.
+Posible solucion pra que dependiendo del rol y el tipo de proyecto  pueda editar avance tecnico.
 	@if(Auth::user()->hasAnyRole(['Almacen','Servicio']))
 		@if(Auth::user()->hasRole('Almacen') && $project->type->name=="SUMINISTRO")
 			<a data-toggle="modal" data-target="#technicalAdvanceProject">

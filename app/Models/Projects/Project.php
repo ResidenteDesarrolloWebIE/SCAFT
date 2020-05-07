@@ -22,8 +22,8 @@ class Project extends Model
 {
     protected $dates = ['deleted_at'];
     protected $table = 'projects';
-    /* protected $with = ['customer']; */
-
+    
+    
     public function customer(){
         return $this->belongsTo(User::class,'customer_id','id');
     }

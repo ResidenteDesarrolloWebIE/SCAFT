@@ -113,7 +113,7 @@
             <div class="modal-footer " style="justify-content: center;">
                 @if(Auth::user()->hasAnyRole(['Administrador','Finanzas']))
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="btnSaveTEconomicAdvance">Guardar</button>
+                    <button type="submit" class="btn btn-primary" id="btnSaveEconomicAdvance">Guardar</button>
                 @else
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 @endif

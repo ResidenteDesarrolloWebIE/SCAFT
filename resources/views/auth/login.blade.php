@@ -104,7 +104,11 @@
                 <div class="col-md-8 text-white text-mv " style="margin-left:0px;">
                     <div class="content">
                         Bienvenido <br>
-                        <span class="title">IE PROJECTS</span><br>
+                        <?php
+                            $b = "cadena"; // asignamos el valor "cadena" a la variable $b
+                            echo $b;
+                        ?>
+                        <span  >IE PROJECTS $b</span><br>
                         <p>
                             Es una plataforma digital, en la cual nuestros clientes
                             tienen acceso a un portal de todo el proceso de contruccion
@@ -120,7 +124,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
