@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link text"  href="{{url('/home')}}">Inicio</a>
                     <div class="effect"></div>
                 </li>
@@ -27,7 +27,7 @@
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
-            </form>                                                
+            </form>
         </div>
     </div>
 </nav>

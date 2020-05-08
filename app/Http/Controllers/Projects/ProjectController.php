@@ -31,8 +31,25 @@ class ProjectController extends Controller{
             /* Avance tecnico */
             if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$project->selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
             if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){$project->inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
-            if(!Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){$project->inputStatusWorkProgress = "readonly";} /* Avance de trabajos */
-            if(!Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){$project->inputStatusDeliveryCustomer = "readonly";} /* Entrega al cliente */
+            if(Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){/* Avance de trabajos */
+                if(Auth::user()->hasRole('Manufactura') && $project->type->name=="SUMINISTRO"){
+                    $project->inputStatusWorkProgress = "readonly";
+                }elseif(Auth::user()->hasRole('Servicio') && $project->type->name=="SERVICIO"){
+                    $project->inputStatusWorkProgress = "readonly";
+                }
+            }else{
+                $project->inputStatusWorkProgress = "readonly";
+            }
+            if(Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){ /* Entrega al cliente */
+                if(Auth::user()->hasRole('Almacen') && $project->type->name=="SUMINISTRO"){
+                    $project->inputStatusDeliveryCustomer = "readonly";
+                }elseif(Auth::user()->hasRole('Servicio') && $project->type->name=="SERVICIO"){
+                    $project->inputStatusDeliveryCustomer = "readonly";
+                }
+            }else{
+                $project->inputStatusDeliveryCustomer = "readonly";
+            }
+
             /* Avance economico */
             if(!Auth::user()->hasAnyRole(['Administrador','Finanzas'])){
                 $project->selectStatus = "disabled";
@@ -97,7 +114,7 @@ class ProjectController extends Controller{
 
                 $file = $request->file('offerProject');
                 $hour = str_replace(":", "", date("h:i:s"));
-                $filename  =  $hour . $file->getClientOriginalName();
+                $filename  = $file->getClientOriginalName().$hour;
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file));
                 
@@ -148,7 +165,7 @@ class ProjectController extends Controller{
                     $aditionalDetail->note =  $request->notesProjectsEdit[$i];
                 
                     $file_offer = $request->offersProjectsEdit[$i];
-                    $filename_offer  =  str_replace(":", "", date("h:i:s")) . $file_offer->getClientOriginalName();
+                    $filename_offer  = $file_offer->getClientOriginalName().str_replace(":", "", date("h:i:s"));
                     $path_offer = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/OFERTAS/'.$filename_offer;
                     $offer = new File();
                     $offer->name = $filename_offer;
@@ -157,7 +174,7 @@ class ProjectController extends Controller{
                     Storage::disk('local')->put($path_offer, \File::get($file_offer));
     
                     $file_purchase_order = $request->purchaseOrderProjectEdit[$i];
-                    $filename_purchase_order  =  str_replace(":", "", date("h:i:s")) . $file_purchase_order->getClientOriginalName();
+                    $filename_purchase_order  = $file_purchase_order->getClientOriginalName().str_replace(":", "", date("h:i:s"));
                     $path_purchase_order = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/ORDENES_DE_COMPRA/'.$filename_purchase_order;
                     $purchase_order = new File();
                     $purchase_order->name = $filename_purchase_order;
@@ -249,7 +266,6 @@ class ProjectController extends Controller{
                 ->where('project_type_id', $typeProject)->where('customer_id', $idCustomer)->where('id',$idProject)->first();
 
             $project->sum_total_amoun = $project->total_amount + $project->aditionals_Details->sum('total_amount');
-            
             return view('client.projects.advances.advance')->with('project', $project);
         }
     }
