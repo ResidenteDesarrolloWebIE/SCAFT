@@ -195,17 +195,13 @@ class ProjectController extends Controller{
                     $project->description = substr($project->description, 0, 55) . "...";
                 }
                 if($project->status == "PENDIENTE"){/* Inicio Modificacion */
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,0,255);";
-                    $project->color_text = "color: rgb(0,0,255);" ;
+                    $project->color_text = "orange";
                 }elseif($project->status == "PROCESO"){
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,255,0);";
-                    $project->color_text = "color: rgb(255,255,0);" ;
+                    $project->color_text = "green" ;
                 }elseif($project->status == "TERMINADO"){
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,255,0);";
-                    $project->color_text = "color: rgb(0,255,0);" ;
+                    $project->color_text = "yellow";
                 }elseif($project->status == "CANCELADO"){
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,0,0);";
-                    $project->color_text = "color: rgb(255,0,0)" ;
+                    $project->color_text = "red";
                 }/* Fin Modificacion */
             }
             
@@ -222,17 +218,13 @@ class ProjectController extends Controller{
                     $project->description = substr($project->description, 0, 55) . "...";
                 }
                 if($project->status == "PENDIENTE"){/* Inicio Modificacion */
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,0,255);";
-                    $project->color_text = "color: rgb(0,0,255);" ;
+                    $project->color_text = "orange";
                 }elseif($project->status == "PROCESO"){
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,255,0);";
-                    $project->color_text = "color: rgb(255,255,0);" ;
+                    $project->color_text = "green" ;
                 }elseif($project->status == "TERMINADO"){
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(0,255,0);";
-                    $project->color_text = "color: rgb(0,255,0);" ;
+                    $project->color_text = "yellow";
                 }elseif($project->status == "CANCELADO"){
-                    $project->color_circle = "box-shadow: 0 0 0 20px rgb(255,0,0);";
-                    $project->color_text = "color: rgb(255,0,0)" ;
+                    $project->color_text = "red";
                 }/* Fin Modificacion */
             }
             return view('client.projects.supplies')->with('projects', $projects);
