@@ -136,7 +136,7 @@ class MinutaController extends Controller
             $project = Project::with('type')->find($minuta->project_id);
             $hour = str_replace(":", "", date("h:i:s"));
             $file = $request->file('minuteSigned');
-            $filename  =  $hour . $file->getClientOriginalName();
+            $filename  =  $file->getClientOriginalName().$hour;
             $path = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/MINUTA_FIRMADA/' . $filename;
             Storage::disk('local')->put($path, \File::get($file));
 

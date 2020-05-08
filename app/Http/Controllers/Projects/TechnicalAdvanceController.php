@@ -32,7 +32,7 @@ class TechnicalAdvanceController extends Controller
             $hour = str_replace(":", "", date("h:i:s"));
             if(!is_null($request->purchaseOrder)){
                 $file = $request->purchaseOrder;
-                $filename  =  $hour . $file->getClientOriginalName();
+                $filename  =  $file->getClientOriginalName().$hour;
                 $path = 'DOCUMENTOS/' . $technicalAdvance->project->type->name.'S'. '/' . $technicalAdvance->project->folio . '/ORDENES_DE_COMPRA/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file)); 
                 /* $file->storeAs($path,$filename); */

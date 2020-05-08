@@ -7,7 +7,7 @@
         <div class="col-md-4 menu-customer">
             <div class="d-flex justify-content-center">
                 <div class="contorno-avatar">
-                    <img class="card-img-top avatar" src="{{ asset('images/supply-home.png') }}" alt="Card image">
+                    <img class="card-img-top avatar" src="{{ asset('images/ie-profile.jpg') }}" alt="Card image">
                 </div><br>
             </div>
         </div>
@@ -61,36 +61,36 @@
                     <div class="col-md-2 col-3 stage">
                         <div class="center
                             @if ($project->technicalAdvances->receive_order== 0) border-color-d8
-                            @elseif($project->technicalAdvances->receive_order < 100) border-color-d8
+                            @elseif($project->technicalAdvances->receive_order < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->technicalAdvances->receive_order}} %</h4>
                         </div>
                         <label class="text-advance d-flex justify-content-center text-center">Orden decompra</label>
                     </div>
                     <div class="col-md-2 col-3 stage">
-                        <div class="center
+                        <div class="center text-center
                             @if ($project->technicalAdvances->engineering_release== 0) border-color-d8 
-                            @elseif($project->technicalAdvances->engineering_release < 100) border-color-d8
+                            @elseif($project->technicalAdvances->engineering_release < 100) border-color-e5
                             @else border-color-a4 @endif">
-                            <h4 class="m-0 text-advance">{{$project->technicalAdvances->engineering_release}} %</h4>
+                            <h4 class="m-0 text-advance center">{{$project->technicalAdvances->engineering_release}} %</h4>
                         </div>
                         <label class="text-advance d-flex justify-content-center text-center">Liberación de
                             ingenieria</label>
                     </div>
                     <div class="col-md-2 col-3 stage">
-                        <div class="center
-                            @if ($project->technicalAdvances->work_progress== 0) border-color-d8 
-                            @elseif($project->technicalAdvances->work_progress < 100) border-color-d8
+                        <div class="center text-center
+                            @if ($project->technicalAdvances->work_progress== 0) border-color-d8
+                            @elseif($project->technicalAdvances->work_progress < 100) border-color-e5
                             @else border-color-a4 @endif">
-                            <h4 class="m-0 text-advance">{{$project->technicalAdvances->work_progress}} %</h4>
+                            <h4 class="m-0 text-advance">{{$project->technicalAdvances->work_progress}} % </h4>
                         </div>
                         <label class="text-advance d-flex justify-content-center text-center">Avance de
                             trabajos</label>
                     </div>
                     <div class="col-md-2 col-3 stage">
-                        <div class="center
+                        <div class="center text-center
                             @if ($project->technicalAdvances->delivery_customer== 0) border-color-d8 
-                            @elseif($project->technicalAdvances->delivery_customer < 100) border-color-d8
+                            @elseif($project->technicalAdvances->delivery_customer < 100) border-color-e5
                             @else border-color-a4 @endif">
                             <h4 class="m-0 text-advance">{{$project->technicalAdvances->delivery_customer}} %</h4>
                         </div>
@@ -115,30 +115,35 @@
                         <h6 class="text-advance">AVANCE ECONOMICO</h6>
                     </div>
                     <div class="col-md-2 col-4 stage">
-                        <div class="center
-                            @if ($project->economicAdvances->initial_advance_percentage== 0) border-color-d8 
-                            @elseif($project->economicAdvances->initial_advance_percentage < 100) border-color-d8
+                        <div class="center text-center
+                            @if ($project->economicAdvances->initial_advance_percentage == 0 && $project->economicAdvances->initial_advance_completed == 0) border-color-d8
+                            @elseif($project->economicAdvances->initial_advance_percentage > 0 && $project->economicAdvances->initial_advance_completed == 0) border-color-e5
                             @else border-color-a4 @endif">
-                            <h4 class="m-0 text-advance">{{$project->economicAdvances->initial_advance_percentage}} %</h4>
+                            <h4 class="m-0 text-advance">{{$project->economicAdvances->initial_advance_percentage}} %
+                                <br><b class="pay-stage">$ {{$project->economicAdvances->initial_advance_mount}} {{$project->coin->code}}</b>
+                            </h4>
                         </div>
                         <label class="text-advance d-flex justify-content-center text-center">Anticipo</label>
                     </div>
                     <div class="col-md-2 col-4 stage">
-                        <div class="center
-                            @if ($project->economicAdvances->engineering_release_payment_percentage== 0) border-color-d8 
-                            @elseif($project->economicAdvances->engineering_release_payment_percentage < 100) border-color-d8
+                        <div class="center text-center
+                            @if ($project->economicAdvances->engineering_release_payment_percentage == 0 && $project->economicAdvances->engineering_release_payment_completed == 0) border-color-d8
+                            @elseif($project->economicAdvances->engineering_release_payment_percentage > 0 && $project->economicAdvances->engineering_release_payment_completed == 0) border-color-e5
                             @else border-color-a4 @endif">
-                            <h4 class="m-0 text-advance">{{$project->economicAdvances->engineering_release_payment_percentage}} %</h4>
+                            <h4 class="m-0 text-advance">{{$project->economicAdvances->engineering_release_payment_percentage}} %
+                                <br><b class="pay-stage">$ {{$project->economicAdvances->engineering_release_payment_mount}} {{$project->coin->code}}</b>
+                            </h4>
                         </div>
-                        <label class="text-advance d-flex justify-content-center text-center">Pago por
-                            liberación</label>
+                        <label class="text-advance d-flex justify-content-center text-center">Pago por liberación</label>
                     </div>
                     <div class="col-md-2 col-4 stage">
-                        <div class="center
-                            @if ($project->economicAdvances->final_payment_percentage== 0) border-color-d8 
-                            @elseif($project->economicAdvances->final_payment_percentage < 100) border-color-d8
+                        <div class="center text-center
+                            @if ($project->economicAdvances->final_payment_payment_percentage == 0 && $project->economicAdvances->final_payment_completed == 0) border-color-d8
+                            @elseif($project->economicAdvances->final_payment_percentage > 0 && $project->economicAdvances->final_payment_completed == 0) border-color-e5
                             @else border-color-a4 @endif">
-                            <h4 class="m-0 text-advance">{{$project->economicAdvances->final_payment_percentage}} %</h4>
+                            <h4 class="m-0 text-advance">{{$project->economicAdvances->final_payment_percentage}} %
+                                <br><b class="pay-stage">$ {{$project->economicAdvances->final_payment_mount}} {{$project->coin->code}}</b>
+                            </h4>
                         </div>
                         <label class="text-advance d-flex justify-content-center text-center">Pago final</label>
                     </div>
@@ -160,3 +165,5 @@
 @include('client/projects/advances/modals/offers')
 @include('client/projects/advances/modals/purchaseOrders')
 @include('client/projects/advances/modals/minutas')
+{{-- <br><b class="pay-stage">$ {{$project->economicAdvances->engineering_release_payment_mount}} {{$project->coin->code}}</b> --}}
+{{-- _completed --}}
