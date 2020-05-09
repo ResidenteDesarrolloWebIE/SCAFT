@@ -134,7 +134,7 @@ p {
 /* parte derecha de la ventana de suminsitros, servicios y avances*/
 .bg-image-right {
     background-image: url("../images/ie-bg-home.png");
-    min-height: 95.5vh;
+    min-height: 95.5vh; 
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
     padding: 0px;
 }
