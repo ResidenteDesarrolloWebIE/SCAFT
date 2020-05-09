@@ -1,0 +1,29 @@
+/* Proyectos */
+.projects-table{
+    margin-top:0px;
+}
+.section-projects-admin {
+    background: white;
+    color: black;
+}
+.container-projects-admin {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    min-height: 552PX;
+}
+
+small{
+    color: white;
+}
+.color-th-admin{
+    color: white;
+}
+
+/* Imagenes */
+.preview-template {
+    display: none;
+}
+.label-images {
+    text-align: center;
+    color: #428bca;
+}

@@ -203,10 +203,11 @@ class ProjectController extends Controller{
 
 
     /* Retornar vista para los clientes */
-    public function showServices(){
+    public function showServices(Request $request){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $projects = Project::where('project_type_id', 2)->where('customer_id', $idCustomer)->get();
+            /* $project = Project::search("yyy")->get(); */
+            $projects = Project::search($request->search)->where('project_type_id', 2)->where('customer_id', $idCustomer)->get();
             foreach ($projects as $project) {
                 if (strlen($project->description) > 55) {
                     $project->description = substr($project->description, 0, 55) . "...";
@@ -221,15 +222,14 @@ class ProjectController extends Controller{
                     $project->color_text = "red";
                 }/* Fin Modificacion */
             }
-            
             return view('client.projects.services')->with('projects', $projects);
         }
     }
 
-    public function showSupplies(){
+    public function showSupplies(Request $request){
         if (Auth::check()) {
             $idCustomer = Auth::id();
-            $projects = Project::where('project_type_id', 1)->where('customer_id', $idCustomer)->get();
+            $projects = Project::search($request->search)->where('project_type_id', 1)->where('customer_id', $idCustomer)->get();
             foreach ($projects as $project) {
                 if (strlen($project->description) > 55) {
                     $project->description = substr($project->description, 0, 55) . "...";

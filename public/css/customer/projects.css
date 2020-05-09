@@ -1,3 +1,11 @@
+.btn-search {
+    border-radius: 0 10px 10px 0;
+    background-color: #a4d049;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    border-color: transparent;
+}
 /* Estilos para el scroll */
 .contenedor {
     height: 45vh;
@@ -105,7 +113,7 @@
     margin-bottom: 3%;
 }
 
-.btn-input {
+.btn-status {
     display: block;
     width: 100%;
     background: #002336; /* linear-gradient(to right,#00436D 0%, #233535 100%); */
@@ -115,16 +123,21 @@
     padding: 3px 7px;
 }
 
-.btn-input:focus {
+.btn-status:focus {
     outline: none !important;
     outline-width: 0 !important;
     box-shadow: none;
-    -moz-box-shadow: none;
+/*     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     background: #002336;
-    color: white;
+    color: white; */
 }
-
+.btn-status:hover {
+    cursor: default;
+}
+.orange {
+    background: orange;
+}
 .green {
     background: green;
 }

@@ -1,23 +1,45 @@
-html {
-    font-size: 15px;
+/*  Preloder y loader */
+/* #preloder {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    background: #000;
+    opacity: 78%;
 }
 
-body {
-    margin: 0;
-    margin-bottom: 20px;
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -13px;
+    opacity: 88%;
+    margin-left: -13px;
+    border-radius: 60px;
+    animation: loader 0.8s linear infinite;
+    -webkit-animation: loader 0.8s linear infinite;
+} */
+
+html {
+    font-size: 16px;
 }
-footer {
-    background-color: #19202c;
-    width: 100%;
-    height: 8%;
-    color: white;
-    position: static;
-    bottom: 0;
-    /*
-        margin-top: -9px;
-        el footer falla en la ventana de avances si estas propieadades no se comentan
-    */
+* {
+    font-family: "Helvetica";
 }
+h1,h2,h3,h4,h5,h6 {
+    font-family: Helvetica;
+    font-weight: 800 !important;
+}
+.fondo {
+    background-image: url("../images/background-home13.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
 
 /* Estilos para todos los modals */
 .modal-header {
@@ -37,147 +59,21 @@ footer {
 .modal-folio {
     padding-top: 30px;
 }
-/* Avance economico */
-modal-separator {
-    width: 100%;
-    border-top: 1px solid #411313;
-}
-.modal-table-thead {
-    font-weight: bold;
-}
-.list-payments {
-    padding-top: 10px;
-}
-/*.center {
-    justify-content: center;
-}*/
 
-/*Agregado Israel Gutierrez*/
-body {
-    font-family: Helvetica;
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: Helvetica;
-    font-weight: 800 !important;
-}
 
-p {
-    font-family: Helvetica;
-}
-
-/* Usadas en el login */
-
-.no-padding {
-    padding: 0px;
-}
-
-.no-margin {
-    margin: 0px;
-}
-
-.center {
-    display: flex;
-    position: relative;
-    justify-content: center;
-}
-
-.center-horizontally {
-    display: flex;
-    justify-content: center;
-}
-.fondo {
-    background-image: url(../images/background-home13.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    /* overflow: hidden; */
-}
-.vertically-central {
-    display: flex;
-    align-items: center;
-}
-.center-total {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Colores del texto */
-.text-black {
-    color: black;
-}
-
-/* colores de fondo */
-
-* {
-    font-family: "Helvetica";
-}
-.center-vertically {
-    display: flex;
-    align-items: center;
-}
-.center-horizontally {
-    display: flex;
-    justify-content: center;
-}
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.bg-image-right {
-    background-image: url("../images/ie-bg-home.png");
-    min-height: 95.5vh; 
-    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
-    padding: 0px;
-}
-/* parte derecha de la ventana de suminsitros, servicios y avances
-
-.bg-image-right .triangle-left {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    background-color: #33c2f0;
-    opacity: 0.8;
-    clip-path: polygon(0 0, 0% 100%, 100% 100%);
-    height: 180px;
-    width: 300px;
-}
-.bg-image-right .triangle-right {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    background-color: #00436d;
-    opacity: 0.8;
-    clip-path: polygon(100% 8%, 0% 100%, 100% 100%);
-    height: 300px;
-    width: 400px;
-}
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-    .bg-image-right {
-        display: none;
-    }
-}*/
-/* Parte top del avatar de servicios,suministros, avances en moviles */
-/* Actualmente estan en otro archivo css, no se cual, pero deberian ser compartidas */
-/*
+/* Informacion del perfil en la parte superior en el movil */
 .customer-profile-mobile {
     display: none;
 }
 .menu-customer {
-    background-image: url("../img/img01.png");
+    background-image: url("../images/ie-bg-home.png");
     padding: 3% 0 0 0;
     margin-right: 0;
     padding-right: 0px;
     position: fixed;
     left: 0;
-    z-index: 1030;
+    z-index: 1;
     min-height: 100vh;
 }
 .contorno-avatar {
@@ -185,17 +81,23 @@ p {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 8px solid #00d5ff; /* El color de esta propiedad cambiara de acuerdo al color que se le asigne
+    border: 8px solid #00d5ff; /* El color de esta propiedad cambiara de acuerdo al color que se le asigne */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .avatar {
     width: 93%;
     height: 93%;
     border-radius: 50%;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    .customer-profile-mobile {
+        display: block;
+        width: 100%;
+        height: 20%;
+    }
     .menu-customer {
         position: relative;
         min-height: 28vh;
@@ -203,40 +105,17 @@ p {
         margin-right: 0;
         padding-right: 0px;
         left: 0;
-        z-index: 1030;
+        z-index: 999;
     }
     .contorno-avatar {
         position: absolute;
     }
-    .customer-profile-mobile {
-        display: block;
-        width: 100%;
-        height: 20%;
-    }
 }
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
-    .menu-customer {
-        min-height: 28vh;
-    }
-}
-/*  Barra de navegacion 
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-    .navbar-collapse {
-        margin-bottom: 3%;
-    }
-    .navbar-custom .navbar-nav .nav-item .nav-link {
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.1rem;
-        margin-left: 5%;
-    }
-    .navbar-collapse > button {
-        margin-left: 5%;
-        width: 95%;
-    }
-}
-/* Donde esta el nombre y los miniavatars 
+
+
+
+
+/* Info usuarios franja delgada en la parte superior (Suministros/Servicios/Avances*/
 .info-user .content-left {
     background: linear-gradient(to right, #00436d 0%, #233535 100%);
     width: 100%;
@@ -318,20 +197,22 @@ p {
     left: -15px;
     opacity: 0.4;
     z-index: 1;
-}*/
-/* parte derecha de la ventana de suminsitros, servicios y avances*/
-.bg-image-left {
-    background-image: url('../images/ie-bg-home.png');
-    min-height: 91vh;
+}
+
+
+
+
+
+
+
+/* Fondo derecho (Suministros/Servicios/Avances) */
+.bg-image-right {
+    background-image: url("../images/ie-bg-home.png");
+    min-height: 95.5vh;
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
-    padding: 0px; 
-    background-repeat: no-repeat;
-    
-  
-    /* position: fixed; */ /* Puede ser comentado*/
-    /* right: 0;  */ /* Puede ser comentado */ /* Descomentar cn un minheight:100vh */
-  }
-  .bg-image-right .triangle-left {
+    padding: 0px;
+}
+.bg-image-right .triangle-left {
     position: absolute;
     left: 0px;
     bottom: 0px;
@@ -339,9 +220,9 @@ p {
     opacity: 0.8;
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
     height: 180px;
-    width: 200px;
-  }
-  .bg-image-right .triangle-right {
+    width: 300px;
+}
+.bg-image-right .triangle-right {
     position: absolute;
     right: 0px;
     bottom: 0px;
@@ -349,177 +230,30 @@ p {
     opacity: 0.8;
     clip-path: polygon(100% 8%, 0% 100%, 100% 100%);
     height: 300px;
-    width: 200px;
-  }
-  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    width: 400px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
     .bg-image-right {
-      display: none;
+        display: none;
     }
-  }
-  
-  /* Parte top del avatar de servicios,suministros, avances en moviles */
-  /* Actualmente estan en otro archivo css, no se cual, pero deberian ser compartidas */
-  
-  .customer-profile-mobile {
-    display: none;
-  }
-  .menu-customer {
-      background-image: url("../img/img01.png");
-      padding: 3% 0 0 0;
-      margin-right: 0;
-      padding-right: 0px;
-      position: fixed;
-      left: 0;
-      z-index: 1030;
-      min-height: 100vh;
-  }
-  .contorno-avatar {
-      vertical-align: middle;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 8px solid #00d5ff; /* El color de esta propiedad cambiara de acuerdo al color que se le asigne */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-  }
-  .avatar {
-      width: 93%;
-      height: 93%;
-      border-radius: 50%;
-  }
-  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-      .menu-customer {
-          position: relative;
-          min-height: 28vh;
-          padding-top: 20%;
-          margin-right: 0;
-          padding-right: 0px;
-          left: 0;
-          z-index: 1030;
-      }
-      .contorno-avatar{
-          position: absolute;
-      }
-      .customer-profile-mobile{
-          display: block;
-          width: 100%;
-          height: 20%;
-      }
-  }
-  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
-      .menu-customer {
-          min-height: 28vh;
-      }
-  }
-  
-  /*  Barra de navegacion */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-  
-    .navbar-collapse{
-        margin-bottom: 3%;
-    }
-    .navbar-custom .navbar-nav .nav-item .nav-link {
-        text-transform: uppercase;
-        font-size: .8rem;
-        font-weight: 700;
-        letter-spacing: .1rem;
-        margin-left: 5%;
-  
-    }
-  
-    .navbar-collapse>button{
-       margin-left: 5%;
-       width: 95%;
-    }
-  }
-  
-  /* Donde esta el nombre y los miniavatars */
-  .info-user .content-left {
-    background: linear-gradient(to right, #00436d 0%, #233535 100%);
-    width: 10%;
-    height: 70px;
-    margin-bottom: 20px;
-    border-radius: 1em;
-  }
-  .info-user .details {
+}
+
+
+
+
+/* Pie de pagina */
+footer {
+    background-color: #19202c;
+    width: 100%;
+    height: 8%;
     color: white;
-    padding: 5px 0px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .info-user .profile-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-  }
-  .profile-left .mini-avatar {
-    background-color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .profile-left .mini-avatar img {
-    width: 90%;
-    height: 90%;
-    border-radius: 50%;
-  }
-  
-  .info-user .content-right {
-    position: relative;
-    width: 100px;
-  }
-  .info-user .profile-right {
-    background-color: #a4d04a;
-    height: 78%;
-    width: 100%;
-    left: -20px;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-    z-index: 2;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .profile-right .mini-avatar {
-    background-color: transparent;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid #c3e088;
-    border-right: 5px solid #33c2f0;
-    z-index: 0;
-  }
-  .profile-right .mini-avatar img {
-    width: 87%;
-    height: 87%;
-    border-radius: 50%;
-    
-  }
-  .profile-right i {
-    position: absolute;
-    top: 10%;
-    right: 18%;
-    font-size: 12px;
-    opacity: 0.4;
-  }
-  .content-right .shade {
-    background-color: #a4d04a;
-    height: 70px;
-    width: 100%;
-    border-radius: 10px 5px 5px 10px;
-    padding-left: 0px;
-    position: absolute;
-    left: -35px;
-    opacity: 0.4;
-    z-index: 1;
-  }
+    position: static;
+    bottom: 0;
+    /*margin-top: -9px;*/
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    footer {
+        margin-top: 10%;
+    }
+}

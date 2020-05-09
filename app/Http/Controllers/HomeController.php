@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->hasRole('Cliente')){
-            return view('home2');
+            return view('homeCustomer');
         }else{
-            return view('home');
+            return view('homeAdministrator');
         }
     }
     public function createStorageLink(){

@@ -4,36 +4,37 @@
         <div class="row">
             <div class="customer-profile">
                 <div class="col-md-4 menu-customer">
-                    <div class="center">
+                    <div class="d-flex justify-content-center align-items-center">
                         <div class="contorno-avatar">
-                            <img class="card-img-top avatar" src="{{asset('images/01.jpg')}}" alt="Card image">
+                            <img class="card-img-top avatar" src="{{asset('images/ie-profile.png')}}" alt="Card image">
                         </div><br>
                     </div>
                     <div class="text-left text-profile">
                         <span class="text-23px">Bienvenido</span><br>
-                        <span class="text-30px"><strong>MOISES ESCOBAR MARTINEZ</strong></span><br>
+                        <span class="text-30px"><strong>{{Auth::user()->name}}</strong></span><br>
                         <span class="text-30px">Integracion De Energia</span>
                     </div>
-                    <div class="row center no-padding no-margin">
+                    <div class="row d-flex justify-content-center align-items-center">
                         <button type="button" class="btn btn-rewards"><b>Ver puntos Rewards</b></button>
                     </div>
                 </div>
             </div>
+            {{-- clases y estilo en general.css --}}
             <div class="customer-profile-mobile">
                 <div class="col-md-4 menu-customer">
-                    <div class="center">
+                    <div class="d-flex justify-content-center">
                         <div class="contorno-avatar">
-                            <img class="card-img-top avatar" src="{{asset('images/01.jpg')}}" alt="Card image">
+                            <img class="card-img-top avatar" src="{{ asset('images/ie-profile.png') }}" alt="Card image">
                         </div><br>
                     </div>
                 </div>
             </div>
-            <div class="offset-md-4 col-md-8 no-padding">
-                @include('layouts.partials._navigationBar2')
+            <div class="offset-md-4 col-md-8"> {{-- p-0--}}
+                @include('layouts.partials._navigationBarHome')
                 <div class="container catalogs">
                     <div class="row" style="margin-bottom: 3%;">
                         <div class="col">
-                            <div class="center">
+                            <div class="d-flex justify-content-center align-items-center">
                                 <img src="{{asset('images/logo2.png')}}" class="img-logo"/>
                             </div>
                         </div>
@@ -163,7 +164,7 @@
                                         Productos</b></button>
                             </div>
                         </div>
-                    </div>
+                    </div><br>
                 </div>
             </div>
         </div>

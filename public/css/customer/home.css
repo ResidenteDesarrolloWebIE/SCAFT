@@ -1,0 +1,164 @@
+/* Inicio del cliente*/
+.text-profile {
+    padding: 10% 10% 5% 20%;
+    justify-content: center;
+    color: white;
+    font-family: Helvetica;
+}
+.text-23px {
+    font-size: 20px;
+}
+
+.text-30px {
+    font-size: 25px;
+}
+.btn-rewards{
+    font-family: Helvetica;
+    font-size: 18px;
+    width: 60%;
+    color: white;
+    background: rgba(255,212,102,1);
+    background: -moz-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,212,102,1)), color-stop(56%, rgba(255,191,15,1)), color-stop(99%, rgba(174,127,10,1)), color-stop(100%, rgba(174,127,10,1)));
+    background: -webkit-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    background: linear-gradient(to right, rgba(255,212,102,1) 0%, rgba(255,191,15,1) 56%, rgba(174,127,10,1) 99%, rgba(174,127,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd466', endColorstr='#ae7f0a', GradientType=1 );
+}
+
+/* Las clases del perfil version movil estan el general.css */
+.catalogs {
+    background-color: white;
+    min-height: 85vh;
+    color: #002235;
+    margin-top: 7%;
+    position: relative;
+    font-family: Helvetica;
+    font-size: 14px;
+    padding-left: 10%;
+}
+.img-logo{
+    width:32%;
+    height:100%;
+}
+.btn-servicesProducts{
+    width: 100%;
+    font-family: Helvetica;
+    color:white;
+    background: rgba(73,187,228,1);
+    background: -moz-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(73,187,228,1)), color-stop(51%, rgba(28,173,217,1)), color-stop(100%, rgba(23,80,99,1)));
+    background: -webkit-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: -o-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: -ms-linear-gradient(left, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    background: linear-gradient(to right, rgba(73,187,228,1) 0%, rgba(28,173,217,1) 51%, rgba(23,80,99,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#49bbe4', endColorstr='#175063', GradientType=1 );
+}
+.info-empresa-mobile{
+    display: none;
+}
+
+.title{
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: 800!important
+}
+
+.buttons-mobile{
+    display: none;
+}
+
+
+@media (max-width:992px) {
+    .catalogs {
+        padding-top: 10px;
+        margin-top: 15px;
+        min-height: 159vh;
+    }
+}
+
+
+/* Smartphones (portrait and landscape) 
+    Bien (BlackBerry Z30, Galaxi note3 /2 / s III / s5, lg optimus,moto g4)
+    Mas o menos (nexus 4, nexus 5, nexus 5x, nexus 6 / 6p / 7,  nokia n9, pixel2, pixel 2xl, iphone 6/7/8 6/7/8/plus / x)
+----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    /*Funciona para iphone 8 */
+    .rev{
+        display: none;
+    }
+
+    .customer-profile{
+        display: none;
+    }
+
+    .cataloge{
+        display: none;
+    }
+
+    .buttons-mobile{
+        display: block;
+        margin-bottom: 11%;
+    }
+
+    .btn-rewards{
+        margin-left: 4.5%;
+        margin-right: 10%;
+        margin-bottom: 2%;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .btn-servicesProducts{
+        margin-top: 0px;
+        margin-bottom: -14px;
+    }
+
+    .info-empresa{
+        display: none;
+    }
+
+    .info-empresa-mobile{
+        display: block;
+        margin-top: 3%;
+        width: 94%;
+        margin-bottom: 30%;
+    }
+
+    .title{
+        font-family: Helvetica;
+        font-size: 16px;
+        font-weight: 800!important
+    }
+    .p-mobile{
+        font-family: Helvetica;
+
+    }
+    .btn-logout{
+        width:100%;
+        margin-left:2%;
+    }
+
+    .img-logo{
+        margin-top: 53%;
+        height: 32%;
+        width: 83%;
+        margin-bottom: -90%;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    /*Iphone 5, 5s, SE*/
+    .img-logo{
+        margin-top: 73%;
+        height: 25%;
+        width: 95%;
+        margin-bottom: -80%;
+    }
+
+    footer{
+        margin-top: 25%;
+    }
+}

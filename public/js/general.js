@@ -8,7 +8,7 @@
 function addActiveClass() {
     var objs = document.getElementsByTagName('a');
     for (var i = 0; i < objs.length; i++) {
-        if (objs[i].href == window.location.href) {
+        if (objs[i].href == window.location.href.split("?")[0]) {
             objs[i].parentNode.className = objs[i].parentNode.className + " active";
         }
     }
