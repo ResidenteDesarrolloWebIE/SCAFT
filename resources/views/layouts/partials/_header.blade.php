@@ -31,4 +31,7 @@
 
     <link rel="stylesheet" href="{{asset('css/home2.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/auth/_navigationBar2.css') }}" />
+
+    {{--Css de Jose--}}
+    <link rel="stylesheet" href="{{asset('css/client/servicesSupplies.css')}}"/>
 </head>
