@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            <div class="offset-md-4 col-md-8"> {{-- p-0--}}
+            <div class="offset-md-4 col-md-8 p-0"> {{-- p-0--}}
                 @include('layouts.partials._navigationBarHome')
                 <div class="container catalogs">
                     <div class="row" style="margin-bottom: 3%;">
@@ -166,6 +166,7 @@
                         </div>
                     </div><br>
                 </div>
+                @include('layouts.partials._footerHome')
             </div>
         </div>
     </div>
