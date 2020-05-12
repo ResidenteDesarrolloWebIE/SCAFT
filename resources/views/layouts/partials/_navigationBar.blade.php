@@ -1,6 +1,6 @@
-<div id="preloder">
+{{-- <div id="preloder">
     <div class="loader"></div>
-</div>
+</div> --}}
 <header class="">
     <nav class="col-12 navbar navbar-expand-lg navbar-dark navbar-custom  bg-navbar m-0">
         <div class="container m-0">
@@ -45,16 +45,14 @@
                     </li>
                     @endif
                 </ul>
+                <a class="btn btn-danger btn-logout" href="{{ route('logout') }}" style="margin-bottom: 5px;" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                    {{ __('Cerrar sesión') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
             </div>
-        </div>
-        <div class="col d-flex justify-content-end">
-            <a class="btn btn-danger btn-logout" href="{{ route('logout') }}" style="margin-bottom: 5px;" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-                {{ __('Cerrar sesión') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                @csrf
-            </form>
         </div>
     </nav>
 </header>
