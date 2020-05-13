@@ -162,3 +162,27 @@ Analisis de nuevos Requerimientos.
 					Demasiado tedioso, pero mas representativo, mas posibilidades de modificarlo.
 				Pdf incrustado.
 					Menos complegidad, pero menos representativo(menos chido).
+
+Nueva Estructura.
+	administrator
+		home
+		projects
+			modals
+		employes
+			create
+			edit
+			employes
+	customer
+		home
+		profile (incluir en todas las vistas)
+		profile-mobile (incluir en todas las vistas)
+		projects
+			projects
+			advances
+			projects-modals
+				index ()
+				images
+				minutas
+				offers
+				purchaseOrder
+				gallery

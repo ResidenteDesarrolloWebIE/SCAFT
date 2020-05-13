@@ -5,7 +5,7 @@
         @yield('content')
     </body>
     @if(!Request::is('home'))
-    @include('layouts.partials._footer')
+        @include('layouts.partials._footer')
     @endif
-    @include('layouts.partials._scripts')
+        @include('layouts.partials._scripts')
 </html>

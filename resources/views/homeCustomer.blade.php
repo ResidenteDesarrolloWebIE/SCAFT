@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@if(Auth::user()->hasRole('Cliente'))
+@section('title', "Inicio")
+@section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="customer-profile">
@@ -61,7 +62,7 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <h3 class="title">¿QUIÉNES SOMOS?</h3>
-                                <p class="p-mobile" style="text-align: justify;">Somos una empresa comprometida en proveer
+                                <p class="p-mobile">Somos una empresa comprometida en proveer
                                     productos y
                                     servicios especializados para el
                                     el manejo de la energía eléctrica, cumpliendo las necesidades y expectativas de nuestros
@@ -170,4 +171,4 @@
             </div>
         </div>
     </div>
-@endif
+@stop
