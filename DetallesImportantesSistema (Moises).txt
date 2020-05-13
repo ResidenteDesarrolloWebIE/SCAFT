@@ -1,0 +1,164 @@
+Historial de modificaciones
+	(03/04/2020) - (Moises|Jose|Israel).
+		Se subio al servidor la version1 para la primera entrega.
+			Administrador
+				Proyectos (Moises Escobar Martinez).
+				Usuarios (Francisco gil/Moises Escobar Martinez)
+				Minutas (Israel Santiago).
+				Diseño de los anteriores (Jose Erasmo).
+			Clientes
+				Funcionalidad. (Moises Escobar Martinez).
+				Diseño (Jose Erasmo, Moises Escobar Martinez)
+	16/04/2020 (Moises|Jose|Israel).
+		Se añadieron el apardato para añadir adicionales en el modalde editar proyectos.
+			Botones para descargar orden de compra y oferta, y los respectivos adicionales.
+			Nuevos campos e informacion en el modal de crear minutas y sus respectivo pdf.
+			Añadir minutas firmadas y mas acuerdos.
+			Color de semaforo en los proyectos de clientes, y ver sus minutas firmadas y adicionales.
+		Modulos
+			Administrador
+				Proyectos/adicionales/botones de descarga (Moises Escobar Martinez).
+				Minutas/añadir acuerdos/subir minutas firmadas/nuevos inputs al crear minutas (Israel Santiago).
+			Cliente
+				Colores del semaforo en los proyectos / Ver y descargar ordenes de compra y ofertas del proyecto,
+					y de los adicionales (Moises Escobar Martinez).
+				Correciones de tipo de letras y colores (Jose Erasmo).
+				Ver y descargar minutas, y minutas firmadas (Israel Santiago).
+	(28/04/2020) - (Moises Escobar Martinez).
+		Se añadio el nuevo diseño del login y que los imputs del avance tecnico y economico
+			se mantengan deshabilitados cuando el rol no tenga permitido hacer cambios.
+	(24/04/2020) - (Moises Escobar Martinez).
+		Nuevo Diseño del login (Propuesto por rodrigo).
+			Archivos:
+				login.css (logo/fondo/reestructuracion)
+				login.blade.php (Reestructuracion)
+		Correcion de las permisiones de cada rol (Desactivar inputs de los 
+			avances si el rol no tiene permitido hacer modificaciones) (.Moises)
+			Archivos:
+				technicalAdvance.js
+				economicAdvance.js
+			Solocitado por:
+					Ing. Sergio.
+	(30/05/2020)
+		Mas correcciones de las permisiones de los roles (Moises).
+		Archivos:
+			ViewMinutas.blade.php (linea 12/42/51)
+        	projects.blade.php (if del boton avance economico (linea 83-87)).
+        	projects.blade.php (linea-77) (Se elimino el rol de servicios)
+	(04/05/2020)
+		Errores encontrados en la capacitacion
+		Archivos:
+			TechnicalAdvanceController(Almacen no podia editar entrega a cliente / la orden de compra se ponia automaticamente/rol de Servicio)
+				linea 21-24 |Linea 24-26 (If de request->receiveOrder) | Linea 57 (If de terminado) 
+		EconomicAdvanceController (El problema de que el rol alamacen no podia editar avance tecnico (linea 42))
+		ViewMinute (Se duplicaba el el boton de ver minutas (lineas 53-55))
+	(05/05/2020)
+		Errores encontrados en la capacitacion (Moises)
+		Archivos:
+    		technicalAdvance.js (Matener inputs deshabilitados si estaban completos o el rol no tenia permitido editarlos).
+        		Funcion initializeTechnicalAdvance(Lineas50-104).
+   			economicAdvance.js
+        		Funcion initilizeEconomicAdvance(Lineas 8-70)
+    		ProjectController (Funcion showProjects (Lineas 21-41)).
+    	EconomicAdvanceEdit.blade.php
+        	Quitar las variables de disabled y readonly de cada input.
+        	Añadir el id (Desabilitar el boton guardar cuando todas los inputs esten desabilitadas)
+    	TechnicalAdvanceEdit.blade.php
+        	Quitar las variables de disabled y readonly de cada input.
+        	Añadir el id (Desabilitar el boton guardar cuando todas las teclas esten desabilitadas)
+
+	(11/05/2020)
+		Errores diversos (permitir retroceder entre paginas/link visitados activos) (Moises)
+			Archivos
+				app.blade (se elimino el onload del body).
+				_header.blade (Cometarios eliminados).
+				general.js (reestructuracion del archivo y la funcion addActiveClass).
+			login.js (archivo reescrito)
+		Restriciones de los roles (Moises)
+			Archivo
+				projectController.php (funcion showProjects)
+					almacen (suministro),servicios(servicios),manufactura (suministros) podran editar avance tecnico.
+				projects.blade.php (if que encierra el boton de imagenes )
+					servicios (servicios), manufactura (suministro) podran agregar imagenes.
+		Nuevos diseños de los clientes
+			Archivos:
+				vistas
+					_navigationBar.blade.php | _navigationBarHome.blade.php  (Moises/Israel)
+					_footer.blade.php | _footer.blade.php (Moises/Israel)
+					_app.blade.php (Se añadio un if) (Israel)
+					client/homeCustomer.blade.php | client/homeAdministrator.blade.php (Moises/Israel)
+					client/supplies.blade.php | client/services.blade.php  (Moises/Jose)
+					client/advances/advance.blade.php (Moises)
+				css
+					general.css (Moises)
+					customer/home.css  | administrator/home.css (Moises/Israel)
+					customer/projects.css  | administrator/home.css (Moises/Jose)
+					customer/projects-advances.css (Moises)
+					auth/_navigationBar.css (Moises/Israel)
+					reubicar gallery.css
+				controllers
+					homeController.php (Israel)
+					loginController.php (Moises)
+
+
+
+
+Analisis de nuevos Requerimientos.
+	Dependiendo del nuevo diseño (Cliente).
+		*Foto de perfil y Foto de portada del proyecto.
+			*Estatica
+			*Dinamica
+				*Solucion mas recomendable y mas estructurada (Mi opinion).
+					*Implica la creacion de una tabla de relacion entre usuarios e imagenes.
+						user-images
+							user_id (Aca es recomendable crear una tabla detalles y poner ese id)
+							image_id
+						projects-images
+							project_id
+							image_id
+						Actualmente la tabla de imagnes tiene los siguientes campos.
+							(id, name, path,size, project_id)
+							Esto significa que al crear una imagen para relacionar un usuario o un proyecto con su foto de perfil
+								solo crearemos la imagen sin su project_id, ya que este se usa para relacionar las imagenes de un avance de 
+								un proyecto.
+				*Solucion menos recomendable.
+					Crear un campo de imagen en la tabla de usuarios y en la tabla de proyectos y solo guardar la url de la imagen.
+					Esta solucion ubica las imagenes de manera desodena en la bd, en mi opinion no es lo correcto.
+		*Filtro de busqueda en proyectos (Posible solucion plateada).
+			*Si puede buscar por estatus, folio, descripcion, Fecha.
+				*Mas complejidad (No fue dificil).
+
+	Solicitados
+		*Puntos rewards y Nivel del cliente.
+			*Diseño (No hay por el momento)
+			*Funcionalidad
+				*Contador de proyectos por usuarios y respectivas condiciones de acuerdo a sus respectivo nivel.
+					1.Platinum  (>21)
+					2.Gold (11 a 20)
+					3.Premiun (3 a 10)
+					4.Estandar (1 a 2)
+					*Estos 4 niveles podrian estar definidos en una tabla
+						sin anclarse a nada, solo para consulta y comparacion.
+					*Posibles campos (categoria,inicio,fin, descripcion,porcentaje de descuento, Notas)
+		*Catalogos
+			*Suministros y servicios
+				*Diseño
+					*Por targetias o modales.
+						Se tendria que crear una tabla solo para consultas.De manera etatica no seria nada viable y sensillo.
+					*Por pdf
+						Estaria bastante bien, pero este deberia ser incrustado en la pestaña respectiva.
+						Abrir el pdf en otra ventana contradeceria lo solicitado "Abrir en la misma ventana". (Comentario para cv y catalogos)
+				Funcionalidad
+					*Determinar la manera de agregar dichos Suministros.
+						Directo en bd.
+							*No aburrirse.
+						Formulario.
+							*Añadir y vizualizar (post/get).
+					*Determinar los datos a mostrar.
+						documentos,imagnes, nombre, descripcion, etc.
+		*Cv
+			Estatico
+				Ventana de html.
+					Demasiado tedioso, pero mas representativo, mas posibilidades de modificarlo.
+				Pdf incrustado.
+					Menos complegidad, pero menos representativo(menos chido).

@@ -12,7 +12,7 @@ Quotatioservicecontroller
         $this->syncUp->SyncSupplies();
 
     public function changestatus(Request $request)
-        this->syncUp->SyncServiceUpdate($request->ID); 
+        this->syncUp->SyncServiceUpdate($request->ID);
 
 Quotationproductcontroller
     use App\Http\Controllers\Api\SyncWithScaftController;
