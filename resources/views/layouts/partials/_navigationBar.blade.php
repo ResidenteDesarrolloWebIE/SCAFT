@@ -45,9 +45,16 @@
                     </li>
                     @endif
                 </ul>
+                <a class="btn btn-danger btn-logout" href="{{ route('logout') }}" style="margin-bottom: 5px;" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                {{ __('Cerrar sesión') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+            </form>
             </div>
         </div>
-        <div class="col d-flex justify-content-end">
+        {{--<div class="col d-flex justify-content-end">
             <a class="btn btn-danger btn-logout" href="{{ route('logout') }}" style="margin-bottom: 5px;" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
                 {{ __('Cerrar sesión') }}
@@ -55,6 +62,6 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
             </form>
-        </div>
+        </div>--}}
     </nav>
 </header>
