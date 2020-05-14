@@ -119,7 +119,6 @@ class ProjectController extends Controller{
 
                 $file = $request->file('offerProject');
                 $hour = str_replace(":", "", date("h:i:s"));
-
                 $fullName = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $filename  = explode('.'.$extension,$fullName)[0].$hour.".".$extension;

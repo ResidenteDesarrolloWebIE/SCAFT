@@ -20,4 +20,30 @@ $(function() {
         },
     });
     table.column('0:visible').order('asc').draw();
+
+    $("#idProfilePicture").fileinput({
+        language: 'es',
+        showRemove: true,
+        dropZoneEnabled: false,
+        maxFileCount: 10,
+        mainClass: "input-group-lg",
+        showZoom: true,
+        showUpload: false,
+        showCaption: true,
+        showPreview: false,
+        showCancel: false,
+        initialPreviewShowDelete: false,
+        allowedFileExtensions: ['png','PNG','jpg','JPG'],
+        elErrorContainer: '#errorProfile',
+        browseClass: "btn btn-primary btn-sm btn-file-sm",
+        browseLabel: "Buscar",
+        cancelLabel: "Cancelar",
+        removeClass: "btn btn-danger btn-sm",
+        removeLabel: "Eliminar",
+        layoutTemplates: { progress: '' },
+        showDownload: true,
+        fileActionSettings: {
+            showZoom: true,
+        },
+    });
 });

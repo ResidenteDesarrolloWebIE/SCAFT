@@ -23,6 +23,7 @@ class CreateContactsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
+            $table->string('profile_picture', 255)->nullable();
         });
     }
 
