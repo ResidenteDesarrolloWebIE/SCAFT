@@ -94,13 +94,12 @@
                             <input type="number" class="form-control" name="totalAmountEdit" id="idTotalAmountEdit" value="" required placeholder="Monto total" disabled>
                             @endif
                             <div class="input-group-append">
-                                <select class="custom-select" name="coinProjectEdit" id="idCoinProjectEdit" required disabled>
+                                <select class="custom-select" name="coinProjectEdit" id="idCoinProjectEdit" required>
                                     <option id="optionPesosEdit" value="1" selected>MXN</option>
                                     <option id="optionDolaresEdit" value="2">USD</option>
                                 </select>
                             </div>
                         </div>
-                        
                     </div>
                     <div class="col-md-12 divAditionals" style="padding:0px">
                     </div>

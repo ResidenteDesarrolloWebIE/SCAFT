@@ -7,16 +7,22 @@ $(document).ready(function () {
     var addButton = $('.btnAddAditionals');
     var wrapper = $('.divAditionals');
     $(addButton).click(function () {
+        var coin = $('#idCoinProjectEdit').val()
+        if($('#idCoinProjectEdit').val()==1){
+            var codeCoin = "MXN";
+        }else{
+            var codeCoin = "USD";
+        }
         var fieldHTML =
             '<div class="form-group delete border border-dark" style="background-color: #DCDCDC">' +
                 /* '<div class="row float-right" >' +
                     '<button type="button" style="margin-right: 3px;" title="" class="btn btn-dark btn-sm" data-toggle="collapse" data-target="#newAditionals'+numAditionals+'" ><i class="fas fa-eye"></i></button>' +
                     '<button type="button" style="margin-right: 12px;" title="Eliminar adicional" class="btn btn-danger btn-sm remove_button"><i class="fas fa-trash"></i></button>' +
                 '</div> <br>' + */
-                '<div class="form-group container">' + 
+                '<div class="form-group container">' +
                     '<div class="row float-right">' +
                         '<button type="button" style="margin-left: 5px;" title="Eliminar adicional" class="btn btn-danger btn-sm remove_button"><i class="fas fa-trash"></i></button>' +
-                    '</div> <br>'  +  
+                    '</div> <br>'  +
                     '<div class="row">' +
                         '<div class="col-md-5">' +
                             '<div class="form-group text-center">' +
@@ -32,8 +38,8 @@ $(document).ready(function () {
                                     '<input type="number" class="form-control" name="totalAmountsProjectsEdit[]" id="idTotalAmountsProjects" value="" min="1" pattern="^[0-9]+" step="any" required placeholder="Monto total">' +
                                     '<div class="input-group-append">' +
                                         '<select class="custom-select" name="coinsProjectsEdit[]" id="idCoinsProjects" required disabled>' +
-                                            '<option id="optionPesosEdit" value="1" selected>MXN</option>' +
-                                            '<option id="optionDolaresEdit" value="2">USD</option>' +
+                                            '<option id="optionPesosEdit" value="'+coin+'" selected>'+codeCoin+'</option>' +
+                                            /* '<option id="optionDolaresEdit" value="coin">USD</option>' + */
                                         '</select>' +
                                     '</div>' +
                                 '</div>' +

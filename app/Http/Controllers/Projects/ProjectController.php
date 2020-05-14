@@ -41,9 +41,9 @@ class ProjectController extends Controller{
                 $project->inputStatusWorkProgress = "readonly";
             }
             if(Auth::user()->hasAnyRole(['Administrador','Almacen','Servicio']) ){ /* Entrega al cliente */
-                if(Auth::user()->hasRole('Almacen') && $project->type->name=="SUMINISTRO"){
+                if(Auth::user()->hasRole('Almacen') && $project->type->name=="SERVICIO"){
                     $project->inputStatusDeliveryCustomer = "readonly";
-                }elseif(Auth::user()->hasRole('Servicio') && $project->type->name=="SERVICIO"){
+                }elseif(Auth::user()->hasRole('Servicio') && $project->type->name=="SUMINISTRO"){
                     $project->inputStatusDeliveryCustomer = "readonly";
                 }
             }else{
@@ -55,6 +55,11 @@ class ProjectController extends Controller{
                 $project->selectStatus = "disabled";
                 $project->inputStatus = "readonly";
             }
+            $related="";
+            foreach ($project->affiliations as $affiliation) {
+                $related = $related.$affiliation->folio." ";
+            }
+            $project->related =  trim($related);
         }
         return view('admin.projects.projects',compact('projects','clients'));
     }
@@ -114,10 +119,15 @@ class ProjectController extends Controller{
 
                 $file = $request->file('offerProject');
                 $hour = str_replace(":", "", date("h:i:s"));
-                $filename  = $file->getClientOriginalName().$hour;
+
+                $fullName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $filename  = explode('.'.$extension,$fullName)[0].$hour.".".$extension;
+                
+
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file));
-                
+
                 $file = new File();
                 $file->name = $filename;
                 $file->path = $path;
@@ -142,6 +152,7 @@ class ProjectController extends Controller{
         try {
             $project = Project::with('type')->where('id', $request->project)->first();
             $project->status = trim($request->statusProjectEdit);
+            $project->coin_id = trim($request->coinProjectEdit);
             if (!is_null($request->totalAmountEdit)){
                 $project->total_amount = $request->totalAmountEdit;
             }
@@ -163,26 +174,34 @@ class ProjectController extends Controller{
                     $aditionalDetail = new AditionalDetails();
                     $aditionalDetail->total_Amount = $request->btnSigno[$i].$request->totalAmountsProjectsEdit[$i];
                     $aditionalDetail->note =  $request->notesProjectsEdit[$i];
-                
+
                     $file_offer = $request->offersProjectsEdit[$i];
-                    $filename_offer  = $file_offer->getClientOriginalName().str_replace(":", "", date("h:i:s"));
+
+                    $fullNameOffer = $file_offer->getClientOriginalName();
+                    $extensionOffer = $file_offer->getClientOriginalExtension();
+                    $filename_offer  = explode('.'.$extensionOffer,$fullNameOffer)[0].str_replace(":", "", date("h:i:s")).".".$extensionOffer;
+
                     $path_offer = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/OFERTAS/'.$filename_offer;
                     $offer = new File();
                     $offer->name = $filename_offer;
                     $offer->path = $path_offer;
                     $offer->save();
                     Storage::disk('local')->put($path_offer, \File::get($file_offer));
-    
+
                     $file_purchase_order = $request->purchaseOrderProjectEdit[$i];
-                    $filename_purchase_order  = $file_purchase_order->getClientOriginalName().str_replace(":", "", date("h:i:s"));
+
+                    $fullNameOrder = $file_purchase_order->getClientOriginalName();
+                    $extensionOrder = $file_purchase_order->getClientOriginalExtension();
+                    $filename_purchase_order  = explode('.'.$extensionOrder,$fullNameOrder)[0].str_replace(":", "", date("h:i:s")).".".$extensionOrder;
+
                     $path_purchase_order = 'DOCUMENTOS/' . $project->type->name . 'S/' . $project->folio . '/ORDENES_DE_COMPRA/'.$filename_purchase_order;
                     $purchase_order = new File();
                     $purchase_order->name = $filename_purchase_order;
                     $purchase_order->path = $path_purchase_order;
                     $purchase_order->save();
-    
+
                     Storage::disk('local')->put($path_purchase_order, \File::get($file_purchase_order));
-                    
+
                     $aditionalDetail->offer = $offer->id;
                     $aditionalDetail->purchase_order = $purchase_order->id;
                     $aditionalDetail->project_id = $project->id;
@@ -197,10 +216,6 @@ class ProjectController extends Controller{
             return abort(response()->json(["message" => 'El proyecto no pudo ser editado'], 400));
         }
     }
-
-
-
-
 
     /* Retornar vista para los clientes */
     public function showServices(Request $request){

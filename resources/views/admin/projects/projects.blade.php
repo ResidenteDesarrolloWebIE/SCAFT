@@ -8,7 +8,7 @@
         @include('layouts.partials._navigationBar')
 
         <div class="container container-projects-admin">
-            <div class="row table-responsive text-center projects-table">
+            <div class="table-responsive pt-0">
                 <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE PROYECTOS</h1>
                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas']))
                 <div class="offset-md-8 col-md-4 text-right" style="margin-bottom: 10px">
@@ -19,11 +19,12 @@
                     </a>
                 </div>
                 @endif
-                <table class="table text-center table-sm-responsive display nowrap" id="tableProjects">
+                <table class="table display nowrap" id="tableProjects" data-table-filter-target>
                     <thead style="background-color: #252b37">
                         <tr class="color-th-admin">
-                            <th> Id</th>
-                            <th> Folio</th>
+                            <th> #</th>
+                            <th class="table-topper"> Folio</th>
+                            <th class="table-topper"> Relacionados</th>
                             <th> Status</th>
                             <th class="not-sort"> Tipo</th>
                             <th> Nombre</th>
@@ -40,12 +41,16 @@
                         @forelse($projects as $project)
                         <tr>
                             @if(Auth::user()->hasAnyRole(['Consulta']))
-                            <td>{{$project->id}}</td>
-                            <td>{{$project->folio}}</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$project->folio}} </td>
+                            <td>
+                                @if (trim($project->related) != ""){{$project->related}}
+                                @else NA @endif
+                            </td>
                             <td>{{$project->status}}</td>
                             <td>{{$project->type->name}}</td>
                             <td>{{$project->name}}</td>
-                            <td>{{$project->description}}</td>
+                            <td style="white-space:nowrap">{{$project->description}}</td>
                             <td>{{$project->customer->name}}</td>
                             <td>{{$project->customer->code}}</td>
                             <td>
