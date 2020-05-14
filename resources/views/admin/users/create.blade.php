@@ -42,7 +42,7 @@
                                 <input type="email" class="form-control" name="emailUser" id="emailUser" value="" required>
                             </div>
                             <div class="form-group text-center">
-                                <label for="passwordUser"><strong style="color:red">*</strong><strong>Contraseña</strong></label>
+                                <label for="passwordUser"><strong style="color:red">*</strong><strong>Contrasena</strong></label>
                                 <input type="text" class="form-control" name="passwordUser" id="passwordUser" value="" required>
                             </div>
 
@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="form-group text-center">
-                                <label for="ProfilePicture"><strong style="color:red">*</strong><strong>Perfil</strong></label>
+                                <label for="ProfilePicture"><strong style="color:red">*</strong><strong>Foto de Perfil</strong></label>
                                 <input type="file" name="profilePicture" id="idProfilePicture" accept="images/*" required>
                                 <div id="errorProfile" style="color:red"></div>
                             </div>

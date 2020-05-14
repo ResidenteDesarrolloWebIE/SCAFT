@@ -6,7 +6,7 @@
                 <div class="col-md-4 menu-customer">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="contorno-avatar">
-                            <img class="card-img-top avatar" src="{{asset('images/ie-profile.png')}}" alt="Card image">
+                            <img class="card-img-top avatar" src="{{asset($user->contacts[0]->profile_picture)}}" alt="Card image">
                         </div><br>
                     </div>
                     <div class="text-left text-profile">

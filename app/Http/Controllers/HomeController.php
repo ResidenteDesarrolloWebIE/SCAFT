@@ -6,6 +6,7 @@ use Illuminate\Support\Collection as Collection;
 use Illuminate\Support\Facades\Artisan;
 
 use Illuminate\Support\Facades\Auth;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -26,7 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->hasRole('Cliente')){
-            return view('homeCustomer');
+            $user = User::where('id',Auth::user()->id)->with('contacts')->get();
+            return view('homeCustomer')->with('user',$user[0]);
         }else{
             return view('homeAdministrator');
         }
