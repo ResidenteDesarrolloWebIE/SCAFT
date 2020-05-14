@@ -63,8 +63,11 @@ function saveUser(formCreateUser) {
                 headers: {
                     'X-CSRF-TOKEN': $('#token').val()
                 },
-                data: $("#formCreateUser").serialize(),
+                data: new FormData(formCreateUser),
                 dataType: "JSON",
+                cache: false,
+                contentType: false,
+                processData: false,
                 success: function (data) {
                     Swal.fire({
                         type: 'success',
@@ -76,8 +79,8 @@ function saveUser(formCreateUser) {
                     })
                 },
                 error: function (data) {
-                    if (data.responseJSON == undefined) {var message = "El usuario no pudo ser guardado";} 
-                    else {var message = data.responseJSON.message;}
+                    if (data.responseJSON == undefined) { var message = "El usuario no pudo ser guardado"; }
+                    else { var message = data.responseJSON.message; }
                     Swal.fire({
                         type: 'error',
                         title: '¡Error!',
