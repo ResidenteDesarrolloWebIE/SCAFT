@@ -22,7 +22,7 @@ $(function() {
         initComplete: function() {
             this.api().columns([1,2]).every(function() {
                 var column = this;
-                var select = $('<select><option value=""></option></select>')
+                var select = $('<select style="width: 7em"><option value=""></option></select>')
                     .appendTo($(column.header()))
                     .on('change', function() {
                         var val = $.fn.dataTable.util.escapeRegex($(this).val());

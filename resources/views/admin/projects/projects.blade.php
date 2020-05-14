@@ -19,22 +19,22 @@
                     </a>
                 </div>
                 @endif
-                <table class="table display nowrap" id="tableProjects" data-table-filter-target>
+                <table class="table text-center" id="tableProjects" data-table-filter-target>
                     <thead style="background-color: #252b37">
                         <tr class="color-th-admin">
                             <th> #</th>
-                            <th class="table-topper"> Folio</th>
-                            <th class="table-topper"> Relacionados</th>
+                            <th> Folio</th>
+                            <th >Relacionados</th>
                             <th> Status</th>
                             <th class="not-sort"> Tipo</th>
                             <th> Nombre</th>
-                            <th class="not-sort"> Descripcion</th>
+                            <th class="not-sort" style="width: 20em"> Descripcion</th>
                             <th> Cliente</th>
                             <th> Codigo</th>
-                            <th class="not-sort"> Oferta</th>
-                            <th class="not-sort"> Orden de compra</th>
+                            <th class="not-sort" style="width: 6em"> Oferta</th>
+                            <th class="not-sort" style="width: 6em;"> Orden de compra</th>
                             <th class="not-sort"> Adicionales</th>
-                            <th class="col-md-3 not-sort">Acciones</th>
+                            <th class=" not-sort" style="width: 18em">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +50,7 @@
                             <td>{{$project->status}}</td>
                             <td>{{$project->type->name}}</td>
                             <td>{{$project->name}}</td>
-                            <td style="white-space:nowrap">{{$project->description}}</td>
+                            <td>{{$project->description}}</td>
                             <td>{{$project->customer->name}}</td>
                             <td>{{$project->customer->code}}</td>
                             <td>
