@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<head>
-    <link href="/css/user.css" rel="stylesheet">
-</head>
 @section('content')
 <section class="section-projects-admin py-2 text-xs-center">
     <div class="fondo">

@@ -42,9 +42,9 @@
             </div>
 
             <div class="col details">
-                <h4 class="m-0" style="font-size: 40px;"><strong>TB20001</strong></h4>
-                <h6 class="m-0" style="font-size: 20px;"><strong>Subestación: </strong> Mi subestación</h6>
-                <h6 class="m-0" style="font-size: 20px;"><strong>Descripción: </strong> Mi proyecto</h6>
+                <h4 class="m-0" style="font-size: 40px;"><strong>{{$project->folio}}</strong></h4>
+                <h6 class="m-0" style="font-size: 20px;"><strong>Subestación: </strong>{{$project->substation}}</h6>
+                <h6 class="m-0" style="font-size: 20px;"><strong>Descripción: </strong> {{$project->description}}</h6>
                 <div class="row group-buttons">
                     <div class="col-md-3 col-6"><input class="btn-input" type="button" data-toggle="modal" data-target="#idModalOffer" onclick='initializeModalsCustomers({{$project}})' value="Oferta"></div>
                     <div class="col-md-3 col-6"><input class="btn-input" type="button" data-toggle="modal" data-target="#idModalPurchaseOrder" onclick='initializeModalsCustomers({{$project}})' value="Orden de compra">
