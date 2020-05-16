@@ -6,7 +6,7 @@
         <div class="col-md-4 menu-customer">
             <div class="d-flex justify-content-center">
                 <div class="contorno-avatar">
-                    <img class="card-img-top avatar" src="{{asset('images/ie-profile.png')}}" alt="Card image">
+                    <img class="card-img-top avatar" src="{{asset($user->contacts[0]->profile_picture)}}" alt="Card image">
                 </div><br>
             </div>
         </div>
@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="profile-left ">
                                 <div class="mini-avatar">
-                                    <img class="" src="{{ asset('images/ie-profile.png') }}">
+                                    <img class="" src="{{ asset($user->contacts[0]->profile_picture) }}">
                                 </div>
                             </div>
                             <div class="col-md-10 details">
@@ -56,7 +56,7 @@
                     <div class="content-right">
                         <div class="float-right col profile-right">
                             <div class="mini-avatar">
-                                <img class="" src="{{ asset('images/ie-profile.png') }}">
+                                <img class="" src="{{ asset($user->contacts[0]->profile_picture) }}">
                             </div>
                             <i class="fas fa-info-circle info"></i>
                         </div>

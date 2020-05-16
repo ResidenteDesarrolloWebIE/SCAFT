@@ -119,7 +119,6 @@ class ProjectController extends Controller{
 
                 $file = $request->file('offerProject');
                 $hour = str_replace(":", "", date("h:i:s"));
-
                 $fullName = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $filename  = explode('.'.$extension,$fullName)[0].$hour.".".$extension;
@@ -236,7 +235,8 @@ class ProjectController extends Controller{
                     $project->color_text = "red";
                 }/* Fin Modificacion */
             }
-            return view('client.projects.services')->with('projects', $projects);
+            $user = User::where('id',Auth::user()->id)->with('contacts')->get();
+            return view('client.projects.services')->with('projects', $projects)->with('user',$user[0]);
         }
     }
 
@@ -258,7 +258,8 @@ class ProjectController extends Controller{
                     $project->color_text = "red";
                 }/* Fin Modificacion */
             }
-            return view('client.projects.supplies')->with('projects', $projects);
+            $user = User::where('id',Auth::user()->id)->with('contacts')->get();
+            return view('client.projects.supplies')->with('projects', $projects)->with('user',$user[0]);
         }
     }
 

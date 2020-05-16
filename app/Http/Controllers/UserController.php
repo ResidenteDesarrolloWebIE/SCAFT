@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Projects\Contact;
 use App\Models\UserDetails\Role;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 
 
@@ -47,21 +48,30 @@ class UserController extends Controller
 				$contact->cellphone = trim($request->cellUser);
 				$contact->email = trim($request->emailUser);
 				$contact->user_id = $user->id;
+
+				$file=$request->file('profilePicture');
+				$hour = str_replace(":", "", date("h:i:s"));
+				$fullName = $file->getClientOriginalName();
+				$extension = $file->getClientOriginalExtension();
+				$filename = explode('.' . $extension, $fullName)[0] . $hour . "." . $extension;
+
+				$path = 'DOCUMENTOS/FOTOS_DE_PERFIL' .$user->name . '/' . $filename;
+				Storage::disk('imagenes')->put($path, \File::get($file)); 
+				$contact->profile_picture =  $path; 
 				$contact->save();
 
 				if (!is_null($request->roles)) {
 					$user->roles()->attach($request->roles);
 					$user->roles()->attach(Role::where('name', 'Consulta')->first());
 				} else {
-					if($request->typeUser == "EMPLEADO"){
+					if ($request->typeUser == "EMPLEADO") {
 						$user->roles()->attach(Role::where('name', 'Consulta')->first());
-					}else{
+					} else {
 						$user->roles()->attach(Role::where('name', 'Cliente')->first());
 					}
 				}
 				DB::commit();
 				return response()->json(['error' => false, 'message' => 'El usuario fue creado correctamente', 'code' => 200], 200);
-
 			} catch (\Throwable $error) {
 				DB::rollBack();
 				echo ("El error ocurrido es el siguiente: " . $error);
@@ -69,13 +79,14 @@ class UserController extends Controller
 			}
 		}
 	}
-	public function edit(Request $request){
+	public function edit(Request $request)
+	{
 		try {
 			$user = User::with('roles')->where('id', $request->user)->first();
 			$contact = Contact::where('id', $request->contact)->first();
 			$user->name = $request->nameUserEdit;
 			$user->email =  $request->emailUserEdit;
-			if($request->passwordUserEdit){
+			if ($request->passwordUserEdit) {
 				$user->password = Hash::make($request->passwordUserEdit);
 			}
 			$contact->job_position = $request->puestoUserEdit;
@@ -85,9 +96,9 @@ class UserController extends Controller
 				$user->roles()->sync($request->rolesEdit);
 				$user->roles()->attach(Role::where('name', 'Consulta')->first());
 			} else {
-				if(is_null($user->code)){/* Empleado */
+				if (is_null($user->code)) {/* Empleado */
 					$user->roles()->sync(Role::where('name', 'Consulta')->first());
-				}else{
+				} else {
 					$user->roles()->sync(Role::where('name', 'Cliente')->first());
 				}
 			}

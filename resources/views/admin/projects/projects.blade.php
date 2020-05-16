@@ -33,7 +33,7 @@
                             <th class="not-sort" style="width: 6em"> Oferta</th>
                             <th class="not-sort" style="width: 6em;"> Orden de compra</th>
                             <th class="not-sort"> Adicionales</th>
-                            <th class=" not-sort" style="width: 18em">Acciones</th>
+                            <th class=" not-sort" style="width: 20em">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

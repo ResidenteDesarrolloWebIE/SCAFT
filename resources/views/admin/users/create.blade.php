@@ -42,7 +42,7 @@
                                 <input type="email" class="form-control" name="emailUser" id="emailUser" value="" required>
                             </div>
                             <div class="form-group text-center">
-                                <label for="passwordUser"><strong style="color:red">*</strong><strong>Contraseña</strong></label>
+                                <label for="passwordUser"><strong style="color:red">*</strong><strong>Contrasena</strong></label>
                                 <input type="text" class="form-control" name="passwordUser" id="passwordUser" value="" required>
                             </div>
 
@@ -59,6 +59,19 @@
                                 <input type="number" class="form-control" name="cellUser" id="cellUser" value="" required>
                             </div>
 
+                            <div class="form-group text-center">
+                                <label for="ProfilePicture"><strong style="color:red">*</strong><strong>Foto de Perfil</strong></label>
+                                <input type="file" name="profilePicture" id="idProfilePicture" accept="images/*" required>
+                                <div id="errorProfile" style="color:red"></div>
+                            </div>
+
+                            <!-- <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Foto de perfil</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </form> -->
+
                             <!-- <label for="rolUser"><strong>Roles</strong></label>
                             <div class="custom-control custom-checkbox" id="allroles">
                                 @forelse($roles as $rol)
@@ -71,7 +84,7 @@
                             </div>  -->
                             <div class="form-group text-center" id="allroles">
                                 <label for="clientProject"><strong style="color:red">*</strong><strong>Roles</strong></label>
-                                <select class="custom-select" name="roles[]" id="selectRolesUser" multiple> 
+                                <select class="custom-select" name="roles[]" id="selectRolesUser" multiple>
                                     @foreach($roles as $rol)
                                     <option value="{{$rol->id}}">{{$rol->name}}</option>
                                     @endforeach
