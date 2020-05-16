@@ -1,0 +1,44 @@
+Pasos para clonar un proyecto de laravel
+    1. Git clone "url
+    2. composer install (dentro del proyecto)
+    3. Crear .env y configuralo con las respectivas credenciales.
+    4. php artisan key:generate
+    5.
+        Si la base de datos ya tiene tablas
+            Dos formas:
+                Forma 1.
+                    php artisan migrate:refresh --seed
+                Forma 2.
+                    Php artisan migrate:refresh
+                    php artisan db:seed
+        Si no (si es nueva).
+            Dos formas:
+                Forma 1.
+                    php artisan migrate --seed
+                Forma 2.
+                    php artisan migrate
+                    php artisan db:seed
+    6. php artisan serve
+Comandos y pasos para manejar un proyecto con gitHub.
+    git clone ->Clona un proyecto
+    git pull -> Baja todos los cambios del repositorio remoto.
+
+    git add . -> Subes los cambios al repositorio local
+    git commit -m"Mensaje" -> le da un nombre a cada respectivo cambio que subamos
+    git push -> sube todos los cambios al repositorio remoto (los publica).
+
+    git branch -> consulta las ramas disponible en el proyecto
+    git checkout NombreDeRama -> Nos cambia a esa rama.
+    git merge NombreDeRama
+
+    Mezclar ramas
+        1. Si quiero que la rama Development tenga los cambios de la rama Jose.
+            1. git checkout Development
+            2. git merge Jose.
+            3. Si hay conflictos los corregimos
+            4. git push
+        2. Si quiero que la rama Jose tenga todos los cambios de la rama Development.
+            1. git checkout Jose.
+            2. git merge Development.
+            3. Si hay conflictos los corregimos
+            4. git push

@@ -98,8 +98,9 @@ Historial de modificaciones
 					reubicar gallery.css
 				controllers
 					homeController.php (Israel)
-					loginController.php (Moises)
-
+					loginController.php (Moises)	
+		(14/05/2020)
+			*error en los nombres de archivos (descargar y)
 
 
 
@@ -162,3 +163,7 @@ Analisis de nuevos Requerimientos.
 					Demasiado tedioso, pero mas representativo, mas posibilidades de modificarlo.
 				Pdf incrustado.
 					Menos complegidad, pero menos representativo(menos chido).
+
+Archivos de rutas que antepone /SCAFT
+	1. minute.js
+	2. /No estan registrados en el desarrollo local/

@@ -123,7 +123,6 @@ class ProjectController extends Controller{
                 $fullName = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $filename  = explode('.'.$extension,$fullName)[0].$hour.".".$extension;
-                
 
                 $path = 'DOCUMENTOS/' . $typeProject . '/' . $request->initialsProject . trim($request->folioProjectCreate) . '/OFERTAS/'.$filename;
                 Storage::disk('local')->put($path, \File::get($file));

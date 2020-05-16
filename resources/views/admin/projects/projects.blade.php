@@ -6,8 +6,7 @@
 <section class="section-projects-admin py-2 text-xs-center">
     <div class="fondo">
         @include('layouts.partials._navigationBar')
-
-        <div class="container container-projects-admin">
+        <div class="container container-projects-admin"> {{-- Cambiar a container-fluid --}}
             <div class="table-responsive pt-0">
                 <h1 class="text-center" style="font-family: Arial; color:black">LISTA DE PROYECTOS</h1>
                 @if( (Auth::user()->hasRole('Lider') && Auth::user()->hasRole('Ventas')) || Auth::user()->hasAnyRole(['Administrador','Ofertas','Ventas']))
