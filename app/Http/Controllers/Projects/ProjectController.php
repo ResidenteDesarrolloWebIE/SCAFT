@@ -32,9 +32,9 @@ class ProjectController extends Controller{
             if(!Auth::user()->hasAnyRole(['Administrador','Ofertas']) ){$project->selectStatusReceiveOrder = "disabled";} /* Recepcion de orden */
             if(!Auth::user()->hasAnyRole(['Administrador','ingenieria']) ){$project->inputStatusEngineeringRelease = "readonly";} /* Liberacion de ingenieria */
             if(Auth::user()->hasAnyRole(['Administrador','Manufactura','Servicio']) ){/* Avance de trabajos */
-                if(Auth::user()->hasRole('Manufactura') && $project->type->name=="SUMINISTRO"){
+                if(Auth::user()->hasRole('Manufactura') && $project->type->name=="SERVICIO"){
                     $project->inputStatusWorkProgress = "readonly";
-                }elseif(Auth::user()->hasRole('Servicio') && $project->type->name=="SERVICIO"){
+                }elseif(Auth::user()->hasRole('Servicio') && $project->type->name=="SUMINISTRO"){
                     $project->inputStatusWorkProgress = "readonly";
                 }
             }else{

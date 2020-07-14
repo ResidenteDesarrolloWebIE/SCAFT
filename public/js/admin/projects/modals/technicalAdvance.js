@@ -48,11 +48,12 @@ $(document).ready(function () {
 
 
 function initializeTechnicalAdvance(project) {
-    var save = true;
+    var save1 = true,save2 = true,save3 = true,save4 = true;
     $("#divDowloadPurchaOrder").hide();
     $('#idFolioProjectTechnicalAdvance').html(project.folio);
     $('#idTechnicalAdvance').val(project.technical_advances.id);
     $('#idReceiveOrder').val(project.technical_advances.receive_order);
+    $('#downloadproject').attr('href',window.location.origin+"/projects/purchaseOrders/download/"+project.id);
     if (project.technical_advances.receive_order == 100 || project.selectStatusReceiveOrder!="") {
         $('#idReceiveOrder').prop("checked");
         $('#idReceiveOrder').prop("disabled", true);
@@ -60,39 +61,39 @@ function initializeTechnicalAdvance(project) {
         if(project.technical_advances.receive_order == 100){
             $("#divDowloadPurchaOrder").show();
         }
-        save = false;
+        save1 = false;
     }else{
         $("#idReceiveOrder").prop("disabled", false);
-        save = true;
+        save1 = true;
     }
 
     $('#idEngineeringRelease').val(project.technical_advances.engineering_release);
     if (project.technical_advances.engineering_release == 100 || project.inputStatusEngineeringRelease!="") {
         $('#idEngineeringRelease').prop("readonly", true);
-        save = false;
+        save2 = false;
     }else{
         $('#idEngineeringRelease').prop("readonly", false);
-        save = true;
+        save2 = true;
     }
     
     $('#idWorkProgress').val(project.technical_advances.work_progress);
     if (project.technical_advances.work_progress == 100 || project.inputStatusWorkProgress!="") {
         $('#idWorkProgress').prop("readonly", true);
-        save = false;
+        save3 = false;
     }else{
         $('#idWorkProgress').prop("readonly", false);
-        save = true;
+        save3 = true;
     }
 
     $('#idDeliveryCustomer').val(project.technical_advances.delivery_customer);
     if (project.technical_advances.delivery_customer == 100 || project.inputStatusDeliveryCustomer!="") {
         $('#idDeliveryCustomer').prop("readonly", true);
-        save = false;
+        save4 = false;
     }else{
         $('#idDeliveryCustomer').prop("readonly", false);
-        save = true;
+        save4 = true;
     }
-    if(save==true){
+     if(save1==true || save2==true || save3==true || save4==true){
         $('#btnSaveTechnicalAdvance').show();
     }else{
         $('#btnSaveTechnicalAdvance').hide();
